@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# eCatch Kyst - IT2901 [![Build status](https://img.shields.io/travis/com/balazsorban44/ecatch-it2901.svg?style=flat-square)](https://travis-ci.com/balazsorban44/ecatch-it2901) [![Coverage status](https://img.shields.io/codecov/c/github/balazsorban44/ecatch-it2901.svg?style=flat-square)](https://codecov.io/gh/balazsorban44/ecatch-it2901)
 
-## Available Scripts
+### Client: [Dualog AS](https://dualog.com/)
 
-In the project directory, you can run:
+### Developers
 
-### `npm start`
+- Balázs Orbán
+- Ebba Fingarsen
+- Håvard Bergheim Olsen
+- Morten Falstad
+- Petter Grø Rein
+- Tore Stensaker Tefre
+- Tord Standnes
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Project description
+Reporting of catch done by fishing vessels is a vital part of protecting life in the
+ocean. In Norway this reporting is done to the Directorate of Fisheries, which
+controls fishing quotas and everything else related to fishing. Today, there are
+mainly larger vessels reporting capture digitally, but smaller vessels might also
+have to report in the future.
+This provides a new and challenging user group, where one has vessels with few
+people on board who will do a lot, and reporting of catch comes in addition to
+everyday life.
 
-### `npm test`
+The goal of this project is to create a Progressive Web App for reporting of catch
+by small fishing vessels. The project will focus mostly on the front end, but it will
+also create a simple REST API that can receive data. It is desirable that the front
+end will be developed in React. You are free to choose technology for the backend.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app should be designed for mobile and tablet and must facilitate use on fishing
+vessels. It is relevant to do exploratory work as interview with potential users to
+create a service that integrates into their daily lives without disturbing the work
+they do. ... An exciting task that will make everyday living
+better for many Norwegians while supporting the important work of the
+Directorate of Fisheries. ...
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+---
+<p align=center>
+Developed at <a href="https://ntnu.edu"><img height="16" src="https://upload.wikimedia.org/wikipedia/en/f/f6/NTNU_logo.svg"/></a>
+</p>
