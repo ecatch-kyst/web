@@ -11,9 +11,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "CI=true react-scripts test",
+    "test": "react-scripts test",
     "test:watch": "react-scripts test --coverage --coverageReporters html --watch",
-    "test:coverage": "react-scripts test --coverage --coverageReporters text-lcov | npx coveralls && rm -rf coverage"
+    "test:ci": "CI=true react-scripts test --coverage && npx codecov -t $CODECOV_TOKEN && rm -rf coverage"
   },
   "eslintConfig": {
     "extends": "react-app"

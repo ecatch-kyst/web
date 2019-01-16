@@ -6,7 +6,9 @@ cache:
   - node_modules
 install:
 - yarn
+- yarn global add codecov
 script:
+  - yarn test:ci
   - yarn build
 # NOTE: Add deploy
 # deploy:
