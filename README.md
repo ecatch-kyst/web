@@ -1,4 +1,4 @@
-# eCatch Kyst - IT2901 [![Build status](https://img.shields.io/travis/com/balazsorban44/ecatch-it2901.svg?style=flat-square)](https://travis-ci.com/balazsorban44/ecatch-it2901) [![Coverage status](https://img.shields.io/codecov/c/github/balazsorban44/ecatch-it2901.svg?style=flat-square)](https://codecov.io/gh/balazsorban44/ecatch-it2901)
+# eCatch Kyst - IT2901 [![Build status](https://api.travis-ci.com/balazsorban44/ecatch-it2901.svg?token=rxTAARd7XXwBxCzxh3zD&branch=master)](https://travis-ci.com/balazsorban44/ecatch-it2901) [![Coverage status](https://codecov.io/gh/balazsorban44/ecatch-it2901/branch/master/graph/badge.svg?token=NtqR2f7876)](https://codecov.io/gh/balazsorban44/ecatch-it2901)
 
 ### Client: [Dualog AS](https://dualog.com/)
 
