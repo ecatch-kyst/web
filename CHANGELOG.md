@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [0.1.1] - 2019-01-18
+## [0.1.2] - 2019-01-18
 ### Changed
 - Changed badge links in the `README.md` to support the private repository
 
