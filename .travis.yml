@@ -1,14 +1,15 @@
 language: node_js
 node_js:
-  - '8'
+- '8'
 cache:
   directories:
   - node_modules
 install:
-  - yarn
+- yarn
+- yarn global add codecov
 script:
+  - yarn test:ci
   - yarn build
-  - yarn test:coverage
 # NOTE: Add deploy
 # deploy:
 #   skip_cleanup: true
@@ -17,3 +18,6 @@ script:
 #   on:
 #     all_branches: true
 #     condition: $TRAVIS_BRANCH =~ ^develop|master$
+notifications:
+  slack:
+    secure: Kkfqti/d6pPi9M7co9fjAfS8GIEB42j1tK7KlOyAJwi2SXA31gR2jOmkmyCbVHU94ngFvIwZBVvE646cSLkd7CNryU5Zo+u8LFjpWkPUpT2vWE9TBSnAGWSnwWy6GV0eLJh7QlQtqoAVorTwDbJ/KnyTHt7eycY1uMpkmPxJl7UlL/0/Sxz01OFghcKMNhLUsY3tEjbP5pNWeyKwk5E8i9tyIt3H2pgWxve5p09o87x9WnsPRgkm2EZHth9/4UVCOONsi2Z5uq1blUQMuJj0n0ZXAPgg846jWXzmCzse73yh0iCrXIZG/taRoZFM7pWJTFxP0LjrBm1MXTD3cDGkgdOZHgMsr72e1pCVSgBAptN4aPYrY357jZqYf7YdY6Dm1OjHh7EW9JGuitbuzd6TuvJSmaGETIGJXRk8wrkC084U+WDqxnlK199uG1Gz7hTglywQMWTR6DSKjfQ22/YzqSUVadFod/wiHMQCNH1Qvfml5BLsJEsv4gPLymZOTI4/RRsH3nQGPqxtCvapSrM5IYpz/bd3eRPw/UmmOFFZ6ZuqKifb133oe6htgjbCEuN7080TXUJbShg/OjIAZnfGchS4XE0nmZjsjRquSdiWdw8z3nlqRNySoq8bc4tzR3+rqMl+IQ2tzuW4UO7reA1RrhzJNTYVJ8RTL93N2oMVVTg=
