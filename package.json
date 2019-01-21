@@ -14,7 +14,7 @@
     "eject": "react-scripts eject",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --coverage --coverageReporters html --watch",
-    "deploy": "yarn build; firebase deploy",
+    "deploy": "yarn deploy:client; yarn deploy:server",
     "deploy:client": "yarn build; firebase deploy --only hosting",
     "deploy:server": "cd functions; yarn deploy",
     "test:ci": "CI=true react-scripts test --coverage && npx codecov -t $CODECOV_TOKEN && rm -rf coverage",
