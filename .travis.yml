@@ -11,8 +11,8 @@ install:
 - yarn global add lighthouse-ci
 - cd functions; yarn
 script:
-  - yarn test:ci
   - yarn build
+  - yarn test:ci
 deploy:
   skip_cleanup: true
   provider: script
