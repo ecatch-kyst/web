@@ -3,6 +3,11 @@
     "prettier",
     "prettier/react"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "parser":"babel-eslint",
   "rules": {
     "require-jsdoc":"warn",

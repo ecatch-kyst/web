@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "ecatch-kyst",
+    "master": "ecatch-kyst",
+    "staging": "ecatch-kyst-beta",
+    "develop": "ecatch-kyst-beta"
+  }
+}

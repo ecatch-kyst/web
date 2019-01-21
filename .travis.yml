@@ -7,17 +7,33 @@ cache:
 install:
 - yarn
 - yarn global add codecov
+- yarn global add firebase-tools
+- yarn global add lighthouse-ci
+- cd functions
+- yarn
 script:
-  - yarn test:ci
   - yarn build
-# NOTE: Add deploy
-# deploy:
-#   skip_cleanup: true
-#   provider: script
-#   script: firebase deploy -P $TRAVIS_BRANCH --token $FIREBASE_TOKEN
-#   on:
-#     all_branches: true
-#     condition: $TRAVIS_BRANCH =~ ^develop|master$
+  - yarn build:db:rules
+  - cd ..
+  - yarn build
+  - yarn test:ci
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: firebase deploy -P $TRAVIS_BRANCH --token $FIREBASE_TOKEN
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^develop|master$
+after_deploy:
+  # REVIEW: Add thresholds
+  - yarn lh https://ecatch-kyst.firebaseapp.com/ --pwa=1
+
 notifications:
   slack:
-    secure: Kkfqti/d6pPi9M7co9fjAfS8GIEB42j1tK7KlOyAJwi2SXA31gR2jOmkmyCbVHU94ngFvIwZBVvE646cSLkd7CNryU5Zo+u8LFjpWkPUpT2vWE9TBSnAGWSnwWy6GV0eLJh7QlQtqoAVorTwDbJ/KnyTHt7eycY1uMpkmPxJl7UlL/0/Sxz01OFghcKMNhLUsY3tEjbP5pNWeyKwk5E8i9tyIt3H2pgWxve5p09o87x9WnsPRgkm2EZHth9/4UVCOONsi2Z5uq1blUQMuJj0n0ZXAPgg846jWXzmCzse73yh0iCrXIZG/taRoZFM7pWJTFxP0LjrBm1MXTD3cDGkgdOZHgMsr72e1pCVSgBAptN4aPYrY357jZqYf7YdY6Dm1OjHh7EW9JGuitbuzd6TuvJSmaGETIGJXRk8wrkC084U+WDqxnlK199uG1Gz7hTglywQMWTR6DSKjfQ22/YzqSUVadFod/wiHMQCNH1Qvfml5BLsJEsv4gPLymZOTI4/RRsH3nQGPqxtCvapSrM5IYpz/bd3eRPw/UmmOFFZ6ZuqKifb133oe6htgjbCEuN7080TXUJbShg/OjIAZnfGchS4XE0nmZjsjRquSdiWdw8z3nlqRNySoq8bc4tzR3+rqMl+IQ2tzuW4UO7reA1RrhzJNTYVJ8RTL93N2oMVVTg=
+    rooms:
+      secure: W1WDbbycJdPbEbCps0iOuxo2YwvmCFYI/mNWg2cKWemKnuLwsx9XQJrGn8Xi6UXVlDMkHP/pDcchVzDTVxODmA7fkVGsPe4HXY10bpIiJtaXhFtX+ONiIrdXJaqkoA+HhHEksf1VlaEtiSp4dSJh1WswZeLUl6L+EqrQLKsyrwNlDhmoNFWQUf4cDnL1P2PMWd61La9nydpEhQBBk1GK3hnw+O9EazBkzx6QdYsacULUB49kQlgDyk6VU+fZUEAUOQDQa5eziwWtRKXC4pqMDMIo0AvI20YsZGxTdjSKjcB8cEIbJlLSIrLekPpwdVz37085jbOOVtRUks3wUZ9Uk6AjK8fctpk53KHDV2fVI4zmzzj8IzmBvbtDgurht5vQvWiFaRz69Lr0OWCpZX1KkG+COkx/6LSzJhZ2xrfvSPmlPuVvUBBBR18Tga11YsIdqx5JK2CnDgmoz1PuBGJ445k64EoMoWbpmMkmJHiPopEHpZwc72YNztkBORd1Zf04s7cW3xtBP8ygmSjvYc/paD+kdzrnrJYGa8NUCy8zLhv/FF4afi5ykSooP5Xd3p+safkx0ayTbMmARD12+PgcsvuXLWICPyPG52RHpV7c2U676cPVsWdJAF+XRZPHiA3Ij0uVrA79ixIqSR/uZMlSiu34XAiEIUKIcTE9n8RMgk4=
+    on_success: never
+    on_failure: always
+    on_start: never
+    on_cancel: never
+    on_error: always
