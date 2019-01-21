@@ -7,6 +7,7 @@ cache:
 install:
 - yarn
 - yarn global add codecov
+- yarn global add firebase-tools
 - yarn global add lighthouse-ci
 script:
   - yarn test:ci
