@@ -9,6 +9,7 @@ install:
 - yarn global add codecov
 - yarn global add firebase-tools
 - yarn global add lighthouse-ci
+- cd functions; yarn
 script:
   - yarn test:ci
   - yarn build
