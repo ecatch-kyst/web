@@ -10,14 +10,13 @@ install:
 script:
   - yarn test:ci
   - yarn build
-# NOTE: Add deploy
-# deploy:
-#   skip_cleanup: true
-#   provider: script
-#   script: firebase deploy -P $TRAVIS_BRANCH --token $FIREBASE_TOKEN
-#   on:
-#     all_branches: true
-#     condition: $TRAVIS_BRANCH =~ ^develop|master$
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: firebase deploy -P $TRAVIS_BRANCH --token $FIREBASE_TOKEN
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^develop|master$
 notifications:
   slack:
     rooms:
