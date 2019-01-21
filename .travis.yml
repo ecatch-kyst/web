@@ -19,7 +19,8 @@ deploy:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^develop|master$
 after_success:
-  - yarn lh -- https://google.com --pwa=100
+  # REVIEW: Add thresholds
+  - yarn lh https://ecatch-kyst.firebaseapp.com/ --pwa=1
 
 notifications:
   slack:
