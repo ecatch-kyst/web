@@ -17,6 +17,17 @@ deploy:
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^develop|master$
+# NOTE: Add deploy
+# deploy:
+#   skip_cleanup: true
+#   provider: script
+#   script: firebase deploy -P $TRAVIS_BRANCH --token $FIREBASE_TOKEN
+#   on:
+#     all_branches: true
+#     condition: $TRAVIS_BRANCH =~ ^develop|master$
+after_success:
+  - yarn lh -- https://google.com --pwa=100
+
 notifications:
   slack:
     rooms:
