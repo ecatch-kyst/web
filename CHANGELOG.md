@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - Changed Travis config, to only notify about failures on Slack
+- Add Firebase 🔥
 
 ## [0.1.2] - 2019-01-18
 ### Changed
