@@ -2,9 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [0.1.3] - 2019-01-21
+### Changed
 - Changed Travis config, to only notify about failures on Slack
+
+### Added
 - Add Lighthouse testing to Travis pipeline
 - Add Firebase 🔥
+
 
 ## [0.1.2] - 2019-01-18
 ### Changed
