@@ -10,7 +10,7 @@
     "serve": "firebase serve --only functions",
     "start": "firebase experimental:functions:shell",
     "get:indexes": "firebase firestore:indexes > ../rules/firestore.indexes.json",
-    "build": "yarn clean; babel src/index.js -o index.js; babel src/lib -d lib",
+    "build": "babel src/index.js -o index.js; babel src/lib -d lib",
     "build:db:rules": "firebase-bolt ../rules/database.rules.bolt",
     "deploy:functions": "yarn build; firebase deploy --only functions",
     "deploy:storage": "firebase deploy --only storage",
