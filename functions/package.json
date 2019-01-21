@@ -14,7 +14,7 @@
     "build:db:rules": "firebase-bolt ../rules/database.rules.bolt",
     "deploy:functions": "yarn build; firebase deploy --only functions",
     "deploy:storage": "firebase deploy --only storage",
-    "deploy": "yarn build:db:rules; yarn build; firebase deploy"
+    "deploy": "yarn build:db:rules; yarn build; firebase deploy --except hosting"
   },
   "dependencies": {
     "firebase-admin": "~6.0.0",
