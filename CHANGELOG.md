@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- Changed Travis config, run Lighthouse only on PR
 
 ## [0.1.3] - 2019-01-21
 ### Changed
