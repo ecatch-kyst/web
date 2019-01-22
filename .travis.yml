@@ -26,7 +26,7 @@ deploy:
     condition: $TRAVIS_BRANCH =~ ^develop|master$
 after_deploy:
   # REVIEW: Add thresholds
-  - yarn lh https://ecatch-kyst.firebaseapp.com/ --pwa=1
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn lh --pwa=1 https://ecatch-kyst.firebaseapp.com; fi'
 
 notifications:
   slack:
