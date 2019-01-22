@@ -17,16 +17,9 @@ script:
   - cd ..
   - yarn build
   - yarn test:ci
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: firebase deploy -P $TRAVIS_BRANCH --token $FIREBASE_TOKEN
-  on:
-    all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^develop|master$
-after_deploy:
-  # REVIEW: Add thresholds
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn lh --pwa=1 https://ecatch-kyst.firebaseapp.com; fi'
+after_success:
+  - sh ./bin/deploy.sh
+  - yarn lh --pwa=1 https://ecatch-kyst-beta.firebaseapp.com
 
 notifications:
   slack:
