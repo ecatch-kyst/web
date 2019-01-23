@@ -18,7 +18,7 @@ script:
   - yarn build
   - yarn test:ci
 after_success:
-  - sh ./bin/deploy.sh
+  - bash ./bin/deploy.sh
   - yarn lh --pwa=1 https://ecatch-kyst-beta.firebaseapp.com
 
 notifications:
