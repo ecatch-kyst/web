@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- Changed Lighthouse settings:
+  - run only on PRs
+  - run on website related to the branch the PR will merge into
+  - add delay, so deploy changes can propagate
 
 ## [0.1.3] - 2019-01-21
 ### Changed

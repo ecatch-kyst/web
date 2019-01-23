@@ -8,7 +8,7 @@ install:
 - yarn
 - yarn global add codecov
 - yarn global add firebase-tools
-- yarn global add lighthouse-ci
+- yarn global add https://github.com/ebidel/lighthouse-ci
 - cd functions
 - yarn
 script:
@@ -17,16 +17,9 @@ script:
   - cd ..
   - yarn build
   - yarn test:ci
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: firebase deploy -P $TRAVIS_BRANCH --token $FIREBASE_TOKEN
-  on:
-    all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^develop|master$
-after_deploy:
-  # REVIEW: Add thresholds
-  - yarn lh https://ecatch-kyst.firebaseapp.com/ --pwa=1
+after_success:
+  - bash ./bin/deploy.sh
+  - bash ./bin/lighthouse.sh
 
 notifications:
   slack:
