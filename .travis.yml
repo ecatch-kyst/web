@@ -19,7 +19,7 @@ script:
   - yarn test:ci
 after_success:
   - bash ./bin/deploy.sh
-  - yarn lh --pwa=1 https://ecatch-kyst-beta.firebaseapp.com
+  - bash ./bin/lighthouse.sh
 
 notifications:
   slack:
