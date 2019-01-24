@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- Added `prop-types`
 - Changed Lighthouse settings:
   - run only on PRs
   - run on website related to the branch the PR will merge into
