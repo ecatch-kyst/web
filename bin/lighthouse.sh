@@ -11,10 +11,10 @@ if [ "$TRAVIS_PULL_REQUEST" != false ]
   then
   if [ "$TRAVIS_BRANCH" = "master" ]
   then
-    yarn lh $TRESHOLDS https://ecatch-kyst.firebaseapp.com
+    yarn lh --runner=wpt $TRESHOLDS https://ecatch-kyst.firebaseapp.com
   elif [ "$TRAVIS_BRANCH" = "develop" ]
   then
-    yarn lh $TRESHOLDS https://ecatch-kyst-beta.firebaseapp.com
+    yarn lh --runner=wpt $TRESHOLDS https://ecatch-kyst-beta.firebaseapp.com
   fi
 fi
 
