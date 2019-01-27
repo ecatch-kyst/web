@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 - Add Store `Context` (Breaking change 💥)
   - Database `Context.Provider`
   - `withStore` Context HOC
+- Add `CONTRIBUTING.md`
+- Add `PULL_REQUEST_TEMPLATE.md`
 
 ## [0.2.0] - 2019-01-27
 ### Changed
