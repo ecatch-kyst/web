@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+
+## [0.2.1] - 2019-01-27
 ### Added
 - Add Store `Context` (Breaking change 💥)
   - Database `Context.Provider`
