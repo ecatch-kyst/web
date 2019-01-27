@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 
+import {Database} from './db'
 
 import i18next from "./lib/i18next"
 import {I18nextProvider} from 'react-i18next'
@@ -11,7 +12,9 @@ import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <I18nextProvider i18n={i18next}>
-    <App/>
+    <Database>
+      <App/>
+    </Database>
   </I18nextProvider>,
   document.getElementById('root')
 )
