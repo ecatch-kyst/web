@@ -2,7 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-
+### Added
+- Add Store `Context` (Breaking change 💥)
+  - Database `Context.Provider`
+  - `withStore` Context HOC
 
 ## [0.2.0] - 2019-01-27
 ### Changed
