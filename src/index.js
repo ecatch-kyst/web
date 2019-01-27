@@ -3,23 +3,11 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 
+
+import i18next from "./lib/i18next"
 import {I18nextProvider} from 'react-i18next'
-import i18next from 'i18next'
 
 import * as serviceWorker from './serviceWorker'
-
-import common_en from "./locales/en/common.json"
-import common_no from "./locales/no/common.json"
-import languages from "./locales/locales.json"
-
-
-i18next.init({
-  lng: navigator.language || languages.default,
-  resources: {
-    en: {common: common_en},
-    no: {common: common_no}
-  }
-})
 
 ReactDOM.render(
   <I18nextProvider i18n={i18next}>
