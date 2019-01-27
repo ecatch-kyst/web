@@ -3,18 +3,35 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+
+## [0.2.0] - 2019-01-27
+### Changed
+- Lighthouse settings:
+  - run only on PRs
+  - run on website related to the branch the PR will merge into
+  - add delay, so deploy changes can propagate
+  - provide report by WebPageTest
+  
+### Added
+- `prop-types`
+- `i18next` and `react-i18next` (Breaking change 💥):
+  - I18nextProvider
+  - Language chooser
+  - English 🇬🇧 and Norwegian 🇳🇴 locales (WIP 🚧)
+- Auto commenting a checklist to pull-requests
+
 ## [0.1.3] - 2019-01-21
 ### Changed
-- Changed Travis config, to only notify about failures on Slack
+- Only notify about failures on Slack
 
 ### Added
-- Add Lighthouse testing to Travis pipeline
-- Add Firebase 🔥
+- Lighthouse testing to Travis pipeline
+- Firebase 🔥
 
 
 ## [0.1.2] - 2019-01-18
 ### Changed
-- Changed badge links in the `README.md` to support the private repository
+- Badge links in the `README.md` to support the private repository
 
 ## [0.1.1] - 2019-01-18
 ### Added
