@@ -3,6 +3,7 @@ import './App.css'
 
 import {Trans, withNamespaces} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
+import TestStoreContext from './TestStoreContext'
 
 
 const App = ({t}) =>
