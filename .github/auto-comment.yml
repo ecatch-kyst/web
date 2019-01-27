@@ -1,0 +1,7 @@
+pullRequestOpened: >
+  auto-comment bot here 🤖! Thanks for the PR! Please go through the checklist.
+
+  - [ ] I wrote tests 🔬, where it was necessary
+  - [ ] I updated the `CHANGELOG.md` file 📝
+
+  Thanks, have a nice day! 👍

@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
   - I18nextProvider
   - Language chooser
   - English 🇬🇧 and Norwegian 🇳🇴 locales (WIP 🚧)
+- Auto commenting a checklist to pull-requests
 
 ### Changed
 - Lighthouse settings:
