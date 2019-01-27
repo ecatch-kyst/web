@@ -79,7 +79,7 @@ While the prerequisites above must be satisfied prior to having your pull reques
 
 * prefer lowercase, unless it is an abbreviation or you have another good reason ("URL")
 * Use the present tense ("add feature" not "added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+* Use the imperative mood ("move cursor to..." not "moves cursor to...")
 * Reference issues and pull requests liberally after the first line
 * Consider starting the commit message with an applicable emoji:
     * :globe_with_meridians: `:globe_with_meridians:` when working on translations / language related stuff
