@@ -1,0 +1,14 @@
+{
+  "languages": [{
+      "code": "no",
+      "title": "Norsk",
+      "flag": "🇳🇴"
+    },
+    {
+      "code": "en",
+      "title": "English",
+      "flag": "🇬🇧"
+    }
+  ],
+  "default": "no"
+}
