@@ -6,3 +6,7 @@ configure({adapter: new Adapter()})
 global.React = React
 global.mount = mount
 global.shallow = shallow
+
+Object.defineProperty(navigator, 'language', {
+  get: () => undefined
+})
