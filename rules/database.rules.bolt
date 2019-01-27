@@ -1,4 +1,4 @@
-path / {
-  read() {false}
-  write() {false}
+path /test {
+    read() {true}
+    write() {false}
 }

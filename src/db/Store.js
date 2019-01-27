@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import helloWorld, {changeValue} from "./actions/helloWorld"
 import initValues from "./initialValues.json"
+import {DB} from "../lib/firebase"
 
 const Store = React.createContext()
 
@@ -10,6 +11,14 @@ export class Database extends Component {
     ...initValues
   }
 
+  async componentDidMount() {
+    try {
+      const value = (await DB.ref("test").once("value")).val()
+      this.setState({value})
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   helloWorld = helloWorld.bind(this)
 
