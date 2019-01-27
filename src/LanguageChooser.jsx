@@ -1,9 +1,9 @@
 import React from 'react'
 import {languages} from "./locales/locales.json"
-import {translate} from 'react-i18next'
+import {withNamespaces} from 'react-i18next'
 
 const LanguageChooser = ({i18n}) =>
-  <>
+  <div>
     {languages.map(({code, title, flag}) =>
       <button
         key={code}
@@ -12,6 +12,6 @@ const LanguageChooser = ({i18n}) =>
         {title} <span aria-label={`{title} flag`} role="img">{flag}</span>
       </button>
     )}
-  </>
+  </div>
 
-export default translate('common')(LanguageChooser)
+export default withNamespaces('common')(LanguageChooser)

@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 
-import {translate, Trans} from 'react-i18next'
+import {Trans, withNamespaces} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 
 
@@ -18,5 +18,5 @@ const App = ({t}) =>
     </header>
   </div>
 
-export default translate('common')(App)
+export default withNamespaces('common')(App)
 
