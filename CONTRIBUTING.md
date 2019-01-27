@@ -78,10 +78,11 @@ While the prerequisites above must be satisfied prior to having your pull reques
 ### Git Commit Messages
 
 * prefer lowercase, unless it is an abbreviation or you have another good reason ("URL")
-* Use the present tense ("add feature" not "added feature")
-* Use the imperative mood ("move cursor to..." not "moves cursor to...")
-* Reference issues and pull requests liberally after the first line
-* Consider starting the commit message with an applicable emoji:
+* use the present tense ("add feature" not "added feature")
+* use the imperative mood ("move cursor to..." not "moves cursor to...")
+* reference issues and pull requests liberally after the first line
+* if your commit does not require CI to run, add `[skip ci]` to the commit title
+* consider starting the commit message with an applicable emoji:
     * :globe_with_meridians: `:globe_with_meridians:` when working on translations / language related stuff
     * :wrench: `:wrench:` when updating config files
     * :sparkles: `:sparkles:` when introducing a new feature
