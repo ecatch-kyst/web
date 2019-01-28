@@ -23,7 +23,7 @@
     "deploy:client": "yarn build; firebase deploy --only hosting",
     "deploy:server": "cd functions; yarn deploy",
     "test:ci": "CI=true react-scripts test --coverage && npx codecov -t $CODECOV_TOKEN && rm -rf coverage",
-    "lh": "lighthouse-ci"
+    "lh": "lighthousebot"
   },
   "eslintConfig": {
     "extends": "react-app"
