@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {BrowserRouter as Router} from "react-router-dom"
 import './index.css'
 import App from './App'
 import "./lib/firebase"
@@ -14,7 +15,9 @@ import * as serviceWorker from './serviceWorker'
 ReactDOM.render(
   <I18nextProvider i18n={i18next}>
     <Database>
-      <App/>
+      <Router>
+        <App/>
+      </Router>
     </Database>
   </I18nextProvider>,
   document.getElementById('root')
