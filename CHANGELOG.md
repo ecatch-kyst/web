@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+- Add routing (Breaking change 💥)
 
 
 ## [0.2.1] - 2019-01-27
