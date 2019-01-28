@@ -22,6 +22,7 @@
     "test": "react-scripts test",
     "test:watch": "react-scripts test --coverage --coverageReporters html --watch",
     "deploy": "yarn deploy:client; yarn deploy:server",
+    "deploy:beta": "yarn build && firebase deploy -P staging --only hosting",
     "deploy:client": "yarn build; firebase deploy --only hosting",
     "deploy:server": "cd functions; yarn deploy",
     "test:ci": "CI=true react-scripts test --coverage && npx codecov -t $CODECOV_TOKEN && rm -rf coverage",
