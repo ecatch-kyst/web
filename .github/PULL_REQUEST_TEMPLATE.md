@@ -5,7 +5,7 @@ Before I opened this Pull Request, I have:
 - [ ] written 📝 code documentation where it made sense
 - [ ] written tests 🔬, where it was necessary
 - [ ] updated the `CHANGELOG.md` file 📝
-- [ ] referecned all the issues in commits related to this PR
+- [ ] referenced all the issues in commits related to this PR
 
 according to my best knowledge.
 
