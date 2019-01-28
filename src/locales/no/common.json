@@ -1,4 +1,9 @@
 {
+	"page": {
+		"404Link": "Gå til 404",
+		"goBackToMain": "Tilbake til hovedside",
+		"notfound": "404 Siden finnes ikke!"
+	},
 	"welcome": {
 		"intro": "For å starte, rediger <1><0></0></1> og lagre for å laste på nytt.",
 		"title": "Velkommen til {{framework}}"
