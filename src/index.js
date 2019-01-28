@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router} from "react-router-dom"
-import './index.css'
+import {MuiThemeProvider} from '@material-ui/core/styles'
 import App from './App'
 import "./lib/firebase"
-
+import theme from "./lib/material-ui"
+import "./main.sass"
 import {Database} from './db'
 
 import i18next from "./lib/i18next"
@@ -16,7 +17,9 @@ ReactDOM.render(
   <I18nextProvider i18n={i18next}>
     <Database>
       <Router>
-        <App/>
+        <MuiThemeProvider theme={theme}>
+          <App/>
+        </MuiThemeProvider>
       </Router>
     </Database>
   </I18nextProvider>,
