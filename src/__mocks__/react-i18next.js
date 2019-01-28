@@ -1,6 +1,6 @@
 
 import React from 'react'
-import reactI18next from 'react-i18next'
+// import reactI18next from 'react-i18next'
 
 const hasChildren = node => node && (node.children || (node.props && node.props.children))
 

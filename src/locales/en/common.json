@@ -1,4 +1,9 @@
 {
+	"page": {
+		"404Link": "Go to 404",
+		"goBackToMain": "Back to the main page",
+		"notfound": "404 Page not found!"
+	},
 	"welcome": {
 		"intro": "To get started, edit <1><0></0></1> and save to reload.",
 		"title": "Welcome to {{framework}}"
