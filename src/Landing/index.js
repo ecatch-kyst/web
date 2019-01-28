@@ -14,7 +14,7 @@ const Landing = ({t}) => {
     <Centered>
       <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-1" src={blob}/>
       <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-2" src={blob}/>
-      <Typography variant="h4">e-Catch Kyst</Typography>
+      <Typography variant="h4">{process.env.REACT_APP_TITLE}</Typography>
       <Card style={{minWidth: dimensions.width/3, maxWidth: dimensions.width - 32, margin: 16}}>
         <CardContent>
           <Grid container justify="center" spacing={8}>
