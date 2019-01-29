@@ -3,10 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
-- routing with `react-router` (Breaking change 💥, +1.0.0)
+- routing with `react-router`
 - styling 💄
   - empty state image at `NotFound`
-  - React UI Framework `material-ui` (Breaking change 💥, +1.0.0)
+  - React UI Framework `material-ui`
     - basic styling
     - login example
 
@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file.
 
 ## [0.2.1] - 2019-01-27
 ### Added
-- Store `Context` (Breaking change 💥)
+- Store `Context`
   - Database `Context.Provider`
   - `withStore` Context HOC
 - `CONTRIBUTING.md`
@@ -36,7 +36,7 @@ All notable changes to this project will be documented in this file.
   
 ### Added
 - `prop-types`
-- `i18next` and `react-i18next` (Breaking change 💥):
+- `i18next` and `react-i18next`:
   - I18nextProvider
   - Language chooser
   - English 🇬🇧 and Norwegian 🇳🇴 locales (WIP 🚧)
