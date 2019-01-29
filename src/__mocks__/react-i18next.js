@@ -30,11 +30,13 @@ const renderNodes = reactNodes => {
   })
 }
 
+const i18nMock = {language: "en", changeLanguage: jest.mock()}
+
 module.exports = {
   // this mock makes sure any components using the translate HoC receive the t function as a prop
-  withNamespaces: () => Component => props => <Component t={k => k} {...props} />,
+  withNamespaces: () => Component => props => <Component t={k => k} {...{i18n: i18nMock,...props}} />,
   Trans: ({children}) => renderNodes(children),
-  NamespacesConsumer: ({children}) => children(k => k, {i18n: {}})
+  NamespacesConsumer: ({children}) => children(k => k, {i18n: i18nMock})
   // mock if needed
   // Interpolate: reactI18next.Interpolate,
   // I18nextProvider: reactI18next.I18nextProvider,

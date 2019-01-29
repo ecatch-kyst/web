@@ -1,3 +1,5 @@
 export const routes = {
-  ROOT: "/"
+  ROOT: "/",
+  TEST: "/test",
+  FORGOT_PASSWORD: "/new-password"
 }

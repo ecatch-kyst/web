@@ -1,29 +1,33 @@
 import React from 'react'
-import './App.css'
 import {Route, Switch, withRouter, Link} from "react-router-dom"
 import {Trans, withNamespaces} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 import TestStoreContext from './TestStoreContext'
 import NotFound from './NotFound'
 import {routes} from './lib/router'
+import {Typography, Button} from '@material-ui/core'
+import Landing from './Landing'
 
 
 const App = ({t}) =>
   <div className="App">
     <Switch>
+      <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={() =>
         <header className="App-header">
-          <Link to="test">{t("page.404Link")}</Link>
+          <Button color="primary" component={Link} to="404" variant="outlined">
+            {t("not-found.go-to")}
+          </Button>
           <TestStoreContext/>
-          <h1 className="App-title">
+          <Typography variant="h3">
             {t('welcome.title', {framework: "react-i18next"})}
-          </h1>
+          </Typography>
           <Trans i18nKey="welcome.intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
+            To get started, edit <code>src/App.js</code> and save to reload.
           </Trans>
           <LanguageChooser/>
         </header>
-      } exact path={routes.ROOT}
+      } exact path={routes.TEST}
       />
       <Route component={NotFound}/>
     </Switch>

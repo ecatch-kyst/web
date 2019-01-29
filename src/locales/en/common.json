@@ -1,8 +1,9 @@
 {
-	"page": {
-		"404Link": "Go to 404",
-		"goBackToMain": "Back to the main page",
-		"notfound": "404 Page not found!"
+	"not-found": {
+		"back-to-main": "Back to the main page",
+		"go-to": "Go to 404",
+		"img-alt": "empty state",
+		"text": "page not found"
 	},
 	"welcome": {
 		"intro": "To get started, edit <1><0></0></1> and save to reload.",

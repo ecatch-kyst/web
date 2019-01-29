@@ -3,11 +3,13 @@
   "version": "0.2.1",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.1",
+    "@material-ui/icons": "^3.0.2",
     "firebase": "^5.8.0",
     "i18next": "^14.0.1",
     "prop-types": "^15.6.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
     "react-i18next": "^9.0.8",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -20,6 +22,7 @@
     "test": "react-scripts test",
     "test:watch": "react-scripts test --coverage --coverageReporters html --watch",
     "deploy": "yarn deploy:client; yarn deploy:server",
+    "deploy:beta": "yarn build && firebase deploy -P staging --only hosting",
     "deploy:client": "yarn build; firebase deploy --only hosting",
     "deploy:server": "cd functions; yarn deploy",
     "test:ci": "CI=true react-scripts test --coverage && npx codecov -t $CODECOV_TOKEN && rm -rf coverage",
@@ -39,6 +42,7 @@
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint-config-prettier": "^3.6.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4"
+    "eslint-plugin-react": "^7.12.4",
+    "node-sass": "^4.11.0"
   }
 }
