@@ -5,17 +5,16 @@ import {useState, useEffect} from "react"
  * even after resize
  */
 export default function useDimensions() {
-  const {innerHeight, innerWidth} = window
 
-  const [width, setWidth] = useState(innerWidth)
-  const [height, setHeight] = useState(innerHeight)
+  const [width, setWidth] = useState(window.innerWidth)
+  const [height, setHeight] = useState(window.innerHeight)
+
+  const handleResize = () => {
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+  }
 
   useEffect(() => {
-    const handleResize = () => {
-      const {innerHeight, innerWidth} = window
-      setWidth(innerWidth)
-      setHeight(innerHeight)
-    }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
