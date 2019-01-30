@@ -1,10 +1,16 @@
 import initValues from "../initialValues.json"
+import {DB} from "../../lib/firebase.js"
 
 /**
  * Test function
  */
-export default function helloWorld() {
-  alert(this.state.value)
+export default async function helloWorld() {
+  try {
+    await DB.ref("test").set(this.state.value)
+    console.log(`${this.state.value} set`)
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 /**
