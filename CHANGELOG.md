@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
   - React UI Framework `material-ui`
     - basic styling
     - login example
+- registered Service Worker
 
 ### Changed
 - `LanguageChooser` is now a dropdown menu instead of a list buttons
