@@ -1,17 +1,23 @@
-import React, {Component} from "react"
+import React, {Component, createContext} from "react"
 import helloWorld, {changeValue} from "./actions/helloWorld"
 import initValues from "./initialValues.json"
-import {DB} from "../lib/firebase"
+import {DB, CONNECTION_REF} from "../lib/firebase"
 
-const Store = React.createContext()
+const Store = createContext()
 
 export class Database extends Component {
 
   state = {
-    ...initValues
+    ...initValues,
+    isOffline: false
   }
 
   async componentDidMount() {
+
+
+    CONNECTION_REF
+      .on("value", snap => this.setState({isOffline: !snap.val()}))
+
     try {
       const value = (await DB.ref("test").once("value")).val()
       this.setState({value})
@@ -19,6 +25,7 @@ export class Database extends Component {
       console.log(error)
     }
   }
+
 
   helloWorld = helloWorld.bind(this)
 
