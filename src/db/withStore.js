@@ -8,7 +8,7 @@ import Store from '.'
  */
 const withStore = WrappedComponent => props =>
   <Store.Consumer>
-    {store => <WrappedComponent store={store} {...props }/>}
+    {store => <WrappedComponent store={store} {...props}/>}
   </Store.Consumer>
 
 export default withStore
