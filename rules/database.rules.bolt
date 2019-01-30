@@ -1,4 +1,4 @@
 path /test {
     read() {true}
-    write() {false}
+    write() {true}
 }
