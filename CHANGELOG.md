@@ -4,13 +4,34 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 
+## [0.3.0] - 2019-01-30
+### Added
+- logo
+- routing with `react-router`
+- styling 💄
+  - empty state image at `NotFound`
+  - React UI Framework `material-ui`
+    - basic styling
+    - login example
+- registered Service Worker
+
+### Changed
+- name from e-Catch Kyst to eCatch Kyst
+- `LanguageChooser` is now a dropdown menu instead of a list buttons
+
+### Removed
+- backend. it is now moved to its [own repository](https://github.com/ecatch-kyst/backend)
+- old CSS files
+- old, unused images
+
+
 ## [0.2.1] - 2019-01-27
 ### Added
-- Add Store `Context` (Breaking change 💥)
+- Store `Context`
   - Database `Context.Provider`
   - `withStore` Context HOC
-- Add `CONTRIBUTING.md`
-- Add `PULL_REQUEST_TEMPLATE.md`
+- `CONTRIBUTING.md`
+- `PULL_REQUEST_TEMPLATE.md`
 
 ## [0.2.0] - 2019-01-27
 ### Changed
@@ -22,7 +43,7 @@ All notable changes to this project will be documented in this file.
   
 ### Added
 - `prop-types`
-- `i18next` and `react-i18next` (Breaking change 💥):
+- `i18next` and `react-i18next`:
   - I18nextProvider
   - Language chooser
   - English 🇬🇧 and Norwegian 🇳🇴 locales (WIP 🚧)

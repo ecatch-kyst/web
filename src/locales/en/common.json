@@ -1,4 +1,13 @@
 {
+	"not-found": {
+		"back-to-main": "Back to the main page",
+		"go-to": "Go to 404",
+		"img-alt": "empty state",
+		"text": "page not found"
+	},
+	"states": {
+		"offline": "You are offline"
+	},
 	"welcome": {
 		"intro": "To get started, edit <1><0></0></1> and save to reload.",
 		"title": "Welcome to {{framework}}"

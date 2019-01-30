@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import {BrowserRouter as Router} from "react-router-dom"
+import {MuiThemeProvider} from '@material-ui/core/styles'
 import App from './App'
 import "./lib/firebase"
-
+import theme from "./lib/material-ui"
+import "./main.sass"
 import {Database} from './db'
 
 import i18next from "./lib/i18next"
@@ -14,7 +16,11 @@ import * as serviceWorker from './serviceWorker'
 ReactDOM.render(
   <I18nextProvider i18n={i18next}>
     <Database>
-      <App/>
+      <Router>
+        <MuiThemeProvider theme={theme}>
+          <App/>
+        </MuiThemeProvider>
+      </Router>
     </Database>
   </I18nextProvider>,
   document.getElementById('root')
@@ -23,4 +29,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister()
+serviceWorker.register()

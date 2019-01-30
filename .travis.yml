@@ -8,13 +8,8 @@ install:
 - yarn
 - yarn global add codecov
 - yarn global add firebase-tools
-- yarn global add https://github.com/ebidel/lighthouse-ci
-- cd functions
-- yarn
+- yarn global add https://github.com/ebidel/lighthousebot
 script:
-  - yarn build
-  - yarn build:db:rules
-  - cd ..
   - yarn build
   - yarn test:ci
 after_success:
