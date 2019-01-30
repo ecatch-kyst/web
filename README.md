@@ -1,4 +1,4 @@
-# eCatch Kyst - IT2901 [![Build status](https://api.travis-ci.org/ecatch-kyst/web.svg?branch=master)](https://travis-ci.org/ecatch-kyst/web) [![Coverage status](https://codecov.io/gh/ecatch-kyst/web/branch/master/graph/badge.svg)](https://codecov.io/gh/ecatch-kyst/web)
+# eCatch Kyst - IT2901 [![Build status](https://api.travis-ci.org/ecatch-kyst/web.svg?branch=master)](https://travis-ci.org/ecatch-kyst/web) [![Coverage status](https://codecov.io/gh/ecatch-kyst/web/branch/master/graph/badge.svg)](https://codecov.io/gh/ecatch-kyst/web) [![Greenkeeper badge](https://badges.greenkeeper.io/ecatch-kyst/web.svg)](https://greenkeeper.io/)
 
 ### Client: [Dualog AS](https://dualog.com/)
 
