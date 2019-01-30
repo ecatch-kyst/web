@@ -10,16 +10,15 @@ install:
 - yarn global add firebase-tools
 - yarn global add https://github.com/ebidel/lighthousebot
 script:
-  - yarn build
-  - yarn test:ci
+- yarn build
+- yarn test:ci
 after_success:
-  - bash ./bin/deploy.sh
-  - bash ./bin/lighthouse.sh
-
+- bash ./bin/deploy.sh
+- bash ./bin/lighthouse.sh
 notifications:
   slack:
     rooms:
-      secure: W1WDbbycJdPbEbCps0iOuxo2YwvmCFYI/mNWg2cKWemKnuLwsx9XQJrGn8Xi6UXVlDMkHP/pDcchVzDTVxODmA7fkVGsPe4HXY10bpIiJtaXhFtX+ONiIrdXJaqkoA+HhHEksf1VlaEtiSp4dSJh1WswZeLUl6L+EqrQLKsyrwNlDhmoNFWQUf4cDnL1P2PMWd61La9nydpEhQBBk1GK3hnw+O9EazBkzx6QdYsacULUB49kQlgDyk6VU+fZUEAUOQDQa5eziwWtRKXC4pqMDMIo0AvI20YsZGxTdjSKjcB8cEIbJlLSIrLekPpwdVz37085jbOOVtRUks3wUZ9Uk6AjK8fctpk53KHDV2fVI4zmzzj8IzmBvbtDgurht5vQvWiFaRz69Lr0OWCpZX1KkG+COkx/6LSzJhZ2xrfvSPmlPuVvUBBBR18Tga11YsIdqx5JK2CnDgmoz1PuBGJ445k64EoMoWbpmMkmJHiPopEHpZwc72YNztkBORd1Zf04s7cW3xtBP8ygmSjvYc/paD+kdzrnrJYGa8NUCy8zLhv/FF4afi5ykSooP5Xd3p+safkx0ayTbMmARD12+PgcsvuXLWICPyPG52RHpV7c2U676cPVsWdJAF+XRZPHiA3Ij0uVrA79ixIqSR/uZMlSiu34XAiEIUKIcTE9n8RMgk4=
+      secure: l4bJBrM2tGZvBKkoTDHxaqOgf49bp5b6jHH+CKL7D0g+p/MblJQ/GJrOmdgCadcEJWnaiTSZPQCQCzRkt9LKp6OU8pTzBQqLigdkzQH+2Zv8jlPwZxQJmiaGxqvIruBZoWQPHhwfecXOomUJEcjH+nTcmwp9j2esfElK1M1jN3TjCL86zSn+AJJGRK5l6hnFW+HCXDn+eWoH7ETpFUlwDRtrEuPTXRndMsvwZ5gka++BTup1ughTe47+Z64yDSTWddc1byqOyqRk7Z6hYSt5PbrgHVib8La/jjPna7hASCAVNk63Z1lBFQyInGeC73ncnHMy7EV3b74KZHnpNKlTlKhVEXCuSYf+7XRQNIYYrQt5mzsNVvJSEbStwtsLFxZfeAJtc4oTgkE08xSulQfF+rOJBm9JotEYrOorEAHgOR7UzAi3+SLl7XL6hx9sM3XLAYeG5M494C7PVlSqQp7wAfBfUVZFrXU5eaGuEf/56vtjoUY/5CIs5dIP8olZ0u59ud6yIIhnY+2lfTs9Dd2WBHCyhmzzdxGTlwlCIoYEU2RGw5PYrKjxhXg/lGl950Mn2M4ukt9SIMHxKB8Xkk1vuutii6qda68CDlC2H0qLJOMEcwr9CKzEv3xH7/XjyyEyDVSFx0RFUM+NHpoTZfV+pGh8TmwxLdcTS4YnCUpwojs=
     on_success: never
     on_failure: always
     on_start: never
