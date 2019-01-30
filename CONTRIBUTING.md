@@ -1,6 +1,6 @@
-# Contributing to e-Catch Kyst
+# Contributing to eCatch Kyst
 
-The following is a set of guidelines for contributing to e-Catch Kyst and its subsystems, which are hosted in the [ecatch-it2901](https://github.com/balazsorban44/ecatch-it2901) repository on GitHub. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to eCatch Kyst and its subsystems, which are hosted in the [ecatch-it2901](https://github.com/balazsorban44/ecatch-it2901) repository on GitHub. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 #### Table Of Contents
 
@@ -17,7 +17,7 @@ The following is a set of guidelines for contributing to e-Catch Kyst and its su
 
 ### Reporting Bugs
 
-This section guides you through submitting a bug report for e-Catch Kyst. Following these guidelines helps maintainers understand your report :pencil:, reproduce the behavior :computer: :computer:, and find related reports :mag_right:.
+This section guides you through submitting a bug report for eCatch Kyst. Following these guidelines helps maintainers understand your report :pencil:, reproduce the behavior :computer: :computer:, and find related reports :mag_right:.
 
 Before creating bug reports, please check [this list](#before-submitting-a-bug-report) as you might find out that you don't need to create one. When you are creating a bug report, please [include as many details as possible](#how-do-i-submit-a-good-bug-report). Fill out [the required template](.github/ISSUE_TEMPLATE/bug.md), the information it asks for helps us resolve issues faster.
 
