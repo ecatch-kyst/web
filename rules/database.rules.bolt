@@ -1,4 +1,0 @@
-path /test {
-    read() {true}
-    write() {true}
-}

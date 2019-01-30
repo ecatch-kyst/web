@@ -10,10 +10,6 @@ name: '✨ Feature request'
 ## Expected Behavior
 <!--- Tell us what should happen -->
 
-## Areas affected
-<!--- Which areas will this feature require changes on? (Multiple choices can be marked) -->
-- [ ] frontend
-- [ ] backend
 
 ## Priority
 <!--- How fast should this be implemented -->

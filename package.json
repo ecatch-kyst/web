@@ -1,5 +1,5 @@
 {
-  "name": "ecatch-it2901",
+  "name": "web",
   "version": "0.2.1",
   "private": true,
   "dependencies": {
@@ -21,10 +21,8 @@
     "eject": "react-scripts eject",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --coverage --coverageReporters html --watch",
-    "deploy": "yarn deploy:client; yarn deploy:server",
     "deploy:beta": "yarn build && firebase deploy -P staging --only hosting",
-    "deploy:client": "yarn build; firebase deploy --only hosting",
-    "deploy:server": "cd functions; yarn deploy",
+    "deploy": "yarn build; firebase deploy --only hosting",
     "test:ci": "CI=true react-scripts test --coverage && npx codecov -t $CODECOV_TOKEN && rm -rf coverage",
     "lh": "lighthousebot"
   },

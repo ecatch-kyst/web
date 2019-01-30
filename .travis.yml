@@ -9,12 +9,7 @@ install:
 - yarn global add codecov
 - yarn global add firebase-tools
 - yarn global add https://github.com/ebidel/lighthousebot
-- cd functions
-- yarn
 script:
-  - yarn build
-  - yarn build:db:rules
-  - cd ..
   - yarn build
   - yarn test:ci
 after_success:

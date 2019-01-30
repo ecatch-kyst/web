@@ -2,7 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+
+## [0.3.0] - 2019-01-30
 ### Added
+- logo
 - routing with `react-router`
 - styling 💄
   - empty state image at `NotFound`
@@ -12,9 +16,11 @@ All notable changes to this project will be documented in this file.
 - registered Service Worker
 
 ### Changed
+- name from e-Catch Kyst to eCatch Kyst
 - `LanguageChooser` is now a dropdown menu instead of a list buttons
 
 ### Removed
+- backend. it is now moved to its [own repository](https://github.com/ecatch-kyst/backend)
 - old CSS files
 - old, unused images
 
