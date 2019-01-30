@@ -5,6 +5,9 @@
 		"img-alt": "empty state",
 		"text": "page not found"
 	},
+	"states": {
+		"offline": "You are offline"
+	},
 	"welcome": {
 		"intro": "To get started, edit <1><0></0></1> and save to reload.",
 		"title": "Welcome to {{framework}}"

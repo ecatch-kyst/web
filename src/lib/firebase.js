@@ -20,4 +20,7 @@ export const AUTH = firebase.auth()
 
 export const TIMESTAMP = firebase.firestore.FieldValue.serverTimestamp()
 
+export const CONNECTION_REF = DB.ref(".info/connected")
+
+
 export default firebase

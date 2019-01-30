@@ -8,6 +8,7 @@ import {routes} from './lib/router'
 import {Typography, Button} from '@material-ui/core'
 import Landing from './Landing'
 
+import OfflineStatus from './components/OfflineStatus'
 
 const App = ({t}) =>
   <div className="App">
@@ -31,8 +32,7 @@ const App = ({t}) =>
       />
       <Route component={NotFound}/>
     </Switch>
+    <OfflineStatus/>
   </div>
 
 export default withRouter(withNamespaces('common')(App))
-
-
