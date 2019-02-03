@@ -7,14 +7,17 @@ import NotFound from './NotFound'
 import {routes} from './lib/router'
 import {Typography, Button} from '@material-ui/core'
 import Landing from './components/Landing'
+import {Typography, Button, withTheme} from '@material-ui/core'
+import Landing from './Landing'
 
 import OfflineStatus from './components/OfflineStatus'
 import Register from './components/Register'
 import Profile from './components/Profile'
 import Dashboard from './components/Dashboard'
+import DarkMode from './components/DarkMode'
 
-const App = ({t}) =>
-  <div className="App">
+const App = ({t, theme}) =>
+  <div className="App" style={{backgroundColor: theme.palette.secondary.contrastText}}>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Register} exact path={routes.REGISTER}/>
@@ -36,6 +39,7 @@ const App = ({t}) =>
             To get started, edit <code>src/App.js</code> and save to reload.
           </Trans>
           <LanguageChooser/>
+          <DarkMode/>
         </header>
       } exact path={routes.SETTINGS}
       />

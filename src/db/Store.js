@@ -1,6 +1,8 @@
 import React, {Component, createContext} from "react"
 import helloWorld, {changeValue} from "./actions/helloWorld"
 import initValues from "./initialValues.json"
+import {DB, CONNECTION_REF} from "../lib/firebase"
+import toggleDarkMode from "./actions/darkMode"
 import {CONNECTION_REF} from "../lib/firebase"
 import {login, updateProfile, logout, deleteUser} from "./actions/users"
 
@@ -10,7 +12,8 @@ export class Database extends Component {
 
   state = {
     ...initValues,
-    isOffline: false
+    isOffline: false,
+    isDarkMode: false
   }
 
   async componentDidMount() {
@@ -26,6 +29,8 @@ export class Database extends Component {
   helloWorld = helloWorld.bind(this)
 
   changeValue = changeValue.bind(this)
+
+  toggleDarkMode = toggleDarkMode.bind(this)
 
 
   // User
@@ -43,6 +48,7 @@ export class Database extends Component {
         value={{
           handleHelloWorld: this.helloWorld,
           handleChangeValue: this.changeValue,
+          handleToggleDarkMode: this.toggleDarkMode,
           handleUserUpdateProfile: this.userUpdateProfile,
           handleUserLogout: this.userLogout,
           handleUserLogin: this.userLogin,
