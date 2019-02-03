@@ -11,7 +11,7 @@ import languages from "../locales/locales.json"
 
 
 i18next.init({
-  lng: navigator.language || languages.default,
+  lng: localStorage.getItem("preferredLanguage") || navigator.language || languages.default,
   resources: {
     en: {
       common: common_en,
