@@ -1,5 +1,5 @@
 import {createMuiTheme} from '@material-ui/core/styles'
-import deepmerge from './deepmerge'
+import deepmerge from 'deepmerge'
 
 const defaultTheme = createMuiTheme({typography: {useNextVariants: true}})
 
@@ -134,5 +134,5 @@ const darkTheme = {
 }
 
 export const light = createMuiTheme({...base})
-export const dark = createMuiTheme(deepmerge.all([base, darkTheme]))
+export const dark = createMuiTheme(deepmerge(base, darkTheme))
 
