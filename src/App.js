@@ -9,15 +9,24 @@ import {Typography, Button} from '@material-ui/core'
 import Landing from './Landing'
 
 import OfflineStatus from './components/OfflineStatus'
+import Register from './components/Register'
+import Profile from './components/Profile'
+import Dashboard from './components/Dashboard'
 
 const App = ({t}) =>
   <div className="App">
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
+      <Route component={Register} exact path={routes.REGISTER}/>
+      <Route component={Profile} exact path={routes.PROFILE}/>
+      <Route component={Dashboard} exact path={routes.DASHBOARD}/>
       <Route component={() =>
         <header className="App-header">
           <Button color="primary" component={Link} to="404" variant="outlined">
-            {t("not-found.go-to")}
+            {t("links.not-found")}
+          </Button>
+          <Button color="primary" component={Link} to={routes.REGISTER} variant="outlined">
+            {t("links.register")}
           </Button>
           <TestStoreContext/>
           <Typography variant="h3">
@@ -28,7 +37,7 @@ const App = ({t}) =>
           </Trans>
           <LanguageChooser/>
         </header>
-      } exact path={routes.TEST}
+      } exact path={routes.SETTINGS}
       />
       <Route component={NotFound}/>
     </Switch>
