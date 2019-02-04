@@ -5,5 +5,35 @@
 		"forgot-password": "Glemt passord",
 		"login": "logg inn",
 		"password": "passord"
+	},
+	"profile": {
+		"buttons": {
+			"logout": "Logg ut"
+		},
+		"labels": {
+			"name": "Navn",
+			"email":"E-post"
+		}
+	},
+	"dashboard": {
+		"buttons": {
+			"profile": "Profil",
+			"settings": "Innstillinger"
+		}
+	},
+	"register": {
+		"labels": {
+			"name": "Navn",
+			"email": "E-post",
+			"password": "Passord"
+		},
+		"placeholders": {
+			"name": "Navn",
+			"email": "E-post",
+			"password": "Passord"
+		},
+		"buttons": {
+			"submit": "Registrer"
+		}
 	}
 }

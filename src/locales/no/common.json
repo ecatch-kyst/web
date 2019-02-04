@@ -1,7 +1,6 @@
 {
 	"not-found": {
 		"back-to-main": "Tilbake til hovedside",
-		"go-to": "Gå til 404",
 		"img-alt": "tom side",
 		"text": "siden finnes ikke"
 	},
@@ -11,5 +10,9 @@
 	"welcome": {
 		"intro": "For å starte, rediger <1><0></0></1> og lagre for å laste på nytt.",
 		"title": "Velkommen til {{framework}}"
+	},
+	"links": {
+		"not-found": "Gå til 404",
+		"register": "Registrer"
 	}
 }
