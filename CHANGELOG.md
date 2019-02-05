@@ -3,17 +3,22 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
-- authentication redirects:
-  - logged out
-    - after registering a user -> dashboard
-    - dashboard -> root
-    - 404 -> root
+- authentication:
+    - registration
+    - login
+    - logout
+    - user deletion
+    - redirects:
+        - logged out
+            - after registering a user -> dashboard
+            - dashboard -> root
+            - 404 -> root
 
-  - logged in
-    - register -> profile
-    - logout -> root
-    - 404 -> dashboard
-    - root -> dashboard
+        - logged in
+            - register -> profile
+            - logout -> root
+            - 404 -> dashboard
+            - root -> dashboard
 
 #10
 
