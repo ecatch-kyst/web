@@ -2,7 +2,7 @@ import React, {Component, createContext} from "react"
 import helloWorld, {changeValue} from "./actions/helloWorld"
 import initValues from "./initialValues.json"
 import {DB, CONNECTION_REF} from "../lib/firebase"
-import {login, updateProfile, logout} from "./actions/users"
+import {login, updateProfile, logout, deleteUser} from "./actions/users"
 
 const Store = createContext()
 
@@ -39,6 +39,8 @@ export class Database extends Component {
 
   userLogout = logout.bind(this)
 
+  userDelete = deleteUser.bind(this)
+
   userUpdateProfile = updateProfile.bind(this)
 
   render() {
@@ -50,6 +52,7 @@ export class Database extends Component {
           handleUserUpdateProfile: this.userUpdateProfile,
           handleUserLogout: this.userLogout,
           handleUserLogin: this.userLogin,
+          handleUserDelete: this.userDelete,
           ...this.state
         }}
       >
