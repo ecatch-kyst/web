@@ -6,11 +6,11 @@ import {routes} from '../../lib/router'
 import {Redirect} from "react-router-dom"
 
 
-const Profile = ({t, store: {handleUserLogout, user: {displayName, email}}}) =>
+const Profile = ({t, store: {handleUserLogout, handleUserDelete, user: {displayName, email}}}) =>
   <>
     <List>
-      <ListItem> {t("profile.labels.name")}: {displayName}</ListItem>
-      <ListItem> {t("profile.labels.email")}: {email}</ListItem>
+      <ListItem> {t("labels.name")}: {displayName}</ListItem>
+      <ListItem> {t("labels.email")}: {email}</ListItem>
     </List>
     <Button
       color="secondary"
@@ -18,9 +18,17 @@ const Profile = ({t, store: {handleUserLogout, user: {displayName, email}}}) =>
       size="large"
       variant="contained"
     >
-      {t("profile.buttons.logout")}
+      {t("buttons.logout")}
+    </Button>
+
+    <Button
+      onClick={handleUserDelete}
+      size="large"
+      variant="contained"
+    >
+      {t("buttons.deleteUser")}
     </Button>
     {!displayName && <Redirect to={routes.ROOT}/>}
   </>
 
-export default withNamespaces("pages")(withStore(Profile))
+export default withNamespaces("profile")(withStore(Profile))

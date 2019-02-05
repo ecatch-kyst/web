@@ -32,6 +32,19 @@ export async function logout() {
   }
 }
 
+
+/**
+ * Deletes the user
+ */
+export async function deleteUser() {
+  try {
+    AUTH.currentUser.delete()
+    this.setState({user: {}})
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 /**
  * Updates the user's name and photo
  */
