@@ -1,8 +1,8 @@
 import React from 'react'
 import {withNamespaces} from 'react-i18next'
 import {List, ListItem, Button} from '@material-ui/core'
-import {withStore} from '../../db'
-import {routes} from '../../lib/router'
+import {withStore} from '../db'
+import {routes} from '../lib/router'
 import {Redirect} from "react-router-dom"
 
 

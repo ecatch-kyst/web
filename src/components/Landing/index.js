@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import {Link, Redirect} from "react-router-dom"
-import Centered from '../components/Centered'
+import Centered from '../Centered'
 import {Typography, Card, Button, CardActions, CardContent, TextField, Grid, Link as MuiLink} from '@material-ui/core'
-import {routes} from '../lib/router'
+import {routes} from '../../lib/router'
 import "./landing.sass"
-import blob from "../assets/blob.svg"
+import blob from "../../assets/blob.svg"
 import {withNamespaces} from 'react-i18next'
-import Store from '../db'
+import Store from '../../db'
 
 
 class Landing extends Component {

@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import {Grid, Button, TextField} from '@material-ui/core'
-import {AUTH} from '../../lib/firebase'
+import {AUTH} from '../lib/firebase'
 import {withNamespaces} from 'react-i18next'
-import Store from '../../db/Store'
+import Store from '../db/Store'
 
 import {Redirect} from "react-router-dom"
-import {routes} from '../../lib/router'
+import {routes} from '../lib/router'
 
-class Register extends Component {
+export class Register extends Component {
 
   static contextType = Store
 
@@ -83,7 +83,7 @@ class Register extends Component {
 
 export default withNamespaces("pages")(Register)
 
-const Input = ({type, ...props}) =>
+export const Input = ({type, ...props}) =>
   <Grid item>
     <TextField
       {...props}
