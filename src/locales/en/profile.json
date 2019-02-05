@@ -1,0 +1,10 @@
+{
+  "buttons": {
+    "logout": "Log out",
+    "deleteUser": "DELETE USER"
+  },
+  "labels": {
+    "name": "Name",
+    "email": "E-mail"
+  }
+}
