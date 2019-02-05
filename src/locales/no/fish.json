@@ -1,0 +1,32 @@
+{
+	"types": {
+		"atlantic-cod": "Skrei",
+		"atlantic-halibut": "Flyndre",
+		"atlantic-pollock": "Lyr",
+		"blue-ling": "Blålange",
+		"blue-whiting": "Kolmule",
+		"brill": "Slettvar",
+		"catfish": "Steinbit",
+		"cod": "Torsk",
+		"common-ling": "Lange",
+		"common-sole": "Tunge",
+		"crabs": "Taskekrabbe",
+		"cusk": "Brosme",
+		"eel": "Ål",
+		"european-hake": "Lysing",
+		"european-plaice": "Rødspette",
+		"greenland-halibut": "Blåkveite",
+		"halibut": "Kveite",
+		"herring": "Sild",
+		"king-crab": "Kongekrabbe",
+		"lobster": "Hummer",
+		"lumpfish": "Rognkjeks",
+		"mackerel": "Makrell",
+		"merling": "Hvitting",
+		"monkfish": "Breiflabb",
+		"pollock": "Sei",
+		"redfish": "Uer",
+		"shrimp": "Reke",
+		"turbot": "Piggvar"
+	}
+}

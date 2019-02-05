@@ -1,4 +1,11 @@
 {
+	"buttons": {
+		"add-fishinggrounds": "Legg til ny fiskeplass",
+		"my-messages": "Mine meldinger",
+		"report-catch": "Meld fangst",
+		"report-fishing": "Rapporter inn",
+		"return-journey": "Meld hjemreise"
+	},
 	"not-found": {
 		"back-to-main": "Tilbake til hovedside",
 		"img-alt": "tom side",

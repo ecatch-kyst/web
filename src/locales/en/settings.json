@@ -1,4 +1,18 @@
 {
+	"descriptions": {
+		"about-us": "This is the description of the company and how to contact us",
+		"changeLanguage": "Change language",
+		"profildescription": "Here you can edit your profile, add information and verify that everything is correct"
+	},
+	"titles": {
+		"about-us": "About us",
+		"darkmode": "Dark mode",
+		"profil": "My profile",
+		"settings": "Settings"
+	}
+}
+
+{
   "titles": {
     "dark-mode": "Dark mode"
   },

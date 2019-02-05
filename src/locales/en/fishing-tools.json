@@ -1,0 +1,13 @@
+{
+	"lines": {
+		"handlining": "Handlining",
+		"longline-fishing": "Longline fishing",
+		"trawling": "Trawling"
+	},
+	"nets": {
+		"fishing-net": "Fishing net",
+		"purse-seine": "Purse seine",
+		"towing-bag": "Towing bag",
+		"trawling": "Trawling"
+	}
+}

@@ -1,7 +1,15 @@
 {
+	"buttons": {
+		"add-fishinggrounds": "Add a new fishingspot",
+		"my-messages": "My messages",
+		"report-catch": "Report catch",
+		"report-fishing": "Send",
+		"return-journey": "Report return journey"
+	},
 	"not-found": {
 		"back-to-main": "Back to the main page",
-		"img-alt": "empty state",
+		"go-to": "Go to 404",
+		"img-alt": "empty page",
 		"text": "page not found"
 	},
 	"states": {
