@@ -59,23 +59,36 @@ class Landing extends Component {
             </Grid>
           </CardContent>
           <CardActions>
-            <Grid alignItems="center" container justify="space-around">
-              <Grid item>
-                <Button
-                  color="primary"
-                  onClick={this.handleUserLogin}
-                  size="large"
-                  variant="contained"
-                >
-                  {t("landing.login")}
-                </Button>
-              </Grid>
+            <Grid alignItems="center" container justify="flex-end" spacing={16}>
               <Grid item>
                 <MuiLink
                   component={Link}
+                  style={{marginRight: 16}}
                   to={routes.FORGOT_PASSWORD}
                 >{t("landing.forgot-password")}
                 </MuiLink>
+              </Grid>
+              <Grid container item justify="space-between" spacing={8}>
+                <Grid item>
+                  <Button
+                    color="primary"
+                    onClick={this.handleUserLogin}
+                    size="large"
+                    variant="contained"
+                  >
+                    {t("landing.login")}
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    color="secondary"
+                    component={Link}
+                    size="large"
+                    to={routes.REGISTER}
+                  >
+                    {t("landing.register")}
+                  </Button>
+                </Grid>
               </Grid>
             </Grid>
           </CardActions>
