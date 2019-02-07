@@ -1,6 +1,6 @@
 import React from 'react'
 import {languages} from "./locales/locales.json"
-import {withNamespaces} from 'react-i18next'
+import {withTranslation} from 'react-i18next'
 import {Select, MenuItem, Typography, Grid} from '@material-ui/core'
 
 const LanguageChooser = ({i18n}) =>
@@ -27,4 +27,4 @@ const LanguageChooser = ({i18n}) =>
     </Grid>
   </Grid>
 
-export default withNamespaces('common')(LanguageChooser)
+export default withTranslation('common')(LanguageChooser)

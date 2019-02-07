@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route, Switch, withRouter, Link} from "react-router-dom"
-import {Trans, withNamespaces} from 'react-i18next'
+import {Trans, withTranslation} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 import TestStoreContext from './TestStoreContext'
 import NotFound from './NotFound'
@@ -35,4 +35,4 @@ const App = ({t}) =>
     <OfflineStatus/>
   </div>
 
-export default withRouter(withNamespaces('common')(App))
+export default withRouter(withTranslation('common')(App))
