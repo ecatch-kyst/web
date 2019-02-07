@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import {withNamespaces} from 'react-i18next'
+import {withTranslation} from 'react-i18next'
 
 import {Button, Typography} from '@material-ui/core'
 
@@ -41,4 +41,4 @@ const NotFound = ({t}) => {
   )
 }
 
-export default withNamespaces("common")(NotFound)
+export default withTranslation("common")(NotFound)

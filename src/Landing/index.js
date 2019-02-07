@@ -6,7 +6,7 @@ import {useDimensions} from '../hooks'
 import {routes} from '../lib/router'
 import "./landing.sass"
 import blob from "../assets/blob.svg"
-import {withNamespaces} from 'react-i18next'
+import {withTranslation} from 'react-i18next'
 
 const Landing = ({t}) => {
   const dimensions = useDimensions()
@@ -53,4 +53,4 @@ const Landing = ({t}) => {
     </Centered>
   )
 }
-export default withNamespaces("pages")(Landing)
+export default withTranslation("pages")(Landing)
