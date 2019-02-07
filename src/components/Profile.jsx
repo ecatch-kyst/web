@@ -1,5 +1,5 @@
 import React from 'react'
-import {withNamespaces} from 'react-i18next'
+import {withTranslation} from 'react-i18next'
 import {List, ListItem, Button} from '@material-ui/core'
 import {withStore} from '../db'
 import {routes} from '../lib/router'
@@ -31,4 +31,4 @@ const Profile = ({t, store: {handleUserLogout, handleUserDelete, user: {displayN
     {!displayName && <Redirect to={routes.ROOT}/>}
   </>
 
-export default withNamespaces("profile")(withStore(Profile))
+export default withTranslation("profile")(withStore(Profile))

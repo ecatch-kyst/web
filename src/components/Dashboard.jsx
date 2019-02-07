@@ -3,7 +3,7 @@ import {Grid, Button} from '@material-ui/core'
 import {routes} from '../lib/router'
 import {withStore} from '../db'
 import {Redirect, Link} from 'react-router-dom'
-import {withNamespaces} from 'react-i18next'
+import {withTranslation} from 'react-i18next'
 
 
 const Dashboard = ({t, store: {user}}) =>
@@ -20,4 +20,4 @@ const Dashboard = ({t, store: {user}}) =>
 
   </Grid>
 
-export default withNamespaces("pages")(withStore(Dashboard))
+export default withTranslation("pages")(withStore(Dashboard))

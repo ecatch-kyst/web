@@ -5,7 +5,7 @@ import {Typography, Card, Button, CardActions, CardContent, TextField, Grid, Lin
 import {routes} from '../../lib/router'
 import "./landing.sass"
 import blob from "../../assets/blob.svg"
-import {withNamespaces} from 'react-i18next'
+import {withTranslation} from 'react-i18next'
 import Store from '../../db'
 
 
@@ -99,4 +99,4 @@ class Landing extends Component {
   }
 }
 
-export default withNamespaces("pages")(Landing)
+export default withTranslation("pages")(Landing)

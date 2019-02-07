@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Grid, Button, TextField} from '@material-ui/core'
 import {AUTH} from '../lib/firebase'
-import {withNamespaces} from 'react-i18next'
+import {withTranslation} from 'react-i18next'
 import Store from '../db/Store'
 
 import {Redirect} from "react-router-dom"
@@ -81,7 +81,7 @@ export class Register extends Component {
   }
 }
 
-export default withNamespaces("pages")(Register)
+export default withTranslation("pages")(Register)
 
 export const Input = ({type, ...props}) =>
   <Grid item>
