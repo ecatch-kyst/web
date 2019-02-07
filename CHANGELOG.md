@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Added
 - use `localStorage` to save preferred language over sessions
+- settings page
+- dark mode
 - authentication:
     - registration
     - login
@@ -14,6 +16,8 @@ All notable changes to this project will be documented in this file.
             - after registering a user -> dashboard
             - dashboard -> root
             - 404 -> root
+### Removed
+- example codes
 
 ## [0.3.0] - 2019-01-30
 ### Added
