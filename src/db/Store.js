@@ -20,12 +20,6 @@ export class Database extends Component {
     CONNECTION_REF
       .on("value", snap => this.setState({isOffline: !snap.val()}))
 
-    try {
-      const value = (await DB.ref("test").once("value")).val()
-      this.setState({value})
-    } catch (error) {
-      console.log(error)
-    }
   }
 
 
