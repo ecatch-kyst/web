@@ -1,0 +1,91 @@
+{
+    "ports": {
+        "DKFRK": {
+            "name": "Føvling",
+            "longitude": "5527N",
+            "latitude": "00857E"
+        },
+        "DKFYH": {
+            "name": "Fynshav",
+            "longitude":"5458N",
+            "latitude": "00958E"
+        },
+        "DKGDM": {
+            "name": "Gudhjem",
+            "longitude": "5513N",
+            "latitude": "01459E"
+        },
+        "DKBGZ": {
+            "name": "Bognese",
+            "longitude": "5534N",
+            "latitude": "01005E"
+        },
+        "DKBLA": {
+            "name": "Blavand",
+            "longitude": "5533N",
+            "latitude": "00808E"
+        },
+        "DKBLUE":{
+            "name": "Baelum",
+            "longitude": "5649N",
+            "latitude": "01006E"
+        },
+        "DKBOG":{
+            "name": "Bogo By",
+            "longitude": "5456N",
+            "latitude": "01203E"
+        },
+        "DKAAB": {
+            "name": "Åbenrå",
+            "longitude": "5502N",
+            "latitude": "00926E"
+        },
+        "DKAAR":{
+            "name": "Aarhus",
+            "longitude": "5609N",
+            "latitude": "01013E"
+        },
+        "DKAGE":{
+            "name":"Allinge",
+            "longitude": "5516N",
+            "latitude": "01448E"
+        },
+        "DKAK3":{
+            "name":"Åkirkeby",
+            "longitude": "5504N",
+            "latitude": "01456E"
+        },
+        "DKARD":{
+            "name":"Årosund",
+            "longitude": "5515N",
+            "latitude": "00943E"
+        },
+        "DKARO":{
+            "name":"Åro",
+            "longitude": "5516N",
+            "latitude": "00945E"
+        },
+        "DKASA":{
+            "name":"Asaa",
+            "longitude": "5709N",
+            "latitude": "01025E"
+        },
+        "DKAVK":{
+            "name":"Avernak By",
+            "longitude": "5502N",
+            "latitude": "01016E"
+        },
+        "DKAVN":{
+            "name":"Avernakke Havn",
+            "longitude": "5518N",
+            "latitude": "01047E"
+        }
+
+    }
+} 	 
+
+  	 
+            
+	  	 
+            
+           
