@@ -5,16 +5,13 @@ import LanguageChooser from './LanguageChooser'
 import TestStoreContext from './TestStoreContext'
 import NotFound from './NotFound'
 import {routes} from './lib/router'
-import {Typography, Button} from '@material-ui/core'
-import Landing from './components/Landing'
 import {Typography, Button, withTheme} from '@material-ui/core'
-import Landing from './Landing'
+import Landing from './components/Landing'
 
 import OfflineStatus from './components/OfflineStatus'
 import Register from './components/Register'
 import Profile from './components/Profile'
 import Dashboard from './components/Dashboard'
-import DarkMode from './components/DarkMode'
 import Settings from './components/Settings'
 
 const App = ({t, theme}) =>

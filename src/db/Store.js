@@ -1,7 +1,6 @@
 import React, {Component, createContext} from "react"
 import helloWorld, {changeValue} from "./actions/helloWorld"
 import initValues from "./initialValues.json"
-import {DB, CONNECTION_REF} from "../lib/firebase"
 import toggleDarkMode from "./actions/darkMode"
 import {CONNECTION_REF} from "../lib/firebase"
 import {login, updateProfile, logout, deleteUser} from "./actions/users"

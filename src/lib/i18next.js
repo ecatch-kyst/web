@@ -16,13 +16,13 @@ i18next.init({
     en: {
       common: common_en,
       profile: profile_en,
-      pages: pages_en
+      pages: pages_en,
       settings: settings_en
     },
     no: {
       common: common_no,
       profile: profile_no,
-      pages: pages_no
+      pages: pages_no,
       settings: settings_no
     }
   }
