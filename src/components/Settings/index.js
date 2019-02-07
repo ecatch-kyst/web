@@ -1,11 +1,14 @@
 import React from 'react'
 import {List, ListItem, Grid, FormControlLabel, Switch, Typography} from '@material-ui/core'
-import {withNamespaces} from 'react-i18next'
-import {withStore} from '../db'
+import {withTranslation} from 'react-i18next'
+import {withStore} from '../../db'
+import LanguageChooser from './LanguageChooser'
 
 
-const Settings = ({store: {isDarkMode, handleToggleDarkMode}}) => {
-  return (
+const Settings = ({t, store: {isDarkMode, handleToggleDarkMode}}) =>
+
+  <Grid container direction="column">
+    <Typography style={{padding: 16}} variant="h4">{t("titles.settings")}</Typography>
     <List>
       <Element
         actionComponent={
@@ -22,16 +25,20 @@ const Settings = ({store: {isDarkMode, handleToggleDarkMode}}) => {
         id="dark-mode"
         onClick={handleToggleDarkMode}
       />
+      <Element
+        actionComponent={<LanguageChooser/>}
+        clickable={false}
+        id="changeLanguage"
+      />
     </List>
-  )
-}
+  </Grid>
 
-export default withStore(Settings)
+export default withStore(withTranslation("settings")(Settings))
 
 
-const Element = withNamespaces("settings")(
-  ({t, id, actionComponent, onClick}) =>
-    <ListItem onClick={onClick} style={{cursor: "pointer"}}>
+const Element = withTranslation("settings")(
+  ({t, id, actionComponent, onClick, clickable=true}) =>
+    <ListItem onClick={() => clickable && onClick()} style={{cursor: clickable ? "pointer" : ""}}>
       <Grid alignItems="center" container>
         <Grid item xs={8}>
           <Typography variant="h6">{t(`titles.${id}`)}</Typography>
