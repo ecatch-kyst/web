@@ -15,11 +15,13 @@ import Register from './components/Register'
 import Profile from './components/Profile'
 import Dashboard from './components/Dashboard'
 import DarkMode from './components/DarkMode'
+import Settings from './components/Settings'
 
 const App = ({t, theme}) =>
   <div className="App" style={{backgroundColor: theme.palette.secondary.contrastText}}>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
+      <Route component={Settings} exact path={routes.SETTINGS}/>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
@@ -39,7 +41,6 @@ const App = ({t, theme}) =>
             To get started, edit <code>src/App.js</code> and save to reload.
           </Trans>
           <LanguageChooser/>
-          <DarkMode/>
         </header>
       } exact path={routes.SETTINGS}
       />
