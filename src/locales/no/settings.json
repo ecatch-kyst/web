@@ -1,22 +1,14 @@
 {
 	"descriptions": {
 		"about-us": "Dette er beskrivelsen av selskapet og hvordan man kontakter oss",
+		"dark-mode": "Bytt til nattmodus for å gjøre det bedre å bruke appen om natten.",
 		"changeLanguage": "Språk",
 		"profildescription": "Her kan du redigere profilen din, legge til informasjon og verifisere at alt stemmer"
 	},
 	"titles": {
 		"about-us": "Om oss",
-		"darkmode": "Nattmodus",
+		"dark-mode": "Nattmodus",
 		"profil": "Min profil",
 		"settings": "Innstillinger"
 	}
-}
-
-{
-  "titles": {
-    "dark-mode": "Nattmodus"
-  },
-  "descriptions": {
-    "dark-mode": "Bytt til nattmodus for å gjøre det bedre å bruke appen om natten."
-  }
 }

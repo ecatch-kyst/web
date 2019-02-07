@@ -1,22 +1,14 @@
 {
 	"descriptions": {
 		"about-us": "This is the description of the company and how to contact us",
+		"dark-mode": "Give your eyes a break when you just have to work after dark.",
 		"changeLanguage": "Change language",
 		"profildescription": "Here you can edit your profile, add information and verify that everything is correct"
 	},
 	"titles": {
 		"about-us": "About us",
-		"darkmode": "Dark mode",
+		"dark-mode": "Dark mode",
 		"profil": "My profile",
 		"settings": "Settings"
 	}
-}
-
-{
-  "titles": {
-    "dark-mode": "Dark mode"
-  },
-  "descriptions": {
-    "dark-mode": "Give your eyes a break when you just have to work after dark."
-  }
 }

@@ -24,15 +24,18 @@ i18next.init({
       profile: profile_no,
       pages: pages_no,
       settings: settings_no
-      pages: pages_no
     },
     "ny-NO":{
       common: common_no,
-      pages: pages_no
+      pages: pages_no,
+      profile: profile_no,
+      settings: settings_no
     },
     "nb-NO": {
       common: common_no,
-      pages: pages_no
+      pages: pages_no,
+      profile: profile_no,
+      settings: settings_no
     }
   }
 })
