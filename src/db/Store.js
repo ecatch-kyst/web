@@ -1,5 +1,4 @@
 import React, {Component, createContext} from "react"
-import helloWorld, {changeValue} from "./actions/helloWorld"
 import initValues from "./initialValues.json"
 import toggleDarkMode from "./actions/darkMode"
 import {CONNECTION_REF} from "../lib/firebase"
@@ -9,11 +8,7 @@ const Store = createContext()
 
 export class Database extends Component {
 
-  state = {
-    ...initValues,
-    isOffline: false,
-    isDarkMode: false
-  }
+  state = initValues
 
   async componentDidMount() {
 
@@ -23,11 +18,6 @@ export class Database extends Component {
       .on("value", snap => this.setState({isOffline: !snap.val()}))
 
   }
-
-
-  helloWorld = helloWorld.bind(this)
-
-  changeValue = changeValue.bind(this)
 
   toggleDarkMode = toggleDarkMode.bind(this)
 
@@ -45,8 +35,6 @@ export class Database extends Component {
     return (
       <Store.Provider
         value={{
-          handleHelloWorld: this.helloWorld,
-          handleChangeValue: this.changeValue,
           handleToggleDarkMode: this.toggleDarkMode,
           handleUserUpdateProfile: this.userUpdateProfile,
           handleUserLogout: this.userLogout,

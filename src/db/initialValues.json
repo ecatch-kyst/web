@@ -1,4 +1,5 @@
 {
-  "value": "This is an initial value",
-  "user": {}
+  "user": {},
+  "isOffline": false,
+  "isDarkMode": false
 }
