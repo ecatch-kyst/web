@@ -4,19 +4,20 @@ import {AUTH} from "../../lib/firebase"
  * Logs the user in
  */
 export async function login(email, password) {
-  if (email && password)
+  if (email && password) {
     await AUTH.signInWithEmailAndPassword(email, password)
-  AUTH.onAuthStateChanged(user => {
-    if (user) {
-      console.log("Successful login")
-      const {uid, displayName, email, emailVerified} = user
-      this.setState({user: {
-        uid, displayName, email, emailVerified
-      }})
-
-    } else console.log("Not logged in")
-
-  })
+  }
+  else {
+    AUTH.onAuthStateChanged(user => {
+      if (user) {
+        console.log("Successful login")
+        const {uid, displayName, email, emailVerified} = user
+        this.setState({user: {
+          uid, displayName, email, emailVerified
+        }})
+      } else console.log("Not logged in")
+    })
+  }
 
 }
 
