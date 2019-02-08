@@ -22,6 +22,7 @@ All notable changes to this project will be documented in this file.
             - 404 -> root
 ### Changed
 - Offline status
+- UI element sizes increased
 ### Removed
 - example codes
 
