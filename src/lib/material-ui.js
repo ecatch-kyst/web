@@ -4,9 +4,9 @@ import deepmerge from 'deepmerge'
 const defaultTheme = createMuiTheme({typography: {useNextVariants: true}})
 
 
-const primaryFontFamily = {fontFamily: "Poppins, Arial, sans-serif"}
+const primaryFontFamily = "Poppins, Arial, sans-serif"
 
-const secondaryFontFamily = {fontFamily: "adobe-garamond-pro, 'Times New Roman'"}
+const secondaryFontFamily = "adobe-garamond-pro, 'Times New Roman'"
 
 
 const base = {
