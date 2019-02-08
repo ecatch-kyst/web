@@ -4,6 +4,37 @@
 		"email": "e-mail",
 		"forgot-password": "Forgot password",
 		"login": "log in",
+		"register": "register",
 		"password": "password"
+	},
+	"profile": {
+		"buttons": {
+			"logout": "Logg ut"
+		},
+		"labels": {
+			"name": "Name",
+			"email":"E-mail"
+		}
+	},
+	"dashboard": {
+		"buttons": {
+			"profile": "Profile",
+			"settings": "Settings"
+		}
+	},
+	"register": {
+		"labels": {
+			"name": "Name",
+			"email": "E-mail",
+			"password": "Password"
+		},
+		"placeholders": {
+			"name": "Name",
+			"email": "E-mail",
+			"password": "Password"
+		},
+		"buttons": {
+			"submit": "Register"
+		}
 	}
 }

@@ -1,8 +1,15 @@
 {
+	"buttons": {
+		"add-fishinggrounds": "Add a new fishingspot",
+		"my-messages": "My messages",
+		"report-catch": "Report catch",
+		"report-fishing": "Send",
+		"return-journey": "Report return journey"
+	},
 	"not-found": {
 		"back-to-main": "Back to the main page",
 		"go-to": "Go to 404",
-		"img-alt": "empty state",
+		"img-alt": "empty page",
 		"text": "page not found"
 	},
 	"states": {
@@ -11,5 +18,9 @@
 	"welcome": {
 		"intro": "To get started, edit <1><0></0></1> and save to reload.",
 		"title": "Welcome to {{framework}}"
+	},
+	"links": {
+		"not-found": "Go to 404",
+		"register": "Register"
 	}
 }
