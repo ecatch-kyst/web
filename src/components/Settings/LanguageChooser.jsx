@@ -1,5 +1,5 @@
 import React from 'react'
-import {Select, MenuItem, Typography, RootRef, MuiThemeProvider} from "@material-ui/core"
+import {Select, MenuItem, Typography} from "@material-ui/core"
 import {withTranslation} from "react-i18next"
 import {languages} from "../../locales/locales.json"
 
