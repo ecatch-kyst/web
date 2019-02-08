@@ -11,8 +11,8 @@ import Profile from './components/Profile'
 import Dashboard from './components/Dashboard'
 import Settings from './components/Settings'
 
-const App = ({theme}) =>
-  <div style={{backgroundColor: theme.palette.secondary.contrastText}}>
+const App = ({theme: {palette: {type}}}) =>
+  <div style={{backgroundColor: type === "dark" ? "#000" : "", minHeight: "100vh"}}>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Settings} exact path={routes.SETTINGS}/>

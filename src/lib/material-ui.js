@@ -50,6 +50,9 @@ const base = {
     subtitle1: {
       fontFamily: secondaryFontFamily
     },
+    subtitle2: {
+      color: "#000000C0"
+    },
     body1: {
       fontFamily: secondaryFontFamily
     },
@@ -80,9 +83,7 @@ const base = {
 
 const darkTheme = {
   palette: {
-    secondary: {
-      contrastText: "#3d3d3d"
-    }
+    type: "dark"
   },
   /*List:{
     ListItem: {
@@ -129,7 +130,7 @@ const darkTheme = {
       color: "#fff"
     },
     subtitle2: {
-      color: "#fff"
+      color: "#ffffffC0"
     }
   },
   overrides: {
@@ -138,14 +139,19 @@ const darkTheme = {
         backgroundColor: "transparent"
       }
     },
-    MuiPaper:{
-      root:{
-        backgroundColor: "#3d3d3d"
-      }
-    },
     MuiFormControl:{
       root:{
         backgroundColor: "#f2f9f8"
+      }
+    },
+    MuiSwitch: {
+      colorPrimary: {
+        '&$checked': {
+          color: "#51c1b7",
+          '& + $bar': {
+            backgroundColor: "#51c1b7"
+          }
+        }
       }
     }
   }
