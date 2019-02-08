@@ -74,6 +74,9 @@ const base = {
         fontSize: defaultTheme.typography.pxToRem(20),
         borderRadius: 24
       },
+      containedPrimary: {
+        boxShadow: "none"
+      },
       containedSecondary: {
         boxShadow: "none"
       }
