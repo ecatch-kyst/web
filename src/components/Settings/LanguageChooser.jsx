@@ -1,5 +1,5 @@
 import React from 'react'
-import {Select, MenuItem, Typography} from "@material-ui/core"
+import {Select, MenuItem, Typography, RootRef, MuiThemeProvider} from "@material-ui/core"
 import {withTranslation} from "react-i18next"
 import {languages} from "../../locales/locales.json"
 
@@ -14,11 +14,13 @@ const LanguageChooser = ({i18n}) => {
     <Select
       onChange={changeLanguage}
       value={i18n.language}
+      color="secondary"
     >
       {languages.map(({code, title, flag}) =>
         <MenuItem
           key={code}
           value={code}
+          selected
         >
           <Typography variant="subtitle1">
             <span aria-label={`{title} flag`} role="img" style={{paddingLeft: 4}}>{flag}</span> {title}

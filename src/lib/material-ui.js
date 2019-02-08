@@ -137,6 +137,16 @@ const darkTheme = {
       root: {
         backgroundColor: "transparent"
       }
+    },
+    MuiPaper:{
+      root:{
+        backgroundColor: "#3d3d3d"
+      }
+    },
+    MuiFormControl:{
+      root:{
+        backgroundColor: "#f2f9f8"
+      }
     }
   }
 
