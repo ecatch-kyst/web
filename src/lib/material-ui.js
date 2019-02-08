@@ -39,7 +39,8 @@ const base = {
       fontFamily: primaryFontFamily
     },
     h4: {
-      fontFamily: secondaryFontFamily
+      fontWeight: "bolder",
+      fontFamily: primaryFontFamily
     },
     h5: {
       fontFamily: secondaryFontFamily

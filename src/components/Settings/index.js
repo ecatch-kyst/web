@@ -8,7 +8,7 @@ import LanguageChooser from './LanguageChooser'
 const Settings = ({t, store: {isDarkMode, handleToggleDarkMode}}) =>
 
   <Grid container direction="column">
-    <Typography style={{padding: 16}} variant="h4">{t("titles.settings")}</Typography>
+    <Typography style={{padding: "16px 16px 8px"}} variant="h4">{t("titles.settings")}</Typography>
     <List>
       <Element
         actionComponent={
