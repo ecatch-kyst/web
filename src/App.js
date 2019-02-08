@@ -20,7 +20,7 @@ import {withTranslation} from 'react-i18next'
 
 
 const App = ({theme: {palette: {type}}}) =>
-  <div style={{backgroundColor: type === "dark" ? "#000" : "", minHeight: "100vh"}}>
+  <div className="app" style={{backgroundColor: type === "dark" ? "#000" : ""}}>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Register} exact path={routes.REGISTER}/>

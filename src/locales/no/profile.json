@@ -5,7 +5,8 @@
 		"changeLanguage": "Språk",
 		"profile": "Min profil",
 		"logout": "Logg ut",
-		"deleteUser": "Slett bruker"
+		"deleteUser": "Slett bruker",
+		"version": "Versjon"
 	},
   "buttons": {
     "logout": "Logg ut",
@@ -21,6 +22,7 @@
 		"changeLanguage": "Vis appen på språket som du velger",
 		"profildescription": "Her kan du redigere profilen din, legge til informasjon og verifisere at alt stemmer",
 		"logout": "",
-		"deleteUser": "Du kan slette deg fra vårt system"
+		"deleteUser": "Du kan slette deg fra vårt system",
+		"version": ""
 	}	
 }

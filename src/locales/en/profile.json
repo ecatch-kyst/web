@@ -5,7 +5,8 @@
 		"profile": "My profile",
 		"changeLanguage": "Change language",
     "logout": "Log out",
-    "deleteUser": "Delete user"
+    "deleteUser": "Delete user",
+    "version": "Version"
   },
   "buttons": {
     "logout": "Logout",
@@ -21,6 +22,7 @@
 		"changeLanguage": "The preferred language will be used throughout the app",
     "profildescription": "Here you can edit your profile, add information and verify that everything is correct",
     "logout": "",
-    "deleteUser": "You can remove yourself from our system"
+    "deleteUser": "You can remove yourself from our system",
+    "version": ""
 	}
 }

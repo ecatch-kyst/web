@@ -43,9 +43,11 @@ class Landing extends Component {
           <Typography variant="h4">{process.env.REACT_APP_TITLE}</Typography>
           <Card style={{minWidth: "calc(100vw/3)", maxWidth: "calc(100vw - 32px)", margin: 16}}>
             <CardContent>
-              <Grid container justify="center" spacing={8}>
+              <Grid container direction="column" justify="center" spacing={8}>
                 <Grid item>
                   <TextField
+                    autoFocus
+                    fullWidth
                     label={t("landing.email")}
                     name="email"
                     onChange={this.handleChange}
@@ -55,6 +57,7 @@ class Landing extends Component {
                 </Grid>
                 <Grid item>
                   <TextField
+                    fullWidth
                     label={t("landing.password")}
                     name="password"
                     onChange={this.handleChange}
@@ -66,15 +69,7 @@ class Landing extends Component {
             </CardContent>
             <CardActions>
               <Grid alignItems="center" container justify="flex-end" spacing={16}>
-                <Grid item>
-                  <MuiLink
-                    component={Link}
-                    style={{marginRight: 16}}
-                    to={routes.FORGOT_PASSWORD}
-                  >{t("landing.forgot-password")}
-                  </MuiLink>
-                </Grid>
-                <Grid container item justify="space-between" spacing={8}>
+                <Grid alignItems="center" container item justify="space-evenly" spacing={8}>
                   <Grid item>
                     <Button
                       color="primary"
@@ -85,6 +80,14 @@ class Landing extends Component {
                     >
                       {t("landing.login")}
                     </Button>
+                  </Grid>
+                  <Grid item>
+                    <MuiLink
+                      component={Link}
+                      style={{marginRight: 16}}
+                      to={routes.FORGOT_PASSWORD}
+                    >{t("landing.forgot-password")}
+                    </MuiLink>
                   </Grid>
                   <Grid item>
                     <Button
