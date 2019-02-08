@@ -1,15 +1,18 @@
 import React from 'react'
-import {Route, Switch, withRouter} from "react-router-dom"
-import NotFound from './components/NotFound'
-import {routes} from './lib/router'
-import {withTheme} from '@material-ui/core'
-import Landing from './components/Landing'
+import {Route, Switch, withRouter, Link} from "react-router-dom"
 
-import OfflineStatus from './components/OfflineStatus'
-import Register from './components/Register'
-import Profile from './components/Profile'
-import Dashboard from './components/Dashboard'
+import {routes} from './lib/router'
+
+import {
+  Landing,
+  Profile,
+  Register,
   OfflineStatus,
+  Dashboard,
+  NotFound
+} from './components'
+import {withTranslation} from 'react-i18next'
+
 
 const App = ({theme: {palette: {type}}}) =>
   <div style={{backgroundColor: type === "dark" ? "#000" : "", minHeight: "100vh"}}>

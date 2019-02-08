@@ -5,7 +5,7 @@ import {withTranslation} from 'react-i18next'
 import {Button, Typography} from '@material-ui/core'
 
 import {routes} from '../../lib/router'
-import empty from "../../assets/empty_state.svg"
+import empty from "../../assets/fish.svg"
 
 import "./not-found.sass"
 
