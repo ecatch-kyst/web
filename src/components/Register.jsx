@@ -21,10 +21,10 @@ export class Register extends Component {
 
 
   handleSubmitRegistration = async () => {
-    const {email, password} = this.state
+    const {email, password, name} = this.state
     try {
       await AUTH.createUserWithEmailAndPassword(email, password)
-      await this.context.handleUserUpdateProfile({displayName: this.state.name})
+      await this.context.handleUserUpdateProfile({displayName: name})
 
     } catch (error) {
       console.log(error)
@@ -34,11 +34,9 @@ export class Register extends Component {
   render() {
     const {name, email, password} = this.state
     const {t} = this.props
-    const {user} = this.context
-
     return (
       <>
-        {Object.keys(user).length ? <Redirect to={routes.PROFILE}/> : null}
+        {AUTH.currentUser ? <Redirect to={routes.PROFILE}/> : null}
         <form onSubmit={this.handleSubmitRegistration}>
           <Grid container direction="column" spacing={16} style={{margin: 16}}>
             <Grid container item spacing={16}>
