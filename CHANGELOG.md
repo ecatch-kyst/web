@@ -3,8 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
+- bottom navigation
 - use `localStorage` to save preferred language over sessions
-- settings page
+- unified settings & profile page
 - dark mode
     - Styling 💄
         - Dropdowns
@@ -19,6 +20,8 @@ All notable changes to this project will be documented in this file.
             - after registering a user -> dashboard
             - dashboard -> root
             - 404 -> root
+### Changed
+- Offline status
 ### Removed
 - example codes
 
