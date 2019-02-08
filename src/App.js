@@ -28,7 +28,10 @@ const App = ({theme: {palette: {type}}}) =>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
       <Route component={NotFound}/>
     </Switch>
-    <Navigation/>
+    <Route
+      component={({location: {pathname}}) => pathname !== "/" ? <Navigation/> : null}
+      path="/"
+    />
     <OfflineStatus/>
   </div>
 
