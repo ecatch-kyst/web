@@ -38,7 +38,6 @@ const base = {
     button: {
       fontFamily: primaryFontFamily
     },
-
     h4: {
       fontFamily: secondaryFontFamily
     },
@@ -82,8 +81,16 @@ const base = {
 const darkTheme = {
   palette: {
     secondary: {
-      contrastText: "#000"
+      contrastText: "#3d3d3d"
     }
+  },
+  /*List:{
+    ListItem: {
+      color: "#fff"
+    }
+  },*/
+  TextField: {
+    color: "#fff"
   },
   typography: {
     useNextVariants: true,
@@ -100,7 +107,6 @@ const darkTheme = {
     button: {
       color: "#fff"
     },
-
     h4: {
       color: "#fff"
     },
@@ -120,6 +126,9 @@ const darkTheme = {
       color: "#fff"
     },
     caption: {
+      color: "#fff"
+    },
+    subtitle2: {
       color: "#fff"
     }
   },

@@ -23,7 +23,7 @@ const Settings = ({t, store: {isDarkMode, handleToggleDarkMode}}) =>
           />
         }
         id="dark-mode"
-        onClick={handleToggleDarkMode}
+        //onClick={handleToggleDarkMode} removing this and the  onclick in listitem makes dark-mode toggle again.
       />
       <Element
         actionComponent={<LanguageChooser/>}
@@ -38,7 +38,7 @@ export default withStore(withTranslation("settings")(Settings))
 
 const Element = withTranslation("settings")(
   ({t, id, actionComponent, onClick, clickable=true}) =>
-    <ListItem onClick={() => clickable && onClick()} style={{cursor: clickable ? "pointer" : ""}}>
+    <ListItem /*onClick={() => clickable && onClick()} style={{cursor: clickable ? "pointer" : ""}}*/>
       <Grid alignItems="center" container>
         <Grid item xs={8}>
           <Typography variant="h6">{t(`titles.${id}`)}</Typography>
