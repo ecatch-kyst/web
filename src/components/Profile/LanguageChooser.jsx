@@ -12,15 +12,15 @@ const LanguageChooser = ({i18n}) => {
 
   return(
     <Select
+      color="secondary"
       onChange={changeLanguage}
       value={i18n.language}
-      color="secondary"
     >
       {languages.map(({code, title, flag}) =>
         <MenuItem
           key={code}
-          value={code}
           selected
+          value={code}
         >
           <Typography variant="subtitle1">
             <span aria-label={`{title} flag`} role="img" style={{paddingLeft: 4}}>{flag}</span> {title}
@@ -31,4 +31,4 @@ const LanguageChooser = ({i18n}) => {
   )
 }
 
-export default withTranslation("settings")(LanguageChooser)
+export default withTranslation("profile")(LanguageChooser)

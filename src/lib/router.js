@@ -4,6 +4,5 @@ export const routes = {
   TEST: "/test",
   FORGOT_PASSWORD: "/new-password",
   REGISTER: "/register",
-  PROFILE: "/profile",
-  SETTINGS: "/settings"
+  PROFILE: "/profile"
 }

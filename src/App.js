@@ -9,13 +9,12 @@ import OfflineStatus from './components/OfflineStatus'
 import Register from './components/Register'
 import Profile from './components/Profile'
 import Dashboard from './components/Dashboard'
-import Settings from './components/Settings'
+  OfflineStatus,
 
 const App = ({theme: {palette: {type}}}) =>
   <div style={{backgroundColor: type === "dark" ? "#000" : "", minHeight: "100vh"}}>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
-      <Route component={Settings} exact path={routes.SETTINGS}/>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
