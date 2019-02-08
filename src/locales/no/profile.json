@@ -1,10 +1,26 @@
 {
+  "titles": {
+		"about-us": "Om oss",
+		"dark-mode": "Nattmodus",
+		"changeLanguage": "Språk",
+		"profile": "Min profil",
+		"logout": "Logg ut",
+		"deleteUser": "Slett bruker"
+	},
   "buttons": {
     "logout": "Logg ut",
-    "deleteUser": "FJERN BRUKER"
+    "deleteUser": "Slett"
   },
   "labels": {
     "name": "Navn",
     "email": "E-post"
-  }
+  },
+  "descriptions": {
+		"about-us": "Dette er beskrivelsen av selskapet og hvordan man kontakter oss",
+		"dark-mode": "Bytt til nattmodus for å gjøre det bedre å bruke appen om natten",
+		"changeLanguage": "Vis appen på språket som du velger",
+		"profildescription": "Her kan du redigere profilen din, legge til informasjon og verifisere at alt stemmer",
+		"logout": "",
+		"deleteUser": "Du kan slette deg fra vårt system"
+	}	
 }

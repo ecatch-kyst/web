@@ -6,6 +6,10 @@
 		"report-fishing": "Send",
 		"return-journey": "Report return journey"
 	},
+	"navigation": {
+		"dashboard": "Dashboard",
+		"profile": "Profile"
+	},
 	"not-found": {
 		"back-to-main": "Back to the main page",
 		"go-to": "Go to 404",

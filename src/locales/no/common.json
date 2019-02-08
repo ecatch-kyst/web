@@ -6,6 +6,10 @@
 		"report-fishing": "Rapporter inn",
 		"return-journey": "Meld hjemreise"
 	},
+	"navigation": {
+		"dashboard": "Dashboard",
+		"profile": "Profil"
+	},
 	"not-found": {
 		"back-to-main": "Tilbake til hovedside",
 		"img-alt": "tom side",
