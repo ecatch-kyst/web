@@ -8,77 +8,78 @@ import {routes} from '../../lib/router'
 import {AUTH} from '../../lib/firebase'
 import {withStore} from '../../db'
 
-const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout, handleUserDelete}}) => {
-  return (
-    <Grid container direction="column">
-      {!AUTH.currentUser && <Redirect to={routes.ROOT}/>}
-      <Typography style={{padding: "24px 24px 16px"}} variant="h4">{t("titles.profile")}</Typography>
-      <ProfileDetails/>
+const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout, handleUserDelete}}) =>
+  <Grid container direction="column">
+    {!AUTH.currentUser && <Redirect to={routes.ROOT}/>}
+    <Typography style={{padding: "24px 24px 16px"}} variant="h4">{t("titles.profile")}</Typography>
+    <ProfileDetails/>
+    <Divider/>
+    <List>
+      <Element
+        actionComponent={
+          <FormControlLabel
+            control={
+              <Switch
+                checked={isDarkMode}
+                color="primary"
+              />
+            }
+          />
+        }
+        clickable
+        id="dark-mode"
+        onClick={handleToggleDarkMode}
+      />
+      <Element
+        actionComponent={<LanguageChooser/>}
+        id="changeLanguage"
+      />
       <Divider/>
-      <List>
-        <Element
-          actionComponent={
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={isDarkMode}
-                  color="primary"
-                />
-              }
-            />
-          }
-          clickable
-          id="dark-mode"
-          onClick={handleToggleDarkMode}
-        />
-        <Element
-          actionComponent={<LanguageChooser/>}
-          clickable={false}
-          id="changeLanguage"
-        />
-        <Divider/>
-        <Element
-          actionComponent={
-            <Button
-              color="primary"
-              onClick={handleUserDelete}
-              size="large"
-              variant="contained"
-            >
-              {t("buttons.deleteUser")}
-            </Button>
+      <Element
+        actionComponent={
+          <Button
+            color="primary"
+            onClick={handleUserDelete}
+            size="large"
+            variant="contained"
+          >
+            {t("buttons.deleteUser")}
+          </Button>
 
-          }
-          clickable={false}
-          id="deleteUser"
-        />
-        <Element
-          actionComponent={
-            <Button
-              color="secondary"
-              onClick={handleUserLogout}
-              size="large"
-              variant="contained"
-            >
-              {t("buttons.logout")}
-            </Button>
-          }
-          clickable={false}
-          id="logout"
-        />
-      </List>
-      <Grid item>
-        <Typography align="center">{process.env.REACT_APP_VERSION}</Typography>
-      </Grid>
+        }
+        id="deleteUser"
+      />
+      <Element
+        actionComponent={
+          <Button
+            color="secondary"
+            onClick={handleUserLogout}
+            size="large"
+            variant="contained"
+          >
+            {t("buttons.logout")}
+          </Button>
+        }
+        id="logout"
+      />
+      <Element
+        actionComponent={
+          <Typography align="center">
+            {process.env.REACT_APP_VERSION}
+          </Typography>
+        }
+        id="version"
+      />
+    </List>
+    <Grid item>
     </Grid>
-  )
-}
+  </Grid>
 
 export default withTranslation("profile")(withStore(withTheme()(Profile)))
 
 
 const Element = withTranslation("profile")(
-  ({t, id, actionComponent, onClick, clickable=true}) =>
+  ({t, id, actionComponent, onClick, clickable}) =>
     <ListItem onClick={() => clickable && onClick()} style={{cursor: clickable ? "pointer" : ""}}>
       <Grid alignItems="center" container>
         <Grid item xs={7}>

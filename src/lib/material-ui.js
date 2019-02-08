@@ -1,13 +1,7 @@
 import {createMuiTheme} from '@material-ui/core/styles'
 import deepmerge from 'deepmerge'
 
-const defaultTheme = createMuiTheme({typography: {useNextVariants: true}})
-
-
-const primaryFontFamily = "Poppins, Arial, sans-serif"
-
 const secondaryFontFamily = "adobe-garamond-pro, 'Times New Roman'"
-
 
 const base = {
   palette: {
@@ -25,22 +19,10 @@ const base = {
   },
   typography: {
     useNextVariants: true,
-
-    h1: {
-      fontFamily: primaryFontFamily
-    },
-    h2: {
-      fontFamily: primaryFontFamily
-    },
-    h3: {
-      fontFamily: primaryFontFamily
-    },
-    button: {
-      fontFamily: primaryFontFamily
-    },
+    fontSize: 16,
+    fontFamily: "Poppins, Arial, sans-serif",
     h4: {
-      fontWeight: "bolder",
-      fontFamily: primaryFontFamily
+      fontWeight: "bolder"
     },
     h5: {
       fontFamily: secondaryFontFamily
@@ -71,7 +53,6 @@ const base = {
     MuiButton: {
       sizeLarge: {
         padding: '8px 24px',
-        fontSize: defaultTheme.typography.pxToRem(20),
         borderRadius: 24
       },
       containedPrimary: {
