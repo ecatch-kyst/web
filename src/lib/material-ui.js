@@ -125,7 +125,7 @@ const darkTheme = {
     },
     MuiBottomNavigation: {
       root: {
-        backgroundColor: "#ffffff40"
+        backgroundColor: "#333333"
       }
     },
     MuiBottomNavigationAction: {
