@@ -5158,10 +5158,12 @@ hyphenate-style-name@^1.0.2:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
   integrity sha1-MRYKNpMK2vH8BMYHT360FGXU7Es=
 
-i18next@^14.0.1:
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-14.0.1.tgz#c5f0292ea6389394b6056f597b75f1f9aa03124f"
-  integrity sha512-wsKfQuYsy4RdCaqqN71eDjWMhizhTfQSIBGttEA7vcboQrUfpQlCezrSzrtmoW9F9tmVyNs38iBgLYLMhRSeIQ==
+i18next@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-15.0.0.tgz#26faacb69949c71328e10bcdb51afc7d7a1e326c"
+  integrity sha512-wcfFJC4pLDGhDMWaaInkyAWhVC8WEQERWJzB61Ai+9fkZ4CqeOKC9qIE5wjJnQmcWIAjJfyck5EGkitPkEcLGQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
 
 iconv-lite@0.4.23:
   version "0.4.23"
@@ -8965,7 +8967,7 @@ react-i18next@^10.0.0:
     hoist-non-react-statics "3.3.0"
     html-parse-stringify2 "2.0.1"
 
-react-is@^16.6.1, react-is@^16.6.3, react-is@^16.7.0:
+react-is@^16.6.3, react-is@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.7.0.tgz#c1bd21c64f1f1364c6f70695ec02d69392f41bfa"
   integrity sha512-Z0VRQdF4NPDoI0tsXVMLkJLiwEBa+RP66g0xDHxgxysxSoCUccSten4RTF/UFvZF1dZvZ9Zu1sx+MDXwcOR34g==
