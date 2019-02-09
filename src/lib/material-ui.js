@@ -1,13 +1,7 @@
 import {createMuiTheme} from '@material-ui/core/styles'
 import deepmerge from 'deepmerge'
 
-const defaultTheme = createMuiTheme({typography: {useNextVariants: true}})
-
-
-const primaryFontFamily = {fontFamily: "Poppins, Arial, sans-serif"}
-
-const secondaryFontFamily = {fontFamily: "adobe-garamond-pro, 'Times New Roman'"}
-
+const secondaryFontFamily = "adobe-garamond-pro, 'Times New Roman'"
 
 const base = {
   palette: {
@@ -25,21 +19,10 @@ const base = {
   },
   typography: {
     useNextVariants: true,
-
-    h1: {
-      fontFamily: primaryFontFamily
-    },
-    h2: {
-      fontFamily: primaryFontFamily
-    },
-    h3: {
-      fontFamily: primaryFontFamily
-    },
-    button: {
-      fontFamily: primaryFontFamily
-    },
+    fontSize: 16,
+    fontFamily: "Poppins, Arial, sans-serif",
     h4: {
-      fontFamily: secondaryFontFamily
+      fontWeight: "bolder"
     },
     h5: {
       fontFamily: secondaryFontFamily
@@ -51,7 +34,7 @@ const base = {
       fontFamily: secondaryFontFamily
     },
     subtitle2: {
-      color: "#000000C0"
+      color: "#00000080"
     },
     body1: {
       fontFamily: secondaryFontFamily
@@ -70,8 +53,10 @@ const base = {
     MuiButton: {
       sizeLarge: {
         padding: '8px 24px',
-        fontSize: defaultTheme.typography.pxToRem(20),
         borderRadius: 24
+      },
+      containedPrimary: {
+        boxShadow: "none"
       },
       containedSecondary: {
         boxShadow: "none"
@@ -85,16 +70,10 @@ const darkTheme = {
   palette: {
     type: "dark"
   },
-  /*List:{
-    ListItem: {
-      color: "#fff"
-    }
-  },*/
   TextField: {
     color: "#fff"
   },
   typography: {
-    useNextVariants: true,
 
     h1: {
       color: "#fff"
@@ -144,12 +123,24 @@ const darkTheme = {
         backgroundColor: "#f2f9f8"
       }
     },
+    MuiBottomNavigation: {
+      root: {
+        backgroundColor: "#ffffff40"
+      }
+    },
+    MuiBottomNavigationAction: {
+      root: {
+        '&$selected': {
+          color: base.palette.secondary.main
+        }
+      }
+    },
     MuiSwitch: {
       colorPrimary: {
         '&$checked': {
-          color: "#51c1b7",
+          color: base.palette.secondary.main,
           '& + $bar': {
-            backgroundColor: "#51c1b7"
+            backgroundColor: base.palette.secondary.main
           }
         }
       }

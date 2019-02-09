@@ -2,11 +2,13 @@
 	"descriptions": {
 		"about-us": "",
 		"changeLanguage": "",
+		"dark-mode": "",
 		"profildescription": ""
 	},
 	"titles": {
 		"about-us": "",
-		"darkmode": "",
+		"changeLanguage": "",
+		"dark-mode": "",
 		"profil": "",
 		"settings": ""
 	}

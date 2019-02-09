@@ -1,40 +1,40 @@
 {
-	"landing": {
-		"blob-img-alt": "blob",
-		"email": "e-mail",
-		"forgot-password": "Forgot password",
-		"login": "log in",
-		"register": "register",
-		"password": "password"
-	},
-	"profile": {
-		"buttons": {
-			"logout": "Logg ut"
-		},
-		"labels": {
-			"name": "Name",
-			"email":"E-mail"
-		}
-	},
 	"dashboard": {
 		"buttons": {
 			"profile": "Profile",
 			"settings": "Settings"
 		}
 	},
-	"register": {
+	"landing": {
+		"blob-img-alt": "blob",
+		"email": "e-mail",
+		"forgot-password": "Forgot password",
+		"login": "log in",
+		"password": "password",
+		"register": "register"
+	},
+	"profile": {
+		"buttons": {
+			"logout": "Logg ut"
+		},
 		"labels": {
-			"name": "Name",
 			"email": "E-mail",
+			"name": "Name"
+		}
+	},
+	"register": {
+		"buttons": {
+			"submit": "Register"
+		},
+		"labels": {
+			"email": "E-mail",
+			"name": "Name",
 			"password": "Password"
 		},
 		"placeholders": {
-			"name": "Name",
 			"email": "E-mail",
+			"name": "Name",
 			"password": "Password"
-		},
-		"buttons": {
-			"submit": "Register"
 		}
 	}
 }

@@ -6,6 +6,14 @@
 		"report-fishing": "Send",
 		"return-journey": "Report return journey"
 	},
+	"links": {
+		"not-found": "Go to 404",
+		"register": "Register"
+	},
+	"navigation": {
+		"dashboard": "Dashboard",
+		"profile": "Profile"
+	},
 	"not-found": {
 		"back-to-main": "Back to the main page",
 		"go-to": "Go to 404",
@@ -18,9 +26,5 @@
 	"welcome": {
 		"intro": "To get started, edit <1><0></0></1> and save to reload.",
 		"title": "Welcome to {{framework}}"
-	},
-	"links": {
-		"not-found": "Go to 404",
-		"register": "Register"
 	}
 }

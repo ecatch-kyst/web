@@ -1,23 +1,15 @@
 import React from 'react'
-import {Grid, Button, Typography} from '@material-ui/core'
+import {Grid, Typography} from '@material-ui/core'
 import {routes} from '../lib/router'
-import {withStore} from '../db'
-import {Redirect, Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import {withTranslation} from 'react-i18next'
+import {AUTH} from '../lib/firebase'
 
 
-const Dashboard = ({t, store: {user}}) =>
-  <Grid>
-    {!Object.keys(user).length ? <Redirect to={routes.ROOT}/> : null}
-      <Typography variant ="h5">Dashboard</Typography>
-    <Button color="secondary" component={Link} to={routes.PROFILE} variant="contained">
-      {t("dashboard.buttons.profile")}
-    </Button>
-
-    <Button color="secondary" component={Link} to={routes.SETTINGS} variant="contained">
-      {t("dashboard.buttons.settings")}
-    </Button>
-
+const Dashboard = ({t}) =>
+  <Grid container style={{padding: "24px 16px"}}>
+    {!AUTH.currentUser ? <Redirect to={routes.ROOT}/> : null}
+    <Typography variant ="h4">Dashboard</Typography>
   </Grid>
 
-export default withTranslation("pages")(withStore(Dashboard))
+export default withTranslation("pages")(Dashboard)

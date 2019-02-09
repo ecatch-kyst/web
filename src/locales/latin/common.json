@@ -6,6 +6,14 @@
 		"report-fishing": "",
 		"return-journey": ""
 	},
+	"links": {
+		"not-found": "",
+		"register": ""
+	},
+	"navigation": {
+		"dashboard": "",
+		"profile": ""
+	},
 	"not-found": {
 		"back-to-main": "",
 		"go-to": "",

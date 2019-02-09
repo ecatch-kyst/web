@@ -6,8 +6,17 @@
 		"report-fishing": "Rapporter inn",
 		"return-journey": "Meld hjemreise"
 	},
+	"links": {
+		"not-found": "Gå til 404",
+		"register": "Registrer"
+	},
+	"navigation": {
+		"dashboard": "Dashboard",
+		"profile": "Profil"
+	},
 	"not-found": {
 		"back-to-main": "Tilbake til hovedside",
+		"go-to": "",
 		"img-alt": "tom side",
 		"text": "siden finnes ikke"
 	},
@@ -17,9 +26,5 @@
 	"welcome": {
 		"intro": "For å starte, rediger <1><0></0></1> og lagre for å laste på nytt.",
 		"title": "Velkommen til {{framework}}"
-	},
-	"links": {
-		"not-found": "Gå til 404",
-		"register": "Registrer"
 	}
 }
