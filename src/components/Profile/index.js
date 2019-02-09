@@ -1,6 +1,9 @@
 import React from 'react'
 import {Redirect} from "react-router-dom"
-import {List, ListItem, Grid, FormControlLabel, Switch, Typography, withTheme, Button, Divider} from '@material-ui/core'
+import {
+  List, ListItem, Grid, FormControlLabel,
+  Switch, Typography, withTheme, Button, Divider
+} from '@material-ui/core'
 import {withTranslation} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 import ProfileDetails from './ProfileDetails'
