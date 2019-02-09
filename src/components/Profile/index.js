@@ -7,9 +7,9 @@ import ProfileDetails from './ProfileDetails'
 import {routes} from '../../lib/router'
 import {AUTH} from '../../lib/firebase'
 import {withStore} from '../../db'
-import ActionModal from './ActionModal';
+import ActionModal from './ActionModal'
 
-const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout, handleUserDelete, handleActionModal}}) =>
+export const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserDelete, handleActionModal}}) =>
   <Grid container direction="column" style={{marginBottom: 56}}>
     {!AUTH.currentUser && <Redirect to={routes.ROOT}/>}
     <Typography style={{padding: "24px 24px 16px"}} variant="h4">{t("titles.profile")}</Typography>
@@ -52,14 +52,7 @@ const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout,
       />
       <Element
         actionComponent={
-          <Button
-            color="secondary"
-            onClick={handleUserLogout}
-            size="large"
-            variant="contained"
-          >
-            {t("buttons.logout")}
-          </Button>
+          <Logout/>
         }
         id="logout"
       />
@@ -77,7 +70,7 @@ const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout,
 export default withTranslation("profile")(withStore(withTheme()(Profile)))
 
 
-const Element = withTranslation("profile")(
+export const Element = withTranslation("profile")(
   ({t, id, actionComponent, onClick, clickable}) =>
     <ListItem onClick={() => clickable && onClick()} style={{cursor: clickable ? "pointer" : ""}}>
       <Grid alignItems="center" container>
@@ -91,3 +84,15 @@ const Element = withTranslation("profile")(
       </Grid>
     </ListItem>
 )
+
+export const Logout = withTranslation("profile")(withStore(({t, store: {handleUserLogout}}) =>
+  <Button
+    color="secondary"
+    name="logout"
+    onClick={handleUserLogout}
+    size="large"
+    variant="contained"
+  >
+    {t("buttons.logout")}
+  </Button>
+))
