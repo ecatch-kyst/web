@@ -72,7 +72,7 @@ class Landing extends Component {
                 <Grid alignItems="center" container item justify="space-evenly" spacing={8}>
                   <Grid item>
                     <Button
-                      color="primary"
+                      color="secondary"
                       onClick={this.handleUserLogin}
                       size="large"
                       type="submit"
@@ -91,7 +91,7 @@ class Landing extends Component {
                   </Grid>
                   <Grid item>
                     <Button
-                      color="secondary"
+                      color="primary"
                       component={Link}
                       size="large"
                       to={routes.REGISTER}

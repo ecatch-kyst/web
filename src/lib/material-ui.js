@@ -34,7 +34,7 @@ const base = {
       fontFamily: secondaryFontFamily
     },
     subtitle2: {
-      color: "#000000C0"
+      color: "#00000080"
     },
     body1: {
       fontFamily: secondaryFontFamily
@@ -123,12 +123,24 @@ const darkTheme = {
         backgroundColor: "#f2f9f8"
       }
     },
+    MuiBottomNavigation: {
+      root: {
+        backgroundColor: "#ffffff40"
+      }
+    },
+    MuiBottomNavigationAction: {
+      root: {
+        '&$selected': {
+          color: base.palette.secondary.main
+        }
+      }
+    },
     MuiSwitch: {
       colorPrimary: {
         '&$checked': {
-          color: "#51c1b7",
+          color: base.palette.secondary.main,
           '& + $bar': {
-            backgroundColor: "#51c1b7"
+            backgroundColor: base.palette.secondary.main
           }
         }
       }

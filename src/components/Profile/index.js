@@ -9,7 +9,7 @@ import {AUTH} from '../../lib/firebase'
 import {withStore} from '../../db'
 
 const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout, handleUserDelete}}) =>
-  <Grid container direction="column">
+  <Grid container direction="column" style={{marginBottom: 56}}>
     {!AUTH.currentUser && <Redirect to={routes.ROOT}/>}
     <Typography style={{padding: "24px 24px 16px"}} variant="h4">{t("titles.profile")}</Typography>
     <ProfileDetails/>
