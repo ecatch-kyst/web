@@ -1,28 +1,31 @@
 {
-  "titles": {
-    "about-us": "About us",
-		"dark-mode": "Dark mode",
-		"profile": "My profile",
-		"changeLanguage": "Change language",
-    "logout": "Log out",
-    "deleteUser": "Delete user",
-    "version": "Version"
-  },
-  "buttons": {
-    "logout": "Logout",
-    "deleteUser": "DELETE"
-  },
-  "labels": {
-    "name": "Name",
-    "email": "E-mail"
-  },
-  "descriptions": {
+	"buttons": {
+		"deleteUser": "DELETE",
+		"logout": "Logout"
+	},
+	"descriptions": {
 		"about-us": "This is the description of the company and how to contact us",
-		"dark-mode": "Give your eyes a break when you just have to work after dark",
 		"changeLanguage": "The preferred language will be used throughout the app",
-    "profildescription": "Here you can edit your profile, add information and verify that everything is correct",
-    "logout": "",
-    "deleteUser": "You can remove yourself from our system",
-    "version": ""
+		"dark-mode": "Give your eyes a break when you just have to work after dark",
+		"deleteUser": "You can remove yourself from our system",
+		"logout": "",
+		"negative": "No",
+		"positive": "Yes",
+		"profildescription": "Here you can edit your profile, add information and verify that everything is correct",
+		"slett-meg": "Are you sure you want to delete your user?",
+		"version": ""
+	},
+	"labels": {
+		"email": "E-mail",
+		"name": "Name"
+	},
+	"titles": {
+		"about-us": "About us",
+		"changeLanguage": "Change language",
+		"dark-mode": "Dark mode",
+		"deleteUser": "Delete user",
+		"logout": "Log out",
+		"profile": "My profile",
+		"version": "Version"
 	}
 }

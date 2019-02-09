@@ -7,8 +7,9 @@ import ProfileDetails from './ProfileDetails'
 import {routes} from '../../lib/router'
 import {AUTH} from '../../lib/firebase'
 import {withStore} from '../../db'
+import ActionModal from './ActionModal';
 
-const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout, handleUserDelete}}) =>
+const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout, handleUserDelete, handleActionModal}}) =>
   <Grid container direction="column" style={{marginBottom: 56}}>
     {!AUTH.currentUser && <Redirect to={routes.ROOT}/>}
     <Typography style={{padding: "24px 24px 16px"}} variant="h4">{t("titles.profile")}</Typography>
@@ -37,15 +38,15 @@ const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout,
       <Divider/>
       <Element
         actionComponent={
-          <Button
+          /*<Button
             color="primary"
-            onClick={handleUserDelete}
+            onClick={handleActionModal}
             size="large"
             variant="contained"
           >
             {t("buttons.deleteUser")}
-          </Button>
-
+          </Button>*/
+          <ActionModal/>
         }
         id="deleteUser"
       />

@@ -1,40 +1,40 @@
 {
-	"landing": {
-		"blob-img-alt": "blob",
-		"email": "e-post",
-		"forgot-password": "Glemt passord",
-		"login": "logg inn",
-		"register": "registrer",
-		"password": "passord"
-	},
-	"profile": {
-		"buttons": {
-			"logout": "Logg ut"
-		},
-		"labels": {
-			"name": "Navn",
-			"email":"E-post"
-		}
-	},
 	"dashboard": {
 		"buttons": {
 			"profile": "Profil",
 			"settings": "Innstillinger"
 		}
 	},
-	"register": {
+	"landing": {
+		"blob-img-alt": "blob",
+		"email": "e-post",
+		"forgot-password": "Glemt passord",
+		"login": "logg inn",
+		"password": "passord",
+		"register": "registrer"
+	},
+	"profile": {
+		"buttons": {
+			"logout": "Logg ut"
+		},
 		"labels": {
-			"name": "Navn",
 			"email": "E-post",
+			"name": "Navn"
+		}
+	},
+	"register": {
+		"buttons": {
+			"submit": "Registrer"
+		},
+		"labels": {
+			"email": "E-post",
+			"name": "Navn",
 			"password": "Passord"
 		},
 		"placeholders": {
-			"name": "Navn",
 			"email": "E-post",
+			"name": "Navn",
 			"password": "Passord"
-		},
-		"buttons": {
-			"submit": "Registrer"
 		}
 	}
 }

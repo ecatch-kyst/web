@@ -1,4 +1,5 @@
 {
   "isOffline": false,
-  "isDarkMode": false
+  "isDarkMode": false,
+  "openModal": false
 }

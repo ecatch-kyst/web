@@ -4,6 +4,7 @@ import {CONNECTION_REF} from "../lib/firebase"
 
 import * as darkMode from "./actions/darkMode"
 import {login, updateProfile, logout, deleteUser} from "./actions/users"
+import {openActionModal, closeActionModal} from './actions/openModal'
 
 const Store = createContext()
 
@@ -27,6 +28,10 @@ export class Database extends Component {
 
   toggleDarkMode = darkMode.toggle.bind(this)
 
+  // ActionModal
+  openModal = openActionModal.bind(this)
+
+  closeModal = closeActionModal.bind(this)
 
   // User
   userLogin = login.bind(this)
@@ -46,6 +51,8 @@ export class Database extends Component {
           handleUserLogout: this.userLogout,
           handleUserLogin: this.userLogin,
           handleUserDelete: this.userDelete,
+          handleOpenModal: this.openModal,
+          handleCloseModal: this.closeModal,
           ...this.state
         }}
       >

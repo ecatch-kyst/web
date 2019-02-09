@@ -39,7 +39,7 @@ export async function logout() {
 export async function deleteUser() {
   try {
     await AUTH.currentUser.delete()
-    this.setState({isLoggedIn: false})
+    this.setState({isLoggedIn: false, openModal: false})
     console.log("User deleted")
   } catch (error) {
     console.log(error)
