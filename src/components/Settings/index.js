@@ -17,11 +17,11 @@ const Settings = ({t, store: {isDarkMode, handleToggleDarkMode}}) =>
               <Switch
                 checked={isDarkMode}
                 color="primary"
-                onChange={handleToggleDarkMode}
               />
             }
           />
         }
+        clickable
         id="dark-mode"
         onClick={handleToggleDarkMode}
       />

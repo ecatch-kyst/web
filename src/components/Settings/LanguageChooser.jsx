@@ -14,11 +14,13 @@ const LanguageChooser = ({i18n}) => {
     <Select
       onChange={changeLanguage}
       value={i18n.language}
+      color="secondary"
     >
       {languages.map(({code, title, flag}) =>
         <MenuItem
           key={code}
           value={code}
+          selected
         >
           <Typography variant="subtitle1">
             <span aria-label={`{title} flag`} role="img" style={{paddingLeft: 4}}>{flag}</span> {title}
