@@ -15,10 +15,13 @@ jest.mock("../../../lib/firebase", () => ({
   }
 }))
 
+
+/**
+ * helps to mock class for functions
+ * that needs to access 'this'
+ */
 class ClickHandlerMockClass extends Component {
-    static defaultProps = {
-      handlerArguments: []
-    }
+    static defaultProps = {handlerArguments: []}
 
     handleClick = this.props.clickHandler.bind(this)
 
