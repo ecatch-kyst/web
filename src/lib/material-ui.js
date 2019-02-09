@@ -70,16 +70,10 @@ const darkTheme = {
   palette: {
     type: "dark"
   },
-  /*List:{
-    ListItem: {
-      color: "#fff"
-    }
-  },*/
   TextField: {
     color: "#fff"
   },
   typography: {
-    useNextVariants: true,
 
     h1: {
       color: "#fff"

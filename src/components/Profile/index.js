@@ -71,8 +71,6 @@ const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserLogout,
         id="version"
       />
     </List>
-    <Grid item>
-    </Grid>
   </Grid>
 
 export default withTranslation("profile")(withStore(withTheme()(Profile)))
