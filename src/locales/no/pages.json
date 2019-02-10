@@ -21,5 +21,35 @@
 			"email": "E-post",
 			"name": "Navn"
 		}
+	},
+	"register": {
+		"buttons": {
+			"submit": "Registrer"
+		},
+		"labels": {
+			"email": "E-post",
+			"name": "Navn",
+			"password": "Passord"
+		},
+		"placeholders": {
+			"email": "E-post",
+			"name": "Navn",
+			"password": "Passord"
+		}
+	},
+	"departure": {
+		"labels": {
+			"departurePort": "Avreisehavn",
+			"departureDate": "Avreisedato",
+			"departureTime": "Avreisetidspunkt",
+			"plannedCatchStartDate": "Planlagt dato for fangststart",
+			"plannedCatchStartTime": "Planlagt tid for fangststart"
+		},
+		"placeholders": {
+			"departurePort": "Brattøra"
+		},
+		"buttons": {
+			"depart": "Meld avreise"
+		}
 	}
 }

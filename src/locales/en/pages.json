@@ -2,7 +2,8 @@
 	"dashboard": {
 		"buttons": {
 			"profile": "Profile",
-			"settings": "Settings"
+			"settings": "Settings",
+			"departure": "Departure"
 		}
 	},
 	"landing": {
@@ -20,6 +21,36 @@
 		"labels": {
 			"email": "E-mail",
 			"name": "Name"
+		}
+	},
+	"register": {
+		"buttons": {
+			"submit": "Register"
+		},
+		"labels": {
+			"email": "E-mail",
+			"name": "Name",
+			"password": "Password"
+		},
+		"placeholders": {
+			"email": "E-mail",
+			"name": "Name",
+			"password": "Password"
+		}
+	},
+	"departure": {
+		"labels": {
+			"departurePort": "Departure harbour",
+			"departureDate": "Departure date",
+			"departureTime": "Departure time",
+			"plannedCatchStartDate": "Planned catch start date",
+			"plannedCatchStartTime": "Planned catch start time"
+		},
+		"placeholders": {
+			"departurePort": "Rotterdam"
+		},
+		"buttons": {
+			"depart": "Depart"
 		}
 	}
 }
