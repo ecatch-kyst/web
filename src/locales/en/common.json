@@ -8,7 +8,8 @@
 	},
 	"links": {
 		"not-found": "Go to 404",
-		"register": "Register"
+		"register": "Register",
+		"departure": "Departure"
 	},
 	"navigation": {
 		"dashboard": "Dashboard",

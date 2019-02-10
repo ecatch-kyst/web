@@ -36,5 +36,20 @@
 			"name": "Navn",
 			"password": "Passord"
 		}
+	},
+	"departure": {
+		"labels": {
+			"departurePort": "Avreisehavn",
+			"departureDate": "Avreisedato",
+			"departureTime": "Avreisetidspunkt",
+			"plannedCatchStartDate": "Planlagt dato for fangststart",
+			"plannedCatchStartTime": "Planlagt tid for fangststart"
+		},
+		"placeholders": {
+			"departurePort": "Brattøra"
+		},
+		"buttons": {
+			"depart": "Meld avreise"
+		}
 	}
 }

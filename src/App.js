@@ -14,6 +14,7 @@ import {
   Register,
   OfflineStatus,
   Dashboard,
+  Departure,
   NotFound
 } from './components'
 import {withTranslation} from 'react-i18next'
@@ -26,6 +27,7 @@ const App = ({theme: {palette: {type}}}) =>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
+      <Route component={Departure} exact path={routes.DEPARTURE}/>
       <Route component={NotFound}/>
     </Switch>
     <Route

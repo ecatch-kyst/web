@@ -4,6 +4,7 @@ import Register from "./Register"
 import Landing from "./Landing"
 import NotFound from "./NotFound"
 import Profile from "./Profile"
+import Departure from "./Departure"
 
 export {
   OfflineStatus,
@@ -11,5 +12,6 @@ export {
   Register,
   Landing,
   NotFound,
-  Profile
+  Profile,
+  Departure
 }
