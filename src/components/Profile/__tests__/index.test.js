@@ -1,12 +1,4 @@
 import {Profile, Logout, Element} from ".."
-import {Redirect} from "react-router-dom"
-
-
-import "../../../lib/firebase"
-
-jest.mock("../../../lib/firebase", () => ({
-  AUTH: {currentUser: {}}
-}))
 
 describe("Profile component", () => {
 
@@ -26,9 +18,6 @@ describe("Profile component", () => {
   //   expect(props.store.handleUserDelete).toBeCalled()
   // })
 
-  it.skip("redirect to root if no user detected", () => {
-    expect(wrapper.find(Redirect).length).toBe(1)
-  })
 })
 
 

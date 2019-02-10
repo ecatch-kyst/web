@@ -1,27 +1,37 @@
 import LanguageChooser from "../LanguageChooser"
+import {MenuItem} from "@material-ui/core"
 
 describe("LanguageChooser component", () => {
-  const wrapper = mount(<LanguageChooser/>)
+  const props = {
+    i18n: {
+      changeLanguage: jest.fn()
+    }
+  }
+  const wrapper = shallow(<LanguageChooser {...props}/>).dive()
 
   it("renders correctly", () => expect(wrapper).toHaveLength(1))
 
-  it.skip("has Norwegian", () => {
+  it("has Norwegian", () => {
     expect(
       wrapper
         .findWhere(
-          el => el.type() === "button" && el.prop("key") === "no"
+          el => el.type() === MenuItem && el.prop("value") === "no"
         ).length
     ).toBe(1)
   })
 
-  it.skip("has English", () => {
+  it("has English", () => {
     expect(
       wrapper
         .findWhere(
-          el => el.type() === "button" && el.prop("key") === "en"
+          el => el.type() === MenuItem && el.prop("value") === "en"
         ).length
     ).toBe(1)
   })
 
-  // NOTE: Add language change test
+  it("language changes", () => {
+    wrapper.simulate("change", {target: {value: "newLanguage"}})
+    expect(localStorage.getItem("preferredLanguage")).toBe("newLanguage")
+    expect(props.i18n.changeLanguage).toBeCalledWith("newLanguage")
+  })
 })
