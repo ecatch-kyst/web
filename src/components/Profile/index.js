@@ -1,5 +1,4 @@
 import React from 'react'
-import {Redirect} from "react-router-dom"
 import {
   List, ListItem, Grid, FormControlLabel,
   Switch, Typography, withTheme, Button, Divider
@@ -7,15 +6,12 @@ import {
 import {withTranslation} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 import ProfileDetails from './ProfileDetails'
-import {routes} from '../../lib/router'
-import {AUTH} from '../../lib/firebase'
 import {withStore} from '../../db'
 import ActionModal from './ActionModal'
+import {Page} from '../shared'
 
 export const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserDelete, handleActionModal}}) =>
-  <Grid container direction="column" style={{marginBottom: 56}}>
-    {!AUTH.currentUser && <Redirect to={routes.ROOT}/>}
-    <Typography style={{padding: "24px 24px 16px"}} variant="h4">{t("titles.profile")}</Typography>
+  <Page namespace="profile" style={{marginBottom: 64}}>
     <ProfileDetails/>
     <Divider/>
     <List>
@@ -68,7 +64,7 @@ export const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUser
         id="version"
       />
     </List>
-  </Grid>
+  </Page>
 
 export default withTranslation("profile")(withStore(withTheme()(Profile)))
 
