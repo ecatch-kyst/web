@@ -29,8 +29,8 @@ const App = ({theme: {palette: {type}}}) =>
       <Route component={NotFound}/>
     </Switch>
     <Route
-      component={({location: {pathname}}) => pathname !== "/" ? <Navigation/> : null}
       path="/"
+      render={({location: {pathname}}) => pathname !== "/" ? <Navigation/> : null}
     />
     <OfflineStatus/>
   </div>
