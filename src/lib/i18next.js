@@ -3,6 +3,8 @@ import common_en from "../locales/en/common.json"
 import common_no from "../locales/no/common.json"
 import profile_en from "../locales/en/profile.json"
 import profile_no from "../locales/no/profile.json"
+import dashboard_en from "../locales/en/dashboard.json"
+import dashboard_no from "../locales/no/dashboard.json"
 import pages_en from "../locales/en/pages.json"
 import pages_no from "../locales/no/pages.json"
 import languages from "../locales/locales.json"
@@ -10,12 +12,14 @@ import languages from "../locales/locales.json"
 const en = {
   common: common_en,
   profile: profile_en,
+  dashboard: dashboard_en,
   pages: pages_en
 }
 
 const no = {
   common: common_no,
   profile: profile_no,
+  dashboard: dashboard_no,
   pages: pages_no
 }
 
