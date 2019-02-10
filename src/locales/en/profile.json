@@ -25,7 +25,7 @@
 		"dark-mode": "Dark mode",
 		"deleteUser": "Delete user",
 		"logout": "Log out",
-		"profile": "My profile",
+		"main": "My profile",
 		"version": "Version"
 	}
 }
