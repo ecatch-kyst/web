@@ -13,6 +13,8 @@
 	"navigation": {
 		"dashboard": "Dashboard",
 		"profile": "Profil"
+	"loading": {
+		"tooltip": "Laster..."
 	},
 	"not-found": {
 		"back-to-main": "Tilbake til hovedside",

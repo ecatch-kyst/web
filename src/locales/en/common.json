@@ -13,6 +13,8 @@
 	"navigation": {
 		"dashboard": "Dashboard",
 		"profile": "Profile"
+	"loading": {
+		"tooltip": "Loading..."
 	},
 	"not-found": {
 		"back-to-main": "Back to the main page",
