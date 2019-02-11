@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+
+## [1.0.0-beta1] - 2019-02-11
 ### Added
 - bottom navigation
 - use `localStorage` to save preferred language over sessions
