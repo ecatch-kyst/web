@@ -7,9 +7,9 @@ All notable changes to this project will be documented in this file.
 - use `localStorage` to save preferred language over sessions
 - unified settings & profile page
 - dark mode
-    - Styling 💄
-        - Dropdowns
-        - Inputs
+    - use `localStorage` to save preferred dark/light mode over sessions
+- Dialog
+- DestructButton
 - authentication:
     - registration
     - login
