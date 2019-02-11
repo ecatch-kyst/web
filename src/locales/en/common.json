@@ -13,7 +13,8 @@
 	},
 	"navigation": {
 		"dashboard": "Dashboard",
-		"profile": "Profile"
+		"profile": "Profile",
+		"departure": "Departure"
 	},
 	"not-found": {
 		"back-to-main": "Back to the main page",

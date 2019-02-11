@@ -3,6 +3,7 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
+import DepartureIcon from "@material-ui/icons/DirectionsBoatOutlined"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -41,6 +42,11 @@ export default withRouter(withTheme()(App))
 
 
 const navigation = [
+  {
+    id: "departure",
+    icon: <DepartureIcon/>,
+    to: routes.DEPARTURE
+  },
   {
     id: "dashboard",
     icon: <DashboardIcon/>,
