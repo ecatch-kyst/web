@@ -1,7 +1,25 @@
 {
+	"buttons": {
+		"add-fishinggrounds": "Legg til ny fiskeplass",
+		"my-messages": "Mine meldinger",
+		"report-catch": "Meld fangst",
+		"report-fishing": "Rapporter inn",
+		"return-journey": "Meld hjemreise"
+	},
+	"links": {
+		"not-found": "Gå til 404",
+		"register": "Registrer"
+	},
+	"navigation": {
+		"dashboard": "Dashboard",
+		"profile": "Profil"
+	},
+	"loading": {
+		"tooltip": "Laster..."
+	},
 	"not-found": {
 		"back-to-main": "Tilbake til hovedside",
-		"go-to": "Gå til 404",
+		"go-to": "",
 		"img-alt": "tom side",
 		"text": "siden finnes ikke"
 	},
@@ -11,5 +29,15 @@
 	"welcome": {
 		"intro": "For å starte, rediger <1><0></0></1> og lagre for å laste på nytt.",
 		"title": "Velkommen til {{framework}}"
+	},
+	"dialogs": {
+		"deleteUser": {
+			"titles": {
+				"main": "Slett bruker",
+				"submit": "Slett",
+				"cancel": "Nei"
+			},
+			"description": "Er du sikker på at du vil slette brukeren din? All informasjon blir slettet. Dette kan ikke reverseres."
+		}
 	}
 }

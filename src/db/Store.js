@@ -1,42 +1,58 @@
 import React, {Component, createContext} from "react"
-import helloWorld, {changeValue} from "./actions/helloWorld"
 import initValues from "./initialValues.json"
-import {DB, CONNECTION_REF} from "../lib/firebase"
+import {CONNECTION_REF} from "../lib/firebase"
+
+import * as darkMode from "./actions/darkMode"
+import {login, updateProfile, logout, deleteUser} from "./actions/users"
+import * as dialog from './actions/dialog'
 
 const Store = createContext()
 
 export class Database extends Component {
 
-  state = {
-    ...initValues,
-    isOffline: false
-  }
+  state = initValues
 
   async componentDidMount() {
 
+    this.initDarkMode()
+
+    this.userLogin()
 
     CONNECTION_REF
       .on("value", snap => this.setState({isOffline: !snap.val()}))
 
-    try {
-      const value = (await DB.ref("test").once("value")).val()
-      this.setState({value})
-    } catch (error) {
-      console.log(error)
-    }
   }
 
+  // Dark mode
+  initDarkMode = darkMode.init.bind(this)
 
-  helloWorld = helloWorld.bind(this)
+  toggleDarkMode = darkMode.toggle.bind(this)
 
-  changeValue = changeValue.bind(this)
+  // Dialog
+  handleDialog = dialog.handle.bind(this)
+
+  resetDialog = dialog.reset.bind(this)
+
+
+  // User
+  userLogin = login.bind(this)
+
+  userLogout = logout.bind(this)
+
+  userDelete = deleteUser.bind(this)
+
+  userUpdateProfile = updateProfile.bind(this)
 
   render() {
     return (
       <Store.Provider
         value={{
-          handleHelloWorld: this.helloWorld,
-          handleChangeValue: this.changeValue,
+          handleToggleDarkMode: this.toggleDarkMode,
+          handleUserUpdateProfile: this.userUpdateProfile,
+          handleUserLogout: this.userLogout,
+          handleUserLogin: this.userLogin,
+          handleUserDelete: this.userDelete,
+          handleDialog: this.handleDialog,
           ...this.state
         }}
       >

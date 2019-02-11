@@ -1,17 +1,9 @@
 import {createMuiTheme} from '@material-ui/core/styles'
+import deepmerge from 'deepmerge'
 
-const defaultTheme = createMuiTheme({typography: {useNextVariants: true}})
+const secondaryFontFamily = "adobe-garamond-pro, 'Times New Roman'"
 
-const primaryFont = {
-  fontFamily: "Poppins, Arial, sans-serif",
-  color: "#000"
-}
-const secondaryFont = {
-  fontFamily: "adobe-garamond-pro, 'Times New Roman'",
-  color: "#000"
-}
-
-export default createMuiTheme({
+const base = {
   palette: {
     primary: {
       dark: "#02405a",
@@ -27,19 +19,28 @@ export default createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-
-    h1: primaryFont,
-    h2: primaryFont,
-    h3: primaryFont,
-    button: primaryFont,
-
-    h4: secondaryFont,
-    h5: secondaryFont,
-    h6: secondaryFont,
-    subtitle1: secondaryFont,
-    body1: secondaryFont,
+    fontSize: 16,
+    fontFamily: "Poppins, Arial, sans-serif",
+    h4: {
+      fontWeight: "bolder"
+    },
+    h5: {
+      fontFamily: secondaryFontFamily
+    },
+    h6: {
+      fontFamily: secondaryFontFamily
+    },
+    subtitle1: {
+      fontFamily: secondaryFontFamily
+    },
+    subtitle2: {
+      color: "#00000080"
+    },
+    body1: {
+      fontFamily: secondaryFontFamily
+    },
     caption: {
-      ...secondaryFont,
+      fontFamily: secondaryFontFamily,
       fontStyle: "italic"
     }
   },
@@ -52,12 +53,102 @@ export default createMuiTheme({
     MuiButton: {
       sizeLarge: {
         padding: '8px 24px',
-        fontSize: defaultTheme.typography.pxToRem(20),
         borderRadius: 24
+      },
+      containedPrimary: {
+        boxShadow: "none"
       },
       containedSecondary: {
         boxShadow: "none"
       }
     }
   }
-})
+}
+
+
+const darkTheme = {
+  palette: {
+    type: "dark",
+    primary: {
+      dark: "#51c1b7",
+      main: "#98dad4",
+      light: "#f2f9f8"
+    },
+    secondary: {
+      dark: "#02405a",
+      main: "#6d8c9b",
+      light: "#ced9de",
+      contrastText: "#fff"
+    }
+  },
+  TextField: {
+    color: "#fff"
+  },
+  typography: {
+
+    h1: {
+      color: "#fff"
+    },
+    h2: {
+      color: "#fff"
+    },
+    h3: {
+      color: "#fff"
+    },
+    button: {
+      color: "#fff"
+    },
+    h4: {
+      color: "#fff"
+    },
+    h5: {
+      color: "#fff"
+    },
+    h6: {
+      color: "#fff"
+    },
+    subtitle1: {
+      color: "#fff"
+    },
+    body1: {
+      color: "#fff"
+    },
+    body2: {
+      color: "#fff"
+    },
+    caption: {
+      color: "#fff"
+    },
+    subtitle2: {
+      color: "#ffffffC0"
+    }
+  },
+  overrides: {
+    MuiCard: {
+      root: {
+        backgroundColor: "transparent"
+      }
+    },
+    MuiFormControl:{
+      root:{
+        backgroundColor: "#333",
+        color: "#000"
+      }
+    },
+    MuiBottomNavigation: {
+      root: {
+        backgroundColor: "#333333"
+      }
+    },
+    MuiAvatar: {
+      colorDefault: {
+        color: "#fff"
+      }
+    }
+  }
+
+}
+
+export const light = createMuiTheme({...base})
+export const dark = createMuiTheme(deepmerge(base, darkTheme))
+

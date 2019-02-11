@@ -1,9 +1,25 @@
 {
+	"dashboard": {
+		"buttons": {
+			"profile": "Profile",
+			"settings": "Settings"
+		}
+	},
 	"landing": {
 		"blob-img-alt": "blob",
 		"email": "e-mail",
 		"forgot-password": "Forgot password",
 		"login": "log in",
-		"password": "password"
+		"password": "password",
+		"register": "register"
+	},
+	"profile": {
+		"buttons": {
+			"logout": "Logg ut"
+		},
+		"labels": {
+			"email": "E-mail",
+			"name": "Name"
+		}
 	}
 }
