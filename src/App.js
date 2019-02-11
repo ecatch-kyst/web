@@ -14,7 +14,7 @@ import {
   Register,
   OfflineStatus,
   Dashboard,
-  NotFound
+  NotFound,
   Dialog
 } from './components'
 import {withTranslation} from 'react-i18next'
