@@ -11,7 +11,7 @@ export async function login(email, password) {
     AUTH.onAuthStateChanged(user => {
       if (user) {
         console.log("Successful login")
-        this.setState({isLoggedIn: false})
+        this.setState({isLoggedIn: true})
       }
       else console.log("Not logged in")
     })
