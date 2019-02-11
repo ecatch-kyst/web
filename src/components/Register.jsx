@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
+import {withRouter, Redirect} from "react-router-dom"
 import {Grid, Button, TextField} from '@material-ui/core'
 import {AUTH} from '../lib/firebase'
-import {withTranslation} from 'react-i18next'
 import Store from '../db/Store'
 
-import {Redirect} from "react-router-dom"
+import {withPage} from './shared'
+import {withTranslation} from 'react-i18next'
 import {routes} from '../lib/router'
 
 export class Register extends Component {
@@ -14,72 +15,78 @@ export class Register extends Component {
   state = {
     name: "",
     email: "",
-    password: ""
+    password: "",
+    isSubmitted: false
   }
 
   handleChange = ({target: {name, value}}) => this.setState({[name]: value})
 
 
-  handleSubmitRegistration = async () => {
+  handleSubmitRegistration = async e => {
+    e.preventDefault && e.preventDefault()
     const {email, password, name} = this.state
     try {
       await AUTH.createUserWithEmailAndPassword(email, password)
       await this.context.handleUserUpdateProfile({displayName: name})
-
+      this.setState({isSubmitted: true})
     } catch (error) {
       console.log(error)
     }
   }
 
   render() {
-    const {name, email, password} = this.state
+    const {name, email, password, isSubmitted} = this.state
     const {t} = this.props
     return (
-      <>
-        {AUTH.currentUser ? <Redirect to={routes.PROFILE}/> : null}
-        <form onSubmit={this.handleSubmitRegistration}>
-          <Grid container direction="column" spacing={16} style={{margin: 16}}>
-            <Grid container item spacing={16}>
-              <Input
-                label={t("register.labels.email")}
-                name="email"
-                onChange={this.handleChange}
-                placeholder={t("register.placeholders.email")}
-                value={email}
-              />
-              <Input
-                label={t("register.labels.password")}
-                name="password"
-                onChange={this.handleChange}
-                placeholder={t("register.placeholders.password")}
-                value={password}
-              />
-            </Grid>
+      <form onSubmit={this.handleSubmitRegistration}>
+        {isSubmitted ? <Redirect to={routes.DASHBOARD}/> : null}
+        <Grid container direction="column" spacing={16} style={{margin: 16}}>
+          <Grid container item spacing={16}>
             <Input
-              label={t("register.labels.name")}
-              name="name"
+              label={t("labels.email")}
+              name="email"
               onChange={this.handleChange}
-              placeholder={t("register.placeholders.name")}
-              value={name}
+              placeholder={t("placeholders.email")}
+              value={email}
             />
-            <Grid container item>
-              <Button
-                color="secondary"
-                onClick={this.handleSubmitRegistration}
-                size="large"
-                variant="contained"
-              >
-                {t("register.buttons.submit")}
-              </Button>
-            </Grid>
+            <Input
+              label={t("labels.password")}
+              name="password"
+              onChange={this.handleChange}
+              placeholder={t("placeholders.password")}
+              value={password}
+            />
           </Grid>
-        </form>
-      </>
+          <Input
+            label={t("labels.name")}
+            name="name"
+            onChange={this.handleChange}
+            placeholder={t("placeholders.name")}
+            value={name}
+          />
+          <Grid container item>
+            <Button
+              color="secondary"
+              size="large"
+              type="submit"
+              variant="contained"
+            >
+              {t("buttons.submit")}
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
     )
   }
 }
 
-export default withTranslation("pages")(Register)
+export default withRouter(withPage(
+  withTranslation("register")(Register),
+  {
+    namespace: "register",
+    isProtected: false
+  }
+))
 
 export const Input = ({type, ...props}) =>
   <Grid item>

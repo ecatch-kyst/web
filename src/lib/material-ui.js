@@ -68,7 +68,18 @@ const base = {
 
 const darkTheme = {
   palette: {
-    type: "dark"
+    type: "dark",
+    primary: {
+      dark: "#51c1b7",
+      main: "#98dad4",
+      light: "#f2f9f8"
+    },
+    secondary: {
+      dark: "#02405a",
+      main: "#6d8c9b",
+      light: "#ced9de",
+      contrastText: "#fff"
+    }
   },
   TextField: {
     color: "#fff"
@@ -120,29 +131,18 @@ const darkTheme = {
     },
     MuiFormControl:{
       root:{
-        backgroundColor: "#f2f9f8"
+        backgroundColor: "#333",
+        color: "#000"
       }
     },
     MuiBottomNavigation: {
       root: {
-        backgroundColor: "#ffffff40"
+        backgroundColor: "#333333"
       }
     },
-    MuiBottomNavigationAction: {
-      root: {
-        '&$selected': {
-          color: base.palette.secondary.main
-        }
-      }
-    },
-    MuiSwitch: {
-      colorPrimary: {
-        '&$checked': {
-          color: base.palette.secondary.main,
-          '& + $bar': {
-            backgroundColor: base.palette.secondary.main
-          }
-        }
+    MuiAvatar: {
+      colorDefault: {
+        color: "#fff"
       }
     }
   }

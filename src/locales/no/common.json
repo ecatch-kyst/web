@@ -14,6 +14,9 @@
 		"dashboard": "Dashboard",
 		"profile": "Profil"
 	},
+	"loading": {
+		"tooltip": "Laster..."
+	},
 	"not-found": {
 		"back-to-main": "Tilbake til hovedside",
 		"go-to": "",
@@ -26,5 +29,15 @@
 	"welcome": {
 		"intro": "For å starte, rediger <1><0></0></1> og lagre for å laste på nytt.",
 		"title": "Velkommen til {{framework}}"
+	},
+	"dialogs": {
+		"deleteUser": {
+			"titles": {
+				"main": "Slett bruker",
+				"submit": "Slett",
+				"cancel": "Nei"
+			},
+			"description": "Er du sikker på at du vil slette brukeren din? All informasjon blir slettet. Dette kan ikke reverseres."
+		}
 	}
 }

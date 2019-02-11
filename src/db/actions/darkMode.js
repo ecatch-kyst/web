@@ -3,7 +3,7 @@
  */
 export function init() {
   const isDarkMode = JSON.parse(localStorage.getItem("isDarkMode"))
-  if (isDarkMode !== null) this.setState({isDarkMode})
+  isDarkMode !== null && this.setState({isDarkMode})
 }
 
 

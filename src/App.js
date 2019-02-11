@@ -14,12 +14,13 @@ import {
   Register,
   OfflineStatus,
   Dashboard,
-  NotFound
+  NotFound,
+  Dialog
 } from './components'
 import {withTranslation} from 'react-i18next'
 
 
-const App = ({theme: {palette: {type}}}) =>
+export const App = ({theme: {palette: {type}}}) =>
   <div className="app" style={{backgroundColor: type === "dark" ? "#000" : ""}}>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
@@ -29,10 +30,11 @@ const App = ({theme: {palette: {type}}}) =>
       <Route component={NotFound}/>
     </Switch>
     <Route
-      component={({location: {pathname}}) => pathname !== "/" ? <Navigation/> : null}
       path="/"
+      render={({location: {pathname}}) => pathname !== "/" ? <Navigation/> : null}
     />
     <OfflineStatus/>
+    <Dialog/>
   </div>
 
 export default withRouter(withTheme()(App))

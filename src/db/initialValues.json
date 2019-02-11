@@ -1,5 +1,8 @@
 {
   "isOffline": false,
   "isDarkMode": false,
-  "openModal": false
+  "dialog": {
+    "open": false
+  },
+  "boats": []
 }
