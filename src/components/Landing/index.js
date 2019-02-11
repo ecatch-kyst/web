@@ -21,8 +21,8 @@ class Landing extends Component {
 
   handleChange = ({target: {name, value}}) => this.setState({[name]: value})
 
-  handleSubmit = ({preventDefault}) => {
-    preventDefault && preventDefault()
+  handleSubmit = e => {
+    e.preventDefault && e.preventDefault()
     this.handleUserLogin()
   }
 
