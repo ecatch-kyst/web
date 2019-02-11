@@ -21,20 +21,5 @@
 			"email": "E-post",
 			"name": "Navn"
 		}
-	},
-	"register": {
-		"buttons": {
-			"submit": "Registrer"
-		},
-		"labels": {
-			"email": "E-post",
-			"name": "Navn",
-			"password": "Passord"
-		},
-		"placeholders": {
-			"email": "E-post",
-			"name": "Navn",
-			"password": "Passord"
-		}
 	}
 }

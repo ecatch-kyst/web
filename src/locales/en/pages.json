@@ -21,20 +21,5 @@
 			"email": "E-mail",
 			"name": "Name"
 		}
-	},
-	"register": {
-		"buttons": {
-			"submit": "Register"
-		},
-		"labels": {
-			"email": "E-mail",
-			"name": "Name",
-			"password": "Password"
-		},
-		"placeholders": {
-			"email": "E-mail",
-			"name": "Name",
-			"password": "Password"
-		}
 	}
 }

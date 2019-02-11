@@ -28,5 +28,15 @@
 	"welcome": {
 		"intro": "To get started, edit <1><0></0></1> and save to reload.",
 		"title": "Welcome to {{framework}}"
+	},
+	"dialogs": {
+		"deleteUser": {
+			"titles": {
+				"main": "Delete user",
+				"submit": "Delete",
+				"cancel": "Cancel"
+			},
+			"description": "Are you sure you want to do this? All your data will be removed."
+		}
 	}
 }
