@@ -20,7 +20,7 @@ import {
 import {withTranslation} from 'react-i18next'
 
 
-const App = ({theme: {palette: {type}}}) =>
+export const App = ({theme: {palette: {type}}}) =>
   <div className="app" style={{backgroundColor: type === "dark" ? "#000" : ""}}>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
