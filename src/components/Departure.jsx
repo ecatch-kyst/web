@@ -8,10 +8,6 @@ export class Departure extends Component {
   static contextType = Store;
 
   state = {
-    transmissionDateTime: new Date(),
-    departureDateTime: new Date(),
-    plannedCatchStart: new Date(),
-
     // Message type
     TM: "DEP",
     // Message number
@@ -27,19 +23,19 @@ export class Departure extends Component {
     // Captain name
     MA: "EdwardJohnSmith",
     // Date sent, format YYYYMMDD (UTC)
-    //DA: transmissionDateTime,
+    DA: new Date(),
     // Time sent, format HHMM (UTC)
-    //TI: transmissionDateTime,
+    TI: new Date(),
     // Port of departure
-    PO: "Brattøra",
+    PO: "",
     // Date of departure
-    //ZD: departureDateTime,
+    ZD: new Date(),
     // Time of departure
-    //ZT: departureDateTime,
+    ZT: new Date(),
     // Start date fishing
-    //PD: plannedCatchStart,
+    PD: new Date(),
     // Start time fishing
-    //PT: plannedCatchStart,
+    PT: new Date(),
     // Catch latitude
     LA: "12.345678",
     // Catch longitude
@@ -47,34 +43,71 @@ export class Departure extends Component {
     // Main activity
     AC: "Fishing",
     // Target
-    DS: "Salmon",
+    DS: "Cod",
     // Onboard catch in tonnes
     OB: 0
   }
 
+
+  //findMessageNumber(){}
+
+  //handleDepartureMessages(){}
+
+  handleChange = ({target: {name, value}}) => this.setState({[name]: value})
+
+  handleTransmissionDate = ({target: {name, value}}) => this.setState({
+    DA: value,
+    TI: value
+  })
+
+  handleDepartureDate = ({target: {name, value}}) => this.setState({
+    ZD: value,
+    ZT: value
+  })
+
+  handleCatchStartDate = ({target: {name, value}}) => this.setState({
+    PD: value,
+    PT: value
+  })
+
+  validateData = function(data){
+    // TODO: validateData
+    return true
+  }
+
+  handleSubmit = async() => {
+    const data = this.state
+    try {
+      await Store.collection("departureMessages").add(data)
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
   render() {
-    let {departurePort, departureDate, departureTime, catchStartTime, catchStartDate} = this.state
+    const {PO, ZD, ZT, PD, PT} = this.state
     const {t} = this.props
-    
+
     return (
-        <form onSubmit={console.log("form submitted")}>
-          <Grid container direction="column" spacing={16} style={{margin: 16}}>
-            <Grid container item spacing={16}>
-              <Input
-                label={t("departure.labels.departurePort")}
-                name="departurePort"
-                onChange={this.handleChange}
-                placeholder={t("departure.placeholders.departurePort")}
-                value={departurePort}
-              />
+      <form onSubmit={console.log("form submitted")}>
+        <Grid container direction="column" spacing={16} style={{margin: 16}}>
+          <Grid container item spacing={16}>
+            <Input
+              label={t("departure.labels.departurePort")}
+              name="PO"
+              onChange={this.handleChange}
+              placeholder={t("departure.placeholders.departurePort")}
+              value={PO}
+            />
 
             <Grid container item>
               <Input
                 label={t("departure.labels.departureDate")}
                 name="departureDate"
+                onChange={this.handleDepartureDate}
                 type="date"
-                onChange={this.handleChange}
-                value={departureDate}
+                value={ZD}
               />
             </Grid>
 
@@ -82,9 +115,9 @@ export class Departure extends Component {
               <Input
                 label={t("departure.labels.departureTime")}
                 name="departureTime"
+                onChange={this.handleDepartureDate}
                 type="time"
-                onChange={this.handleChange}
-                value={departureTime}
+                value={ZT}
               />
             </Grid>
 
@@ -92,9 +125,9 @@ export class Departure extends Component {
               <Input
                 label={t("departure.labels.plannedCatchStartDate")}
                 name="catchStart"
+                onChange={this.handleCatchStartDate}
                 type="date"
-                onChange={this.handleChange}
-                value={catchStartDate}
+                value={this.state.PD}
               />
             </Grid>
 
@@ -102,18 +135,17 @@ export class Departure extends Component {
               <Input
                 label={t("departure.labels.plannedCatchStartTime")}
                 name="plannedCatchStart"
+                onChange={this.handleCatchStartDate}
                 type="time"
-                onChange={this.handleChange}
-                value={catchStartTime}
+                value={this.state.PT}
               />
             </Grid>
 
             <Grid container item>
               <Button
-                color="secondary"
-                onClick={console.log("message sent")}
-                size="large"
-                variant="contained"
+                autoFocus color="primary"
+                onClick={console.log("departed")}
+                type="submit"
               >
                 {t("departure.buttons.depart")}
               </Button>

@@ -13,7 +13,8 @@
 	},
 	"navigation": {
 		"dashboard": "Dashboard",
-		"profile": "Profile"
+		"profile": "Profile",
+		"departure": "Departure"
 	},
 	"loading": {
 		"tooltip": "Loading..."

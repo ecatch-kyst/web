@@ -13,7 +13,8 @@
 	},
 	"navigation": {
 		"dashboard": "Dashboard",
-		"profile": "Profil"
+		"profile": "Profil",
+		"departure": "Meld avreise"
 	},
 	"loading": {
 		"tooltip": "Laster..."
