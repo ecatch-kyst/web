@@ -27,15 +27,16 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
+      <Route component={Boats} exact path={routes.BOATS}/>
       <Route component={NotFound}/>
     </Switch>
     <Route
-      path="/"
-      render={({location: {pathname}}) => pathname !== "/" ? <Navigation/> : null}
+      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation/> : null}
     />
     <OfflineStatus/>
     <Dialog/>
   </div>
+
 
 export default withRouter(withTheme()(App))
 
