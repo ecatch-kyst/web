@@ -29,6 +29,7 @@ All notable changes to this project will be documented in this file.
 ### Removed
 - example codes
 ### Fixed
+- don't show Navigation on Register
 - when the login form is submitted, the page does not refresh anymore
 
 ## [0.3.0] - 2019-01-30
