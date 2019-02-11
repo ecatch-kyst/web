@@ -28,6 +28,8 @@ All notable changes to this project will be documented in this file.
 - UI element sizes increased
 ### Removed
 - example codes
+### Fixed
+- when the login form is submitted, the page does not refresh anymore
 
 ## [0.3.0] - 2019-01-30
 ### Added
