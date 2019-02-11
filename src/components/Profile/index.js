@@ -7,48 +7,43 @@ import {withTranslation} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 import ProfileDetails from './ProfileDetails'
 import {withStore} from '../../db'
-import ActionModal from './ActionModal'
+import {Page, DestructButton} from '../shared'
 import {Page} from '../shared'
 
-export const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserDelete, handleActionModal}}) =>
+export const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserDelete, handleDialog}}) => {
+  const handleDeleteUser = () => handleDialog("deleteUser", handleUserDelete, null, true)
   <Page namespace="profile" style={{marginBottom: 64}}>
-    <ProfileDetails/>
+      <ProfileDetails/>
     <Divider/>
     <List>
-      <Element
-        actionComponent={
-          <FormControlLabel
-            control={
-              <Switch
-                checked={isDarkMode}
-                color="primary"
-              />
-            }
-          />
-        }
-        clickable
-        id="dark-mode"
-        onClick={handleToggleDarkMode}
-      />
-      <Element
-        actionComponent={<LanguageChooser/>}
-        id="changeLanguage"
-      />
-      <Divider/>
-      <Element
-        actionComponent={
-          /*<Button
-            color="primary"
-            onClick={handleActionModal}
-            size="large"
-            variant="contained"
-          >
-            {t("buttons.deleteUser")}
-          </Button>*/
-          <ActionModal/>
-        }
-        id="deleteUser"
-      />
+        <Element
+          actionComponent={
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={isDarkMode}
+                  color="primary"
+                />
+              }
+            />
+          }
+          clickable
+          id="dark-mode"
+          onClick={handleToggleDarkMode}
+        />
+        <Element
+          actionComponent={<LanguageChooser/>}
+          id="changeLanguage"
+        />
+        <Divider/>
+        <Element
+          actionComponent={
+            <DestructButton onClick={handleDeleteUser}>
+              {t("buttons.deleteUser")}
+            </DestructButton>
+          }
+          id="deleteUser"
+        />
       <Element
         actionComponent={
           <Logout/>

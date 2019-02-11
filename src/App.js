@@ -15,6 +15,7 @@ import {
   OfflineStatus,
   Dashboard,
   NotFound
+  Dialog
 } from './components'
 import {withTranslation} from 'react-i18next'
 
@@ -33,6 +34,7 @@ const App = ({theme: {palette: {type}}}) =>
       render={({location: {pathname}}) => pathname !== "/" ? <Navigation/> : null}
     />
     <OfflineStatus/>
+    <Dialog/>
   </div>
 
 export default withRouter(withTheme()(App))
