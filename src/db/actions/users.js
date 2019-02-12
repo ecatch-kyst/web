@@ -11,11 +11,9 @@ export async function login(email, password) {
     AUTH.onAuthStateChanged(user => {
       if (user) {
         console.log("Successful login")
-        const {uid, displayName, email, emailVerified} = user
-        this.setState({user: {
-          uid, displayName, email, emailVerified
-        }})
-      } else console.log("Not logged in")
+        this.setState({isLoggedIn: true})
+      }
+      else console.log("Not logged in")
     })
   }
 
@@ -27,7 +25,8 @@ export async function login(email, password) {
 export async function logout() {
   try {
     await AUTH.signOut()
-    this.setState({user: {}})
+    console.log("Successful logout")
+    this.setState({isLoggedIn: false})
   } catch (error) {
     console.log(error)
   }
@@ -39,29 +38,25 @@ export async function logout() {
  */
 export async function deleteUser() {
   try {
-    AUTH.currentUser.delete()
-    this.setState({user: {}})
+    await AUTH.currentUser.delete()
+    this.setState({isLoggedIn: false, openModal: false})
+    console.log("User deleted")
   } catch (error) {
     console.log(error)
   }
 }
 
+
 /**
- * Updates the user's name and photo
+ * Updates the user's name
+ * @param {object} profile
+ * @param {string} [profile.name] The user's name
  */
 export async function updateProfile(profile) {
   try {
     await AUTH.currentUser.updateProfile(profile)
-
-    const {uid, displayName, email, emailVerified} = AUTH.currentUser
-
-    this.setState({user: {
-      uid, displayName, email, emailVerified
-    }})
-
     console.log("User profile updated")
   } catch (error) {
     console.log(error)
-
   }
 }

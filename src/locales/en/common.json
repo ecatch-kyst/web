@@ -6,6 +6,17 @@
 		"report-fishing": "Send",
 		"return-journey": "Report return journey"
 	},
+	"links": {
+		"not-found": "Go to 404",
+		"register": "Register"
+	},
+	"navigation": {
+		"dashboard": "Dashboard",
+		"profile": "Profile"
+	},
+	"loading": {
+		"tooltip": "Loading..."
+	},
 	"not-found": {
 		"back-to-main": "Back to the main page",
 		"go-to": "Go to 404",
@@ -19,8 +30,14 @@
 		"intro": "To get started, edit <1><0></0></1> and save to reload.",
 		"title": "Welcome to {{framework}}"
 	},
-	"links": {
-		"not-found": "Go to 404",
-		"register": "Register"
+	"dialogs": {
+		"deleteUser": {
+			"titles": {
+				"main": "Delete user",
+				"submit": "Delete",
+				"cancel": "Cancel"
+			},
+			"description": "Are you sure you want to do this? All your data will be removed."
+		}
 	}
 }

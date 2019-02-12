@@ -1,8 +1,10 @@
 import React, {Component, createContext} from "react"
 import initValues from "./initialValues.json"
-import toggleDarkMode from "./actions/darkMode"
 import {CONNECTION_REF} from "../lib/firebase"
+
+import * as darkMode from "./actions/darkMode"
 import {login, updateProfile, logout, deleteUser} from "./actions/users"
+import * as dialog from './actions/dialog'
 
 const Store = createContext()
 
@@ -12,6 +14,8 @@ export class Database extends Component {
 
   async componentDidMount() {
 
+    this.initDarkMode()
+
     this.userLogin()
 
     CONNECTION_REF
@@ -19,7 +23,15 @@ export class Database extends Component {
 
   }
 
-  toggleDarkMode = toggleDarkMode.bind(this)
+  // Dark mode
+  initDarkMode = darkMode.init.bind(this)
+
+  toggleDarkMode = darkMode.toggle.bind(this)
+
+  // Dialog
+  handleDialog = dialog.handle.bind(this)
+
+  resetDialog = dialog.reset.bind(this)
 
 
   // User
@@ -40,6 +52,7 @@ export class Database extends Component {
           handleUserLogout: this.userLogout,
           handleUserLogin: this.userLogin,
           handleUserDelete: this.userDelete,
+          handleDialog: this.handleDialog,
           ...this.state
         }}
       >

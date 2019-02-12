@@ -1,5 +1,8 @@
 {
-  "user": {},
   "isOffline": false,
-  "isDarkMode": false
+  "isDarkMode": false,
+  "dialog": {
+    "open": false
+  },
+  "boats": []
 }

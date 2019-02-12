@@ -1,23 +1,8 @@
 import React from 'react'
-import {Grid, Button, Typography} from '@material-ui/core'
-import {routes} from '../lib/router'
-import {withStore} from '../db'
-import {Redirect, Link} from 'react-router-dom'
 import {withTranslation} from 'react-i18next'
+import {withPage} from './shared'
 
 
-const Dashboard = ({t, store: {user}}) =>
-  <Grid>
-    {!Object.keys(user).length ? <Redirect to={routes.ROOT}/> : null}
-      <Typography variant ="h5">Dashboard</Typography>
-    <Button color="secondary" component={Link} to={routes.PROFILE} variant="contained">
-      {t("dashboard.buttons.profile")}
-    </Button>
+const Dashboard = () => <div></div>
 
-    <Button color="secondary" component={Link} to={routes.SETTINGS} variant="contained">
-      {t("dashboard.buttons.settings")}
-    </Button>
-
-  </Grid>
-
-export default withTranslation("pages")(withStore(Dashboard))
+export default withTranslation("pages")(withPage(Dashboard, {namespace: "dashboard"}))

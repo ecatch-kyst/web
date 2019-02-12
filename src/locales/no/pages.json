@@ -1,40 +1,25 @@
 {
-	"landing": {
-		"blob-img-alt": "blob",
-		"email": "epost",
-		"forgot-password": "Glemt passord",
-		"login": "logg inn",
-		"register": "registrer",
-		"password": "passord"
-	},
-	"profile": {
-		"buttons": {
-			"logout": "Logg ut"
-		},
-		"labels": {
-			"name": "Navn",
-			"email":"E-post"
-		}
-	},
 	"dashboard": {
 		"buttons": {
 			"profile": "Profil",
 			"settings": "Innstillinger"
 		}
 	},
-	"register": {
-		"labels": {
-			"name": "Navn",
-			"email": "E-post",
-			"password": "Passord"
-		},
-		"placeholders": {
-			"name": "Navn",
-			"email": "E-post",
-			"password": "Passord"
-		},
+	"landing": {
+		"blob-img-alt": "blob",
+		"email": "e-post",
+		"forgot-password": "Glemt passord",
+		"login": "logg inn",
+		"password": "passord",
+		"register": "registrer"
+	},
+	"profile": {
 		"buttons": {
-			"submit": "Registrer"
+			"logout": "Logg ut"
+		},
+		"labels": {
+			"email": "E-post",
+			"name": "Navn"
 		}
 	}
 }
