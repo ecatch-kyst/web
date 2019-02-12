@@ -22,7 +22,7 @@ export const Boat = withTranslation("boats")(({t, id, callSignal, length}) =>
           <Typography variant="h5">{callSignal || id}</Typography>
         </Grid>
         <Grid container item justify="space-between">
-          <Typography>{t("titles.length")}</Typography>
+          <Typography>Boat{t("titles.length")}</Typography>
           <Typography>{length}m</Typography>
         </Grid>
       </Grid>
