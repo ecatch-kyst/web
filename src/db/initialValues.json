@@ -107,34 +107,113 @@
     }
 
   ],
-"Birds": {
-  "BPZ": "Ringgås", 
-  "BQV": "Kandagås", 
-  "BQZ": "Hvitkinngås", 
-  "BVZ": "Gulnebblom", 
-  "BWC": "Storlom", 
-  "BWE": "Islom", 
-  "BWF": "Smålom", 
-  "CVV": "Hettemåke", 
-  "DAZ": "Havsvale", 
-  "DBK": "Stormsvale", 
-  "DIM": "Svartbrynalbatross", 
-  "DKI": "Toppand", 
-  "DKJ": "Bergand", 
-  "EGF": "Ærfugl", 
-  "EGJ": "Praktærfugl", 
-  "FNO": "Havhest", 
-  "FPA": "Lunde", 
-  "GCZ": "Havelle", 
-  "GHD": "Grågås", 
-  "GHH": "Kortnebbgås", 
-  "GHI": "Sædgås", 
-  "GWA": "Laksand", 
-  "GWC": "Siland", 
-  "GCG": "Kvinand", 
-  "HBB": "Alke", 
-  "HBH": "Alkekonge"
-},
+"Birds": [
+  {
+    "value": "BPZ",
+    "label": "Ringgås"
+  },
+  {
+    "value":"BQV",
+    "label":"Kandagås"
+  },
+  {
+    "value":"BQZ",
+    "label":"Hvitkinngås"
+  },
+  {
+    "value":"BVZ",
+    "label":"Gulnebblom"
+  },
+  {
+    "value":"BWC",
+    "label":"Storlom"
+  },
+  {
+    "value":"BWE",
+    "label":"Islom"
+  },
+  {
+    "value":"BWF",
+    "label":"Smålom"
+  },
+  {
+    "value":"CVV",
+    "label":"Hettemåke"
+  },
+  {
+    "value":"DAZ",
+    "label":"Havsvale"
+  },
+  {
+    "value":"DBK",
+    "label":"Stormsvale"
+  },
+  {
+    "value":"DIM",
+    "label":"Svartbrynalbatross"
+  },
+  {
+    "value":"DKI",
+    "label":"Toppand"
+  },
+  {
+    "value":"DKJ",
+    "label":"Bergand"
+  },
+  {
+    "value":"EGF",
+    "label":"Ærfugl"
+  },
+  {
+    "value":"EGJ",
+    "label":"Praktærfugl"
+  },
+  {
+    "value":"FNO",
+    "label":"Havhest"
+  },
+  {
+    "value":"FPA",
+    "label":"Lunde"
+  },
+  {
+    "value":"GCZ",
+    "label":"Havelle"
+  },
+  {
+    "value":"GHD",
+    "label":"Grågås"
+  },
+  {
+    "value":"GHH",
+    "label":"Kortnebbgås"
+  },
+  {
+    "value":"GHI",
+    "label":"Sædgås"
+  },
+  {
+    "value":"GWA",
+    "label":"Laksand"
+  },
+  {
+    "value":"GWC",
+    "label":"Siland"
+  },
+  {
+    "value":"GCG",
+    "label":"Kvinand"
+  },
+  {
+    "value":"HBB",
+    "label":"Alke"
+  },
+  {
+    "value":"HBH",
+    "label":"Alkekonge"
+  }
+
+],
 "messages": []
 }
 
