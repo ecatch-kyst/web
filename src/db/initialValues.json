@@ -3,5 +3,136 @@
   "isDarkMode": false,
   "dialog": {"open": false},
   "notification": {"open": false},
-  "boats": []
+  "boats": [],
+  "ports": [
+    {
+      "value":"0",
+      "label":"Velg havn"
+    },
+    {
+      "value":"DKFRK",
+      "label": "Føvling",
+      "longitude": "5527N",
+      "latitude": "00857E"
+    },
+    {
+      "value":"DKFYH",
+      "label": "Fynshav",
+      "longitude":"5458N",
+      "latitude": "00958E"
+    },
+    {
+      "value":"DKGDM",
+      "label": "Gudhjem",
+      "longitude": "5513N",
+      "latitude": "01459E"
+    },
+    {
+      "value":"DKBGZ",
+      "label": "Bognese",
+      "longitude": "5534N",
+      "latitude": "01005E"
+    },
+    {
+      "value":"DKBLA",
+      "label": "Blavand",
+      "longitude": "5533N",
+      "latitude": "00808E"
+    },
+    {
+      "value":"DKBLUE",
+      "label": "Baelum",
+      "longitude": "5649N",
+      "latitude": "01006E"
+    },
+    {
+      "value":"DKBOG",
+      "label": "Bogo By",
+      "longitude": "5456N",
+      "latitude": "01203E"
+    },
+    {
+      "value":"DKAAB",
+      "label": "Åbenrå",
+      "longitude": "5502N",
+      "latitude": "00926E"
+    },
+    {
+      "value":"DKAAR",
+      "label": "Aarhus",
+      "longitude": "5609N",
+      "latitude": "01013E"
+    },
+    {
+      "value":"DKAGE",
+      "label":"Allinge",
+      "longitude": "5516N",
+      "latitude": "01448E"
+    },
+    {
+      "value":"DKAK3",
+      "label":"Åkirkeby",
+      "longitude": "5504N",
+      "latitude": "01456E"
+    },
+    {
+      "value":"DKARD",
+      "label":"Årosund",
+      "longitude": "5515N",
+      "latitude": "00943E"
+    },
+    {
+      "value":"DKARO",
+      "label":"Åro",
+      "longitude": "5516N",
+      "latitude": "00945E"
+    },
+    {
+      "value":"DKASA",
+      "label":"Asaa",
+      "longitude": "5709N",
+      "latitude": "01025E"
+    },
+    {
+      "value":"DKAVK",
+      "label":"Avernak By",
+      "longitude": "5502N",
+      "latitude": "01016E"
+    },
+    {
+      "value":"DKAVN",
+      "label":"Avernakke Havn",
+      "longitude": "5518N",
+      "latitude": "01047E"
+    }
+
+  ],
+"Birds": {
+  "BPZ": "Ringgås", 
+  "BQV": "Kandagås", 
+  "BQZ": "Hvitkinngås", 
+  "BVZ": "Gulnebblom", 
+  "BWC": "Storlom", 
+  "BWE": "Islom", 
+  "BWF": "Smålom", 
+  "CVV": "Hettemåke", 
+  "DAZ": "Havsvale", 
+  "DBK": "Stormsvale", 
+  "DIM": "Svartbrynalbatross", 
+  "DKI": "Toppand", 
+  "DKJ": "Bergand", 
+  "EGF": "Ærfugl", 
+  "EGJ": "Praktærfugl", 
+  "FNO": "Havhest", 
+  "FPA": "Lunde", 
+  "GCZ": "Havelle", 
+  "GHD": "Grågås", 
+  "GHH": "Kortnebbgås", 
+  "GHI": "Sædgås", 
+  "GWA": "Laksand", 
+  "GWC": "Siland", 
+  "GCG": "Kvinand", 
+  "HBB": "Alke", 
+  "HBH": "Alkekonge"
+}
 }
