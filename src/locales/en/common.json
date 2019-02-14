@@ -14,7 +14,8 @@
 	"navigation": {
 		"dashboard": "Dashboard",
 		"profile": "Profile",
-		"departure": "Departure"
+		"departure": "Departure",
+		"messages": "Messages"
 	},
 	"loading": {
 		"tooltip": "Loading..."

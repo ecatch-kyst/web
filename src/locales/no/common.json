@@ -14,7 +14,8 @@
 	"navigation": {
 		"dashboard": "Dashboard",
 		"profile": "Profil",
-		"departure": "Meld avreise"
+		"departure": "Meld avreise",
+		"messages": "Meldinger"
 	},
 	"loading": {
 		"tooltip": "Laster..."

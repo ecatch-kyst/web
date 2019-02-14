@@ -6,6 +6,7 @@ import NotFound from "./NotFound"
 import Profile from "./Profile"
 import Departure from "./Departure"
 import Centered from "./Centered"
+import Messages from "./Messages"
 
 export {Dialog} from "./shared"
 
@@ -17,5 +18,6 @@ export {
   Landing,
   NotFound,
   Profile,
-  Departure
+  Departure,
+  Messages
 }

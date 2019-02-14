@@ -5,5 +5,6 @@ export const routes = {
   FORGOT_PASSWORD: "/new-password",
   REGISTER: "/register",
   PROFILE: "/profile",
-  DEPARTURE: "/departure"
+  DEPARTURE: "/departure",
+  MESSAGES: "/messages"
 }
