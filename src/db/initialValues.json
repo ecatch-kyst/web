@@ -4,5 +4,19 @@
   "dialog": {
     "open": false
   },
-  "boats": []
+  "boats": [],
+  "messages": [
+    {
+      "RN": 0,
+      "TM": "DEP",
+      "status": "sent",
+      "timeSent": 0
+    },
+    {
+      "RN": 1,
+      "TM": "DCA",
+      "status": "pending",
+      "timeSent": 0
+    }
+  ]
 }
