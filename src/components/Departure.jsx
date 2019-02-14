@@ -3,6 +3,10 @@ import {Grid, Button, TextField} from '@material-ui/core'
 import {withTranslation} from 'react-i18next'
 import Store from '../db/Store'
 
+import {format} from "date-fns"
+
+import {TIMESTAMP, MESSAGES_FS, AUTH} from "../lib/firebase"
+
 export class Departure extends Component {
 
   static contextType = Store;
@@ -11,74 +15,61 @@ export class Departure extends Component {
     // Message type
     TM: "DEP",
     // Message number
-    RN: 0,
+    RN: null,
     // Receiver country
     AD: "NOR",
     // Radio callsign
-    RC: "MSTITANIC",
+    RC: null,
     // Ship name
-    NA: "TITANIC",
+    NA: null,
     // Ship ID
-    XR: 12345,
+    XR: null,
     // Captain name
-    MA: "EdwardJohnSmith",
+    MA: null,
     // Date sent, format YYYYMMDD (UTC)
-    DA: new Date(),
+    DA: null, // NOTE: Set timestamp at submitting
     // Time sent, format HHMM (UTC)
-    TI: new Date(),
+    TI: null, // NOTE: Set timestamp at submitting
     // Port of departure
     PO: "",
     // Date of departure
-    ZD: new Date(),
+    ZD: format(Date.now(), "YYYY-MM-DD"),
     // Time of departure
-    ZT: new Date(),
+    ZT: format(Date.now(), "HH:mm"),
     // Start date fishing
-    PD: new Date(),
+    PD: format(Date.now(), "YYYY-MM-DD"),
     // Start time fishing
-    PT: new Date(),
+    PT: format(Date.now(), "HH:mm"),
     // Catch latitude
     LA: "12.345678",
     // Catch longitude
-    LO: "0.123456",
+    LO: "00.123456",
     // Main activity
-    AC: "Fishing",
+    AC: null,
     // Target
-    DS: "Cod",
+    DS: null,
     // Onboard catch in tonnes
-    OB: 0
+    OB: null
   }
-
-
-  //findMessageNumber(){}
-
-  //handleDepartureMessages(){}
 
   handleChange = ({target: {name, value}}) => this.setState({[name]: value})
 
-  handleTransmissionDate = ({target: {name, value}}) => this.setState({
-    DA: value,
-    TI: value
-  })
-
-  handleDepartureDate = ({target: {name, value}}) => this.setState({
-    ZD: value,
-    ZT: value
-  })
-
-  handleCatchStartDate = ({target: {name, value}}) => this.setState({
-    PD: value,
-    PT: value
-  })
-
-  validateData = function(data){
-    // TODO: validateData
-    return true
-  }
-
-  handleSubmit = async() => {
-    const data = this.state
+  handleSubmit = async e => {
+    e.preventDefault()
     try {
-      await Store.collection("departureMessages").add(data)
+      const {ZD, ZT, PD, PT, ...data} = this.state
+
+      await MESSAGES_FS.add({
+        ...data,
+        ZD: ZD.replace(/-/g, ""),
+        ZT: ZT.replace(":", ""),
+        PD: PD.replace(/-/g, ""),
+        PT: PT.replace(":", ""),
+        DA: TIMESTAMP,
+        userId: AUTH.currentUser.uid
+      })
+
+      console.log("Data sent in")
     }
     catch (error) {
       console.log(error)
@@ -90,7 +81,7 @@ export class Departure extends Component {
     const {t} = this.props
 
     return (
-      <form onSubmit={console.log("form submitted")}>
+      <form onSubmit={this.handleSubmit}>
         <Grid container direction="column" spacing={16} style={{margin: 16}}>
           <Grid container item spacing={16}>
             <Input
@@ -104,8 +95,8 @@ export class Departure extends Component {
             <Grid container item>
               <Input
                 label={t("departure.labels.departureDate")}
-                name="departureDate"
-                onChange={this.handleDepartureDate}
+                name="ZD"
+                onChange={this.handleChange}
                 type="date"
                 value={ZD}
               />
@@ -114,8 +105,8 @@ export class Departure extends Component {
             <Grid container item>
               <Input
                 label={t("departure.labels.departureTime")}
-                name="departureTime"
-                onChange={this.handleDepartureDate}
+                name="ZT"
+                onChange={this.handleChange}
                 type="time"
                 value={ZT}
               />
@@ -124,27 +115,27 @@ export class Departure extends Component {
             <Grid container item>
               <Input
                 label={t("departure.labels.plannedCatchStartDate")}
-                name="catchStart"
-                onChange={this.handleCatchStartDate}
+                name="PD"
+                onChange={this.handleChange}
                 type="date"
-                value={this.state.PD}
+                value={PD}
               />
             </Grid>
 
             <Grid container item>
               <Input
                 label={t("departure.labels.plannedCatchStartTime")}
-                name="plannedCatchStart"
-                onChange={this.handleCatchStartDate}
+                name="PT"
+                onChange={this.handleChange}
                 type="time"
-                value={this.state.PT}
+                value={PT}
               />
             </Grid>
 
             <Grid container item>
               <Button
                 autoFocus color="primary"
-                onClick={console.log("departed")}
+                onClick={this.handleSubmit}
                 type="submit"
               >
                 {t("departure.buttons.depart")}
