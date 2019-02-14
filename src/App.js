@@ -15,6 +15,7 @@ import {
   Register,
   OfflineStatus,
   Dashboard,
+  Departure,
   NotFound,
   Dialog
 } from './components'
