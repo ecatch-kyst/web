@@ -12,7 +12,8 @@
 	},
 	"navigation": {
 		"dashboard": "Dashboard",
-		"profile": "Profile"
+		"profile": "Profile",
+		"messages": "Messages"
 	},
 	"loading": {
 		"tooltip": "Loading..."

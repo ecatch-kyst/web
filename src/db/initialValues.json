@@ -2,8 +2,6 @@
   "isOffline": false,
   "isDarkMode": false,
   "dialog": {"open": false},
-  "notification": {"open": false},
-  "boats": [],
   "ports": [
     {
       "value":"0",
@@ -213,7 +211,6 @@
     "label":"Alkekonge"
   }
 
-],
-"messages": []
+]
 }
 

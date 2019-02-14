@@ -3,6 +3,7 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
+import MessageIcon from "@material-ui/icons/ModeCommentOutlined"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -16,6 +17,7 @@ import {
   Dashboard,
   NotFound,
   Dialog,
+  Messages,
   Notification
 } from './components'
 import {useTranslation} from 'react-i18next'
@@ -28,6 +30,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
+      <Route component={Messages} exact path={routes.MESSAGES}/>
       <Route component={NotFound}/>
     </Switch>
     <Route
@@ -52,6 +55,11 @@ const navigation = [
     id: "profile",
     icon: <ProfileIcon/>,
     to: routes.PROFILE
+  },
+  {
+    id: "messages",
+    icon: <MessageIcon/>,
+    to: routes.MESSAGES
   }
 ]
 
