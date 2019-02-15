@@ -6,7 +6,7 @@ import NotFound from "./NotFound"
 import Profile from "./Profile"
 import Centered from "./Centered"
 
-export {Dialog} from "./shared"
+export {Dialog, Notification} from "./shared"
 
 export {
   Centered,

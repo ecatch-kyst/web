@@ -5,6 +5,7 @@ import {CONNECTION_REF} from "../lib/firebase"
 import * as darkMode from "./actions/darkMode"
 import {login, updateProfile, logout, deleteUser} from "./actions/users"
 import * as dialog from './actions/dialog'
+import * as notification from './actions/notification'
 
 const Store = createContext()
 
@@ -33,6 +34,11 @@ export class Database extends Component {
 
   resetDialog = dialog.reset.bind(this)
 
+  // Notification
+  notify = notification.handle.bind(this)
+
+  resetNotification = notification.reset.bind(this)
+
 
   // User
   userLogin = login.bind(this)
@@ -53,6 +59,8 @@ export class Database extends Component {
           handleUserLogin: this.userLogin,
           handleUserDelete: this.userDelete,
           handleDialog: this.handleDialog,
+          notify: this.notify,
+          handleNotificationReset: this.resetNotification,
           ...this.state
         }}
       >

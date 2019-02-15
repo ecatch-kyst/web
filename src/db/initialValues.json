@@ -1,8 +1,7 @@
 {
   "isOffline": false,
   "isDarkMode": false,
-  "dialog": {
-    "open": false
-  },
+  "dialog": {"open": false},
+  "notification": {"open": false},
   "boats": []
 }
