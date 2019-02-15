@@ -19,8 +19,17 @@ export class Database extends Component {
 
     this.userLogin()
 
-    CONNECTION_REF
-      .on("value", snap => this.setState({isOffline: !snap.val()}))
+    setTimeout(() => {
+      CONNECTION_REF
+        .on("value", snap => {
+          const isOffline = !snap.val()
+          isOffline ?
+            this.notify({name: "offline", type: "error", action: () => window.location.reload(), duration: Infinity}) :
+            this.resetNotification()
+          this.setState({isOffline})
+        })
+    }, 2000
+    )
 
   }
 
