@@ -43,7 +43,7 @@
 	"notifications": {
 		"offline": {
 			"error": "You are offline.",
-			"action": "Reload page."
+			"action": "Reload page"
 		},
 		"user": {
 			"updated": {
