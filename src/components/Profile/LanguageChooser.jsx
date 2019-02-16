@@ -2,9 +2,11 @@ import React from 'react'
 import {Select, MenuItem, Typography} from "@material-ui/core"
 import {withTranslation} from "react-i18next"
 import {languages} from "../../locales/locales.json"
-import {withStore} from '../../db/index.js'
+import {useNotification} from '../../hooks'
 
-const LanguageChooser = ({i18n, store: {notify}}) => {
+const LanguageChooser = ({i18n}) => {
+
+  const {notify} = useNotification()
 
   const changeLanguage = ({target: {value}}) => {
     localStorage.setItem("preferredLanguage", value)
@@ -33,4 +35,4 @@ const LanguageChooser = ({i18n, store: {notify}}) => {
   )
 }
 
-export default withStore(withTranslation("profile")(LanguageChooser))
+export default withTranslation("profile")(LanguageChooser)

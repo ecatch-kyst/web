@@ -11,6 +11,7 @@ const Store = createContext()
 
 export class Database extends Component {
 
+
   state = initValues
 
   async componentDidMount() {
@@ -23,12 +24,14 @@ export class Database extends Component {
       CONNECTION_REF
         .on("value", snap => {
           const isOffline = !snap.val()
-          isOffline ?
-            this.notify({name: "offline", type: "error", action: () => window.location.reload(), duration: Infinity}) :
-            this.resetNotification()
+
+          isOffline &&
+            this.notify({
+              name: "offline", type: "error", action: () => window.location.reload(), duration: 5000
+            })
           this.setState({isOffline})
         })
-    }, 2000
+    }, 2500
     )
 
   }
@@ -44,9 +47,13 @@ export class Database extends Component {
   resetDialog = dialog.reset.bind(this)
 
   // Notification
+  notificationQueue = []
+
   notify = notification.handle.bind(this)
 
-  resetNotification = notification.reset.bind(this)
+  processNotificationQueue = notification.processQueue.bind(this)
+
+  notificationClose = notification.close.bind(this)
 
 
   // User
@@ -69,7 +76,8 @@ export class Database extends Component {
           handleUserDelete: this.userDelete,
           handleDialog: this.handleDialog,
           notify: this.notify,
-          handleNotificationReset: this.resetNotification,
+          processNotificationQueue: this.processNotificationQueue,
+          notificationClose: this.notificationClose,
           ...this.state
         }}
       >

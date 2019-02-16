@@ -1,17 +1,8 @@
-import initialValues from "../initialValues.json"
-
-
 /**
  * Resets the notification. A 100ms delay is added to avoid UI glitches.
  */
-export function reset() {
-  this.setState(
-    ({notification: prevNotification}) => ({
-      notification: {...prevNotification, open: false}
-    }), () => {
-      setTimeout(() => {this.setState({notification: initialValues.notification})}, 100)
-    }
-  )
+export function close() {
+  this.setState(({notification}) => ({notification: {...notification, open: false}}))
 }
 
 
@@ -25,19 +16,35 @@ export function reset() {
  * Set to null, if the action should be closed after the action was executed.
  */
 export function handle({name, type="default", action=null, duration=2500, message}) {
-  this.setState({
-    notification: {
-      open: true,
-      name,
-      type,
-      duration,
-      message,
-      handleAction: action ? async () => {
-        try {
-          await action()
-          duration===null && this.resetNotification()
-        } catch (error) {console.error(error)}
-      } : undefined
-    }
-  })
+
+  this.notificationQueue.push({name, type, action, duration, message})
+
+  if (this.state.notification.open) this.notificationClose()
+  else this.processNotificationQueue()
+
+}
+
+/**
+ * Display notification
+ */
+export function processQueue() {
+  if (this.notificationQueue.length > 0) {
+
+    const notification = this.notificationQueue.shift()
+    const {action, duration} = notification
+
+    notification.handleAction = action ? async () => {
+      try {
+        await action()
+        duration === null && setTimeout(() => this.notificationClose(), 500)
+      } catch (error) {console.error(error)}
+    } : undefined
+
+    this.setState({
+      notification: {
+        open: true,
+        ...notification
+      }
+    })
+  }
 }

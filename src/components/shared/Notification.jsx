@@ -1,11 +1,22 @@
 import React from 'react'
-import {withStore} from "../../db"
 import {useTranslation} from 'react-i18next'
 import {Snackbar, SnackbarContent, Button, withTheme} from '@material-ui/core'
 import {colors} from '../../lib/material-ui'
+import {useNotification} from '../../hooks'
 
+export const Notification = () => {
 
-export const Notification = ({store: {handleNotificationReset, notification: {open, name, type, handleAction, duration}}}) => {
+  const {
+    open, name, type, handleAction, duration,
+    processQueue,
+    close
+  } = useNotification()
+
+  const handleClose = (_, reason) => {
+    if (reason === 'clickaway') return
+    close()
+  }
+
   const [t] = useTranslation("common")
 
   let ActionButton = null
@@ -16,11 +27,16 @@ export const Notification = ({store: {handleNotificationReset, notification: {op
         title={t(`notifications.${name}.action`)}
         type={type}
       />
-  } else {
-    open && setTimeout(handleNotificationReset, duration) // NOTE: When a notification overlaps another, the timeout should be reset, so the new notification has enough screentime as well.
   }
+
   return (
-    <Snackbar {...{open}}>
+    <Snackbar
+      autoHideDuration={duration}
+      key={name+type}
+      onClose={handleClose}
+      onExited={processQueue}
+      open={open}
+    >
       <SnackbarContent
         action={ActionButton}
         message={t(`notifications.${name}.${type || "default"}`)}
@@ -29,7 +45,7 @@ export const Notification = ({store: {handleNotificationReset, notification: {op
   )
 }
 
-export default withStore(Notification)
+export default Notification
 
 const Action = withTheme()(({theme, type, title, onClick}) => {
   let color = theme.palette.primary.main
