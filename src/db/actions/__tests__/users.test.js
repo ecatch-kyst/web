@@ -25,6 +25,8 @@ class ClickHandlerMockClass extends Component {
 
     handleClick = this.props.clickHandler.bind(this)
 
+    notify = jest.fn()
+
     render() {
       return <div onClick={() => this.handleClick(...this.props.handlerArguments)}/>
     }
