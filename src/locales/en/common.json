@@ -39,6 +39,14 @@
 				"cancel": "Cancel"
 			},
 			"description": "Are you sure you want to do this? All your data will be removed."
+		},
+		"DEP": {
+			"titles": {
+				"main": "Send in DEP message?",
+				"submit": "Confirm",
+				"cancel": "Cancel"
+			},
+			"description": "..."
 		}
 	},
 	"notifications": {

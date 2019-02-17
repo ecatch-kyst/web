@@ -39,6 +39,14 @@
 				"cancel": "Nei"
 			},
 			"description": "Er du sikker på at du vil slette brukeren din? All informasjon blir slettet. Dette kan ikke reverseres."
+		},
+		"DEP": {
+			"titles": {
+				"main": "Send inn DEP melding?",
+				"submit": "Bekreft",
+				"cancel": "Avlys"
+			},
+			"description": "..."
 		}
 	},
 	"notifications": {

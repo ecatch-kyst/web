@@ -18,6 +18,8 @@ import species_en from "../locales/en/species.json"
 import species_no from "../locales/no/species.json"
 import messages_en from "../locales/en/messages.json"
 import messages_no from "../locales/no/messages.json"
+import forms_en from "../locales/en/forms.json"
+import forms_no from "../locales/no/forms.json"
 
 const en = {
   common: common_en,
@@ -28,7 +30,8 @@ const en = {
   messages: messages_en,
   register: register_en,
   problems: problems_en,
-  species: species_en
+  species: species_en,
+  forms: forms_en
 }
 
 const no = {
@@ -40,6 +43,7 @@ const no = {
   problems: problems_no,
   species: species_no,
   register: register_no,
+  forms: forms_no,
   messages: messages_no
 }
 
