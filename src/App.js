@@ -17,7 +17,7 @@ import {
   NotFound,
   Dialog
 } from './components'
-import {withTranslation} from 'react-i18next'
+import {withTranslation, useTranslation} from 'react-i18next'
 
 
 export const App = ({theme: {palette: {type}}}) =>
@@ -30,7 +30,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={NotFound}/>
     </Switch>
     <Route
-      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation/> : null}
+      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation value={pathname.slice(1)} /> : null}
     />
     <OfflineStatus/>
     <Dialog/>
@@ -53,11 +53,12 @@ const navigation = [
   }
 ]
 
-export const Navigation = withTranslation("common")(withRouter(
-  ({t, location: {pathname}}) =>
+export const Navigation = ({value}) => {
+  const [t] = useTranslation("common")
+  return (
     <BottomNavigation
       style={{position: "fixed", bottom: 0, width: "100vw"}}
-      value={pathname.replace("/", "")}
+      value={value}
     >
       {navigation.map(({id, icon, to}) =>
         <BottomNavigationAction
@@ -70,4 +71,5 @@ export const Navigation = withTranslation("common")(withRouter(
         />
       )}
     </BottomNavigation>
-))
+  )
+}
