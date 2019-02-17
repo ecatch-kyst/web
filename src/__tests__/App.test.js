@@ -9,9 +9,9 @@ describe("App component", () => {
 })
 
 
-describe.skip("Navigation component", () => {
+describe("Navigation component", () => {
   it('renders without crashing', () => {
-    const wrapper = mount(<Navigation/>)
+    const wrapper = shallow(<Navigation/>).dive()
     expect(wrapper).toHaveLength(1)
   })
 })
