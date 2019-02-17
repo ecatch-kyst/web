@@ -273,6 +273,7 @@ ShallowWrapper {
         },
       },
     },
+    "context": Object {},
   },
 }
 `;
