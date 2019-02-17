@@ -48,11 +48,6 @@ export default withRouter(withTheme()(App))
 
 const navigation = [
   {
-    id: "departure",
-    icon: <DepartureIcon/>,
-    to: routes.DEPARTURE
-  },
-  {
     id: "dashboard",
     icon: <DashboardIcon/>,
     to: routes.DASHBOARD

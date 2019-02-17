@@ -4,7 +4,8 @@
 		"my-messages": "My messages",
 		"report-catch": "Report catch",
 		"report-fishing": "Send",
-		"return-journey": "Report return journey"
+		"return-journey": "Report return journey",
+		"departure": "Depart"
 	},
 	"links": {
 		"not-found": "Go to 404",

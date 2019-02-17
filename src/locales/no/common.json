@@ -4,7 +4,8 @@
 		"my-messages": "Mine meldinger",
 		"report-catch": "Meld fangst",
 		"report-fishing": "Rapporter inn",
-		"return-journey": "Meld hjemreise"
+		"return-journey": "Meld hjemreise",
+		"departure": "Meld avreise"
 	},
 	"links": {
 		"not-found": "Gå til 404",
