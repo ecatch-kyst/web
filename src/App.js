@@ -16,8 +16,9 @@ import {
   OfflineStatus,
   Dashboard,
   NotFound,
-  Dialog,
   Messages,
+  Dialog,
+  Form,
   Notification
 } from './components'
 import {useTranslation} from 'react-i18next'
@@ -31,6 +32,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
+      <Route component={Form} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>
       <Route component={NotFound}/>
     </Switch>
     <Route

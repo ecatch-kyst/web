@@ -6,6 +6,7 @@ import NotFound from "./NotFound"
 import Profile from "./Profile"
 import Centered from "./Centered"
 import Messages from "./Messages"
+import Forms, {Form} from "./Forms"
 
 export {Dialog, Notification} from "./shared"
 
@@ -17,5 +18,7 @@ export {
   Landing,
   NotFound,
   Profile,
-  Messages
+  Messages,
+  Forms,
+  Form
 }
