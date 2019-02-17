@@ -37,7 +37,7 @@ export function processQueue() {
       try {
         await action()
         duration === null && setTimeout(() => this.notificationClose(), 500)
-      } catch (error) {console.error(error)}
+      } catch (error) {console.error(error)} //REVIEW: Add more meaningful error handling. Maybe error notification?
     } : undefined
 
     this.setState({
