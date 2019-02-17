@@ -1831,5 +1831,6 @@ ShallowWrapper {
       "handleUserLogin": [MockFunction],
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;
