@@ -4,8 +4,6 @@ import {Action} from "../Notification"
 import "../../../hooks"
 
 
-// TODO: Finish
-
 jest.mock("../../../hooks", () => ({
   useNotification: () => ({
     handleAction: jest.fn(),
