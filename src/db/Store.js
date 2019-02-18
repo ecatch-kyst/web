@@ -1,4 +1,5 @@
 import React, {Component, createContext} from "react"
+import {format} from "date-fns"
 import initValues from "./initialValues.json"
 import {CONNECTION_REF} from "../lib/firebase"
 
@@ -12,8 +13,13 @@ const Store = createContext()
 
 export class Database extends Component {
 
-
-  state = initValues
+  state = {
+    ...initValues,
+    fields: {
+      ZD: format(Date.now(), "yyyy-MM-dd"),
+      ZT: format(Date.now(), "HH:mm:ss")
+    }
+  }
 
   async componentDidMount() {
 
