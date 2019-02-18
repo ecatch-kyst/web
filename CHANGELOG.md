@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Added
 - in-app notification system ([#40](https://github.com/ecatch-kyst/web/issues/40))
+- Form base ([#32](https://github.com/ecatch-kyst/web/issues/32), [#13](https://github.com/ecatch-kyst/web/issues/13), [#29](https://github.com/ecatch-kyst/web/issues/29))
+- FormInput
 
 
 ## [1.0.0-beta1] - 2019-02-11
