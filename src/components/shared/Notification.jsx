@@ -48,7 +48,7 @@ export const Notification = () => {
 
 export default Notification
 
-const Action = withTheme()(({theme, type, title, onClick}) => {
+export const Action = withTheme()(({theme, type, title, onClick}) => {
   let color = theme.palette.primary.main
   switch (type) {
   case "success":
