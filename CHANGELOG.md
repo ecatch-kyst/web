@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
-- in-app notification system (#40)
+- in-app notification system ([#40](https://github.com/ecatch-kyst/web/issues/40))
 
 
 ## [1.0.0-beta1] - 2019-02-11
