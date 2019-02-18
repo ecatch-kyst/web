@@ -1,4 +1,5 @@
 import {Notification} from ".."
+import {Action} from "../Notification"
 
 import "../../../hooks"
 
@@ -28,6 +29,30 @@ describe("Notification component", () => {
     })
     it("closing the notification", () => {
       wrapper.simulate("close")
+    })
+  })
+})
+
+
+describe("Action component", () => {
+  const wrapper = shallow(<Action/>)
+
+  it("renders correctly", () => {
+    expect(wrapper.dive()).toHaveLength(1)
+  })
+
+  describe("Button is colored", () => {
+    [
+      ["default", "#3f51b5"],
+      ["info", "#00A9E7"],
+      ["error", "#A8112B"],
+      ["warning", "#FFCE00"],
+      ["success", "#51c1b7"]
+    ].forEach(([type, color]) => {
+      it(`${type} is ${color}`, () => {
+        wrapper.setProps({type})
+        expect(wrapper.dive().prop("style").color).toBe(color)
+      })
     })
   })
 })
