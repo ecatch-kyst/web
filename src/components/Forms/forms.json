@@ -2,12 +2,10 @@
   "DEP": [{
       "id": 0,
       "fields": [{
-          "name": "departureDate",
           "id": "ZD",
           "type": "date"
         },
         {
-          "name": "departureTime",
           "id": "ZT",
           "type": "time"
         }
@@ -16,42 +14,38 @@
     {
       "id": 1,
       "fields": [{
-          "name": "startFishingDate",
           "id": "PD",
           "type": "date"
+
         },
         {
-          "name": "startFishingTime",
           "id": "PT",
           "type": "time"
+
         }
       ]
     },
     {
       "id": 2,
       "fields": [{
-          "name": "latitude",
           "id": "LA",
           "type": "number"
+
         },
         {
-          "name": "longitude",
           "id": "LO",
           "type": "number"
+
         }
       ]
     }
   ],
-  "DCA": [
-    {
-      "id": 0,
-      "fields": []
-    }
-  ],
-  "POR": [
-    {
-      "id": 0,
-      "fields": []
-    }
-  ]
+  "DCA": [{
+    "id": 0,
+    "fields": []
+  }],
+  "POR": [{
+    "id": 0,
+    "fields": []
+  }]
 }
