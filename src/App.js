@@ -15,7 +15,8 @@ import {
   OfflineStatus,
   Dashboard,
   NotFound,
-  Dialog
+  Dialog,
+  Notification
 } from './components'
 import {withTranslation} from 'react-i18next'
 
@@ -34,6 +35,7 @@ export const App = ({theme: {palette: {type}}}) =>
     />
     <OfflineStatus/>
     <Dialog/>
+    <Notification/>
   </div>
 
 
