@@ -1,5 +1,5 @@
 /**
- * Resets the notification. A 100ms delay is added to avoid UI glitches.
+ * Resets the notification.
  */
 export function close() {
   this.setState(({notification}) => ({notification: {...notification, open: false}}))
@@ -9,15 +9,15 @@ export function close() {
 /**
  * Handles actions that requires a notification to show up
  * @param {object} notification - notification object
- * @param {string} notification.name - Name of the notification. Used for translations
- * @param {'success'|'error'|'warning'|'default'} [notification.type="default"] - Type of the notification. Used for colors
- * @param {function} [notification.action] - The action to execute when the notification is submitted
+ * @param {string} notification.name - Name of the notification, used for translations.
+ * @param {'success'|'error'|'warning'|'default'} [notification.type="default"] - Type of the notification. Used for colors, and translations.
+ * @see src/locales/{language}/common.json
+ * @param {function} [notification.action] - Optional action to execute. Set to null or leave out, if the notification has no action.
  * @param {number} [notification.duration=] - Duration in milliseconds after the notification should close.
- * Set to null, if the action should be closed after the action was executed.
  */
-export function handle({name, type="default", action=null, duration=2500, message}) {
+export function handle({name, type="default", action=null, duration=2500}) {
 
-  this.notificationQueue.push({name, type, action, duration, message})
+  this.notificationQueue.push({name, type, action, duration})
 
   if (this.state.notification.open) this.notificationClose()
   else this.processNotificationQueue()
@@ -25,7 +25,7 @@ export function handle({name, type="default", action=null, duration=2500, messag
 }
 
 /**
- * Display notification
+ * Takes a notification from the notification queue, and displays it.
  */
 export function processQueue() {
   if (this.notificationQueue.length > 0) {

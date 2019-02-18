@@ -75,7 +75,7 @@ export class Database extends Component {
           handleUserLogin: this.userLogin,
           handleUserDelete: this.userDelete,
           handleDialog: this.handleDialog,
-          notify: this.notify,
+          notify: this.notify, // Call this, when a notification shold be shown. @see src/db/actions/notification for implementation
           processNotificationQueue: this.processNotificationQueue,
           notificationClose: this.notificationClose,
           ...this.state
