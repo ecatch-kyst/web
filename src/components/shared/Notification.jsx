@@ -57,6 +57,9 @@ export const Action = withTheme()(({theme, type, title, onClick}) => {
   case "error":
     color = colors.red
     break
+  case "warning":
+    color = colors.yellow
+    break
   case "info":
     color = colors.blue
     break
