@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+- in-app notification system (#40)
 
 
 ## [1.0.0-beta1] - 2019-02-11
