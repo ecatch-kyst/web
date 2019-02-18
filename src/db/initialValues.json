@@ -3,6 +3,7 @@
   "isDarkMode": false,
   "dialog": {"open": false},
   "notification": {"open": false},
+  "messages": [],
   "ports": [
     {
       "value":"0",
