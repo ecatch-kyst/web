@@ -25,7 +25,10 @@ export class Database extends Component {
 
     this.initDarkMode()
 
-    this.userLogin()
+    this.userLogin({afterLogin: () => {
+      this.subscribeToMessages()
+    }})
+
 
     setTimeout(() => {
       CONNECTION_REF
@@ -78,6 +81,8 @@ export class Database extends Component {
   handleFieldChange = messages.handle.bind(this)
 
   submitMessage = messages.submit.bind(this)
+
+  subscribeToMessages = messages.subscribe.bind(this)
 
   render() {
     return (

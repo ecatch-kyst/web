@@ -1,3 +1,5 @@
+import {AUTH, USERS_FS, TIMESTAMP} from "../../lib/firebase"
+import {flattenDoc} from "../../utils"
 
 /**
  * Handles message changes.
@@ -40,4 +42,16 @@ export async function submit(type) {
     console.log(error) // TODO: Add error notification
   }
 
+}
+
+/**
+ * Listen to messages in Firebase for the logged in user.
+ */
+export function subscribe() {
+  USERS_FS.doc(AUTH.currentUser.uid)
+    .collection("messages")
+    .onSnapshot(snap => {
+      this.setState({messages: snap.docs.map(flattenDoc)})
+    }, error => console.error(error)
+    ) //TODO: Add error notification
 }
