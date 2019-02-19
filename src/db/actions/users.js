@@ -14,9 +14,11 @@ export async function login({email, password, afterLogin=null}) {
   } finally {
     AUTH.onAuthStateChanged(user => {
       if (user) {
-        this.notify({name: "login"})
-        this.setState({isLoggedIn: true})
-        if (afterLogin) afterLogin()
+        if (!this.state.isLoggedIn) { // First AuthStateChanged
+          this.notify({name: "login"})
+          this.setState({isLoggedIn: true})
+          if (afterLogin) afterLogin()
+        }
       }
       // else this.notify({name: "login", type: "warning", duration: 5000})
     }//, () => {this.notify({name: "login", type: "error", duration: 5000})}
