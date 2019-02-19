@@ -18,10 +18,11 @@ export function handle(key, value) {
  */
 export async function submit(type) {
   const {fields} = this.state
-  let message = {}
+  let message = {TM: type, DA: TIMESTAMP, TI: TIMESTAMP}
   switch (type) { // TODO: Populate message by type
   case "DCA":
     message = {
+      ...message,
       ZD: fields.ZD,
       ZT: fields.ZT
     }
@@ -33,7 +34,8 @@ export async function submit(type) {
 
   try {
     // TODO: Add final validation before sending to firebase
-    console.log(message) // TODO: Send to firebase
+    await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add(message)
+    console.log("data sent")
   } catch (error) {
     console.log(error) // TODO: Add error notification
   }
