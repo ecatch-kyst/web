@@ -1,18 +1,13 @@
 import React from 'react'
 import {withPage} from './shared/Page'
-import {List, Typography, ListItem, Grid, Divider} from '@material-ui/core'
+import {List, Typography, ListItem, Grid, Divider, Button} from '@material-ui/core'
 import EditIcon from "@material-ui/icons/EditOutlined"
 import {Loading} from './shared'
 import {withStore} from '../db'
 import {withTranslation} from 'react-i18next'
+import {Link} from "react-router-dom"
+import {routes} from "../lib/router"
 
-/*var d = new Date("2007-07-01")
-var m = new Date("1942-07-01")
-var flag = 0
-difference = d-m
-if(difference > 12){
-  flag = 1
-}*/
 export const Messages =({store: {messages}}) =>
   <List>
     {messages.length ?
@@ -34,13 +29,42 @@ export const Message = withTranslation("messages")(({t, RN, TM, status, timeSent
         <Grid container item justify="space-between">
           <Typography>{t("titles.message-type")}: {TM}</Typography>
           <Typography>Status: {status}</Typography>
-          <Typography>{t("titles.time-sent")}: {timeSent}</Typography><EditIcon/>{/*have a check if 12 hours have passed, choose icon based on this.*/}
+          <Typography>{t("titles.time-sent")}: {timeSent}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
+          <Button
+            color="primary"
+            component={Link}
+            size="large"
+            to={`${routes.MESSAGES}${routes[RN]}${routes.NEW}`}
+            variant="contained"
+          >{/*Link to messages/messageId/edit*/}
+            <EditIcon/>
+          </Button>
           {/*<Typography>{t("titles.length")}</Typography>
           <Typography>{length}m</Typography>*/}
         </Grid>
       </Grid>
     </ListItem>
     <Divider/>
+    {/*<Card>
+      <CardActionArea>
+        <CardContent>
+          <Typography variant="h5">
+            RN:{RN}
+          </Typography>
+          <Typography>{t("titles.message-type")}: {TM}</Typography>
+          <Typography>Status: {status}</Typography>
+          <Typography>{t("titles.time-sent")}: {timeSent}</Typography> have a check if 12 hours have passed, choose icon based on this.
+          <Button>
+            <EditIcon/>
+          </Button>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button>
+          close
+        </Button>
+      </CardActions>
+    </Card>*/}
   </>
 )
 export default withStore(withPage(Messages, {namespace: "messages"}))

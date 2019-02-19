@@ -30,6 +30,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
+      <Route component={Messages} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>{/*make this link to edit page*/}
       <Route component={NotFound}/>
     </Switch>
     <Route
