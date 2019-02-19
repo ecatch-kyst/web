@@ -11,7 +11,7 @@ if [ "${TRAVIS_EVENT_TYPE}" == "pull_request" ]
   # this is a pull request continue.
   then
   # add some delay, so deploy can be propagated.
-  sleep 30
+  sleep 15
   if [ "$TRAVIS_BRANCH" = "master" ]
   then
     yarn lh https://ecatch-kyst.firebaseapp.com
