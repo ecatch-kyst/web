@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 - in-app notification system ([#40](https://github.com/ecatch-kyst/web/issues/40))
 - Form base ([#32](https://github.com/ecatch-kyst/web/issues/32), [#13](https://github.com/ecatch-kyst/web/issues/13), [#29](https://github.com/ecatch-kyst/web/issues/29))
 - FormInput
+- login callback (used to fetch initial data, set up database listeners, etc.)
+- database listener for messages
+- ability to send messages to the database
 
 
 ## [1.0.0-beta1] - 2019-02-11
