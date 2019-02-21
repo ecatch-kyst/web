@@ -9,9 +9,8 @@
     "title": "DEP",
     "submit": "Submit",
     "steps": [
-      "Time of departure",
-      "Fishing start",
-      "Fishing coordinates"
+      "Departure port",
+      "Planned fishing area"
     ]
   },
   "DCA": {
@@ -29,11 +28,14 @@
     ]
   },
   "labels": {
-    "ZD": "",
-    "ZT": "",
-    "PD": "",
-    "PT": "",
-    "LA": "",
-    "LO": ""
+    "DS": "Target fishtype",
+    "AC": "Fishing activity",
+    "PO": "Choose port",
+    "expectedFishingStart": "Expected start of fishing",
+    "expectedFishingSpot": "Expected fishing spot",
+    "OB": "Fish onboard",
+    "departure": "Departure time",
+    "LA": "Latitude",
+    "LO": "Longitude"
   }
 }
