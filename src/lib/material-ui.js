@@ -1,12 +1,14 @@
 import {createMuiTheme} from '@material-ui/core/styles'
 import deepmerge from 'deepmerge'
 
-const defaultTheme = createMuiTheme({typography: {useNextVariants: true}})
+const secondaryFontFamily = "adobe-garamond-pro, 'Times New Roman'"
 
-
-const primaryFontFamily = {fontFamily: "Poppins, Arial, sans-serif"}
-
-const secondaryFontFamily = {fontFamily: "adobe-garamond-pro, 'Times New Roman'"}
+export const colors = {
+  red: "#A8112B",
+  yellow: "#FFCE00",
+  blue: "#00A9E7",
+  green: "#51c1b7"
+}
 
 
 const base = {
@@ -25,22 +27,10 @@ const base = {
   },
   typography: {
     useNextVariants: true,
-
-    h1: {
-      fontFamily: primaryFontFamily
-    },
-    h2: {
-      fontFamily: primaryFontFamily
-    },
-    h3: {
-      fontFamily: primaryFontFamily
-    },
-    button: {
-      fontFamily: primaryFontFamily
-    },
-
+    fontSize: 16,
+    fontFamily: "Poppins, Arial, sans-serif",
     h4: {
-      fontFamily: secondaryFontFamily
+      fontWeight: "bolder"
     },
     h5: {
       fontFamily: secondaryFontFamily
@@ -50,6 +40,9 @@ const base = {
     },
     subtitle1: {
       fontFamily: secondaryFontFamily
+    },
+    subtitle2: {
+      color: "#00000080"
     },
     body1: {
       fontFamily: secondaryFontFamily
@@ -68,8 +61,10 @@ const base = {
     MuiButton: {
       sizeLarge: {
         padding: '8px 24px',
-        fontSize: defaultTheme.typography.pxToRem(20),
         borderRadius: 24
+      },
+      containedPrimary: {
+        boxShadow: "none"
       },
       containedSecondary: {
         boxShadow: "none"
@@ -81,12 +76,23 @@ const base = {
 
 const darkTheme = {
   palette: {
+    type: "dark",
+    primary: {
+      dark: "#51c1b7",
+      main: "#98dad4",
+      light: "#f2f9f8"
+    },
     secondary: {
-      contrastText: "#000"
+      dark: "#02405a",
+      main: "#6d8c9b",
+      light: "#ced9de",
+      contrastText: "#fff"
     }
   },
+  TextField: {
+    color: "#fff"
+  },
   typography: {
-    useNextVariants: true,
 
     h1: {
       color: "#fff"
@@ -100,7 +106,6 @@ const darkTheme = {
     button: {
       color: "#fff"
     },
-
     h4: {
       color: "#fff"
     },
@@ -121,12 +126,31 @@ const darkTheme = {
     },
     caption: {
       color: "#fff"
+    },
+    subtitle2: {
+      color: "#ffffffC0"
     }
   },
   overrides: {
     MuiCard: {
       root: {
         backgroundColor: "transparent"
+      }
+    },
+    MuiFormControl:{
+      root:{
+        backgroundColor: "#333",
+        color: "#000"
+      }
+    },
+    MuiBottomNavigation: {
+      root: {
+        backgroundColor: "#333333"
+      }
+    },
+    MuiAvatar: {
+      colorDefault: {
+        color: "#fff"
       }
     }
   }

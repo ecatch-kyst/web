@@ -1,4 +1,5 @@
 import OfflineStatus from "../OfflineStatus"
+import {Zoom} from "@material-ui/core"
 
 describe("OfflineStatus component", () => {
   const props = {
@@ -12,6 +13,11 @@ describe("OfflineStatus component", () => {
 
   it("appears when no internet", () => {
     wrapper.setProps({store: {isOffline: true}})
-    expect(wrapper.find(".is-offline").length).toBeGreaterThan(0)
+    expect(wrapper.find(Zoom).prop("in")).toBe(true)
+  })
+
+  it("disappears when there is internet", () => {
+    wrapper.setProps({store: {isOffline: false}})
+    expect(wrapper.find(Zoom).prop("in")).toBe(false)
   })
 })

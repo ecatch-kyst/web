@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound component renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NotFound
+    i18n={
+      Object {
+        "changeLanguage": Object {
+          "addMatchers": [Function],
+          "advanceTimersByTime": [Function],
+          "autoMockOff": [Function],
+          "autoMockOn": [Function],
+          "clearAllMocks": [Function],
+          "clearAllTimers": [Function],
+          "deepUnmock": [Function],
+          "disableAutomock": [Function],
+          "doMock": [Function],
+          "dontMock": [Function],
+          "enableAutomock": [Function],
+          "fn": [Function],
+          "genMockFromModule": [Function],
+          "isMockFunction": [Function],
+          "mock": [Function],
+          "requireActual": [Function],
+          "requireMock": [Function],
+          "resetAllMocks": [Function],
+          "resetModuleRegistry": [Function],
+          "resetModules": [Function],
+          "restoreAllMocks": [Function],
+          "retryTimes": [Function],
+          "runAllImmediates": [Function],
+          "runAllTicks": [Function],
+          "runAllTimers": [Function],
+          "runOnlyPendingTimers": [Function],
+          "runTimersToTime": [Function],
+          "setMock": [Function],
+          "setTimeout": [Function],
+          "spyOn": [Function],
+          "unmock": [Function],
+          "useFakeTimers": [Function],
+          "useRealTimers": [Function],
+        },
+        "language": "en",
+      }
+    }
+    t={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <WithStyles(Typography)
+          variant="h3"
+        >
+          404
+        </WithStyles(Typography)>,
+        <WithStyles(Typography)
+          variant="h5"
+        >
+          not-found.text
+        </WithStyles(Typography)>,
+        <img
+          alt="not-found.img-alt"
+          src="fish.svg"
+          style={
+            Object {
+              "margin": "76.8px 0",
+            }
+          }
+          width={512}
+        />,
+        <WithStyles(Button)
+          color="secondary"
+          component={[Function]}
+          size="large"
+          to="/"
+          variant="contained"
+        >
+          not-found.back-to-main
+        </WithStyles(Button)>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "404",
+          "variant": "h3",
+        },
+        "ref": null,
+        "rendered": "404",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "not-found.text",
+          "variant": "h5",
+        },
+        "ref": null,
+        "rendered": "not-found.text",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "not-found.img-alt",
+          "src": "fish.svg",
+          "style": Object {
+            "margin": "76.8px 0",
+          },
+          "width": 512,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "not-found.back-to-main",
+          "color": "secondary",
+          "component": [Function],
+          "size": "large",
+          "to": "/",
+          "variant": "contained",
+        },
+        "ref": null,
+        "rendered": "not-found.back-to-main",
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <WithStyles(Typography)
+            variant="h3"
+          >
+            404
+          </WithStyles(Typography)>,
+          <WithStyles(Typography)
+            variant="h5"
+          >
+            not-found.text
+          </WithStyles(Typography)>,
+          <img
+            alt="not-found.img-alt"
+            src="fish.svg"
+            style={
+              Object {
+                "margin": "76.8px 0",
+              }
+            }
+            width={512}
+          />,
+          <WithStyles(Button)
+            color="secondary"
+            component={[Function]}
+            size="large"
+            to="/"
+            variant="contained"
+          >
+            not-found.back-to-main
+          </WithStyles(Button)>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "404",
+            "variant": "h3",
+          },
+          "ref": null,
+          "rendered": "404",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "not-found.text",
+            "variant": "h5",
+          },
+          "ref": null,
+          "rendered": "not-found.text",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "not-found.img-alt",
+            "src": "fish.svg",
+            "style": Object {
+              "margin": "76.8px 0",
+            },
+            "width": 512,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "not-found.back-to-main",
+            "color": "secondary",
+            "component": [Function],
+            "size": "large",
+            "to": "/",
+            "variant": "contained",
+          },
+          "ref": null,
+          "rendered": "not-found.back-to-main",
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {},
+  },
+}
+`;

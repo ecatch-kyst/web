@@ -1,0 +1,31 @@
+{
+	"buttons": {
+		"deleteUser": "",
+		"logout": ""
+	},
+	"descriptions": {
+		"about-us": "",
+		"changeLanguage": "",
+		"dark-mode": "",
+		"deleteUser": "",
+		"logout": "",
+		"negative": "",
+		"positive": "",
+		"profildescription": "",
+		"slett-meg": "",
+		"version": ""
+	},
+	"labels": {
+		"email": "",
+		"name": ""
+	},
+	"titles": {
+		"about-us": "",
+		"changeLanguage": "",
+		"dark-mode": "",
+		"deleteUser": "",
+		"logout": "",
+		"profile": "",
+		"version": ""
+	}
+}

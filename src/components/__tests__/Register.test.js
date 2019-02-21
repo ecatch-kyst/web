@@ -4,10 +4,8 @@ import {TextField} from "@material-ui/core"
 /**
  * @see https://github.com/airbnb/enzyme/issues/1553
  */
-describe.skip("Register component", () => {
-  const props = {
-    t: jest.fn()
-  }
+describe("Register component", () => {
+  const props = {t: jest.fn()}
   const wrapper = shallow(<Register {...props}/>, {context: {user: {}}})
 
 

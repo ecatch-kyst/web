@@ -4,19 +4,22 @@ import {AUTH} from "../../lib/firebase"
  * Logs the user in
  */
 export async function login(email, password) {
-  if (email && password) {
+  try {
     await AUTH.signInWithEmailAndPassword(email, password)
-  }
-  else {
+  } catch (error) {
+    if (error.code !== "auth/argument-error") {
+      // TODO: Add translations for all possible error codes
+      this.notify({name: "login", type: `error.${error.code}`, duration: 5000})
+    }
+  } finally {
     AUTH.onAuthStateChanged(user => {
       if (user) {
-        console.log("Successful login")
-        const {uid, displayName, email, emailVerified} = user
-        this.setState({user: {
-          uid, displayName, email, emailVerified
-        }})
-      } else console.log("Not logged in")
-    })
+        this.notify({name: "login"})
+        this.setState({isLoggedIn: true})
+      }
+      // else this.notify({name: "login", type: "warning", duration: 5000})
+    }//, () => {this.notify({name: "login", type: "error", duration: 5000})}
+    )
   }
 
 }
@@ -27,9 +30,10 @@ export async function login(email, password) {
 export async function logout() {
   try {
     await AUTH.signOut()
-    this.setState({user: {}})
+    this.notify({name:"logout"})
+    this.setState({isLoggedIn: false})
   } catch (error) {
-    console.log(error)
+    this.notify({name:"logout", type: "error"})
   }
 }
 
@@ -39,29 +43,25 @@ export async function logout() {
  */
 export async function deleteUser() {
   try {
-    AUTH.currentUser.delete()
-    this.setState({user: {}})
+    await AUTH.currentUser.delete()
+    this.setState({isLoggedIn: false, openModal: false})
+    this.notify({name: "user.deleted"})
   } catch (error) {
     console.log(error)
   }
 }
 
+
 /**
- * Updates the user's name and photo
+ * Updates the user's name
+ * @param {object} profile
+ * @param {string} [profile.name] The user's name
  */
 export async function updateProfile(profile) {
   try {
     await AUTH.currentUser.updateProfile(profile)
-
-    const {uid, displayName, email, emailVerified} = AUTH.currentUser
-
-    this.setState({user: {
-      uid, displayName, email, emailVerified
-    }})
-
-    console.log("User profile updated")
+    this.notify({name: "user.updated"})
   } catch (error) {
     console.log(error)
-
   }
 }

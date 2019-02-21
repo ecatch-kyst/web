@@ -6,8 +6,20 @@
 		"report-fishing": "Rapporter inn",
 		"return-journey": "Meld hjemreise"
 	},
+	"links": {
+		"not-found": "Gå til 404",
+		"register": "Registrer"
+	},
+	"navigation": {
+		"dashboard": "Dashboard",
+		"profile": "Profil"
+	},
+	"loading": {
+		"tooltip": "Laster..."
+	},
 	"not-found": {
 		"back-to-main": "Tilbake til hovedside",
+		"go-to": "",
 		"img-alt": "tom side",
 		"text": "siden finnes ikke"
 	},
@@ -18,8 +30,51 @@
 		"intro": "For å starte, rediger <1><0></0></1> og lagre for å laste på nytt.",
 		"title": "Velkommen til {{framework}}"
 	},
-	"links": {
-		"not-found": "Gå til 404",
-		"register": "Registrer"
+	"dialogs": {
+		"deleteUser": {
+			"titles": {
+				"main": "Slett bruker",
+				"submit": "Slett",
+				"cancel": "Nei"
+			},
+			"description": "Er du sikker på at du vil slette brukeren din? All informasjon blir slettet. Dette kan ikke reverseres."
+		}
+	},
+	"notifications": {
+		"offline": {
+			"error": "Du er offline.",
+			"action": "Last inn på nytt"
+		},
+		"user": {
+			"updated": {
+				"default": "Bruker oppdatert."
+			},
+			"deleted": {
+				"default": "Bruker slettet."
+			}
+		},
+		"login": {
+			"default": "Du er nå logget inn.",
+			"error": {
+				"auth/invalid-email": "Ugyldig e-post.",
+				"auth/argument-error": "Feil passord"
+			},
+			"warning": ""
+		},
+		"logout": {
+			"default": "Du er nå logget ut.",
+			"error": "Det oppstod en feil ved utlogging."
+		},
+		"language": {
+			"default": "Språket har endret seg."
+		},
+		"darkMode": {
+			"on": {
+				"default": "Nattmodus ble slått på."
+			},
+			"off": {
+				"default": "Nattmodus ble slått av."
+			}
+		}
 	}
 }

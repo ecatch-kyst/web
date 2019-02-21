@@ -8,7 +8,7 @@ install:
 - yarn
 - yarn global add codecov
 - yarn global add firebase-tools
-- yarn global add https://github.com/ebidel/lighthousebot
+- yarn global add https://github.com/GoogleChromeLabs/lighthousebot
 script:
 - yarn build
 - yarn test:ci
