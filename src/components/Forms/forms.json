@@ -1,41 +1,44 @@
 {
   "DEP": [{
       "id": 0,
-      "fields": [{
-          "id": "ZD",
-          "type": "date"
+      "fields": [
+        {
+          "id": "PO",
+          "dataId": "ports",
+          "type": "select"
         },
         {
-          "id": "ZT",
-          "type": "time"
+          "id": "departure",
+          "type": "datetime-local"
         }
       ]
     },
     {
       "id": 1,
-      "fields": [{
-          "id": "PD",
-          "type": "date"
-
+      "fields": [
+        {
+          "id": "AC",
+          "dataId": "activity",
+          "type": "select"
         },
         {
-          "id": "PT",
-          "type": "time"
+          "id": "expectedFishingSpot",
 
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "fields": [{
-          "id": "LA",
-          "type": "number"
-
+          "type": "select"
         },
         {
-          "id": "LO",
-          "type": "number"
-
+          "id": "expectedFishingStart",
+          "type": "datetime-local"
+        },
+        {
+          "id": "DS",
+          "dataId": "species",
+          "type": "select"
+        },
+        {
+          "id": "OB",
+          "isMulti": true,
+          "type": "select-key-value"
         }
       ]
     }

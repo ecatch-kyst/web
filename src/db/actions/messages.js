@@ -19,24 +19,36 @@ export function handle(key, value) {
  * Submits a message form
  */
 export async function submit(type) {
-  const {fields} = this.state
-  let message = {TM: type, DA: TIMESTAMP, TI: TIMESTAMP}
+  const {AC, DS, PO, expectedFishingSpot, departure} = this.state.fields
+
+  let message = {
+    TM: type,
+    timestampReceived: TIMESTAMP
+  }
   switch (type) { // TODO: Populate message by type
-  case "DCA":
+  case "DEP":
     message = {
       ...message,
-      ZD: fields.ZD,
-      ZT: fields.ZT
+      AC: AC.value,
+      DS: DS.value,
+      PO: PO.value,
+      departure: new Date(departure),
+      expectedFishingSpot: [
+        expectedFishingSpot.latitude,
+        expectedFishingSpot.longitude
+      ]
     }
     break
-
   default:
     break
   }
 
   try {
     // TODO: Add final validation before sending to firebase
-    await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add(message)
+    await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add({
+      ...message,
+      timestampCreated: new Date()
+    })
     console.log("data sent")
   } catch (error) {
     console.log(error) // TODO: Add error notification
