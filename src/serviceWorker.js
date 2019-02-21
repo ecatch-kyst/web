@@ -9,6 +9,13 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read http://bit.ly/CRA-PWA
+let test = "Morten";
+let installingWorker;
+let refreshing;
+
+document.getElementById('reload').addEventListener('click', function(){
+  installingWorker.postMessage({ action: 'skipWaiting' });
+});
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -31,6 +38,23 @@ export function register(config) { // eslint-disable-line require-jsdoc
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
       return
     }
+
+    if ('serviceWorker' in navigator) {
+      // The event listener that is fired when the service worker updates
+      // Here we reload the page
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (refreshing) return;
+      window.location.reload();
+      refreshing = true;
+      });
+    }    
+    window.addEventListener('message', function (event) {
+      console.log(event.data.action);
+      if (event.data.action === 'skipWaiting') {
+        window.skipWaiting();
+        console.log("in");
+      }
+    });
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`
@@ -60,7 +84,7 @@ function registerValidSW(swUrl, config) { // eslint-disable-line require-jsdoc
     .register(swUrl)
     .then(registration => {
       registration.onupdatefound = () => {
-        const installingWorker = registration.installing
+        installingWorker = registration.installing
         if (installingWorker == null) {
           return
         }
@@ -70,6 +94,7 @@ function registerValidSW(swUrl, config) { // eslint-disable-line require-jsdoc
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
+              document.querySelector("#notification").classList.add("open")
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See http://bit.ly/CRA-PWA.'
