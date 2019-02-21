@@ -3,7 +3,6 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
-import DepartureIcon from "@material-ui/icons/DirectionsBoatOutlined"
 import MessageIcon from "@material-ui/icons/ModeCommentOutlined"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'

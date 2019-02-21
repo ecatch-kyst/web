@@ -68,8 +68,6 @@ export class Departure extends Component {
         DA: TIMESTAMP,
         userId: AUTH.currentUser.uid
       })
-
-      console.log("Data sent in")
     }
     catch (error) {
       console.log(error)
