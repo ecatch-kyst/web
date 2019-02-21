@@ -1,9 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [Unreleased] 
 ### Added
+- User now gets a notification that the PWA can be added to homescreen
 - in-app notification system ([#40](https://github.com/ecatch-kyst/web/issues/40))
+### Fixed
+- manifest.json pointed to non-existent icons, changed to existing icons
 
 
 ## [1.0.0-beta1] - 2019-02-11
