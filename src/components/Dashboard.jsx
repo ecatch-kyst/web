@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
-import {withRouter, Redirect} from "react-router-dom"
+import {Redirect} from "react-router"
 import {withTranslation} from 'react-i18next'
 import {Page} from './shared'
 import {Button, List, Grid} from '@material-ui/core'
 import {routes} from '../lib/router'
 
-const handleDeparture = () => <Redirect to={routes.DEPARTURE}/>
-
 export class Dashboard extends Component {
+
+  handleDeparture = () => <Redirect to={routes.DEPARTURE}/>
 
   render() {
     const {t} = this.props
@@ -27,4 +27,4 @@ export class Dashboard extends Component {
   }
 }
 
-export default withRouter(withTranslation("dashboard")(Dashboard))
+export default withTranslation("dashboard")(Dashboard)

@@ -1,8 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.0.0-beta2] - 2019-02-25
+### Added
 
+### Changed
+- Departure is now found on Dashboard, not navigation bar
+
+### Removed
+
+### Fixed
 
 ## [1.0.0-beta1] - 2019-02-11
 ### Added
@@ -25,7 +32,7 @@ All notable changes to this project will be documented in this file.
             - 404 -> root
 ### Changed
 - Offline status
-- UI element sizes increased
+- UI element sizes increased@
 ### Removed
 - example codes
 ### Fixed
