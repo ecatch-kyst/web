@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-
+ - User now gets a notification that the PWA can be added to homescreen
 
 ## [0.3.0] - 2019-01-30
 ### Added
