@@ -5,5 +5,10 @@ export const routes = {
   FORGOT_PASSWORD: "/new-password",
   REGISTER: "/register",
   PROFILE: "/profile",
-  MESSAGES: "/messages"
+  MESSAGES: "/messages",
+  DEP: "/DEP",
+  DCA: "/DCA",
+  POR: "/POR",
+  NOT_FOUND: "/404",
+  NEW: "/new"
 }

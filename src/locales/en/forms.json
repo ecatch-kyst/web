@@ -1,0 +1,39 @@
+{
+  "links": {
+    "DEP": "Report departure",
+    "DCA": "Report catch",
+    "POR": "Port call",
+    "back": "Back"
+  },
+  "DEP": {
+    "title": "DEP",
+    "submit": "Submit",
+    "steps": [
+      "Time of departure",
+      "Fishing start",
+      "Fishing coordinates"
+    ]
+  },
+  "DCA": {
+    "title": "DCA",
+    "submit": "Submit",
+    "steps": [
+      "Title"
+    ]
+  },
+  "POR": {
+    "title": "POR",
+    "submit": "Submit",
+    "steps": [
+      "Title"
+    ]
+  },
+  "labels": {
+    "ZD": "",
+    "ZT": "",
+    "PD": "",
+    "PT": "",
+    "LA": "",
+    "LO": ""
+  }
+}

@@ -25,6 +25,8 @@ class ClickHandlerMockClass extends Component {
 
     handleClick = this.props.clickHandler.bind(this)
 
+    notify = jest.fn()
+
     render() {
       return <div onClick={() => this.handleClick(...this.props.handlerArguments)}/>
     }
@@ -36,7 +38,7 @@ describe("login function", () => {
     mount(
       <ClickHandlerMockClass
         clickHandler={login}
-        handlerArguments={["email@email.hu", "password"]}
+        handlerArguments={[{email: "email@email.hu", password: "password"}]}
       />
     ).simulate("click")
     expect(AUTH.signInWithEmailAndPassword).toBeCalledWith("email@email.hu", "password")

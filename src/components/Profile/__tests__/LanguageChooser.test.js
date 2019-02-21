@@ -1,5 +1,15 @@
 import LanguageChooser from "../LanguageChooser"
 import {MenuItem} from "@material-ui/core"
+import "../../../hooks"
+
+jest.mock("../../../hooks", () => ({
+  useNotification: () => ({
+    notification: {},
+    notify: jest.fn(),
+    processQueue: [],
+    close: jest.fn()
+  })
+}))
 
 describe("LanguageChooser component", () => {
   const props = {

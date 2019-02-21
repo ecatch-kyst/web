@@ -9,6 +9,14 @@ import {Link} from "react-router-dom"
 import {routes} from "../lib/router"
 import Edit from "../components/Edit"
 
+
+/*var d = new Date("2007-07-01")
+var m = new Date("1942-07-01")
+var flag = 0
+difference = d-m
+if(difference > 12){
+  flag = 1
+}*/
 export const Messages =({store: {messages}}) =>
   <List>
     {messages.length ?
@@ -16,7 +24,6 @@ export const Messages =({store: {messages}}) =>
       <Loading/>
     }
   </List>
-
 
 /*assuming i need some translations later, will let 'willTranslations stand until i know*/
 /*RN = message number, TM = message type, use acknowledge to provide state, DA = date sent, TI = time sent*/
@@ -41,13 +48,13 @@ export const Message = withTranslation("messages")(({t, RN, TM, status, timeSent
           >{/*Link to messages/messageId/edit*/}
             <EditIcon/>
           </Button>
+          <Typography>{t("titles.time-sent")}: {timeSent}</Typography><EditIcon/>{/*have a check if 12 hours have passed, choose icon based on this.*/}
           {/*<Typography>{t("titles.length")}</Typography>
           <Typography>{length}m</Typography>*/}
         </Grid>
       </Grid>
     </ListItem>
     <Divider/>
-
   </>
 )
 export default withStore(withPage(Messages, {namespace: "messages"}))

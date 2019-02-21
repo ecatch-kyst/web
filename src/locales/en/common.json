@@ -39,6 +39,51 @@
 				"cancel": "Cancel"
 			},
 			"description": "Are you sure you want to do this? All your data will be removed."
+		},
+		"DEP": {
+			"titles": {
+				"main": "Send in DEP message?",
+				"submit": "Confirm",
+				"cancel": "Cancel"
+			},
+			"description": "..."
+		}
+	},
+	"notifications": {
+		"offline": {
+			"error": "You are offline.",
+			"action": "Reload page"
+		},
+		"user": {
+			"updated": {
+				"default": "User updated."
+			},
+			"deleted": {
+				"default": "User deleted."
+			}
+		},
+		"login": {
+			"default": "Login successful.",
+			"error": {
+				"auth/invalid-email": "Invalid e-mail.",
+				"auth/argument-error": "Wrong password."
+			},
+			"warning": ""
+		},
+		"logout": {
+			"default": "Logout successful.",
+			"error": "Something went wrong when you tried to log out."
+		},
+		"language": {
+			"default": "The language has been changed."
+		},
+		"darkMode": {
+			"on": {
+				"default": "Night mode on."
+			},
+			"off": {
+				"default": "Night mode off."
+			}
 		}
 	}
 }

@@ -17,10 +17,12 @@ import {
   Dashboard,
   NotFound,
   Dialog,
-  Messages
-  //Edit
+  Messages,
+  //Edit,
+  Form,
+  Notification
 } from './components'
-import {withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 
 
 export const App = ({theme: {palette: {type}}}) =>
@@ -32,13 +34,15 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
       {/*<Route component={Edit} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/> make this link to edit page*/}
+      <Route component={Form} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>
       <Route component={NotFound}/>
     </Switch>
     <Route
-      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation/> : null}
+      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation value={pathname.slice(1)} /> : null}
     />
     <OfflineStatus/>
     <Dialog/>
+    <Notification/>
   </div>
 
 
@@ -63,11 +67,12 @@ const navigation = [
   }
 ]
 
-export const Navigation = withTranslation("common")(withRouter(
-  ({t, location: {pathname}}) =>
+export const Navigation = ({value}) => {
+  const [t] = useTranslation("common")
+  return (
     <BottomNavigation
       style={{position: "fixed", bottom: 0, width: "100vw"}}
-      value={pathname.replace("/", "")}
+      value={value}
     >
       {navigation.map(({id, icon, to}) =>
         <BottomNavigationAction
@@ -80,4 +85,5 @@ export const Navigation = withTranslation("common")(withRouter(
         />
       )}
     </BottomNavigation>
-))
+  )
+}

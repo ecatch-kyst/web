@@ -6,7 +6,7 @@ import {routes} from '../../lib/router'
 import {useTranslation} from 'react-i18next'
 
 
-const Page = ({children, isProtected, namespace, ...props}) => {
+const Page = ({children, isProtected, namespace, title, ...props}) => {
   const [t] = useTranslation(namespace)
   return(
     <Grid container direction="column" {...props}>
@@ -17,7 +17,7 @@ const Page = ({children, isProtected, namespace, ...props}) => {
             style={{padding: "24px 24px 16px"}}
             variant="h4"
           >
-            {t("titles.main")}
+            {title || t("titles.main")}
           </Typography>
           {children}
         </>

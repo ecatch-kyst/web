@@ -1,0 +1,51 @@
+{
+  "DEP": [{
+      "id": 0,
+      "fields": [{
+          "id": "ZD",
+          "type": "date"
+        },
+        {
+          "id": "ZT",
+          "type": "time"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "fields": [{
+          "id": "PD",
+          "type": "date"
+
+        },
+        {
+          "id": "PT",
+          "type": "time"
+
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fields": [{
+          "id": "LA",
+          "type": "number"
+
+        },
+        {
+          "id": "LO",
+          "type": "number"
+
+        }
+      ]
+    }
+  ],
+  "DCA": [{
+    "id": 0,
+    "fields": []
+  }],
+  "POR": [{
+    "id": 0,
+    "fields": []
+  }]
+}

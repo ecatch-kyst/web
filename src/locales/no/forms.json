@@ -1,0 +1,39 @@
+{
+  "links": {
+    "DEP": "Meld avgang",
+    "DCA": "Meld fangst",
+    "POR": "Havneanløp",
+    "back": "Tilbake"
+  },
+  "DEP": {
+    "title": "DEP",
+    "submit": "Meld",
+    "steps": [
+      "Avgangsdato",
+      "Start av fisking",
+      "Fiskekoordinater"
+    ]
+  },
+  "DCA": {
+    "title": "DCA",
+    "submit": "Meld",
+    "steps": [
+      "Tittel"
+    ]
+  },
+  "POR": {
+    "title": "POR",
+    "submit": "Meld",
+    "steps": [
+      "Tittel"
+    ]
+  },
+  "labels": {
+    "ZD": "",
+    "ZT": "",
+    "PD": "",
+    "PT": "",
+    "LA": "",
+    "LO": ""
+  }
+}

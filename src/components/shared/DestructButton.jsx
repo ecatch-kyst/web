@@ -1,8 +1,9 @@
 import React from 'react'
 import {Button, withStyles} from '@material-ui/core'
+import {colors} from '../../lib/material-ui'
 
 const DestructButton = withStyles({
-  root: {backgroundColor: "#A8112B"}
+  root: {backgroundColor: colors.red}
 })(({children, classes, ...props}) =>
   <Button
     color="primary"
