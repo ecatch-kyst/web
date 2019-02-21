@@ -7,6 +7,7 @@ import {withStore} from '../db'
 import {withTranslation} from 'react-i18next'
 import {Link} from "react-router-dom"
 import {routes} from "../lib/router"
+import Edit from "../components/Edit"
 
 export const Messages =({store: {messages}}) =>
   <List>
@@ -15,6 +16,7 @@ export const Messages =({store: {messages}}) =>
       <Loading/>
     }
   </List>
+
 
 /*assuming i need some translations later, will let 'willTranslations stand until i know*/
 /*RN = message number, TM = message type, use acknowledge to provide state, DA = date sent, TI = time sent*/
@@ -45,26 +47,7 @@ export const Message = withTranslation("messages")(({t, RN, TM, status, timeSent
       </Grid>
     </ListItem>
     <Divider/>
-    {/*<Card>
-      <CardActionArea>
-        <CardContent>
-          <Typography variant="h5">
-            RN:{RN}
-          </Typography>
-          <Typography>{t("titles.message-type")}: {TM}</Typography>
-          <Typography>Status: {status}</Typography>
-          <Typography>{t("titles.time-sent")}: {timeSent}</Typography> have a check if 12 hours have passed, choose icon based on this.
-          <Button>
-            <EditIcon/>
-          </Button>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button>
-          close
-        </Button>
-      </CardActions>
-    </Card>*/}
+
   </>
 )
 export default withStore(withPage(Messages, {namespace: "messages"}))
