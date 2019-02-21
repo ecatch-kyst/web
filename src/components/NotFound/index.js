@@ -1,16 +1,16 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import {withNamespaces} from 'react-i18next'
+import {withTranslation} from 'react-i18next'
 
 import {Button, Typography} from '@material-ui/core'
 
-import {routes} from '../lib/router'
-import empty from "../assets/empty_state.svg"
+import {routes} from '../../lib/router'
+import empty from "../../assets/empty_state.svg"
 
 import "./not-found.sass"
 
-import {useDimensions} from '../hooks'
-import Centered from '../components/Centered'
+import {useDimensions} from '../../hooks'
+import Centered from '../Centered'
 
 const NotFound = ({t}) => {
 
@@ -41,4 +41,4 @@ const NotFound = ({t}) => {
   )
 }
 
-export default withNamespaces("common")(NotFound)
+export default withTranslation("common")(NotFound)

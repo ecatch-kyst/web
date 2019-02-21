@@ -1,42 +1,45 @@
 import React, {Component, createContext} from "react"
-import helloWorld, {changeValue} from "./actions/helloWorld"
 import initValues from "./initialValues.json"
-import {DB, CONNECTION_REF} from "../lib/firebase"
+import toggleDarkMode from "./actions/darkMode"
+import {CONNECTION_REF} from "../lib/firebase"
+import {login, updateProfile, logout, deleteUser} from "./actions/users"
 
 const Store = createContext()
 
 export class Database extends Component {
 
-  state = {
-    ...initValues,
-    isOffline: false
-  }
+  state = initValues
 
   async componentDidMount() {
 
+    this.userLogin()
 
     CONNECTION_REF
       .on("value", snap => this.setState({isOffline: !snap.val()}))
 
-    try {
-      const value = (await DB.ref("test").once("value")).val()
-      this.setState({value})
-    } catch (error) {
-      console.log(error)
-    }
   }
 
+  toggleDarkMode = toggleDarkMode.bind(this)
 
-  helloWorld = helloWorld.bind(this)
 
-  changeValue = changeValue.bind(this)
+  // User
+  userLogin = login.bind(this)
+
+  userLogout = logout.bind(this)
+
+  userDelete = deleteUser.bind(this)
+
+  userUpdateProfile = updateProfile.bind(this)
 
   render() {
     return (
       <Store.Provider
         value={{
-          handleHelloWorld: this.helloWorld,
-          handleChangeValue: this.changeValue,
+          handleToggleDarkMode: this.toggleDarkMode,
+          handleUserUpdateProfile: this.userUpdateProfile,
+          handleUserLogout: this.userLogout,
+          handleUserLogin: this.userLogin,
+          handleUserDelete: this.userDelete,
           ...this.state
         }}
       >

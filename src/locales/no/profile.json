@@ -1,0 +1,10 @@
+{
+  "buttons": {
+    "logout": "Logg ut",
+    "deleteUser": "FJERN BRUKER"
+  },
+  "labels": {
+    "name": "Navn",
+    "email": "E-post"
+  }
+}

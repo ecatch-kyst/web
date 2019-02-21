@@ -1,17 +1,15 @@
 import {createMuiTheme} from '@material-ui/core/styles'
+import deepmerge from 'deepmerge'
 
 const defaultTheme = createMuiTheme({typography: {useNextVariants: true}})
 
-const primaryFont = {
-  fontFamily: "Poppins, Arial, sans-serif",
-  color: "#000"
-}
-const secondaryFont = {
-  fontFamily: "adobe-garamond-pro, 'Times New Roman'",
-  color: "#000"
-}
 
-export default createMuiTheme({
+const primaryFontFamily = {fontFamily: "Poppins, Arial, sans-serif"}
+
+const secondaryFontFamily = {fontFamily: "adobe-garamond-pro, 'Times New Roman'"}
+
+
+const base = {
   palette: {
     primary: {
       dark: "#02405a",
@@ -28,18 +26,36 @@ export default createMuiTheme({
   typography: {
     useNextVariants: true,
 
-    h1: primaryFont,
-    h2: primaryFont,
-    h3: primaryFont,
-    button: primaryFont,
+    h1: {
+      fontFamily: primaryFontFamily
+    },
+    h2: {
+      fontFamily: primaryFontFamily
+    },
+    h3: {
+      fontFamily: primaryFontFamily
+    },
+    button: {
+      fontFamily: primaryFontFamily
+    },
 
-    h4: secondaryFont,
-    h5: secondaryFont,
-    h6: secondaryFont,
-    subtitle1: secondaryFont,
-    body1: secondaryFont,
+    h4: {
+      fontFamily: secondaryFontFamily
+    },
+    h5: {
+      fontFamily: secondaryFontFamily
+    },
+    h6: {
+      fontFamily: secondaryFontFamily
+    },
+    subtitle1: {
+      fontFamily: secondaryFontFamily
+    },
+    body1: {
+      fontFamily: secondaryFontFamily
+    },
     caption: {
-      ...secondaryFont,
+      fontFamily: secondaryFontFamily,
       fontStyle: "italic"
     }
   },
@@ -60,4 +76,63 @@ export default createMuiTheme({
       }
     }
   }
-})
+}
+
+
+const darkTheme = {
+  palette: {
+    secondary: {
+      contrastText: "#000"
+    }
+  },
+  typography: {
+    useNextVariants: true,
+
+    h1: {
+      color: "#fff"
+    },
+    h2: {
+      color: "#fff"
+    },
+    h3: {
+      color: "#fff"
+    },
+    button: {
+      color: "#fff"
+    },
+
+    h4: {
+      color: "#fff"
+    },
+    h5: {
+      color: "#fff"
+    },
+    h6: {
+      color: "#fff"
+    },
+    subtitle1: {
+      color: "#fff"
+    },
+    body1: {
+      color: "#fff"
+    },
+    body2: {
+      color: "#fff"
+    },
+    caption: {
+      color: "#fff"
+    }
+  },
+  overrides: {
+    MuiCard: {
+      root: {
+        backgroundColor: "transparent"
+      }
+    }
+  }
+
+}
+
+export const light = createMuiTheme({...base})
+export const dark = createMuiTheme(deepmerge(base, darkTheme))
+

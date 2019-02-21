@@ -1,0 +1,22 @@
+{
+	"buttons": {
+		"add-fishinggrounds": "",
+		"my-messages": "",
+		"report-catch": "",
+		"report-fishing": "",
+		"return-journey": ""
+	},
+	"not-found": {
+		"back-to-main": "",
+		"go-to": "",
+		"img-alt": "",
+		"text": ""
+	},
+	"states": {
+		"offline": ""
+	},
+	"welcome": {
+		"intro": "",
+		"title": ""
+	}
+}

@@ -21,6 +21,6 @@ export const AUTH = firebase.auth()
 export const TIMESTAMP = firebase.firestore.FieldValue.serverTimestamp()
 
 export const CONNECTION_REF = DB.ref(".info/connected")
-
+export const USERS_FS = FS.collection("users")
 
 export default firebase
