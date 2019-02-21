@@ -5,6 +5,7 @@ import Landing from "./Landing"
 import NotFound from "./NotFound"
 import Profile from "./Profile"
 import Centered from "./Centered"
+import Status from "./Status/Status"
 
 export {Dialog, Notification} from "./shared"
 
@@ -15,5 +16,6 @@ export {
   Register,
   Landing,
   NotFound,
-  Profile
+  Profile,
+  Status
 }
