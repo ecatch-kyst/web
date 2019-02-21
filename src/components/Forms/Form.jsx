@@ -37,11 +37,12 @@ function Form ({match: {params: {type}}}) {
           {form && form.length ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
             <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
               <Grid component={Typography} item variant="subtitle2">{t(`${type}.steps.${id}`)}</Grid>
-              {fields.map(({id, type, value}) => // Iterate over all the input fields in a Form block
+              {fields.map(({id, dataId, type, isMulti}) => // Iterate over all the input fields in a Form block
                 <Grid item key={id}>
-                  <FormInput // TODO: Extract into FormInput component. Add validation, change handlers etc. Use Store to store values for each forms.
-                    defaultValue={value}
+                  <FormInput
+                    dataId={dataId || id}
                     id={id}
+                    options={{isMulti}}
                     type={type}
                   />
                 </Grid>
