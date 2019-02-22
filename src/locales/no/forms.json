@@ -7,11 +7,10 @@
   },
   "DEP": {
     "title": "DEP",
-    "submit": "Meld",
+    "submit": "Meld avgang",
     "steps": [
-      "Avgangsdato",
-      "Start av fisking",
-      "Fiskekoordinater"
+      "Avgangshavn",
+      "Planlagt fiskested"
     ]
   },
   "DCA": {
@@ -29,11 +28,14 @@
     ]
   },
   "labels": {
-    "ZD": "",
-    "ZT": "",
-    "PD": "",
-    "PT": "",
-    "LA": "",
-    "LO": ""
+    "AC": "Fiskeaktivitet",
+    "DS": "Målart",
+    "PO": "Velg havn",
+    "expectedFishingStart": "Forventet fiskestart",
+    "expectedFishingSpot": "Forventet fiskested",
+    "OB": "Fisk ombord",
+    "departure": "Avgangstid",
+    "LA": "Breddegrad",
+    "LO": "Lengdegrad"
   }
 }

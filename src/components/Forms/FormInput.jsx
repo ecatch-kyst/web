@@ -1,68 +1,63 @@
-import React, {Component} from 'react'
-import {withTranslation} from 'react-i18next'
-import Select from "react-select"
-import {TextField} from '@material-ui/core'
+import React, {useContext} from 'react'
+import {useTranslation} from 'react-i18next'
 
-import {validate} from '../../utils'
 import Store from '../../db'
+import Dropdown from './components/Dropdown.jsx'
+import TextField from './components/TextField'
 
 
 /**
  * Dynamic input field
  * @param {object} props
- * @param {string} props.type
  * @param {string} props.id
- * @param {string} [props.defaultValue=""]
+ * @param {string} props.dataId
+ * @param {string} props.type
+ * @param {boolean} props.options
  */
 
-class FormInput extends Component {
+const FormInput = ({id, dataId, type, options}) => {
 
-  static contextType = Store
 
-  state = {
-    InputField: TextField
-  }
+  const [t] = useTranslation("forms")
+  const {handleFieldChange, fields} = useContext(Store)
 
-  componentDidMount() {
-    const {id, type} = this.props
-    const {fields} = this.context
-
-    let InputField
-    switch (type) {
-    case "select":
-      InputField = Select
-      break
-    default: break
-    }
-
-    if (InputField) this.setState({InputField})
-    this.setState({value: fields[id] || ""})
-  }
-
-  handleChange = ({target: {value}}) => {
-    const {id} = this.props
-    const error = validate[id](value) // Validating the field
+  const handleChange = (name, value) => {
+    const error = null // TODO: Uncomment validate[dataId](value) // Validating the field
     if (error) {
       console.error(error) // TODO: Add error notification
     } else {
-      this.context.handleFieldChange(id, value)
+      handleFieldChange(name, value)
     }
   }
 
-  render() {
-    const {InputField} = this.state
-    const {t, id, type} = this.props
+  const value = fields[dataId]
 
+  switch (type) {
+  case "select":
     return (
-      <InputField
+      <Dropdown
+        dataId={id}
+        onChange={handleChange}
+        placeholder={t(`labels.${id}`)}
+        type={dataId}
+        value={value}
+        {...options}
+      />
+    )
+  case "select-key-value": // TODO: Implement
+  default:
+    return (
+      <TextField
+        dataId={dataId}
         label={t(`labels.${id}`)}
-        onChange={this.handleChange}
+        onChange={handleChange}
         type={type}
-        value={this.context.fields[id] || ""}
+        value={value}
+        {...options}
       />
     )
   }
 }
 
 
-export default withTranslation("forms")(FormInput)
+export default FormInput

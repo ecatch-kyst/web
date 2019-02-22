@@ -1,5 +1,4 @@
 import React, {Component, createContext} from "react"
-import {format} from "date-fns"
 import initValues from "./initialValues.json"
 import {CONNECTION_REF} from "../lib/firebase"
 
@@ -16,8 +15,13 @@ export class Database extends Component {
   state = {
     ...initValues,
     fields: {
-      ZD: format(Date.now(), "yyyy-MM-dd"),
-      ZT: format(Date.now(), "HH:mm:ss")
+      departure: "", // Time of departure
+      PO: "", // Land & port
+      AC: "", // Fishing activity
+      expectedFishingSpot: "",
+      expectedFishingStart: "", // Expected time of fishing start
+      DS: "", // Expected fish art
+      OB: "" // Fish type and weight
     }
   }
 
