@@ -26,7 +26,7 @@ export const Messages =({store: {messages}}) =>
 
 /*assuming i need some translations later, will let 'willTranslations stand until i know*/
 /*RN = message number, TM = message type, use acknowledge to provide state, DA = date sent, TI = time sent*/
-export const Message = withTranslation("messages")(({t, RN, TM, status, timeSent}) =>
+export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, timeSent}) =>
   <>
   {/* Information to display: id, type(DEP, DCA, POR..), status(sent, not sent) and if youre able to edit it still(12 hour limit)*/}
     <ListItem key={RN}>
@@ -36,13 +36,13 @@ export const Message = withTranslation("messages")(({t, RN, TM, status, timeSent
         </Grid>
         <Grid container item justify="space-between">
           <Typography>{t("titles.message-type")}: {TM}</Typography>
-          <Typography>Status: {status}</Typography>
+          <Typography>Status: {acknowledged}</Typography>{/*undefined=pending, true = sent/acknowledged, false=failed/not acknowledged*/}
           <Typography>{t("titles.time-sent")}: {timeSent}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
           <Button
             color="primary"
             component={Link}
             size="large"
-            to={`${routes.MESSAGES}${routes[RN]}${routes.EDIT}`}
+            to={`${routes.MESSAGES}/${RN}${routes.EDIT}`}
             variant="contained"
           >{/*Goal: Link to messages/messageId/edit*/}
             <EditIcon/>
