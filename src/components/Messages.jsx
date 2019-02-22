@@ -7,7 +7,6 @@ import {withStore} from '../db'
 import {withTranslation} from 'react-i18next'
 import {Link} from "react-router-dom"
 import {routes} from "../lib/router"
-import Edit from "../components/Edit"
 
 
 /*var d = new Date("2007-07-01")
@@ -45,12 +44,9 @@ export const Message = withTranslation("messages")(({t, RN, TM, status, timeSent
             size="large"
             to={`${routes.MESSAGES}${routes[RN]}${routes.NEW}`}
             variant="contained"
-          >{/*Link to messages/messageId/edit*/}
+          >{/*Goal: Link to messages/messageId/edit*/}
             <EditIcon/>
           </Button>
-          <Typography>{t("titles.time-sent")}: {timeSent}</Typography><EditIcon/>{/*have a check if 12 hours have passed, choose icon based on this.*/}
-          {/*<Typography>{t("titles.length")}</Typography>
-          <Typography>{length}m</Typography>*/}
         </Grid>
       </Grid>
     </ListItem>

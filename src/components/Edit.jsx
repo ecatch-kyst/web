@@ -16,10 +16,9 @@ import Store from '../db'
 /*Type should be DEP etc.?  */
 /**
  */
-function Edit({match: {params:{type}}}){
-  const [t] = useTranslation("forms")
+function Edit({match: {params:{messageId}}}){
+  const [t] = useTranslation("") //TODO: make edit translations
   const store = useContext(Store)
-  //const form = forms[type] // Extract form from forms.js
 
   /**
    * Submits the filled out form.
@@ -27,12 +26,13 @@ function Edit({match: {params:{type}}}){
   function handleSubmit (e) {
     e.preventDefault && e.preventDefault()
     // TODO: Submit form with dialog and notification.
-    store.handleDialog(type, () => store.submitMessage(type))
+    store.handleDialog(messageId, () => store.submitMessage(messageId))
   }
   return(
     <Card>
       <CardActionArea>
         <CardContent>
+          {/*Have some kind of form here, could we use the forms that already exist?*/}
           {/*<Grid component="form" item onSubmit={handleSubmit}>
             {form && form.length ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
             <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
@@ -63,7 +63,7 @@ function Edit({match: {params:{type}}}){
           to={routes.MESSAGES}
           variant="contained"
         >
-          {t(`${type}.submit`)}
+          {t(`${messageId}.submit`)}
         </Button>
         {/*Redirect back to the messages page without submitting.*/}
         <Button

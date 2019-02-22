@@ -3,7 +3,21 @@
   "isDarkMode": false,
   "dialog": {"open": false},
   "notification": {"open": false},
-  "messages": [],
+  "boats": [],
+  "messages": [
+    {
+      "RN": 0,
+      "TM": "DEP",
+      "status": "sent",
+      "timeSent": 0
+    },
+    {
+      "RN": 1,
+      "TM": "DCA",
+      "status": "pending",
+      "timeSent": 0
+    }
+  ],
   "ports": [
     {
       "value":"0",
@@ -112,23 +126,6 @@
     "value": "BPZ",
     "label": "Ringgås"
   },
-<<<<<<< HEAD
-  "boats": [],
-  "messages": [
-    {
-      "RN": 0,
-      "TM": "DEP",
-      "status": "sent",
-      "timeSent": 0
-    },
-    {
-      "RN": 1,
-      "TM": "DCA",
-      "status": "pending",
-      "timeSent": 0
-    }
-  ]
-=======
   {
     "value":"BQV",
     "label":"Kandagås"
@@ -231,6 +228,5 @@
   }
 
 ]
->>>>>>> e289a8c2d8547f4e0d6a51d4ed6283978073124b
 }
 

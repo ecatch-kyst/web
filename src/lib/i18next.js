@@ -12,10 +12,6 @@ import pages_no from "../locales/no/pages.json"
 import register_en from "../locales/en/register.json"
 import register_no from "../locales/no/register.json"
 import languages from "../locales/locales.json"
-<<<<<<< HEAD
-import messages_en from "../locales/en/messages.json"
-import messages_no from "../locales/no/messages.json"
-=======
 import problems_en from "../locales/en/problems.json"
 import problems_no from "../locales/no/problems.json"
 import species_en from "../locales/en/species.json"
@@ -24,7 +20,6 @@ import messages_en from "../locales/en/messages.json"
 import messages_no from "../locales/no/messages.json"
 import forms_en from "../locales/en/forms.json"
 import forms_no from "../locales/no/forms.json"
->>>>>>> e289a8c2d8547f4e0d6a51d4ed6283978073124b
 
 const en = {
   common: common_en,
@@ -32,16 +27,11 @@ const en = {
   dashboard: dashboard_en,
   boats: boats_en,
   pages: pages_en,
-<<<<<<< HEAD
   register: register_en,
-  messages: messages_en
-=======
   messages: messages_en,
-  register: register_en,
   problems: problems_en,
   species: species_en,
   forms: forms_en
->>>>>>> e289a8c2d8547f4e0d6a51d4ed6283978073124b
 }
 
 const no = {
@@ -50,14 +40,10 @@ const no = {
   dashboard: dashboard_no,
   boats: boats_no,
   pages: pages_no,
-<<<<<<< HEAD
-  register: register_no,
-=======
   problems: problems_no,
   species: species_no,
   register: register_no,
   forms: forms_no,
->>>>>>> e289a8c2d8547f4e0d6a51d4ed6283978073124b
   messages: messages_no
 }
 
