@@ -42,7 +42,7 @@ export const Message = withTranslation("messages")(({t, RN, TM, status, timeSent
             color="primary"
             component={Link}
             size="large"
-            to={`${routes.MESSAGES}${routes[RN]}${routes.NEW}`}
+            to={`${routes.MESSAGES}${routes[RN]}${routes.EDIT}`}
             variant="contained"
           >{/*Goal: Link to messages/messageId/edit*/}
             <EditIcon/>
