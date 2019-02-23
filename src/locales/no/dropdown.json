@@ -1,4 +1,7 @@
 {
+  "custom": {
+    "addSpot": "Legg til"
+  },
   "problems": [{
       "value": "0",
       "label": "Ingen redskapsproblemer"

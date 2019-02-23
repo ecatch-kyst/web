@@ -23,8 +23,8 @@
         },
         {
           "id": "expectedFishingSpot",
-
-          "type": "select"
+          "type": "select",
+          "customizable": true
         },
         {
           "id": "expectedFishingStart",

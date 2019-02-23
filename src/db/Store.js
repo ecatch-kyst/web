@@ -7,6 +7,7 @@ import {login, updateProfile, logout, deleteUser} from "./actions/users"
 import * as dialog from './actions/dialog'
 import * as messages from './actions/messages'
 import * as notification from './actions/notification'
+import * as customlists from './actions/customlists'
 
 const Store = createContext()
 
@@ -22,6 +23,10 @@ export class Database extends Component {
       expectedFishingStart: "", // Expected time of fishing start
       DS: "", // Expected fish art
       OB: "" // Fish type and weight
+    },
+    custom: {
+      editing: {},
+      fishingspots: []
     }
   }
 
@@ -49,6 +54,12 @@ export class Database extends Component {
     )
 
   }
+
+  // Custom lists
+
+  handleAddCustomSpot = customlists.addSpot.bind(this)
+
+  handleEditCustomSpot = customlists.handle.bind(this)
 
   // Dark mode
   initDarkMode = darkMode.init.bind(this)
@@ -88,6 +99,7 @@ export class Database extends Component {
 
   subscribeToMessages = messages.subscribe.bind(this)
 
+
   render() {
     return (
       <Store.Provider
@@ -103,6 +115,8 @@ export class Database extends Component {
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
           submitMessage: this.submitMessage,
+          handleAddCustomSpot: this.handleAddCustomSpot,
+          handleEditCustomSpot: this.handleEditCustomSpot,
           ...this.state
         }}
       >

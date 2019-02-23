@@ -32,6 +32,13 @@
 		"title": "Velkommen til {{framework}}"
 	},
 	"dialogs": {
+		"addSpot": {
+			"titles": {
+				"main": "Legg til fiskested",
+				"submit": "Legg til",
+				"cancel": "Avbryt"
+			}
+		},
 		"deleteUser": {
 			"titles": {
 				"main": "Slett bruker",
@@ -50,6 +57,9 @@
 		}
 	},
 	"notifications": {
+		"addSpot": {
+			"default": "Fiskeplass lagt til"
+		},
 		"offline": {
 			"error": "Du er offline.",
 			"action": "Last inn på nytt"

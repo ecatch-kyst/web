@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
 import React from 'react'
@@ -14,6 +15,7 @@ import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import dropdown from "./dropdown.json"
 import {useTranslation} from 'react-i18next'
+import AddFishingSpot from "./AddFishingSpot"
 
 const styles = theme => ({
   root: {
@@ -62,15 +64,17 @@ const styles = theme => ({
   }
 })
 
+
 function NoOptionsMessage(props) {
   return (
-    <Typography
-      className={props.selectProps.classes.noOptionsMessage}
-      color="textSecondary"
-      {...props.innerProps}
-    >
-      {props.children}
-    </Typography>
+    <AddFishingSpot/>
+    // <Typography
+    //   className={props.selectProps.classes.noOptionsMessage}
+    //   color="textSecondary"
+    //   {...props.innerProps}
+    // >
+    //   {props.children}
+    // </Typography>
   )
 }
 
@@ -82,19 +86,21 @@ function Control(props) {
   return (
     <TextField
       fullWidth
+      // eslint-disable-next-line react/jsx-sort-props
       InputProps={{
         inputComponent,
         inputProps: {
           className: props.selectProps.classes.input,
           inputRef: props.innerRef,
           children: props.children,
-          ...props.innerProps,
-        },
+          ...props.innerProps
+        }
       }}
       {...props.selectProps.textFieldProps}
     />
   )
 }
+
 
 function Option(props) {
   return (
@@ -169,7 +175,7 @@ const components = {
   ValueContainer
 }
 
-const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
+const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("dropdown")
 
@@ -188,11 +194,11 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 
   const options = dropdown[type] || t(type, {returnObjects: true})
 
-
   return (
     <div className={classes.root}>
       <NoSsr>
         <div className={classes.divider} />
+        {customizable && <AddFishingSpot/>}
         <Select
           classes={classes}
           components={components}

@@ -37,12 +37,12 @@ function Form ({match: {params: {type}}}) {
           {form && form.length ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
             <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
               <Grid component={Typography} item variant="subtitle2">{t(`${type}.steps.${id}`)}</Grid>
-              {fields.map(({id, dataId, type, isMulti}) => // Iterate over all the input fields in a Form block
+              {fields.map(({id, dataId, type, isMulti, customizable}) => // Iterate over all the input fields in a Form block
                 <Grid item key={id}>
                   <FormInput
                     dataId={dataId || id}
                     id={id}
-                    options={{isMulti}}
+                    options={{isMulti, customizable}}
                     type={type}
                   />
                 </Grid>
