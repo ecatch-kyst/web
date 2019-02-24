@@ -27,8 +27,7 @@ function Form ({match: {params: {type}}}) {
    */
   function handleSubmit (e) {
     e.preventDefault && e.preventDefault()
-    // TODO: Submit form with dialog and notification.
-    store.handleDialog(type, () => store.submitMessage(type))
+    store.handleDialog({type, submit: () => store.submitMessage(type)})
   }
   return (
     <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
