@@ -49,9 +49,9 @@ export async function submit(type) {
       ...message,
       timestampCreated: new Date()
     })
-    console.log("data sent")
-  } catch (error) {
-    console.log(error) // TODO: Add error notification
+    this.notify({name: `message.sent.${type}`, type: "success"})
+  } catch ({code, message}) {
+    this.notify({name: `message.sent.${type}`, type: "error", message: [code, message].join(": ")})
   }
 
 }

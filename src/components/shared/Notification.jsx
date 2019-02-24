@@ -7,7 +7,7 @@ import {useNotification} from '../../hooks'
 export const Notification = () => {
 
   const {
-    open, name, type, handleAction, duration,
+    open, name, type, handleAction, duration, message,
     processQueue,
     close
   } = useNotification()
@@ -40,7 +40,7 @@ export const Notification = () => {
     >
       <SnackbarContent
         action={ActionButton}
-        message={t(`notifications.${name}.${type || "default"}`)}
+        message={t(`notifications.${name}.${type || "default"}`, {message})}
       />
     </Snackbar>
   )
