@@ -28,7 +28,7 @@
     "deploy:beta": "yarn build && firebase deploy -P staging --only hosting",
     "deploy": "yarn build; firebase deploy --only hosting",
     "test:ci": "CI=true react-scripts test --coverage && npx codecov -t $CODECOV_TOKEN && rm -rf coverage",
-    "lh": "lighthousebot"
+    "lh": "lighthousebot --runner=wpt --pwa=90 --perf=0 --a11y=80 --bp=80 --seo=1"
   },
   "eslintConfig": {
     "extends": "react-app"
