@@ -16,6 +16,8 @@ All notable changes to this project will be documented in this file.
 - Messages list
 ### Fixed
 - manifest.json pointed to non-existent icons, changed to existing icons
+### Changed
+- Notification UI (color background, instead of action text)
 
 ## [1.0.0-beta1] - 2019-02-11
 ### Added
