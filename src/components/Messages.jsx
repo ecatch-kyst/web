@@ -11,6 +11,7 @@ import {routes} from "../lib/router"
 import CheckIcon from "@material-ui/icons/CheckOutlined"
 import CloseIcon from "@material-ui/icons/CloseOutlined"
 import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
+import {format} from 'date-fns'
 import {colors} from '../lib/material-ui'
 
 
@@ -44,6 +45,7 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, cr
           {/*Make a status component instead */}
           <Typography>Status: {Status}</Typography>
           <Status acknowledged={acknowledged}/>
+          <Typography>{t("titles.time-sent")}: {format(created.toDate(), "yyyy. MMM dd HH:mm")}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
           <Button
             color="primary"
             component={Link}
