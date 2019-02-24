@@ -2,7 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-
+### Changed
+- Notification UI (color background, instead of action text)
 
 ## [1.0.0-beta1] - 2019-02-11
 ### Added
