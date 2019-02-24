@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - database listener for messages
 - ability to send messages to the database
 - Support for rendering custom components in Dialog
+- Messages list
 ### Fixed
 - manifest.json pointed to non-existent icons, changed to existing icons
 
