@@ -1,4 +1,4 @@
-import {AUTH, USERS_FS, TIMESTAMP} from "../../lib/firebase"
+import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
 
 /**
@@ -19,35 +19,37 @@ export function handle(key, value) {
  * Submits a message form
  */
 export async function submit(type) {
-  const {AC, DS, PO, expectedFishingSpot, departure} = this.state.fields
-
-  let message = {
-    TM: type,
-    timestampReceived: TIMESTAMP
-  }
-  switch (type) { // TODO: Populate message by type
-  case "DEP":
-    message = {
-      ...message,
-      AC: AC.value,
-      DS: DS.value,
-      PO: PO.value,
-      departure: new Date(departure),
-      expectedFishingSpot: [
-        expectedFishingSpot.latitude,
-        expectedFishingSpot.longitude
-      ]
-    }
-        OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
-  default:
-    break
-  }
-
   try {
+    const {AC, DS, PO, OB, expectedFishingSpot, departure, expectedFishingStart} = this.state.fields
+
+    let message = {
+      TM: type,
+      timestamp: TIMESTAMP_SERVER
+    }
+    switch (type) { // TODO: Populate message by type
+    case "DEP":
+      message = {
+        ...message,
+        MA: AUTH.currentUser.displayName,
+        AC: AC.value,
+        DS: DS.value,
+        PO: PO.value,
+        departure: new Date(departure),
+        expectedFishingSpot: GEOPOINT(
+          expectedFishingSpot.latitude,
+          expectedFishingSpot.longitude
+        ),
+        expectedFishingStart: new Date(expectedFishingStart),
+        OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
+      }
+      break
+    default:
+      break
+    }
     // TODO: Add final validation before sending to firebase
     await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add({
       ...message,
-      timestampCreated: new Date()
+      created: TIMESTAMP_CLIENT()
     })
     this.notify({name: `message.sent.${type}`, type: "success"})
   } catch ({code, message}) {
