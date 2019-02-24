@@ -8,6 +8,9 @@ import {withTranslation} from 'react-i18next'
 import {Link} from "react-router-dom"
 import {routes} from "../lib/router"
 
+import CheckIcon from "@material-ui/icons/CheckOutLined"
+import CloseIcon from "@material-ui/icons/CloseOutLined"
+
 
 /*var d = new Date("2007-07-01")
 var m = new Date("1942-07-01")
@@ -24,7 +27,7 @@ export const Messages =({store: {messages}}) =>
     }
   </List>
 
-/*assuming i need some translations later, will let 'willTranslations stand until i know*/
+/*assuming i need some translations later, will let 'withTranslations' stand until i know*/
 /*RN = message number, TM = message type, use acknowledge to provide state, DA = date sent, TI = time sent*/
 export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, timeSent}) =>
   <>
@@ -36,7 +39,8 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, ti
         </Grid>
         <Grid container item justify="space-between">
           <Typography>{t("titles.message-type")}: {TM}</Typography>
-          <Typography>Status: {acknowledged}</Typography>{/*undefined=pending, true = sent/acknowledged, false=failed/not acknowledged*/}
+          {/*Make a status component instead */}
+          <Typography>Status: {acknowledged}</Typography>{/*undefined=pending, true = sent/acknowledged, false=failed/ not acknowledged*/}
           <Typography>{t("titles.time-sent")}: {timeSent}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
           <Button
             color="primary"
@@ -54,3 +58,17 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, ti
   </>
 )
 export default withStore(withPage(Messages, {namespace: "messages"}))
+
+const Status = ({acknowledged}) => {
+  const Icon = 
+  switch (acknowledged) {
+    case undefined:
+      
+      break;
+  
+    default:
+      break;
+  }
+
+  return <Icon/>
+}
