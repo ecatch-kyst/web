@@ -28,7 +28,7 @@ class Landing extends Component {
 
   handleUserLogin = () => {
     const {email, password} = this.state
-    this.context.handleUserLogin(email, password)
+    this.context.handleUserLogin({email, password})
   }
 
   render() {

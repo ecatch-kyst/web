@@ -9,6 +9,8 @@ class TestClass extends Component {
     this.initDarkMode()
   }
 
+  notify = jest.fn()
+
   initDarkMode = init.bind(this)
 
   handleToggleDarkMode = toggle.bind(this)
