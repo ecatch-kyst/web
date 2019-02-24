@@ -11,6 +11,7 @@ import {routes} from "../lib/router"
 import CheckIcon from "@material-ui/icons/CheckOutlined"
 import CloseIcon from "@material-ui/icons/CloseOutlined"
 import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
+import {colors} from '../lib/material-ui'
 
 
 /*var d = new Date("2007-07-01")
@@ -41,8 +42,8 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, cr
         <Grid container item justify="space-between">
           <Typography>{t("titles.message-type")}: {TM}</Typography>
           {/*Make a status component instead */}
-          <Typography>Status: {Status}</Typography>{/*undefined=pending, true = sent/acknowledged, false=failed/ not acknowledged*/}
-          <Typography>{t("titles.time-sent")}: {created}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
+          <Typography>Status: {Status}</Typography>
+          <Status acknowledged={acknowledged}/>
           <Button
             color="primary"
             component={Link}
@@ -61,17 +62,14 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, cr
 export default withStore(withPage(Messages, {namespace: "messages"}))
 
 const Status = ({acknowledged}) => {
-  //const Icon =
   switch (acknowledged) {
   case undefined:
-    return <HourglassIcon/>
+    return <HourglassIcon style={{color: colors.yellow}}/>
   case true:
-    return <CheckIcon/>
+    return <CheckIcon style={{color: colors.green}}/>
   case false:
-    return <CloseIcon/>
+    return <CloseIcon style={{color: colors.red}}/>
   default:
     return null
   }
-
-  //return <Icon/>
 }
