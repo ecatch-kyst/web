@@ -8,8 +8,9 @@ import {withTranslation} from 'react-i18next'
 import {Link} from "react-router-dom"
 import {routes} from "../lib/router"
 
-import CheckIcon from "@material-ui/icons/CheckOutLined"
-import CloseIcon from "@material-ui/icons/CloseOutLined"
+import CheckIcon from "@material-ui/icons/CheckOutlined"
+import CloseIcon from "@material-ui/icons/CloseOutlined"
+import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
 
 
 /*var d = new Date("2007-07-01")
@@ -29,7 +30,7 @@ export const Messages =({store: {messages}}) =>
 
 /*assuming i need some translations later, will let 'withTranslations' stand until i know*/
 /*RN = message number, TM = message type, use acknowledge to provide state, DA = date sent, TI = time sent*/
-export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, timeSent}) =>
+export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, created}) =>
   <>
   {/* Information to display: id, type(DEP, DCA, POR..), status(sent, not sent) and if youre able to edit it still(12 hour limit)*/}
     <ListItem key={RN}>
@@ -40,8 +41,8 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, ti
         <Grid container item justify="space-between">
           <Typography>{t("titles.message-type")}: {TM}</Typography>
           {/*Make a status component instead */}
-          <Typography>Status: {acknowledged}</Typography>{/*undefined=pending, true = sent/acknowledged, false=failed/ not acknowledged*/}
-          <Typography>{t("titles.time-sent")}: {timeSent}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
+          <Typography>Status: {Status}</Typography>{/*undefined=pending, true = sent/acknowledged, false=failed/ not acknowledged*/}
+          <Typography>{t("titles.time-sent")}: {created}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
           <Button
             color="primary"
             component={Link}
@@ -60,15 +61,17 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, ti
 export default withStore(withPage(Messages, {namespace: "messages"}))
 
 const Status = ({acknowledged}) => {
-  const Icon = 
+  //const Icon =
   switch (acknowledged) {
-    case undefined:
-      
-      break;
-  
-    default:
-      break;
+  case undefined:
+    return <HourglassIcon/>
+  case true:
+    return <CheckIcon/>
+  case false:
+    return <CloseIcon/>
+  default:
+    return null
   }
 
-  return <Icon/>
+  //return <Icon/>
 }
