@@ -5,7 +5,7 @@ import {DestructButton} from "."
 import {useTranslation} from 'react-i18next'
 
 
-export const Dialog = ({store: {dialog: {open, handleSubmit, handleCancel, isDestructive, type}}}) => {
+export const Dialog = ({store: {dialog: {open, children, handleSubmit, handleCancel, isDestructive, type}}}) => {
   const SubmitButton = isDestructive ? DestructButton : Button
   const [t] = useTranslation("common")
 
@@ -15,15 +15,16 @@ export const Dialog = ({store: {dialog: {open, handleSubmit, handleCancel, isDes
       <DialogContent>
         <DialogContentText>
           {t(`dialogs.${type}.description`)}
+          {children}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <SubmitButton onClick={handleSubmit} size="large">
-          {t(`dialogs.${type}.titles.submit`)}
-        </SubmitButton>
         <Button color="primary" onClick={handleCancel} size="large">
           {t(`dialogs.${type}.titles.cancel`)}
         </Button>
+        <SubmitButton color="secondary" onClick={handleSubmit} size="large" variant="contained">
+          {t(`dialogs.${type}.titles.submit`)}
+        </SubmitButton>
       </DialogActions>
     </MuiDialog>
   )
