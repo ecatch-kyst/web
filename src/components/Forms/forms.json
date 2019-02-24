@@ -37,8 +37,10 @@
         },
         {
           "id": "OB",
+          "dropdown": "species",
+          "inputType": "number",
           "isMulti": true,
-          "type": "select-key-value"
+          "type": "select-map"
         }
       ]
     }

@@ -38,7 +38,7 @@ export async function submit(type) {
         expectedFishingSpot.longitude
       ]
     }
-    break
+        OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
   default:
     break
   }
