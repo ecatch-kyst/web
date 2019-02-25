@@ -27,7 +27,6 @@ export class Database extends Component {
     custom: {
       editing: {},
       fishingspots: []
-      
     }
   }
 
