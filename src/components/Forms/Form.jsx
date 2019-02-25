@@ -27,8 +27,7 @@ function Form ({match: {params: {type}}}) {
    */
   function handleSubmit (e) {
     e.preventDefault && e.preventDefault()
-    // TODO: Submit form with dialog and notification.
-    store.handleDialog(type, () => store.submitMessage(type))
+    store.handleDialog({type, submit: () => store.submitMessage(type)})
   }
   return (
     <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
@@ -37,12 +36,12 @@ function Form ({match: {params: {type}}}) {
           {form && form.length ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
             <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
               <Grid component={Typography} item variant="subtitle2">{t(`${type}.steps.${id}`)}</Grid>
-              {fields.map(({id, dataId, type, isMulti, customizable}) => // Iterate over all the input fields in a Form block
+              {fields.map(({id, dataId, type, isMulti, dropdown, inputType}) => // Iterate over all the input fields in a Form block
                 <Grid item key={id}>
                   <FormInput
                     dataId={dataId || id}
                     id={id}
-                    options={{isMulti, customizable}}
+                    options={{isMulti, dropdown, inputType}}
                     type={type}
                   />
                 </Grid>

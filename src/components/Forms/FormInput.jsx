@@ -4,6 +4,7 @@ import {useTranslation} from 'react-i18next'
 import Store from '../../db'
 import Dropdown from './components/Dropdown'
 import TextField from './components/TextField'
+import DropdownMap from './components/DropdownMap'
 
 
 /**
@@ -44,7 +45,17 @@ const FormInput = ({id, dataId, type, options}) => {
         {...options}
       />
     )
-  case "select-key-value": // TODO: Implement
+  case "select-map":
+    return (
+      <DropdownMap
+        dataId={id}
+        onChange={handleChange}
+        placeholder={t(`labels.${id}`)}
+        type={dataId}
+        value={value}
+        {...options}
+      />
+    )
   default:
     return (
       <TextField

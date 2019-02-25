@@ -22,11 +22,12 @@ export class Database extends Component {
       expectedFishingSpot: "",
       expectedFishingStart: "", // Expected time of fishing start
       DS: "", // Expected fish art
-      OB: "" // Fish type and weight
+      OB: [] // Fish type and weight
     },
     custom: {
       editing: {},
       fishingspots: []
+      
     }
   }
 

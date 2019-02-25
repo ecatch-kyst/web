@@ -60,6 +60,14 @@
 		"addSpot": {
 			"default": "Fiskeplass lagt til"
 		},
+		"message": {
+			"sent": {
+				"DEP": {
+					"error": "Meldingen ble ikke sendt: {{message}}",
+					"success": "Meldingen ble sendt"
+				}
+			}
+		},
 		"offline": {
 			"error": "Du er offline.",
 			"action": "Last inn på nytt"
