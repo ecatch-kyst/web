@@ -12,7 +12,8 @@
 	},
 	"navigation": {
 		"dashboard": "Dashboard",
-		"profile": "Profil"
+		"profile": "Profil",
+		"messages": "Meldinger"
 	},
 	"loading": {
 		"tooltip": "Laster..."
@@ -38,9 +39,25 @@
 				"cancel": "Nei"
 			},
 			"description": "Er du sikker på at du vil slette brukeren din? All informasjon blir slettet. Dette kan ikke reverseres."
+		},
+		"DEP": {
+			"titles": {
+				"main": "Send inn DEP melding?",
+				"submit": "Bekreft",
+				"cancel": "Avlys"
+			},
+			"description": "..."
 		}
 	},
 	"notifications": {
+		"message": {
+			"sent": {
+				"DEP": {
+					"error": "Meldingen ble ikke sendt: {{message}}",
+					"success": "Meldingen ble sendt"
+				}
+			}
+		},
 		"offline": {
 			"error": "Du er offline.",
 			"action": "Last inn på nytt"

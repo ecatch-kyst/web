@@ -1,8 +1,11 @@
 import React from 'react'
-import {withTranslation} from 'react-i18next'
 import {withPage} from './shared'
+import {Forms} from '.'
 
 
-const Dashboard = () => <div></div>
+const Dashboard = () =>
+  <>
+    <Forms/>
+  </>
 
-export default withTranslation("pages")(withPage(Dashboard, {namespace: "dashboard"}))
+export default withPage(Dashboard, {namespace: "dashboard"})

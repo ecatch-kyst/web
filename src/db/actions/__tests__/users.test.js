@@ -38,7 +38,7 @@ describe("login function", () => {
     mount(
       <ClickHandlerMockClass
         clickHandler={login}
-        handlerArguments={["email@email.hu", "password"]}
+        handlerArguments={[{email: "email@email.hu", password: "password"}]}
       />
     ).simulate("click")
     expect(AUTH.signInWithEmailAndPassword).toBeCalledWith("email@email.hu", "password")

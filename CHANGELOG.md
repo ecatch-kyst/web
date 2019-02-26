@@ -1,10 +1,25 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
-### Added
-- in-app notification system (#40)
+## [Unreleased] 
 
+## [1.0.0-beta2] - 2019-02-26
+### Added
+- User now gets a notification that the PWA can be added to homescreen
+- in-app notification system ([#40](https://github.com/ecatch-kyst/web/issues/40))
+- Form base ([#32](https://github.com/ecatch-kyst/web/issues/32), [#13](https://github.com/ecatch-kyst/web/issues/13), [#29](https://github.com/ecatch-kyst/web/issues/29))
+- Send DEP message
+- Construct DEP message
+- FormInput
+- login callback (used to fetch initial data, set up database listeners, etc.)
+- database listener for messages
+- ability to send messages to the database
+- Support for rendering custom components in Dialog
+- Messages list
+### Fixed
+- manifest.json pointed to non-existent icons, changed to existing icons
+### Changed
+- Notification UI (color background, instead of action text)
 
 ## [1.0.0-beta1] - 2019-02-11
 ### Added
