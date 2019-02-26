@@ -32,11 +32,20 @@
 		"title": "Welcome to {{framework}}"
 	},
 	"dialogs": {
+		"addSpot":{
+			"titles":{
+				"main":"Add personal fishing spot",
+				"cancel":"Abort",
+				"submit":"Add fishing spot",
+				"description": "Here you can add your personal fishing spot, with longitude and latitude"
+			}
+		},
 		"deleteUser": {
 			"titles": {
 				"main": "Delete user",
 				"submit": "Delete",
 				"cancel": "Cancel"
+				
 			},
 			"description": "Are you sure you want to do this? All your data will be removed."
 		},

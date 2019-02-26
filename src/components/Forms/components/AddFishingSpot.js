@@ -14,7 +14,7 @@ const AddFishingSpot = ({t, store: {handleDialog, handleEditCustomSpot, handleAd
         children: <FishingSpotFields onChange={handleEditCustomSpot} {...editing}/>
       })
     }
-  >{t("addSpot")}
+  >{t("custom.addSpot")}
   </Button>
 
 export default withTranslation("dropdown")(withStore(AddFishingSpot))

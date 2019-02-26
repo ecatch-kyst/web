@@ -1,4 +1,7 @@
 {
+  "custom": {
+    "addSpot": "Add spot"
+  },
   "problems": [{
       "value": "0",
       "label": "No gear problems"

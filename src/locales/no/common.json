@@ -36,7 +36,8 @@
 			"titles": {
 				"main": "Legg til fiskested",
 				"submit": "Legg til",
-				"cancel": "Avbryt"
+				"cancel": "Avbryt",
+				"description":"Legg til din egen fiskeplass, med navn, lengde og breddegrader"
 			}
 		},
 		"deleteUser": {
