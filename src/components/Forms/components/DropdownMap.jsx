@@ -87,11 +87,11 @@ function Control(props) {
       InputProps={{
         inputComponent,
         inputProps: {
+          children: props.children,
           className: props.selectProps.classes.input,
           inputRef: props.innerRef,
-          children: props.children,
-          ...props.innerProps,
-        },
+          ...props.innerProps
+        }
       }}
       {...props.selectProps.textFieldProps}
     />
