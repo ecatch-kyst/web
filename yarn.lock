@@ -1909,6 +1909,13 @@ babel-plugin-macros@2.5.0, babel-plugin-macros@^2.0.0:
     cosmiconfig "^5.0.5"
     resolve "^1.8.1"
 
+babel-plugin-macros@^2.0.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.5.0.tgz#01f4d3b50ed567a67b80a30b9da066e94f4097b6"
+  integrity sha512-BWw0lD0kVZAXRD3Od1kMrdmfudqzDzYv2qrN3l2ISR1HVp1EgLKfbOrYV9xmY5k3qx3RIu5uPAUZZZHpo0o5Iw==
+  dependencies:
+    cosmiconfig "^5.0.5"
+    resolve "^1.8.1"
 babel-plugin-named-asset-import@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-named-asset-import/-/babel-plugin-named-asset-import-0.3.1.tgz#5ec13ec446d0a1e5bb6c57a1f94c9cdedb0c50d6"
