@@ -1,9 +1,34 @@
 {
-	"0": "No gear problems",
-	"1": "Missed throw",
-	"2": "Net tear",
-	"3": "Split",
-	"4": "Hole in sack",
-	"5": "Lost gear",
-	"6": "Other"
+	"size": 6,
+	"problems":[
+		{
+			"value": "0",
+			"label": "No gear problems"
+		},
+		{
+			"value": "1",
+			"label": "Missed throw"
+		},
+		{
+			"value": "2",
+			"label": "Net tear"
+		},
+		{
+			"value": "3",
+			"label": "Split"
+		},
+		{
+			"value": "4",
+			"label": "Hole in sack"
+		},
+		{
+			"value": "5",
+			"label": "Lost gear"
+		},
+		{
+			"value": "6",
+			"label": "Other"
+		}
+	]
+
 }

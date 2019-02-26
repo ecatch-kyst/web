@@ -4,10 +4,10 @@ import {Snackbar, SnackbarContent, Button, withTheme} from '@material-ui/core'
 import {colors} from '../../lib/material-ui'
 import {useNotification} from '../../hooks'
 
-export const Notification = () => {
+export const Notification = ({theme}) => {
 
   const {
-    open, name, type, handleAction, duration,
+    open, name, type, handleAction, duration, message,
     processQueue,
     close
   } = useNotification()
@@ -19,15 +19,37 @@ export const Notification = () => {
 
   const [t] = useTranslation("common")
 
+  let actionColor
+  let backgroundColor = theme.palette.primary.main
+  switch (type) {
+  case "success":
+    backgroundColor = colors.green
+    break
+  case "error":
+    backgroundColor = colors.red
+    break
+  case "warning":
+    backgroundColor = colors.yellow
+    break
+  case "info":
+    backgroundColor = colors.blue
+    break
+  default:
+    actionColor = "#fff"
+    break
+  }
+
   let ActionButton = null
   if (handleAction) {
     ActionButton =
       <Action
+        color={actionColor}
         onClick={handleAction}
         title={t(`notifications.${name}.action`)}
         type={type}
       />
   }
+
 
   return (
     <Snackbar
@@ -40,39 +62,14 @@ export const Notification = () => {
     >
       <SnackbarContent
         action={ActionButton}
-        message={t(`notifications.${name}.${type || "default"}`)}
+        message={t(`notifications.${name}.${type || "default"}`, {message})}
+        style={{backgroundColor}}
       />
     </Snackbar>
   )
 }
 
-export default Notification
+export default withTheme()(Notification)
 
-export const Action = withTheme()(({theme, type, title, onClick}) => {
-  let color = theme.palette.primary.main
-  switch (type) {
-  case "success":
-    color = colors.green
-    break
-  case "error":
-    color = colors.red
-    break
-  case "warning":
-    color = colors.yellow
-    break
-  case "info":
-    color = colors.blue
-    break
-  default:
-    break
-  }
-  return (
-    <Button
-      onClick={onClick}
-      style={{color}}
-
-    >
-      {title}
-    </Button>
-  )
-})
+export const Action =({title, onClick}) =>
+  <Button onClick={onClick}>{title}</Button>

@@ -1,9 +1,34 @@
 {
-	"0": "Ingen redskapsproblemer",
-	"1": "Bomkast",
-	"2": "Notsprenging",
-	"3": "Splitt",
-	"4": "Hull i sekk",
-	"5": "Mistet redskap",
-	"6": "Annet"
+	"size": 6,
+	"problems":[
+		{
+			"value": "0",
+			"label": "Ingen redskapsproblemer"
+		},
+		{
+			"value": "1",
+			"label": "Bomkast"
+		},
+		{
+			"value": "2",
+			"label": "Notsprenging"
+		},
+		{
+			"value": "3",
+			"label": "Splitt"
+		},
+		{
+			"value": "4",
+			"label": "Hull i sekk"
+		},
+		{
+			"value": "5",
+			"label": "Mistet redskap"
+		},
+		{
+			"value": "6",
+			"label": "Annet"
+		}
+	]
+
 }

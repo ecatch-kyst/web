@@ -1,34 +1,132 @@
 {
-	"AJC": "Butare",
-	"AKL": "Brungylt",
-	"ALB": "Albakor",
-	"ANE": "Ansjos",
-	"ANS": "Antarctic silverfish",
-	"BLI": "Blålange",
-	"BRF": "Blåkjeft",
-	"BRW": "Brydehval",
-	"BSK": "Brugde",
-	"CAB": "Blåsteinbit",
-	"CEP": "Blekksprut uspes.",
-	"CYA": "Brun havmus",
-	"CYH": "Blåvinget havmus",
-	"CYP": "Bunnhå",
-	"GHL": "Blåkveite",
-	"GUQ": "Brunhå",
-	"KCV": "Antarctic stone crab",
-	"KRI": "Antarktisk krill",
-	"MON": "Breiflabb",
-	"RJA": "Burton-skate",
-	"SKJ": "Bukstripet pelamide",
-	"SPR": "Brisling",
-	"SQC": "Blekksprut",
-	"SQE": "Akkar",
-	"SRR": "Antarctic starry skate",
-	"TBR": "Bergnebb",
-	"TOA": "Antarktisk tannfisk",
-	"TOT": "Antarktisk tannfisk, uspes.",
-	"USB": "Berggylt",
-	"USI": "Blåstal/ Rødnebb",
-	"USK": "Brosme",
-	"YTK": "Butt sandskjell"
+	"species":[
+		{
+			"value": "AJC",
+			"label": "Butare"
+		},
+		{
+			"value":"AKL",
+			"label":"Brungylt"
+		},
+		{
+			"value":"ALB",
+			"label":"Albakor"
+		},
+		{
+			"value":"ANE",
+			"label":"Ansjos"
+		},
+		{
+			"value":"ANS",
+			"label":"Antarctic silverfish"
+		},
+		{
+			"value":"BLI",
+			"label":"Blålange"
+		},
+		{
+			"value":"BRF",
+			"label":"Blåkjeft"
+		},
+		{
+			"value":"BRW",
+			"label":"Brydehval"
+		},
+		{
+			"value":"BSK",
+			"label":"Brugde"
+		},
+		{
+			"value":"CAB",
+			"label":"Blåsteinbit"
+		},
+		{
+			"value":"CEP",
+			"label":"Blekksprut uspes."
+		},
+		{
+			"value":"CYA",
+			"label":"Brun havmus"
+		},
+		{
+			"value":"CYH",
+			"label":"Blåvinget havmus"
+		},
+		{
+			"value":"CYP",
+			"label":"Bunnhå"
+		},
+		{
+			"value":"GHL",
+			"label":"Blåkveite"
+		},
+		{
+			"value":"GUQ",
+			"label":"Brunhå"
+		},
+		{
+			"value":"KCV",
+			"label":"Antarctic stone crab"
+		},
+		{
+			"value":"KRI",
+			"label":"Antarktisk krill"
+		},
+		{
+			"value":"MON",
+			"label":"Breiflabb"
+		},
+		{
+			"value":"RJA",
+			"label":"Burton-skate"
+		},
+		{
+			"value":"SKJ",
+			"label":"Bukstripet pelamide"
+		},
+		{
+			"value":"SPR",
+			"label":"Brisling"
+		},
+		{
+			"value":"SQC",
+			"label":"Blekksprut"
+		},
+		{
+			"value":"SQE",
+			"label":"Akkar"
+		},
+		{
+			"value":"SRR",
+			"label":"Antarctic starry skate"
+		},
+		{
+			"value":"TBR",
+			"label":"Bergnebb"
+		},
+		{
+			"value":"TOA",
+			"label":"Antarktisk tannfisk"
+		},
+		{
+			"value":"TOT",
+			"label":"Antarktisk tannfisk, uspes."
+		},
+		{
+			"value":"USB",
+			"label":"Berggylt"
+		},
+		{
+			"value":"USI",
+			"label":"Blåstal/ Rødnebb"
+		},
+		{
+			"value":"USK",
+			"label":"Brosme"
+		},
+		{
+			"value":"YTK",
+			"label":"Butt sandskjell"
+		}
+	]
 }

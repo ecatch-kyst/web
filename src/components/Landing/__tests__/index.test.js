@@ -25,6 +25,6 @@ describe("Landing component", () => {
   it.skip("form submits", () => {
     wrapper.simulate("submit", {preventDefault: jest.fn()})
     const {email, password} = wrapper.state()
-    expect(context.handleUserLogin).toBeCalledWith(email, password)
+    expect(context.handleUserLogin).toBeCalledWith({email, password})
   })
 })

@@ -5,20 +5,34 @@ import {CONNECTION_REF} from "../lib/firebase"
 import * as darkMode from "./actions/darkMode"
 import {login, updateProfile, logout, deleteUser} from "./actions/users"
 import * as dialog from './actions/dialog'
+import * as messages from './actions/messages'
 import * as notification from './actions/notification'
 
 const Store = createContext()
 
 export class Database extends Component {
 
-
-  state = initValues
+  state = {
+    ...initValues,
+    fields: {
+      departure: "", // Time of departure
+      PO: "", // Land & port
+      AC: "", // Fishing activity
+      expectedFishingSpot: "",
+      expectedFishingStart: "", // Expected time of fishing start
+      DS: "", // Expected fish art
+      OB: [] // Fish type and weight
+    }
+  }
 
   async componentDidMount() {
 
     this.initDarkMode()
 
-    this.userLogin()
+    this.userLogin({afterLogin: () => {
+      this.subscribeToMessages()
+    }})
+
 
     setTimeout(() => {
       CONNECTION_REF
@@ -65,6 +79,15 @@ export class Database extends Component {
 
   userUpdateProfile = updateProfile.bind(this)
 
+
+  // Messages
+
+  handleFieldChange = messages.handle.bind(this)
+
+  submitMessage = messages.submit.bind(this)
+
+  subscribeToMessages = messages.subscribe.bind(this)
+
   render() {
     return (
       <Store.Provider
@@ -78,6 +101,8 @@ export class Database extends Component {
           notify: this.notify, // Call this, when a notification shold be shown. @see src/db/actions/notification for implementation
           processNotificationQueue: this.processNotificationQueue,
           notificationClose: this.notificationClose,
+          handleFieldChange: this.handleFieldChange,
+          submitMessage: this.submitMessage,
           ...this.state
         }}
       >
