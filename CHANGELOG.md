@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased] 
+
+## [1.0.0-beta2] - 2019-02-26
 ### Added
 - User now gets a notification that the PWA can be added to homescreen
 - in-app notification system ([#40](https://github.com/ecatch-kyst/web/issues/40))
