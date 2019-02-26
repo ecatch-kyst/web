@@ -11,7 +11,7 @@ const AddFishingSpot = ({t, store: {handleDialog, handleEditCustomSpot, handleAd
       handleDialog({
         type: "addSpot",
         submit: handleAddCustomSpot,
-        children: <FishingSpotFields onChange={handleEditCustomSpot} {...editing}/>
+        children: <FishingSpotFields latiLabel={t("custom.addLongi")} longiLabel={t("custom.addLati")} onChange={handleEditCustomSpot} textLabel={t("custom.addFishingSpotLabel")} {...editing}/>
       })
     }
   >{t("custom.addSpot")}
@@ -19,9 +19,9 @@ const AddFishingSpot = ({t, store: {handleDialog, handleEditCustomSpot, handleAd
 
 export default withTranslation("dropdown")(withStore(AddFishingSpot))
 
-const FishingSpotFields = ({onChange, name, latitude, longitude}) =>
-  <>
-    <TextField label="Legg til din egen fiskeplass" name="name" onChange={onChange} value={name} />
-    <TextField label="Legg inn breddegrad" name="latitude" onChange={onChange} value={latitude}/>
-    <TextField label="Legg inn lengdegrad" name="longitude" onChange={onChange} value={longitude}/>
-  </>
+const FishingSpotFields = ({onChange, name, latitude, longitude, textLabel, longiLabel, latiLabel}) =>
+  <div>
+    <TextField label={textLabel} name="name" onChange={onChange} value={name} />
+    <TextField label={latiLabel} name="latitude" onChange={onChange} value={latitude}/>
+    <TextField label={longiLabel} name="longitude" onChange={onChange} value={longitude}/>
+  </div>
