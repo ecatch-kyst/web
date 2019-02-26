@@ -3,6 +3,14 @@ import deepmerge from 'deepmerge'
 
 const secondaryFontFamily = "adobe-garamond-pro, 'Times New Roman'"
 
+export const colors = {
+  red: "#A8112B",
+  yellow: "#FFCE00",
+  blue: "#00A9E7",
+  green: "#51c1b7"
+}
+
+
 const base = {
   palette: {
     primary: {

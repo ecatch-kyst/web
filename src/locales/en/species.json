@@ -1,34 +1,132 @@
 {
-	"AJC": "Babberlocks",
-	"AKL": "Scale-rayed wrasse",
-	"ALB": "Albacore",
-	"ANE": "Anchovy",
-	"ANS": "Antarctic silverfish",
-	"BLI": "Blue ling",
-	"BRF": "Bluemouth",
-	"BRW": "Bryde's whale",
-	"BSK": "Basking shark",
-	"CAB": "North. wolffish",
-	"CEP": "Cephalopods",
-	"CYA": "Smalleyed ratfish",
-	"CYH": "Large-eyed rabbitfish",
-	"CYP": "Longnose velvet dogfish",
-	"GHL": "Greenland halibut",
-	"GUQ": "Shark gulper, leafscale",
-	"KCV": "Antarctic stone crab",
-	"KRI": "Ant. krill",
-	"MON": "Monkfish",
-	"RJA": "White skate",
-	"SKJ": "Skipjack tuna",
-	"SPR": "European sprat",
-	"SQC": "Common squids nei",
-	"SQE": "Flying squid",
-	"SRR": "Antarctic starry skate",
-	"TBR": "Gold-sinny wrasse",
-	"TOA": "Toothfish",
-	"TOT": "Toothfish, nei",
-	"USB": "Ballan wrasse",
-	"USI": "Cuckoo wrasse",
-	"USK": "Tusk(= Cusk)",
-	"YTK": "Blunt gaper"
+	"species":[
+		{
+			"value": "AJC",
+			"label": "Babberlocks"
+		},
+		{
+			"value":"AKL",
+			"label":"Scale-rayed wrasse"
+		},
+		{
+			"value":"ALB",
+			"label":"Albacore"
+		},
+		{
+			"value":"ANE",
+			"label":"Anchovy"
+		},
+		{
+			"value":"ANS",
+			"label":"Antarctic silverfish"
+		},
+		{
+			"value":"BLI",
+			"label":"Blue ling"
+		},
+		{
+			"value":"BRF",
+			"label":"Bluemouth"
+		},
+		{
+			"value":"BRW",
+			"label":"Bryde's whale"
+		},
+		{
+			"value":"BSK",
+			"label":"Basking shark"
+		},
+		{
+			"value":"CAB",
+			"label":"North. wolffish"
+		},
+		{
+			"value":"CEP",
+			"label":"Cephalopods"
+		},
+		{
+			"value":"CYA",
+			"label":"Smalleyed ratfish"
+		},
+		{
+			"value":"CYH",
+			"label":"Large-eyed rabbitfish"
+		},
+		{
+			"value":"CYP",
+			"label":"Longnose velvet dogfish"
+		},
+		{
+			"value":"GHL",
+			"label":"Greenland halibut"
+		},
+		{
+			"value":"GUQ",
+			"label":"Shark gulper, leafscale"
+		},
+		{
+			"value":"KCV",
+			"label":"Antarctic stone crab"
+		},
+		{
+			"value":"KRI",
+			"label":"Ant. krill"
+		},
+		{
+			"value":"MON",
+			"label":"Monkfish"
+		},
+		{
+			"value":"RJA",
+			"label":"White skate"
+		},
+		{
+			"value":"SKJ",
+			"label":"Skipjack tuna"
+		},
+		{
+			"value":"SPR",
+			"label":"European sprat"
+		},
+		{
+			"value":"SQC",
+			"label":"Common squids nei"
+		},
+		{
+			"value":"SQE",
+			"label":"Flying squid"
+		},
+		{
+			"value":"SRR",
+			"label":"Antarctic starry skate"
+		},
+		{
+			"value":"TBR",
+			"label":"Gold-sinny wrasse"
+		},
+		{
+			"value":"TOA",
+			"label":"Toothfish"
+		},
+		{
+			"value":"TOT",
+			"label":"Toothfish, nei"
+		},
+		{
+			"value":"USB",
+			"label":"Ballan wrasse"
+		},
+		{
+			"value":"USI",
+			"label":"Cuckoo wrasse"
+		},
+		{
+			"value":"USK",
+			"label":"Tusk(= Cusk)"
+		},
+		{
+			"value":"YTK",
+			"label":"Blunt gaper"
+		}
+	]
 }
