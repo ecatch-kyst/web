@@ -36,6 +36,7 @@ export class Database extends Component {
 
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
+      this.handleRetrieveCustomLists()
     }})
 
 
@@ -55,11 +56,19 @@ export class Database extends Component {
 
   }
 
+  async componentWillUnmount(){
+    this.handleSendingToFirebaseFishingspot()
+  }
+
   // Custom lists
 
   handleAddCustomSpot = customlists.addSpot.bind(this)
 
   handleEditCustomSpot = customlists.handle.bind(this)
+
+  handleRetrieveCustomLists = customlists.retrieve.bind(this)
+
+  handleSendingToFirebaseFishingspot = customlists.sending.bind(this)
 
   // Dark mode
   initDarkMode = darkMode.init.bind(this)
