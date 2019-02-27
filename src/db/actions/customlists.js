@@ -17,12 +17,12 @@ export function addSpot(){
       fishingspots: [
         ...custom.fishingspots,
         editing
-      ]
+      ],
+      editing: {}
     }
   }))
   this.notify({name: "addSpot", type: "success"})
 }
-
 /**
  *
  * @param {string} name
