@@ -66,6 +66,10 @@
 				"DEP": {
 					"error": "Meldingen ble ikke sendt: {{message}}",
 					"success": "Meldingen ble sendt"
+				},
+				"AddSpot":{
+					"error": "Noe gikk feil: {{message}}",
+					"success": "Sendt til databasen"
 				}
 			}
 		},
