@@ -15,8 +15,9 @@ export const Dialog = ({store: {dialog: {open, children, handleSubmit, handleCan
       <DialogContent>
         <DialogContentText>
           {t(`dialogs.${type}.titles.description`)}
-          {children}
+
         </DialogContentText>
+        {children}
       </DialogContent>
       <DialogActions>
         <Button color="primary" onClick={handleCancel} size="large">
