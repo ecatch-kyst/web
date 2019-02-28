@@ -1,4 +1,4 @@
-import {AUTH, USERS_FS} from "../../lib/firebase"
+import {AUTH, USERS_FS, GEOPOINT} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
 
 
@@ -9,18 +9,16 @@ import {flattenDoc} from "../../utils"
  * @param {string} longitude
  * @param {string} latitude
  */
-export function addSpot(){
+export async function addSpot(){
   const {editing} = this.state.custom
+
+  await USERS_FS.doc(AUTH.currentUser.uid).collection("fishingspots").add({name: editing.name, location: GEOPOINT(parseInt(editing.latitude,10), parseInt(editing.longitude,10))})
+  //location = new firebase.firestore.GeoPoint(editing.latitude, editing.longitude)
   this.setState(({custom}) => ({
     custom: {
       ...custom,
-      fishingspots: [
-        ...custom.fishingspots,
-        editing
-      ],
       editing: {}
-    }
-  }))
+    }}))
   this.notify({name: "addSpot", type: "success"})
 }
 /**
@@ -40,11 +38,11 @@ export function handle({target: {name, value}}) {
     }
   }))
 }
-
+asgnininsinvionionion
 /**
  * Gets the custom list from Firebase for the logged in user.
  */
-export function retrieve(){
+export function subscribe(){
   USERS_FS.doc(AUTH.currentUser.uid).collection("fishingspots")
     .onSnapshot(snap => {
       this.setState({fishingspots: snap.docs.map(flattenDoc)})

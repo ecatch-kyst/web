@@ -66,7 +66,7 @@ export class Database extends Component {
 
   handleEditCustomSpot = customlists.handle.bind(this)
 
-  handleRetrieveCustomLists = customlists.retrieve.bind(this)
+  handleRetrieveCustomLists = customlists.subscribe.bind(this)
 
   handleSendingToFirebaseFishingspot = customlists.sending.bind(this)
 
