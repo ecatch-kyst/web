@@ -13,15 +13,130 @@ import CloseIcon from "@material-ui/icons/CloseOutlined"
 import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
 import {format, isAfter, addHours, isBefore} from 'date-fns'
 import {colors} from '../lib/material-ui'
+{/*}
+class MuiVirtualizedTable extends React.PureComponent {
+  getRowClassName = ({index}) => {
+    const {classes, rowClassName, onRowClick} = this.props
 
+    return classNames(classes.tableRow, classes.flexContainer, rowClassName, {
+      [classes.tableRowHover]: index !== -1 && onRowClick != null
+    })
+  };
 
-/*var d = new Date("2007-07-01")
-var m = new Date("1942-07-01")
-var flag = 0
-difference = d-m
-if(difference > 12){
-  flag = 1
-}*/
+  cellRenderer = ({cellData, columnIndex = null}) => {
+    const {columns, classes, rowHeight, onRowClick} = this.props
+    return (
+      <TableCell
+        align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
+        className={classNames(classes.tableCell, classes.flexContainer, {
+          [classes.noClick]: onRowClick == null
+        })}
+        component="div"
+        style={{height: rowHeight}}
+        variant="body"
+      >
+        {cellData}
+      </TableCell>
+    )
+  };
+
+  headerRenderer = ({label, columnIndex, dataKey, sortBy, sortDirection}) => {
+    const {headerHeight, columns, classes, sort} = this.props
+    const direction = {
+      [SortDirection.ASC]: 'asc',
+      [SortDirection.DESC]: 'desc'
+    }
+
+    const inner =
+      !columns[columnIndex].disableSort && sort != null ? (
+        <TableSortLabel active={dataKey === sortBy} direction={direction[sortDirection]}>
+          {label}
+        </TableSortLabel>
+      ) : (
+        label
+      )
+
+    return (
+      <TableCell
+        align={columns[columnIndex].numeric || false ? 'right' : 'left'}
+        className={classNames(classes.tableCell, classes.flexContainer, classes.noClick)}
+        component="div"
+        style={{height: headerHeight}}
+        variant="head"
+      >
+        {inner}
+      </TableCell>
+    )
+  };
+
+  render() {
+    const {classes, columns, ...tableProps} = this.props
+    return (
+      <AutoSizer>
+        {({height, width}) => (
+          <Table
+            className={classes.table}
+            height={height}
+            width={width}
+            {...tableProps}
+            rowClassName={this.getRowClassName}
+          >
+            {columns.map(({cellContentRenderer = null, className, dataKey, ...other}, index) => {
+              let renderer
+              if (cellContentRenderer != null) {
+                renderer = cellRendererProps =>
+                  this.cellRenderer({
+                    cellData: cellContentRenderer(cellRendererProps),
+                    columnIndex: index
+                  })
+              } else {
+                renderer = this.cellRenderer
+              }
+
+              return (
+                <Column
+                  cellRenderer={renderer}
+                  className={classNames(classes.flexContainer, className)}
+                  dataKey={dataKey}
+                  headerRenderer={headerProps =>
+                    this.headerRenderer({
+                      ...headerProps,
+                      columnIndex: index
+                    })
+                  }
+                  key={dataKey}
+                  {...other}
+                />
+              )
+            })}
+          </Table>
+        )}
+      </AutoSizer>
+    )
+  }
+}
+
+MuiVirtualizedTable.propTypes = {
+  classes: PropTypes.object.isRequired,
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      cellContentRenderer: PropTypes.func,
+      dataKey: PropTypes.string.isRequired,
+      width: PropTypes.number.isRequired
+    }),
+  ).isRequired,
+  headerHeight: PropTypes.number,
+  onRowClick: PropTypes.func,
+  rowClassName: PropTypes.string,
+  rowHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
+  sort: PropTypes.func
+}
+
+MuiVirtualizedTable.defaultProps = {
+  headerHeight: 56,
+  rowHeight: 56
+}*/}
+
 export const Messages =({store: {messages}}) =>
   <List>
     {messages.length ?
@@ -35,6 +150,7 @@ export const Messages =({store: {messages}}) =>
 export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, created}) =>
   <>
   {/* Information to display: id, type(DEP, DCA, POR..), status(sent, not sent) and if youre able to edit it still(12 hour limit)*/}
+  {/*TODO: display this like a table instead of a listItem*/}
     <ListItem key={RN}>
       <Grid container spacing={16}>
         <Grid container item>
@@ -63,6 +179,7 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, cr
   </>
 )
 export default withStore(withPage(Messages, {namespace: "messages"}))
+
 /*
 class MuiVirtualizedTable extends React.PureComponent {
   getRowClassName = ({ index }) => {
@@ -182,7 +299,6 @@ const Status = ({acknowledged}) => {
  * Check if the user should still be able to edit the message.
  */
 function editable(created){
-  /*TODO: make sure this logic is correct!*/
   const createdAddedHours = addHours(created.toDate(), 12)
   const currentDate = Date.now()
   if(isAfter(currentDate, createdAddedHours)){

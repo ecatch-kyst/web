@@ -10,10 +10,6 @@ import Store from '../db'
 
 /*implement the Editing page*/
 /*Link 'sumbit' to send to firebase and to send you back to /messages*/
-/*What is needed? different for each message type... could I just use Forms?
-* How to send edit message... as new message or with same ID as the one you want to edit?
-*/
-/*Type should be DEP etc.?  */
 /**
  */
 function Edit({match: {params:{messageId}}}){
@@ -32,7 +28,7 @@ function Edit({match: {params:{messageId}}}){
     <Card>
       <CardActionArea>
         <CardContent>
-          {/*Have some kind of form here, could we use the forms that already exist?*/}
+          {/*Use the form that already exists, send it messageId and type.*/}
           {/*<Grid component="form" item onSubmit={handleSubmit}>
             {form && form.length ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
             <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
