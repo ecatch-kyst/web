@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
  - New Logo
- - Logo instead of text on Lading
+ - Logo instead of text on Landing
  - name from eCatch Kyst to eCatch Kyst Pilot
  - Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
 
