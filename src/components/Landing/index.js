@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import {Link, Redirect} from "react-router-dom"
 import Centered from '../Centered'
-import {Typography, Card, Button, CardActions, CardContent, TextField, Grid, Link as MuiLink} from '@material-ui/core'
+import {Card, Button, CardActions, CardContent, TextField, Grid, Link as MuiLink} from '@material-ui/core'
 import {routes} from '../../lib/router'
 import "./landing.sass"
 import blob from "../../assets/blob.svg"
 import {withTranslation} from 'react-i18next'
 import Store from '../../db'
 import {AUTH} from '../../lib/firebase'
+import logo from '../../assets/eCatch_pilot_h.png'
 
 
 class Landing extends Component {
@@ -40,7 +41,7 @@ class Landing extends Component {
           {AUTH.currentUser ? <Redirect to={routes.DASHBOARD} /> : null}
           <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-1" src={blob}/>
           <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-2" src={blob}/>
-          <Typography variant="h4">{process.env.REACT_APP_TITLE}</Typography>
+          <img src={logo} alt="Logo" />
           <Card style={{minWidth: "calc(100vw/3)", maxWidth: "calc(100vw - 32px)", margin: 16}}>
             <CardContent>
               <Grid container direction="column" justify="center" spacing={8}>
