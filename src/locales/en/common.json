@@ -50,6 +50,14 @@
 		}
 	},
 	"notifications": {
+		"message": {
+			"sent": {
+				"DEP": {
+					"error": "Message not sent\n{{message}}",
+					"success": "Message sent"
+				}
+			}
+		},
 		"offline": {
 			"error": "You are offline.",
 			"action": "Reload page"
