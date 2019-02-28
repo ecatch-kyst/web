@@ -71,11 +71,10 @@ ShallowWrapper {
           className="landing-blob landing-blob-2"
           src="blob.svg"
         />
-        <WithStyles(Typography)
-          variant="h4"
-        >
-          eCatch Kyst
-        </WithStyles(Typography)>
+        <img
+          alt="Logo"
+          src="eCatch_pilot_h.png"
+        />
         <WithStyles(Card)
           style={
             Object {
@@ -202,11 +201,10 @@ ShallowWrapper {
             className="landing-blob landing-blob-2"
             src="blob.svg"
           />,
-          <WithStyles(Typography)
-            variant="h4"
-          >
-            eCatch Kyst
-          </WithStyles(Typography)>,
+          <img
+            alt="Logo"
+            src="eCatch_pilot_h.png"
+          />,
           <WithStyles(Card)
             style={
               Object {
@@ -346,14 +344,14 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "host",
           "props": Object {
-            "children": "eCatch Kyst",
-            "variant": "h4",
+            "alt": "Logo",
+            "src": "eCatch_pilot_h.png",
           },
           "ref": null,
-          "rendered": "eCatch Kyst",
-          "type": [Function],
+          "rendered": null,
+          "type": "img",
         },
         Object {
           "instance": null,
@@ -947,11 +945,10 @@ ShallowWrapper {
             className="landing-blob landing-blob-2"
             src="blob.svg"
           />
-          <WithStyles(Typography)
-            variant="h4"
-          >
-            eCatch Kyst
-          </WithStyles(Typography)>
+          <img
+            alt="Logo"
+            src="eCatch_pilot_h.png"
+          />
           <WithStyles(Card)
             style={
               Object {
@@ -1078,11 +1075,10 @@ ShallowWrapper {
               className="landing-blob landing-blob-2"
               src="blob.svg"
             />,
-            <WithStyles(Typography)
-              variant="h4"
-            >
-              eCatch Kyst
-            </WithStyles(Typography)>,
+            <img
+              alt="Logo"
+              src="eCatch_pilot_h.png"
+            />,
             <WithStyles(Card)
               style={
                 Object {
@@ -1222,14 +1218,14 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "host",
             "props": Object {
-              "children": "eCatch Kyst",
-              "variant": "h4",
+              "alt": "Logo",
+              "src": "eCatch_pilot_h.png",
             },
             "ref": null,
-            "rendered": "eCatch Kyst",
-            "type": [Function],
+            "rendered": null,
+            "type": "img",
           },
           Object {
             "instance": null,
