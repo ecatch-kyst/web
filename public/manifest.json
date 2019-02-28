@@ -1,14 +1,21 @@
 {
   "short_name": "eCatch",
   "name": "eCatch Kyst",
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.google.samples.apps.iosched"
+    }
+  ],
   "icons": [
     {
-      "src": "icons-192.png",
+      "src": "192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "icons-512.png",
+      "src": "512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     },
@@ -19,7 +26,6 @@
     }
   ],
   "start_url": ".",
-  "background_color": "#fffff",
   "display": "standalone",
   "theme_color": "#51c1b7",
   "background_color": "#02405a"

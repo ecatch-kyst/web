@@ -12,7 +12,7 @@ class TestClass extends Component {
   handleDialog = handle.bind(this)
 
   render() {
-    return <div onClick={() => this.handleDialog("type", submit, cancel, this.props.isDestructive)}/>
+    return <div onClick={() => this.handleDialog({type: "type", submit, cancel, isDestructive: this.props.isDestructive})}/>
   }
 }
 

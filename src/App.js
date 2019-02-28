@@ -3,6 +3,7 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
+import MessageIcon from "@material-ui/icons/ModeCommentOutlined"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -15,11 +16,13 @@ import {
   OfflineStatus,
   Dashboard,
   NotFound,
+  Messages,
   Dialog,
+  Form,
   Notification,
   Status
 } from './components'
-import {withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 
 
 export const App = ({theme: {palette: {type}}}) =>
@@ -29,11 +32,13 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
+      <Route component={Messages} exact path={routes.MESSAGES}/>
+      <Route component={Form} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>
       <Route component={Status} exact path={routes.STATUS}/>
       <Route component={NotFound}/>
     </Switch>
     <Route
-      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation/> : null}
+      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation value={pathname.slice(1)} /> : null}
     />
     <OfflineStatus/>
     <Dialog/>
@@ -54,14 +59,20 @@ const navigation = [
     id: "profile",
     icon: <ProfileIcon/>,
     to: routes.PROFILE
+  },
+  {
+    id: "messages",
+    icon: <MessageIcon/>,
+    to: routes.MESSAGES
   }
 ]
 
-export const Navigation = withTranslation("common")(withRouter(
-  ({t, location: {pathname}}) =>
+export const Navigation = ({value}) => {
+  const [t] = useTranslation("common")
+  return (
     <BottomNavigation
       style={{position: "fixed", bottom: 0, width: "100vw"}}
-      value={pathname.replace("/", "")}
+      value={value}
     >
       {navigation.map(({id, icon, to}) =>
         <BottomNavigationAction
@@ -74,4 +85,5 @@ export const Navigation = withTranslation("common")(withRouter(
         />
       )}
     </BottomNavigation>
-))
+  )
+}
