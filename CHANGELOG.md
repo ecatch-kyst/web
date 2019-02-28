@@ -1,7 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased] 
+## [Unreleased]
+### Added
+ - Assets for Android, iOS, macOS Safari, Windows
+
+### Changed
+ - New Logo
+ - Logo instead of text on Lading
+ - name from eCatch Kyst to eCatch Kyst Pilot
+
 
 ## [1.0.0-beta2] - 2019-02-26
 ### Added
