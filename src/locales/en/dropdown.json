@@ -2,8 +2,8 @@
   "custom": {
     "addSpot": "Add spot",
     "addFishingSpotLabel":"Add your own fishing spot",
-    "addLati":"Add the latitude",
-    "addLongi":"Add the longitude"
+    "addLati":"Add the latitude (-90 -> 90)",
+    "addLongi":"Add the longitude (-180 -> 180)"
   },
   "problems": [{
       "value": "0",

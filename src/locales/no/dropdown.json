@@ -2,8 +2,8 @@
   "custom": {
     "addSpot": "Legg til plass",
     "addFishingSpotLabel":"Legg til din egen fiskeplass",
-    "addLati":"Legg til breddegrad",
-    "addLongi":"Legg til lengdegrad"
+    "addLati":"Legg til breddegrad (-90, 90)",
+    "addLongi":"Legg til lengdegrad (-180, 180)"
   },
   "problems": [{
       "value": "0",
