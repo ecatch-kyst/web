@@ -11,9 +11,90 @@ import {routes} from "../lib/router"
 import CheckIcon from "@material-ui/icons/CheckOutlined"
 import CloseIcon from "@material-ui/icons/CloseOutlined"
 import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
-import {format, isAfter, addHours, isBefore} from 'date-fns'
+import {format, isAfter, addHours} from 'date-fns'
 import {colors} from '../lib/material-ui'
-{/*}
+
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import {withStyles} from '@material-ui/core/styles'
+import TableCell from '@material-ui/core/TableCell'
+import TableSortLabel from '@material-ui/core/TableSortLabel'
+import Paper from '@material-ui/core/Paper'
+import {AutoSizer, Column, SortDirection, Table} from 'react-virtualized'
+
+/* Old code, dont know how to translate this into table yet*/
+/*export const Messages =({store: {messages}}) =>
+  <List>
+    {messages.length ?
+      messages.map(message => <Message key={message.RN} {...message}/>):
+      <Loading/>
+    }
+  </List>*/
+
+/*assuming i need some translations later, will let 'withTranslations' stand until i know*/
+/*RN = message number, TM = message type, use acknowledge to provide state, DA = date sent, TI = time sent*/
+{/*export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, created}) =>
+  <>
+  {/* Information to display: id, type(DEP, DCA, POR..), status(sent, not sent) and if youre able to edit it still(12 hour limit)*/}
+{/*TODO: display this like a table instead of a listItem*/}
+{/*<ListItem key={RN}>
+    <Grid container spacing={16}>
+      <Grid container item>
+        <Typography variant="h5">{RN}</Typography>
+      </Grid>
+      <Grid container item justify="space-between">
+        <Typography>{t("titles.message-type")}: {TM}</Typography>
+        {/*Make a status component instead */}
+/*<Typography>Status: {Status}</Typography>
+        <Status acknowledged={acknowledged}/>
+        <Typography>{t("titles.time-sent")}: {format(created.toDate(), "yyyy. MMM dd HH:mm")}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*
+        /*<Button
+          color="primary"
+          component={Link}
+          disabled = {editable(created)}
+          size="large"
+          to={`${routes.MESSAGES}/${RN}${routes.EDIT}`}
+          variant="contained"
+        >{/*Goal: Link to messages/messageId/edit*/
+/*<EditIcon/>
+        </Button>
+      </Grid>
+    </Grid>
+  </ListItem>
+  <Divider/>
+  </>
+)
+  export default withStore(withPage(Messages, {namespace: "messages"}))*/
+
+/*Code from the example: */
+
+/* Have to be moved into the acctual style document */
+const styles = theme => ({
+  table: {
+    fontFamily: theme.typography.fontFamily
+  },
+  flexContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    boxSizing: 'border-box'
+  },
+  tableRow: {
+    cursor: 'pointer'
+  },
+  tableRowHover: {
+    '&:hover': {
+      backgroundColor: theme.palette.grey[200]
+    }
+  },
+  tableCell: {
+    flex: 1
+  },
+  noClick: {
+    cursor: 'initial'
+  }
+})
+
+/*Code from example*/
 class MuiVirtualizedTable extends React.PureComponent {
   getRowClassName = ({index}) => {
     const {classes, rowClassName, onRowClick} = this.props
@@ -116,172 +197,84 @@ class MuiVirtualizedTable extends React.PureComponent {
   }
 }
 
-MuiVirtualizedTable.propTypes = {
-  classes: PropTypes.object.isRequired,
-  columns: PropTypes.arrayOf(
-    PropTypes.shape({
-      cellContentRenderer: PropTypes.func,
-      dataKey: PropTypes.string.isRequired,
-      width: PropTypes.number.isRequired
-    }),
-  ).isRequired,
-  headerHeight: PropTypes.number,
-  onRowClick: PropTypes.func,
-  rowClassName: PropTypes.string,
-  rowHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
-  sort: PropTypes.func
-}
 
 MuiVirtualizedTable.defaultProps = {
-  headerHeight: 56,
-  rowHeight: 56
-}*/}
+  headerHeight: 70,
+  rowHeight: 70
+}
 
-export const Messages =({store: {messages}}) =>
-  <List>
-    {messages.length ?
-      messages.map(message => <Message key={message.RN} {...message}/>):
-      <Loading/>
-    }
-  </List>
+const WrappedVirtualizedTable = withStyles(styles)(MuiVirtualizedTable)
 
-/*assuming i need some translations later, will let 'withTranslations' stand until i know*/
-/*RN = message number, TM = message type, use acknowledge to provide state, DA = date sent, TI = time sent*/
-export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, created}) =>
-  <>
-  {/* Information to display: id, type(DEP, DCA, POR..), status(sent, not sent) and if youre able to edit it still(12 hour limit)*/}
-  {/*TODO: display this like a table instead of a listItem*/}
-    <ListItem key={RN}>
-      <Grid container spacing={16}>
-        <Grid container item>
-          <Typography variant="h5">{RN}</Typography>
-        </Grid>
-        <Grid container item justify="space-between">
-          <Typography>{t("titles.message-type")}: {TM}</Typography>
-          {/*Make a status component instead */}
-          <Typography>Status: {Status}</Typography>
-          <Status acknowledged={acknowledged}/>
-          <Typography>{t("titles.time-sent")}: {format(created.toDate(), "yyyy. MMM dd HH:mm")}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
-          <Button
-            color="primary"
-            component={Link}
-            disabled = {editable(created)}
-            size="large"
-            to={`${routes.MESSAGES}/${RN}${routes.EDIT}`}
-            variant="contained"
-          >{/*Goal: Link to messages/messageId/edit*/}
-            <EditIcon/>
-          </Button>
-        </Grid>
-      </Grid>
-    </ListItem>
-    <Divider/>
-  </>
-)
-export default withStore(withPage(Messages, {namespace: "messages"}))
+/*Get the acctual data and not mock data. */
+const data = [
+  ['Frozen yoghurt', 159, 6.0, 24, 4.0],
+  ['Ice cream sandwich', 237, 9.0, 37, 4.3],
+  ['Eclair', 262, 16.0, 24, 6.0],
+  ['Cupcake', 305, 3.7, 67, 4.3],
+  ['Gingerbread', 356, 16.0, 49, 3.9]
+]
 
-/*
-class MuiVirtualizedTable extends React.PureComponent {
-  getRowClassName = ({ index }) => {
-    const { classes, rowClassName, onRowClick } = this.props;
+function createData(RN, TM, acknowledged, created) {
+  return {RN, TM, acknowledged, created}
+}
 
-    return classNames(classes.tableRow, classes.flexContainer, rowClassName, {
-      [classes.tableRowHover]: index !== -1 && onRowClick != null,
-    });
-  };
+/* The data here must be  RN, TM, acknowledged, created, or at least t("titles.message-type"), Status, {t("titles.time-sent")} and a space for the edit button?*/
+const rows = []
 
-  cellRenderer = ({ cellData, columnIndex = null }) => {
-    const { columns, classes, rowHeight, onRowClick } = this.props;
-    return (
-      <TableCell
-        component="div"
-        className={classNames(classes.tableCell, classes.flexContainer, {
-          [classes.noClick]: onRowClick == null,
-        })}
-        variant="body"
-        style={{ height: rowHeight }}
-        align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
-      >
-        {cellData}
-      </TableCell>
-    );
-  };
+for (let i = 0; i < 200; i += 1) {
+  const randomSelection = data[Math.floor(Math.random() * data.length)]
+  rows.push(createData(...randomSelection))
+}
 
-  headerRenderer = ({ label, columnIndex, dataKey, sortBy, sortDirection }) => {
-    const { headerHeight, columns, classes, sort } = this.props;
-    const direction = {
-      [SortDirection.ASC]: 'asc',
-      [SortDirection.DESC]: 'desc',
-    };
+/**
+ *
+ */
+function ReactVirtualizedTable({RN, TM, acknowledged, created, edit}) {
+  return (
+    <Paper style={{height: 400, width: '100%'}}>
+      <WrappedVirtualizedTable
+        columns={[
+          {
+            width: 200,
+            flexGrow: 1.0,
+            label: 'RN',
+            dataKey: RN
+          },
+          {
+            width: 120,
+            label: 'TM',
+            dataKey: TM,
+            numeric: true
+          },
+          {
+            width: 120,
+            label: 'acknowledged',
+            dataKey: acknowledged,
+            numeric: true
+          },
+          {
+            width: 120,
+            label: 'created',
+            dataKey: created,
+            numeric: true
+          },
+          {
+            width: 120,
+            label: 'edit',
+            dataKey: edit,
+            numeric: true
+          }
+        ]}
+        onRowClick={event => console.log(event)}
+        rowCount={rows.length}
+        rowGetter={({index}) => rows[index]}
+      />
+    </Paper>
+  )
+}
 
-    const inner =
-      !columns[columnIndex].disableSort && sort != null ? (
-        <TableSortLabel active={dataKey === sortBy} direction={direction[sortDirection]}>
-          {label}
-        </TableSortLabel>
-      ) : (
-        label
-      );
+export default ReactVirtualizedTable
 
-    return (
-      <TableCell
-        component="div"
-        className={classNames(classes.tableCell, classes.flexContainer, classes.noClick)}
-        variant="head"
-        style={{ height: headerHeight }}
-        align={columns[columnIndex].numeric || false ? 'right' : 'left'}
-      >
-        {inner}
-      </TableCell>
-    );
-  };
-
-  render() {
-    const { classes, columns, ...tableProps } = this.props;
-    return (
-      <AutoSizer>
-        {({ height, width }) => (
-          <Table
-            className={classes.table}
-            height={height}
-            width={width}
-            {...tableProps}
-            rowClassName={this.getRowClassName}
-          >
-            {columns.map(({ cellContentRenderer = null, className, dataKey, ...other }, index) => {
-              let renderer;
-              if (cellContentRenderer != null) {
-                renderer = cellRendererProps =>
-                  this.cellRenderer({
-                    cellData: cellContentRenderer(cellRendererProps),
-                    columnIndex: index,
-                  });
-              } else {
-                renderer = this.cellRenderer;
-              }
-
-              return (
-                <Column
-                  key={dataKey}
-                  headerRenderer={headerProps =>
-                    this.headerRenderer({
-                      ...headerProps,
-                      columnIndex: index,
-                    })
-                  }
-                  className={classNames(classes.flexContainer, className)}
-                  cellRenderer={renderer}
-                  dataKey={dataKey}
-                  {...other}
-                />
-              );
-            })}
-          </Table>
-        )}
-      </AutoSizer>
-    );
-  }
-}*/
 const Status = ({acknowledged}) => {
   switch (acknowledged) {
   case undefined:
