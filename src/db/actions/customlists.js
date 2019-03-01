@@ -12,7 +12,7 @@ import {flattenDoc} from "../../utils"
 export async function addSpot(){
   const {editing} = this.state.custom
 
-  await USERS_FS.doc(AUTH.currentUser.uid).collection("fishingspots").add({name: editing.name, location: GEOPOINT(parseInt(editing.latitude,10), parseInt(editing.longitude,10)), id: [editing.name, editing.latitude, editing.longitude].join("")})
+  await USERS_FS.doc(AUTH.currentUser.uid).collection("fishingspots").add({label: editing.name, value: GEOPOINT(parseInt(editing.latitude,10), parseInt(editing.longitude,10)), longitude:  parseInt(editing.longitude, 10), latitude: parseInt(editing.latitude,10), id: [editing.name, editing.latitude, editing.longitude].join("")})
   //location = new firebase.firestore.GeoPoint(editing.latitude, editing.longitude)
   this.setState(({custom}) => ({
     custom: {
@@ -21,6 +21,7 @@ export async function addSpot(){
     }}))
   this.notify({name: "addSpot", type: "success"})
 }
+
 /**
  *
  * @param {string} name

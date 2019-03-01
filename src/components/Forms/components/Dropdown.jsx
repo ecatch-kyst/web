@@ -196,7 +196,6 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
 
   const options = dropdown[type] || t(type, {returnObjects: true})
   const fishingspots = store.fishingspots
-  console.log(fishingspots)
 
   return (
     <div className={classes.root}>
@@ -208,7 +207,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
           components={components}
           isMulti={isMulti}
           onChange={handleChange}
-          options={customizable ? fishingspots : options }
+          options={customizable ? fishingspots : options}
           placeholder={placeholder}
           styles={selectStyles}
           textFieldProps={{InputLabelProps: {shrink: true}}}
