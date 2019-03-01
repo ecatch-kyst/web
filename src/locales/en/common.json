@@ -47,12 +47,24 @@
 				"cancel": "Cancel"
 			},
 			"description": "..."
+		},
+		"POR": {
+			"titles": {
+				"main": "Send in POR message?",
+				"submit": "Confirm",
+				"cancel": "Cancel"
+			},
+			"description": ""
 		}
 	},
 	"notifications": {
 		"message": {
 			"sent": {
 				"DEP": {
+					"error": "Message not sent\n{{message}}",
+					"success": "Message sent"
+				},
+				"POR": {
 					"error": "Message not sent\n{{message}}",
 					"success": "Message sent"
 				}

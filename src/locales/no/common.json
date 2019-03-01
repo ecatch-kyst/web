@@ -47,12 +47,24 @@
 				"cancel": "Avlys"
 			},
 			"description": "..."
+		},
+		"POR": {
+			"titles": {
+				"main": "Send inn POR melding?",
+				"submit": "Bekreft",
+				"cancel": "Avlys"
+			},
+			"description": ""
 		}
 	},
 	"notifications": {
 		"message": {
 			"sent": {
 				"DEP": {
+					"error": "Meldingen ble ikke sendt: {{message}}",
+					"success": "Meldingen ble sendt"
+				},
+				"POR": {
 					"error": "Meldingen ble ikke sendt: {{message}}",
 					"success": "Meldingen ble sendt"
 				}

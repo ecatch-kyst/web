@@ -24,7 +24,8 @@
     "title": "POR",
     "submit": "Meld",
     "steps": [
-      "Tittel"
+      "Havn",
+      "Fisk"
     ]
   },
   "labels": {
@@ -36,6 +37,9 @@
     "OB": "Fisk ombord",
     "departure": "Avgangstid",
     "LA": "Breddegrad",
-    "LO": "Lengdegrad"
+    "LO": "Lengdegrad",
+    "portArrival": "Forventet ankomsttidspunkt",
+    "LS": "Mottak",
+    "KG": "Total fangst sortert på fisketype"
   }
 }

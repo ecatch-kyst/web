@@ -20,17 +20,17 @@ export function handle(key, value) {
  */
 export async function submit(type) {
   try {
-    const {AC, DS, PO, OB, expectedFishingSpot, departure, expectedFishingStart} = this.state.fields
+    const {AC, DS, PO, OB, KG, portArrival, LS, expectedFishingSpot, departure, expectedFishingStart} = this.state.fields
 
     let message = {
       TM: type,
-      timestamp: TIMESTAMP_SERVER
+      timestamp: TIMESTAMP_SERVER,
+      MA: AUTH.currentUser.displayName
     }
     switch (type) { // TODO: Populate message by type
     case "DEP":
       message = {
         ...message,
-        MA: AUTH.currentUser.displayName,
         AC: AC.value,
         DS: DS.value,
         PO: PO.value,
@@ -41,6 +41,17 @@ export async function submit(type) {
         ),
         expectedFishingStart: new Date(expectedFishingStart),
         OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
+      }
+      break
+    case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
+      message = {
+        ...message,
+        AD: "NOR", // NOTE: Hardcoded
+        PO: PO.value,
+        portArrival: new Date(portArrival),
+        OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {}),
+        LS,
+        KG: KG.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
       }
       break
     default:

@@ -49,8 +49,40 @@
     "id": 0,
     "fields": []
   }],
-  "POR": [{
-    "id": 0,
-    "fields": []
-  }]
+  "POR": [
+    { 
+      "id": 0,
+      "fields": [
+        {
+          "id": "PO",
+          "dataId": "ports",
+          "type": "select"
+        },
+        {"id": "LS"},
+        {
+          "id": "portArrival",
+          "type": "datetime-local"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "fields": [
+        {
+          "id": "OB",
+          "dropdown": "species",
+          "inputType": "number",
+          "isMulti": true,
+          "type": "select-map"
+        },
+        {
+          "id": "KG",
+          "dropdown": "species",
+          "inputType": "number",
+          "isMulti": true,
+          "type": "select-map"
+        }
+      ]
+    }
+  ]
 }

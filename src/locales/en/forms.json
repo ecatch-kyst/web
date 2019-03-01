@@ -24,7 +24,8 @@
     "title": "POR",
     "submit": "Submit",
     "steps": [
-      "Title"
+      "Port",
+      "Fish"
     ]
   },
   "labels": {
@@ -36,6 +37,9 @@
     "OB": "Fish onboard",
     "departure": "Departure time",
     "LA": "Latitude",
-    "LO": "Longitude"
+    "LO": "Longitude",
+    "portArrival": "Estimated time of arrival",
+    "LS": "Fish landing",
+    "KG": "Total catch sorted by fishtype"
   }
 }
