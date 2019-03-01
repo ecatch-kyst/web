@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
-import React from 'react'
+import React, {useContext} from 'react'
 import classNames from 'classnames'
 import Select from 'react-select'
 import {withStyles} from '@material-ui/core/styles'
@@ -16,6 +16,7 @@ import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import dropdown from "./dropdown.json"
 import {useTranslation} from 'react-i18next'
 import AddFishingSpot from "./AddFishingSpot"
+import Store from '../../../db/Store.js'
 
 const styles = theme => ({
   root: {
@@ -164,6 +165,7 @@ function Menu(props) {
   )
 }
 
+
 const components = {
   Control,
   Menu,
@@ -178,7 +180,7 @@ const components = {
 const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("dropdown")
-
+  const store = useContext(Store)
   const handleChange = value => onChange(dataId, value)
 
 
@@ -193,6 +195,8 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
   }
 
   const options = dropdown[type] || t(type, {returnObjects: true})
+  const fishingspots = store.fishingspots
+  console.log(fishingspots)
 
   return (
     <div className={classes.root}>
@@ -204,7 +208,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
           components={components}
           isMulti={isMulti}
           onChange={handleChange}
-          options={options}
+          options={customizable ? fishingspots : options }
           placeholder={placeholder}
           styles={selectStyles}
           textFieldProps={{InputLabelProps: {shrink: true}}}
