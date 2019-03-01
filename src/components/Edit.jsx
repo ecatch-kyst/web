@@ -6,7 +6,7 @@ import {routes} from '../lib/router.js'
 import {useTranslation, withTranslation} from 'react-i18next'
 //import {withPage} from './shared/Page'
 import Store from '../db'
-
+import Form from './Forms/Form'
 
 /*implement the Editing page*/
 /*Link 'sumbit' to send to firebase and to send you back to /messages*/
@@ -29,6 +29,7 @@ function Edit({match: {params:{messageId}}}){
       <CardActionArea>
         <CardContent>
           {/*Use the form that already exists, send it messageId and type.*/}
+          <Form type="DCA"></Form>
           {/*<Grid component="form" item onSubmit={handleSubmit}>
             {form && form.length ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
             <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
