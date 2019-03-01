@@ -23,48 +23,48 @@ import Paper from '@material-ui/core/Paper'
 import {AutoSizer, Column, SortDirection, Table} from 'react-virtualized'
 
 /* Old code, dont know how to translate this into table yet*/
-/*export const Messages =({store: {messages}}) =>
+export const Messages =({store: {messages}}) =>
   <List>
     {messages.length ?
       messages.map(message => <Message key={message.RN} {...message}/>):
       <Loading/>
     }
-  </List>*/
+  </List>
 
 /*assuming i need some translations later, will let 'withTranslations' stand until i know*/
 /*RN = message number, TM = message type, use acknowledge to provide state, DA = date sent, TI = time sent*/
-{/*export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, created}) =>
+export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, created}) =>
   <>
   {/* Information to display: id, type(DEP, DCA, POR..), status(sent, not sent) and if youre able to edit it still(12 hour limit)*/}
 {/*TODO: display this like a table instead of a listItem*/}
-{/*<ListItem key={RN}>
-    <Grid container spacing={16}>
-      <Grid container item>
-        <Typography variant="h5">{RN}</Typography>
-      </Grid>
-      <Grid container item justify="space-between">
-        <Typography>{t("titles.message-type")}: {TM}</Typography>
-        {/*Make a status component instead */}
-/*<Typography>Status: {Status}</Typography>
-        <Status acknowledged={acknowledged}/>
-        <Typography>{t("titles.time-sent")}: {format(created.toDate(), "yyyy. MMM dd HH:mm")}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*
-        /*<Button
-          color="primary"
-          component={Link}
-          disabled = {editable(created)}
-          size="large"
-          to={`${routes.MESSAGES}/${RN}${routes.EDIT}`}
-          variant="contained"
-        >{/*Goal: Link to messages/messageId/edit*/
-/*<EditIcon/>
-        </Button>
-      </Grid>
+<ListItem key={RN}>
+  <Grid container spacing={16}>
+    <Grid container item>
+      <Typography variant="h5">{RN}</Typography>
     </Grid>
-  </ListItem>
+    <Grid container item justify="space-between">
+      <Typography>{t("titles.message-type")}: {TM}</Typography>
+      {/*Make a status component instead */}
+      <Typography>Status: {Status}</Typography>
+      <Status acknowledged={acknowledged}/>
+      <Typography>{t("titles.time-sent")}: {format(created.toDate(), "yyyy. MMM dd HH:mm")}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
+      <Button
+        color="primary"
+        component={Link}
+        disabled = {editable(created)}
+        size="large"
+        to={`${routes.MESSAGES}/${RN}${routes.EDIT}`}
+        variant="contained"
+      >{/*Goal: Link to messages/messageId/edit*/}
+        <EditIcon/>
+      </Button>
+    </Grid>
+  </Grid>
+</ListItem>
   <Divider/>
   </>
 )
-  export default withStore(withPage(Messages, {namespace: "messages"}))*/
+export default withStore(withPage(Messages, {namespace: "messages"}))
 
 /*Switch for acknowledged from database*/
 const Status = ({acknowledged}) => {
