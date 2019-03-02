@@ -36,9 +36,9 @@
 			"titles":{
 				"main":"Add personal fishing spot",
 				"cancel":"Abort",
-				"submit":"Add fishing spot",
-				"description": "Here you can add your personal fishing spot, with longitude and latitude"
-			}
+				"submit":"Add fishing spot"
+			},
+			"description": "Here you can add your personal fishing spot, with longitude and latitude"
 		},
 		"deleteUser": {
 			"titles": {
@@ -55,7 +55,7 @@
 				"submit": "Confirm",
 				"cancel": "Cancel"
 			},
-			"description": "..."
+			"description": "Are you sure you want to send in a departure message?"
 		}
 	},
 	"notifications": {
@@ -87,7 +87,7 @@
 			"default": "Login successful.",
 			"error": {
 				"auth/invalid-email": "Invalid e-mail.",
-				"auth/argument-error": "Wrong password."
+				"auth/wrong-password": "Wrong password."
 			},
 			"warning": ""
 		},

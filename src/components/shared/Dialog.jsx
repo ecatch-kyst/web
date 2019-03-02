@@ -14,7 +14,7 @@ export const Dialog = ({store: {dialog: {open, children, handleSubmit, handleCan
       <DialogTitle>{t(`dialogs.${type}.titles.main`)}</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          {t(`dialogs.${type}.titles.description`)}
+          {t(`dialogs.${type}.description`)}
 
         </DialogContentText>
         {children}
