@@ -33,7 +33,7 @@ export function register(config) { // eslint-disable-line require-jsdoc
     }
 
     window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`
+      const swUrl = `${process.env.PUBLIC_URL}/sw.js`
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
@@ -70,6 +70,22 @@ function registerValidSW(swUrl, config) { // eslint-disable-line require-jsdoc
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
+              const prompt = createUIPrompt({
+                onAccept: async () => {
+                  // Send a message to the service worker telling it to
+                  // skip waiting. If/when the service worker replies,
+                  // you know that `skipWaiting()` was called.
+                  // Note: for this to work, you have to add a message
+                  // listener in your service worker. See below.
+                  await installingWorker.messageSW({type: 'SKIP_WAITING'});
+          
+                  // Reload to be controlled by the new service worker.
+                  window.location.reload();
+                },
+                onReject: () => {
+                  prompt.dismiss();
+                }
+              })
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See http://bit.ly/CRA-PWA.'
