@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Card, List, ListItem, CardContent, CardActions, Typography, withStyles, Button} from '@material-ui/core'
+import {Card, List, ListItem, CardContent, CardActions, Typography, withStyles, Button, Divider} from '@material-ui/core'
 import EditIcon from "@material-ui/icons/EditOutlined"
 import "./status.sass"
 import USERS_FS, {AUTH} from "../../lib/firebase"
@@ -8,11 +8,8 @@ import USERS_FS, {AUTH} from "../../lib/firebase"
 const StyledCard = withStyles({
   root: {
     margin: '10px 0',
-    background: 'white',
     border: '1px solid black',
-    color: 'white',
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)'
+    padding: '0 30px'
   }
 })(Card)
 
@@ -25,7 +22,7 @@ export class Status extends Component{
       lastReportedCatchPlace: "Vestskallen",
       catchStart: "1th of January - 00:01 (GMT+1)",
       catchDuration: "1 hours, 23 minutes",
-      catchList: {cod:200, pizza:100}
+      catchList: {Cod: 200, Pizza: 100}
     }
   }
 
@@ -76,6 +73,8 @@ export class Status extends Component{
           </CardActions>
         </StyledCard>
 
+        <Divider/>
+
         <StyledCard>
           <CardContent>
             <Typography className="statuscard-title" color="textPrimary" gutterBottom>
@@ -89,6 +88,8 @@ export class Status extends Component{
             <Button size="small"><EditIcon/></Button>
           </CardActions>
         </StyledCard>
+
+        <Divider/>
 
         <StyledCard>
           <CardContent>
@@ -106,6 +107,8 @@ export class Status extends Component{
             <Button size="small"><EditIcon/></Button>
           </CardActions>
         </StyledCard>
+
+        <Divider/>
 
         <StyledCard>
           <CardContent>
