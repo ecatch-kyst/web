@@ -1,4 +1,5 @@
 import {AUTH} from "../../lib/firebase"
+import {th} from "date-fns/esm/locale"
 
 /**
  * Logs the user in
@@ -7,9 +8,19 @@ export async function login({email, password, afterLogin=null}) {
   try {
     await AUTH.signInWithEmailAndPassword(email, password)
   } catch (error) {
-    if (error.code !== "auth/argument-error") {
-      // TODO: Add translations for all possible error codes
+    switch (error.code) {
+    case "auth/invalid-email":
       this.notify({name: "login", type: `error.${error.code}`, duration: 5000})
+      break
+    case "auth/wrong-password":
+      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+    case "auth/user-disabled":
+      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+    case "auth/user-not-found":
+      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+    default:
+      console.log(error)
+      break
     }
   } finally {
     AUTH.onAuthStateChanged(user => {

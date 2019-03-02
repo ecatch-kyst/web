@@ -36,9 +36,9 @@
 			"titles": {
 				"main": "Legg til fiskeplass",
 				"submit": "Legg til",
-				"cancel": "Avbryt",
-				"description":"Legg til din egen fiskeplass, med navn, lengde og breddegrader"
-			}
+				"cancel": "Avbryt"
+			},
+			"description": "Legg til din egen fiskeplass, med navn, lengde og breddegrader"
 		},
 		"deleteUser": {
 			"titles": {
@@ -54,7 +54,7 @@
 				"submit": "Bekreft",
 				"cancel": "Avlys"
 			},
-			"description": "..."
+			"description": "Er du sikker på at du vil sende inn avgangsmeldingen?"
 		}
 	},
 	"notifications": {
@@ -88,8 +88,10 @@
 		"login": {
 			"default": "Du er nå logget inn.",
 			"error": {
-				"auth/invalid-email": "Ugyldig e-post.",
-				"auth/argument-error": "Feil passord"
+				"auth/invalid-email": "ugyldig e-post.",
+				"auth/wrong-password": "Feil passord",
+				"auth/user-not-found": "Bruker finnes ikke",
+				"auth/user-disabled": "Brukeren har blitt deaktivert, kontakt kundeservice"
 			},
 			"warning": ""
 		},
