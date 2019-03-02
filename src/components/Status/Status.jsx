@@ -58,42 +58,14 @@ export class Status extends Component{
     console.log("fetchMessage magic here")
   }
 
-  generateCatchList = () => {
-    const jsxString = []
-
-    jsxString.push(<List>)
-
-    (this.store.catchList)
-      console.log("Catch element added to list")
-
-    jsxString.push(
-    <ListItem>
-      <StyledCard>
-        <CardContent>
-          <Typography>
-            300kg Pizza
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small"><EditIcon/></Button>
-        </CardActions>
-      </StyledCard>
-    </ListItem>
-    )
-
-
-    jsxString.push(</List>)
-    console.log("Current JSX: ", jsxString)
-    return jsxString
-  }
-
   render() {
+    const {catchList} = this.state
     return(
       <div className="cardwrapper">
         <StyledCard>
           <CardContent>
             <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              Departure harbour
+              Departure harbour for uid: {this.state.uid}
             </Typography>
             <Typography className="statuscard-info" color="textPrimary" gutterBottom>
               {this.state.lastDepartureHarbour}
