@@ -87,7 +87,9 @@
 			"default": "Login successful.",
 			"error": {
 				"auth/invalid-email": "Invalid e-mail.",
-				"auth/wrong-password": "Wrong password."
+				"auth/wrong-password": "Wrong password",
+				"auth/user-not-found": "User does not exist",
+				"auth/user-disabled": "User has been disabled, contact customer-service"
 			},
 			"warning": ""
 		},

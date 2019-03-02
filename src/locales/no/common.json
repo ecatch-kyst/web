@@ -88,8 +88,10 @@
 		"login": {
 			"default": "Du er nå logget inn.",
 			"error": {
-				"auth/invalid-email": "Ugyldig e-post.",
-				"auth/wrong-password": "Feil passord"
+				"auth/invalid-email": "ugyldig e-post.",
+				"auth/wrong-password": "Feil passord",
+				"auth/user-not-found": "Bruker finnes ikke",
+				"auth/user-disabled": "Brukeren har blitt deaktivert, kontakt kundeservice"
 			},
 			"warning": ""
 		},
