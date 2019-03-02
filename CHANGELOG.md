@@ -2,7 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased] 
-
+### Added
+- User can now add his own fishingspots.
+- User get correct error messages when an error occurs. :globe_with_meridians:
 ## [1.0.0-beta2] - 2019-02-26
 ### Added
 - User now gets a notification that the PWA can be added to homescreen
