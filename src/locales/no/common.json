@@ -34,7 +34,7 @@
 	"dialogs": {
 		"addSpot": {
 			"titles": {
-				"main": "Legg til fiskested",
+				"main": "Legg til fiskeplass",
 				"submit": "Legg til",
 				"cancel": "Avbryt",
 				"description":"Legg til din egen fiskeplass, med navn, lengde og breddegrader"
