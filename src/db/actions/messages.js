@@ -1,18 +1,26 @@
 import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
-
 /**
  * Handles message changes.
  * @param {string} key
  * @param {any} value
  */
-export function handle(key, value) {
-  this.setState(({fields}) => ({
-    fields: {
-      ...fields,
-      [key]: value
-    }
-  }))
+export function handle(...args) {
+  if (args.length === 1 && typeof args[0] === "object") {
+    this.setState(({fields}) => ({
+      fields: {
+        ...fields,
+        ...args[0]
+      }
+    }))
+  } else {
+    this.setState(({fields}) => ({
+      fields: {
+        ...fields,
+        [args[0]]: args[1]
+      }
+    }))
+  }
 }
 
 /**
@@ -65,7 +73,12 @@ export function subscribe() {
   USERS_FS.doc(AUTH.currentUser.uid)
     .collection("messages")
     .onSnapshot(snap => {
-      this.setState({messages: snap.docs.map(flattenDoc)})
+      this.setState({
+        messages: snap.docs.map(flattenDoc).sort(sortByTimestamp)
+      })
     }, error => console.error(error)
     ) //TODO: Add error notification
 }
+
+
+const sortByTimestamp = (a, b) => b.timestamp.toDate() - a.timestamp.toDate()

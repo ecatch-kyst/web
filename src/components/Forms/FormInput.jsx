@@ -31,7 +31,7 @@ const FormInput = ({id, dataId, type, options}) => {
     }
   }
 
-  const value = fields[dataId]
+  const value = fields[id || dataId]
 
   switch (type) {
   case "select":

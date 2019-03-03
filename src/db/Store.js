@@ -20,7 +20,7 @@ export class Database extends Component {
     ...initValues,
     fields: {
       departure: "", // Time of departure
-      PO: "", // Land & port
+      PO: null, // Land & port
       AC: "", // Fishing activity
       expectedFishingSpot: "",
       expectedFishingStart: "", // Expected time of fishing start
