@@ -62,6 +62,9 @@
 			"error": "You are offline.",
 			"action": "Reload page"
 		},
+		"position": {
+			"error": "User denied Geolocation"
+		},
 		"user": {
 			"updated": {
 				"default": "User updated."

@@ -62,6 +62,9 @@
 			"error": "Du er offline.",
 			"action": "Last inn på nytt"
 		},
+		"position": {
+			"error": "Brukeren nektet Geolokasjon"
+		},
 		"user": {
 			"updated": {
 				"default": "Bruker oppdatert."

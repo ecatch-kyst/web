@@ -31,6 +31,7 @@ export class Database extends Component {
 
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
+      this.subscribeToLocation()
     }})
 
 
@@ -73,12 +74,13 @@ export class Database extends Component {
   // User
   userLogin = login.bind(this)
 
-  userLogout = logout.bind(this)
+  // Location
 
-  userDelete = deleteUser.bind(this)
+  getLocation = location.get.bind(this)
 
-  userUpdateProfile = updateProfile.bind(this)
+  subscribeToLocation = location.subscribe.bind(this)
 
+  unsubscribeFromLocation = location.unsubscribe.bind(this)
 
   // Messages
 
