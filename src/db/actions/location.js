@@ -7,7 +7,7 @@ export function subscribe() {
   if ("geolocation" in navigator ) {
     this.locationId = navigator.geolocation.watchPosition(({coords: {latitude, longitude}}) => {
       this.setState({position: GEOPOINT(latitude, longitude)})
-    }, () => this.notify({name: "position", type: "error"}))
+    }, ({code, message}) => this.notify({name: "position", type: "error", message: `${code}: ${message}`}))
   }
 }
 

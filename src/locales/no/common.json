@@ -53,7 +53,7 @@
 		"message": {
 			"sent": {
 				"DEP": {
-					"error": "Meldingen ble ikke sendt: {{message}}",
+					"error": "Meldingen ble ikke sendt \n{{message}}",
 					"success": "Meldingen ble sendt"
 				}
 			}
@@ -63,7 +63,7 @@
 			"action": "Last inn på nytt"
 		},
 		"position": {
-			"error": "Brukeren nektet Geolokasjon"
+			"error": "Feil ved henting av posisjon. \n{{message}}"
 		},
 		"user": {
 			"updated": {
