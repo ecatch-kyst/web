@@ -1,4 +1,4 @@
-import {login, logout, deleteUser, updateProfile} from "../users"
+import {login, logout, deleteUser, updateProfile} from "../user"
 import {AUTH} from "../../../lib/firebase"
 import {Component} from "react"
 
