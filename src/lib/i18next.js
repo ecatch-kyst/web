@@ -20,8 +20,6 @@ import messages_en from "../locales/en/messages.json"
 import messages_no from "../locales/no/messages.json"
 import forms_en from "../locales/en/forms.json"
 import forms_no from "../locales/no/forms.json"
-import dropdown_en from "../locales/en/dropdown.json"
-import dropdown_no from "../locales/no/dropdown.json"
 
 const en = {
   common: common_en,
@@ -33,8 +31,7 @@ const en = {
   register: register_en,
   problems: problems_en,
   species: species_en,
-  forms: forms_en,
-  dropdown: dropdown_en
+  forms: forms_en
 }
 
 const no = {
@@ -47,8 +44,7 @@ const no = {
   species: species_no,
   register: register_no,
   forms: forms_no,
-  messages: messages_no,
-  dropdown: dropdown_no
+  messages: messages_no
 }
 
 i18next.init({
