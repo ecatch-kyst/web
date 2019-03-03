@@ -49,6 +49,11 @@
 			"description": "..."
 		}
 	},
+	"serviceworker": {
+		"accept": "Accept update",
+		"reject": "Not now",
+		"update-available": "There is a new version available for this application"
+	},
 	"notifications": {
 		"message": {
 			"sent": {

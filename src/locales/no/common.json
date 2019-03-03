@@ -49,6 +49,11 @@
 			"description": "..."
 		}
 	},
+	"serviceworker": {
+		"accept": "Aksepter oppdateringen",
+		"reject": "Ikke nå",
+		"update-available": "Det er en ny versjon tilgjenglig for denne applikasjonen"
+	},
 	"notifications": {
 		"message": {
 			"sent": {
