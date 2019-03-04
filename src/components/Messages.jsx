@@ -14,13 +14,13 @@ import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
 import {format, isAfter, addHours} from 'date-fns'
 import {colors} from '../lib/material-ui'
 
-import PropTypes from 'prop-types'
+/*import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import {withStyles} from '@material-ui/core/styles'
 import TableCell from '@material-ui/core/TableCell'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Paper from '@material-ui/core/Paper'
-import {AutoSizer, Column, SortDirection, Table} from 'react-virtualized'
+import {AutoSizer, Column, SortDirection, Table} from 'react-virtualized'*/
 
 /* Old code, dont know how to translate this into table yet*/
 export const Messages =({store: {messages}}) =>
@@ -47,15 +47,15 @@ export const Message = withTranslation("messages")(({t, RN, TM, acknowledged, cr
       {/*Make a status component instead */}
       <Typography>Status: {Status}</Typography>
       <Status acknowledged={acknowledged}/>
-      <Typography>{t("titles.time-sent")}: {format(created.toDate(), "yyyy. MMM dd HH:mm")}</Typography>{/*have a check if 12 hours have passed, choose icon based on this.*/}
+      <Typography>{t("titles.time-sent")}: {format(created.toDate(), "yyyy. MMM dd HH:mm")}</Typography>
       <Button
         color="primary"
         component={Link}
-        disabled = {editable(created)}
+        disabled = {editable(created, TM)}
         size="large"
         to={`${routes.MESSAGES}/${RN}${routes.EDIT}`}
         variant="contained"
-      >{/*Goal: Link to messages/messageId/edit*/}
+      >{/*Button that if active and clicked will send you to an edit page for the current message*/}
         <EditIcon/>
       </Button>
     </Grid>
@@ -83,10 +83,11 @@ const Status = ({acknowledged}) => {
 /**
  * Check if the user should still be able to edit the message.
  */
-function editable(created){
+function editable(created, TM){
   const createdAddedHours = addHours(created.toDate(), 12)
   const currentDate = Date.now()
-  if(isAfter(currentDate, createdAddedHours)){
+  /*TODO: make sure this actually works with a DCA message, only have POR for now.*/
+  if(isAfter(currentDate, createdAddedHours) /*&& TM !== "DCA"*/){
     return true
   }
   else{

@@ -6,6 +6,7 @@ import {routes} from '../lib/router.js'
 import {useTranslation, withTranslation} from 'react-i18next'
 //import {withPage} from './shared/Page'
 import Store from '../db'
+//import {Forms} from '.'
 import Form from './Forms/Form'
 
 /*implement the Editing page*/
@@ -18,6 +19,8 @@ function Edit({match: {params:{messageId}}}){
 
   /**
    * Submits the filled out form.
+   * As I try to use the existing Forms, this should not be needed?
+   * Forms redirects to dashboard, and i want to redirect to messages, this is why this is still here.
    */
   function handleSubmit (e) {
     e.preventDefault && e.preventDefault()
@@ -28,31 +31,12 @@ function Edit({match: {params:{messageId}}}){
     <Card>
       <CardActionArea>
         <CardContent>
-          {/*Use the form that already exists, send it messageId and type.*/}
-          <Form type="DCA"></Form>
-          {/*<Grid component="form" item onSubmit={handleSubmit}>
-            {form && form.length ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
-            <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
-                <Grid component={Typography} item variant="subtitle2">{t(`${type}.steps.${id}`)}</Grid>
-                {fields.map(({id, type, value}) => // Iterate over all the input fields in a Form block
-                <Grid item key={id}>
-                    <FormInput // TODO: Extract into FormInput component. Add validation, change handlers etc. Use Store to store values for each forms.
-                    defaultValue={value}
-                    id={id}
-                    type={type}
-                    />
-                </Grid>
-                )}
-                <Divider style={{marginTop: 16}}/>
-            </Grid>
-            ) :
-            <Redirect to={routes.MESSAGES}/> // If the form is invalid, redirect to the messages page?
-            }
-        </Grid>*/}
+          {/*Use the form that already exists, send it messageId and type (Type should only be DCA?*/}
+          <Form/>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        {/*Submit or maybe save? Submit and redirect to messages page*/}
+        {/*Call it submit or maybe save? Submit and redirect to messages page*/}
         <Button
           color="primary"
           onClick={handleSubmit}
@@ -75,4 +59,5 @@ function Edit({match: {params:{messageId}}}){
     </Card>)
 }
 
+/*TODO: Add translations*/
 export default withTranslation("")(Edit)
