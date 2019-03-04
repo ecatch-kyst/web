@@ -84,7 +84,11 @@
 				"auth/invalid-email": "Invalid e-mail",
 				"auth/wrong-password": "Wrong password",
 				"auth/user-not-found": "This user does not exist",
-				"auth/user-disabled": "This user has been disabled, please contact customerservice"
+				"auth/user-disabled": "This user has been disabled, please contact customerservice",
+				"auth/invalid-password": "The password must contain atleast 6 characters",
+				"auth/invalid-phone-number": "Invalid phonenumber",
+				"auth/email-already-exists": "There already exists a user with this email",
+				"auth/phone-number-already-exists": "There already exists a user with this phone number"
 			},
 			"warning": ""
 		},

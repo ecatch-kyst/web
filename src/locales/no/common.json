@@ -84,7 +84,11 @@
 				"auth/invalid-email": "Ugyldig e-post.",
 				"auth/wrong-password": "Feil passord",
 				"auth/user-not-found": "Det finnes ingen bruker med dette brukernavnet eller passordet",
-				"auth/user-disabled": "Brukeren er deaktivert, kontakt kundeservice"
+				"auth/user-disabled": "Brukeren er deaktivert, kontakt kundeservice",
+				"auth/invalid-password": "Passordet må være minst 6 karakterer langt",
+				"auth/invalid-phone-number": "Ugyldig telefonnummer",
+				"auth/email-already-exists": "Det finnes allerede en bruker med denne emailen",
+				"auth/phone-number-already-exists": "Det finnes allerede en bruker med dette telefonnummeret"
 			},
 			"warning": ""
 		},

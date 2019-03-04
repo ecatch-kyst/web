@@ -20,6 +20,15 @@ export async function login({email, password, afterLogin=null}) {
     case "auth/user-not-found":
       this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
       break
+    case "auth/invalid-password":
+      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+      break
+    case "auth/invalid-phone-number":
+      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+      break
+    case "auth/email-already-exists":
+      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+      break
     default:
       console.log(error)
       break
