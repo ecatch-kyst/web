@@ -68,14 +68,21 @@ const styles = theme => ({
 
 function NoOptionsMessage(props) {
   return (
-    <AddFishingSpot/>
-    // <Typography
-    //   className={props.selectProps.classes.noOptionsMessage}
-    //   color="textSecondary"
-    //   {...props.innerProps}
-    // >
-    //   {props.children}
-    // </Typography>
+    <Typography
+      className={props.selectProps.classes.noOptionsMessage}
+      color="textSecondary"
+      {...props.innerProps}
+    >
+      {props.children}
+    </Typography>
+  )
+}
+
+function AddSpotMessage(props){
+  return (
+    <div className={props.selectProps.classes.NoOptionsMessage} color="textSecondary" {...props.innerProps}>
+      <AddFishingSpot/>
+    </div>
   )
 }
 
@@ -176,6 +183,16 @@ const components = {
   SingleValue,
   ValueContainer
 }
+const componentsWithAddSpot = {
+  Control,
+  Menu,
+  MultiValue,
+  Option,
+  AddSpotMessage,
+  Placeholder,
+  SingleValue,
+  ValueContainer
+}
 
 const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placeholder, type, onChange, dataId, value}) => {
 
@@ -197,25 +214,50 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
   const options = dropdown[type] || t(type, {returnObjects: true})
   const fishingspots = store.fishingspots
 
-  return (
-    <div className={classes.root}>
-      <NoSsr>
-        <div className={classes.divider} />
-        {customizable && <AddFishingSpot/>}
-        <Select
-          classes={classes}
-          components={components}
-          isMulti={isMulti}
-          onChange={handleChange}
-          options={customizable ? fishingspots : options}
-          placeholder={placeholder}
-          styles={selectStyles}
-          textFieldProps={{InputLabelProps: {shrink: true}}}
-          value={value}
-        />
-      </NoSsr>
-    </div>
-  )
+  console.log(type)
+  switch (type) {
+  case "expectedFishingSpot":
+    return(
+      <div className={classes.root}>
+        <NoSsr>
+          <div className={classes.divider} />
+          {customizable && <AddFishingSpot/>}
+          <Select
+            classes={classes}
+            components={componentsWithAddSpot}
+            isMulti={isMulti}
+            onChange={handleChange}
+            options={fishingspots || <AddFishingSpot/>}
+            placeholder={placeholder}
+            styles={selectStyles}
+            textFieldProps={{InputLabelProps: {shrink: true}}}
+            value={value}
+          />
+        </NoSsr>
+      </div>
+
+    )
+
+  default:
+    return (
+      <div className={classes.root}>
+        <NoSsr>
+          <div className={classes.divider} />
+          <Select
+            classes={classes}
+            components={components}
+            isMulti={isMulti}
+            onChange={handleChange}
+            options={options}
+            placeholder={placeholder}
+            styles={selectStyles}
+            textFieldProps={{InputLabelProps: {shrink: true}}}
+            value={value}
+          />
+        </NoSsr>
+      </div>
+    )
+  }
 }
 
 
