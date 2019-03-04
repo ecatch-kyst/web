@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React from 'react'
 
 import {Link, Redirect} from "react-router-dom"
 import forms from "./forms.json"
@@ -6,7 +6,7 @@ import {Grid, Button, Divider, Typography} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
 import {useTranslation} from 'react-i18next'
 import {Page} from '../shared'
-import Store from '../../db'
+import {withStore} from '../../db'
 
 import FormInput from './FormInput.jsx'
 
@@ -17,9 +17,8 @@ import FormInput from './FormInput.jsx'
  * @param {object} props.match.params
  * @param {'DEP'|'DCA'|'POR'} props.match.params.type - Type of form
  */
-function Form ({match: {params: {type}}}) {
+function Form ({store, match: {params: {type}}}) {
   const [t] = useTranslation("forms")
-  const store = useContext(Store)
   const form = forms[type] // Extract form from forms.js
 
   /**
@@ -68,6 +67,7 @@ function Form ({match: {params: {type}}}) {
               color="primary"
               onClick={handleSubmit}
               size="large"
+              type="submit"
               variant="contained"
             >
               {t(`${type}.submit`)}
@@ -79,4 +79,4 @@ function Form ({match: {params: {type}}}) {
   )
 }
 
-export default Form
+export default withStore(Form)
