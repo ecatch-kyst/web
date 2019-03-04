@@ -32,6 +32,14 @@
 		"title": "Velkommen til {{framework}}"
 	},
 	"dialogs": {
+		"addSpot":{
+			"titles":{
+				"main":"Legg til din fiskeplass",
+				"cancel":"Avbryt",
+				"submit":"Legg til fiskeplass"
+			},
+			"description": "Her kan du legge til din egen fiskeplass med breddegrad og lengdegrad"
+		},
 		"deleteUser": {
 			"titles": {
 				"main": "Slett bruker",
@@ -74,7 +82,9 @@
 			"default": "Du er nå logget inn.",
 			"error": {
 				"auth/invalid-email": "Ugyldig e-post.",
-				"auth/argument-error": "Feil passord"
+				"auth/wrong-password": "Feil passord",
+				"auth/user-not-found": "Det finnes ingen bruker med dette brukernavnet eller passordet",
+				"auth/user-disabled": "Brukeren er deaktivert, kontakt kundeservice"
 			},
 			"warning": ""
 		},
