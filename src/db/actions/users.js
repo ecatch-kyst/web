@@ -1,5 +1,4 @@
 import {AUTH} from "../../lib/firebase"
-import {th} from "date-fns/esm/locale"
 
 /**
  * Logs the user in
@@ -14,10 +13,13 @@ export async function login({email, password, afterLogin=null}) {
       break
     case "auth/wrong-password":
       this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+      break
     case "auth/user-disabled":
       this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+      break
     case "auth/user-not-found":
       this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
+      break
     default:
       console.log(error)
       break
