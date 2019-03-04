@@ -19,7 +19,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && yarn run build-sw && yarn run clean-cra-sw",
+    "build-sw": "node ./src/wb_build.js",
+    "clean-cra-sw": "rm -f build/precache-manifest.*.js && rm -f build/service-worker.js",
     "eject": "react-scripts eject",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --coverage --coverageReporters html --watch",
@@ -43,6 +45,7 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.11.0",
+    "workbox-build": "^4.0.0"
   }
 }

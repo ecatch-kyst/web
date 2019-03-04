@@ -11,7 +11,7 @@ import Store, {Database} from './db'
 import i18next from "./lib/i18next"
 import {I18nextProvider} from 'react-i18next'
 
-import * as serviceWorker from './serviceWorker'
+import * as wb from './serviceWorker_v4'
 
 ReactDOM.render(
   <I18nextProvider i18n={i18next}>
@@ -33,4 +33,9 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.register()
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    wb.register();
+  });
+}
