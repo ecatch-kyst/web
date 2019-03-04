@@ -3,7 +3,7 @@ import {AUTH} from "../../lib/firebase"
 /**
  * Logs the user in
  */
-export async function login(email, password) {
+export async function login({email, password, afterLogin=null}) {
   try {
     await AUTH.signInWithEmailAndPassword(email, password)
   } catch (error) {
@@ -14,8 +14,14 @@ export async function login(email, password) {
   } finally {
     AUTH.onAuthStateChanged(user => {
       if (user) {
-        this.notify({name: "login"})
-        this.setState({isLoggedIn: true})
+        if (!this.state.isLoggedIn) { // First AuthStateChanged
+          this.notify({name: "login"})
+          this.setState({isLoggedIn: true, isLoading: false})
+          if (afterLogin) afterLogin()
+        }
+      }
+      else {
+        this.setState({isLoading: false})
       }
       // else this.notify({name: "login", type: "warning", duration: 5000})
     }//, () => {this.notify({name: "login", type: "error", duration: 5000})}

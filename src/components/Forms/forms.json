@@ -1,0 +1,56 @@
+{
+  "DEP": [{
+      "id": 0,
+      "fields": [
+        {
+          "id": "PO",
+          "dataId": "ports",
+          "type": "select"
+        },
+        {
+          "id": "departure",
+          "type": "datetime-local"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "fields": [
+        {
+          "id": "AC",
+          "dataId": "activity",
+          "type": "select"
+        },
+        {
+          "id": "expectedFishingSpot",
+
+          "type": "select"
+        },
+        {
+          "id": "expectedFishingStart",
+          "type": "datetime-local"
+        },
+        {
+          "id": "DS",
+          "dataId": "species",
+          "type": "select"
+        },
+        {
+          "id": "OB",
+          "dropdown": "species",
+          "inputType": "number",
+          "isMulti": true,
+          "type": "select-map"
+        }
+      ]
+    }
+  ],
+  "DCA": [{
+    "id": 0,
+    "fields": []
+  }],
+  "POR": [{
+    "id": 0,
+    "fields": []
+  }]
+}
