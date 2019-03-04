@@ -86,7 +86,7 @@ const Status = ({acknowledged}) => {
 function editable(created, TM){
   const createdAddedHours = addHours(created.toDate(), 12)
   const currentDate = Date.now()
-  /*TODO: make sure this actually works with a DCA message, only have POR for now.*/
+  /*TODO: make sure this actually works with a DCA message, only have DEP for now.*/
   if(isAfter(currentDate, createdAddedHours) /*&& TM !== "DCA"*/){
     return true
   }
