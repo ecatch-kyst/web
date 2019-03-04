@@ -64,12 +64,12 @@
 				"DEP": {
 					"error": "Message not sent\n{{message}}",
 					"success": "Message sent"
-				},
-				"AddSpot":{
-					"error": "Something went wrong {{message}}",
-					"success": "Sent to the database"
 				}
 			}
+		},
+		"addSpot":{
+			"error": "Something went wrong {{message}}",
+			"success": "Sent to the database"
 		},
 		"offline": {
 			"error": "You are offline.",
