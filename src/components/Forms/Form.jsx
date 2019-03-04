@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 
-import {Link, Redirect} from "react-router-dom"
+import {Link, Redirect, withRouter} from "react-router-dom"
 import forms from "./forms.json"
 import {Grid, Button, Divider, Typography} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
@@ -79,4 +79,4 @@ function Form ({match: {params: {type}}}) {
   )
 }
 
-export default Form
+export default withRouter(Form)

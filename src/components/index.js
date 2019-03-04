@@ -7,7 +7,7 @@ import Profile from "./Profile"
 import Centered from "./Centered"
 import Messages from "./Messages"
 import Forms, {Form} from "./Forms"
-import Edit from "./Edit"
+import EditMessage from "./EditMessage"
 
 export {Dialog, Notification} from "./shared"
 
@@ -22,5 +22,5 @@ export {
   Messages,
   Forms,
   Form,
-  Edit
+  EditMessage
 }

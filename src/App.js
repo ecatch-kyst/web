@@ -18,7 +18,7 @@ import {
   NotFound,
   Dialog,
   Messages,
-  Edit,
+  EditMessage,
   Form,
   Notification
 } from './components'
@@ -33,7 +33,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
-      <Route component={Edit} exact path={`${routes.MESSAGES}/:messageId${routes.EDIT}`}/> {/*comes up as /messages/messageId/edit, but doesnt show edit page*/}
+      <Route component={EditMessage} exact path={`${routes.MESSAGES}/:type/:messageId${routes.EDIT}`}/> {/*comes up as /messages/messageId/edit, but doesnt show edit page*/}
       <Route component={Form} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>
       <Route component={NotFound}/>
     </Switch>
