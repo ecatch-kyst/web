@@ -5,5 +5,9 @@
     "catch_place": "Catch place",
     "catching_since": "Catching since",
     "catch_list": "Catch list"
+  },
+  "phrases": {
+    "ago": "ago",
+    "minutter": "minutes"
   }
 }

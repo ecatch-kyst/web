@@ -24,7 +24,7 @@ export class Status extends Component{
       lastDepartureHarbour: "Henningsvær Cruise Terminal",
       lastReportedCatchPlace: "Vestskallen",
       catchStart: "1th of January - 00:01 (GMT+1)",
-      catchDuration: "1 hours, 23 minutes",
+      catchDuration: 55,
       catchList: {CYH: 200, SPR: 100}
     }
   }
@@ -104,7 +104,7 @@ export class Status extends Component{
               {this.state.catchStart}
             </Typography>
             <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-              {this.state.catchDuration} ago
+              {this.state.catchDuration} {t("phrases.minutes")} {t("phrases.ago")}
             </Typography>
           </CardContent>
           <CardActions>

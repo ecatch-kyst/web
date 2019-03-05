@@ -1,10 +1,13 @@
- 
 {
   "titles": {
-   "main": "Status",
-   "departure_port": "Avgangshavn",
-   "catch_place": "Fangststed",
-   "catching_since": "Fanget siden",
-   "catch_list": "Fangstliste"
+    "main": "Status",
+    "departure_port": "Avgangshavn",
+    "catch_place": "Fangststed",
+    "catching_since": "Fanget siden",
+    "catch_list": "Fangstliste"
+  },
+  "phrases": {
+    "ago": "siden",
+    "minutes": "minutter"
   }
- }  
+}  
