@@ -3,12 +3,15 @@ import {Card, List, ListItem, CardContent, CardActions, Typography, withStyles, 
 import EditIcon from "@material-ui/icons/EditOutlined"
 import "./status.sass"
 import USERS_FS, {AUTH} from "../../lib/firebase"
+import {withStore} from '../../db'
+import {withTranslation} from 'react-i18next'
+
 // import differenceInMinutes from "date-fns"
 
 const StyledCard = withStyles({
   root: {
     margin: '10px 0',
-    border: '1px solid black',
+    // border: '1px solid black',
     padding: '0 30px'
   }
 })(Card)
@@ -22,7 +25,7 @@ export class Status extends Component{
       lastReportedCatchPlace: "Vestskallen",
       catchStart: "1th of January - 00:01 (GMT+1)",
       catchDuration: "1 hours, 23 minutes",
-      catchList: {Cod: 200, Pizza: 100}
+      catchList: {CYH: 200, SPR: 100}
     }
   }
 
@@ -57,12 +60,13 @@ export class Status extends Component{
 
   render() {
     const {catchList} = this.state
+    const {t} = this.props
     return(
       <div className="cardwrapper">
         <StyledCard>
           <CardContent>
             <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              Departure harbour for uid: {this.state.uid}
+              {t("titles.departure_port")} for uid: {this.state.uid}
             </Typography>
             <Typography className="statuscard-info" color="textPrimary" gutterBottom>
               {this.state.lastDepartureHarbour}
@@ -78,7 +82,7 @@ export class Status extends Component{
         <StyledCard>
           <CardContent>
             <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              Fishing place
+              {t("titles.catch_place")}
             </Typography>
             <Typography className="statuscard-info" color="textPrimary" gutterBottom>
               {this.state.lastReportedCatchPlace}
@@ -94,7 +98,7 @@ export class Status extends Component{
         <StyledCard>
           <CardContent>
             <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              Catching since
+              {t("titles.catching_since")}
             </Typography>
             <Typography className="statuscard-info" color="textPrimary" gutterBottom>
               {this.state.catchStart}
@@ -113,24 +117,23 @@ export class Status extends Component{
         <StyledCard>
           <CardContent>
             <Typography>
-              Catch list
+              {t("titles.catch_list")}
             </Typography>
-
-            {this.generateCatchList()}
-
             <List>
-              <ListItem>
-                <StyledCard>
-                  <CardContent>
-                    <Typography>
-                        500kg Shit
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small"><EditIcon/></Button>
-                  </CardActions>
-                </StyledCard>
-              </ListItem>
+              {Object.entries(catchList).map(([key, value]) =>
+                <ListItem key={key}>
+                  <StyledCard>
+                    <CardContent>
+                      <Typography>
+                        {key}: {value}kg
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small"><EditIcon/></Button>
+                    </CardActions>
+                  </StyledCard>
+                </ListItem>
+              )}
             </List>
           </CardContent>
         </StyledCard>
@@ -139,4 +142,4 @@ export class Status extends Component{
   }
 }
 
-export default Status
+export default withTranslation("status")(withStore(Status))

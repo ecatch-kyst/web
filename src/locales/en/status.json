@@ -1,0 +1,9 @@
+{
+  "titles": {
+    "main": "Status",
+    "departure_port": "Departure port",
+    "catch_place": "Catch place",
+    "catching_since": "Catching since",
+    "catch_list": "Catch list"
+  }
+}
