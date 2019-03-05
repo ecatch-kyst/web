@@ -12,7 +12,7 @@ import Chip from '@material-ui/core/Chip'
 import MenuItem from '@material-ui/core/MenuItem'
 import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
-import dropdown from "./dropdown.json"
+import dropdown from "./dropdownlist.json"
 import {useTranslation} from 'react-i18next'
 
 const styles = theme => ({

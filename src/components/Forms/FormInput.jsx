@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {useTranslation} from 'react-i18next'
 
 import Store from '../../db'
-import Dropdown from './components/Dropdown'
+import Dropdown from './components/Dropdown.jsx'
 import TextField from './components/TextField'
 import DropdownMap from './components/DropdownMap'
 
