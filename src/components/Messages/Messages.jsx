@@ -1,18 +1,18 @@
 import React from 'react'
-import {withPage} from './shared/Page'
+import {withPage} from '../shared/Page'
 import {List, Typography, ListItem, Grid, Divider, Button} from '@material-ui/core'
 import EditIcon from "@material-ui/icons/EditOutlined"
-import {Loading} from './shared'
-import {withStore} from '../db'
+import {Loading} from '../shared'
+import {withStore} from '../../db'
 import {useTranslation} from 'react-i18next'
 import {Link} from "react-router-dom"
-import {routes} from "../lib/router"
+import {routes} from "../../lib/router"
 
 import CheckIcon from "@material-ui/icons/CheckOutlined"
 import CloseIcon from "@material-ui/icons/CloseOutlined"
 import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
 import {format, addHours, isBefore} from 'date-fns'
-import {colors} from '../lib/material-ui'
+import {colors} from '../../lib/material-ui'
 
 
 /* Old code, dont know how to translate this into table yet*/
