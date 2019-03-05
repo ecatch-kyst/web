@@ -7,16 +7,16 @@ ShallowWrapper {
     match={
       Object {
         "params": Object {
-          "messageId": Object {},
+          "messageId": [MockFunction],
         },
       }
     }
     store={
       Object {
         "messages": Object {
-          "RN": 1,
-          "TM": "DEP",
-          "created": 2014-07-10T21:00:00.000Z,
+          "RN": [MockFunction],
+          "TM": "DCA",
+          "created": [MockFunction],
         },
       }
     }
@@ -35,28 +35,22 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "children": [Function],
-    },
-    "ref": null,
-    "rendered": [Function],
-    "type": Object {
-      "$$typeof": Symbol(react.context),
-      "_calculateChangedBits": null,
-      "_context": Object {
-        "$$typeof": Symbol(react.context),
-        "Consumer": [Circular],
-        "Provider": Object {
-          "$$typeof": Symbol(react.provider),
-          "_context": [Circular],
+      "match": Object {
+        "params": Object {
+          "messageId": [MockFunction],
         },
-        "_calculateChangedBits": null,
-        "_currentRenderer": null,
-        "_currentRenderer2": null,
-        "_currentValue": undefined,
-        "_currentValue2": undefined,
-        "_threadCount": 0,
+      },
+      "store": Object {
+        "messages": Object {
+          "RN": [MockFunction],
+          "TM": "DCA",
+          "created": [MockFunction],
+        },
       },
     },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -64,28 +58,22 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "children": [Function],
-      },
-      "ref": null,
-      "rendered": [Function],
-      "type": Object {
-        "$$typeof": Symbol(react.context),
-        "_calculateChangedBits": null,
-        "_context": Object {
-          "$$typeof": Symbol(react.context),
-          "Consumer": [Circular],
-          "Provider": Object {
-            "$$typeof": Symbol(react.provider),
-            "_context": [Circular],
+        "match": Object {
+          "params": Object {
+            "messageId": [MockFunction],
           },
-          "_calculateChangedBits": null,
-          "_currentRenderer": null,
-          "_currentRenderer2": null,
-          "_currentValue": undefined,
-          "_currentValue2": undefined,
-          "_threadCount": 0,
+        },
+        "store": Object {
+          "messages": Object {
+            "RN": [MockFunction],
+            "TM": "DCA",
+            "created": [MockFunction],
+          },
         },
       },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
