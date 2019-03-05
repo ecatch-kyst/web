@@ -1,5 +1,10 @@
+ 
 {
   "titles": {
-    "main": "Status"
+   "main": "Status",
+   "departure_port": "Avgangshavn",
+   "catch_place": "Fangststed",
+   "catching_since": "Fanget siden",
+   "catch_list": "Fangstliste"
   }
-}
+ }  
