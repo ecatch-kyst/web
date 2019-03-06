@@ -12,7 +12,6 @@ import Chip from '@material-ui/core/Chip'
 import MenuItem from '@material-ui/core/MenuItem'
 import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
-import dropdown from "./dropdown.json"
 import {useTranslation} from 'react-i18next'
 
 const styles = theme => ({
@@ -171,7 +170,7 @@ const components = {
 
 const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
 
-  const [t] = useTranslation("dropdown")
+  const [t] = useTranslation("forms")
 
   const handleChange = value => onChange(dataId, value)
 
@@ -186,7 +185,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
     })
   }
 
-  const options = dropdown[type] || t(type, {returnObjects: true})
+  const options = t(`dropdowns.${type}`, {returnObjects: true})
 
 
   return (

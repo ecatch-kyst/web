@@ -61,7 +61,7 @@
 		"message": {
 			"sent": {
 				"DEP": {
-					"error": "Message not sent\n{{message}}",
+					"error": "Message not sent \n{{message}}",
 					"success": "Message sent"
 				},
 				"POR": {
@@ -73,6 +73,9 @@
 		"offline": {
 			"error": "You are offline.",
 			"action": "Reload page"
+		},
+		"position": {
+			"error": "Error while fetching position. \n{{message}}"
 		},
 		"user": {
 			"updated": {

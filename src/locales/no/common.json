@@ -61,7 +61,7 @@
 		"message": {
 			"sent": {
 				"DEP": {
-					"error": "Meldingen ble ikke sendt: {{message}}",
+					"error": "Meldingen ble ikke sendt \n{{message}}",
 					"success": "Meldingen ble sendt"
 				},
 				"POR": {
@@ -73,6 +73,9 @@
 		"offline": {
 			"error": "Du er offline.",
 			"action": "Last inn på nytt"
+		},
+		"position": {
+			"error": "Feil ved henting av posisjon. \n{{message}}"
 		},
 		"user": {
 			"updated": {
