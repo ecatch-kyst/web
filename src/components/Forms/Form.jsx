@@ -25,6 +25,12 @@ class Form extends Component {
   componentDidMount() {
     const {match: {params: {type}}, t} = this.props
     const {handleFieldChange, messages} = this.context
+    /** REVIEW: When this componentDidMount is called,
+     * messages is probably still empty,
+     * if the user opens the form in a new tab, instead of coming from the dashboard.
+     */
+
+    if (!Object.keys(forms).includes(type)) return
 
     const ports = t("dropdowns.ports", {returnObjects: true})
     const activities = t("dropdowns.activity", {returnObjects: true})
@@ -71,7 +77,7 @@ class Form extends Component {
       <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
         <Grid alignItems="center" container direction="column" spacing={16}>
           <Grid component="form" item onSubmit={this.handleSubmit}>
-            {form && form.length ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
+            {form ? form.map(({id, fields}) => // If a valid form, iterate over its blocks
               <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
                 <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
                 {fields.map(({id, dataId, type, isMulti, dropdown, inputType}) => // Iterate over all the input fields in a Form block
@@ -106,6 +112,7 @@ class Form extends Component {
                 color="primary"
                 onClick={this.handleSubmit}
                 size="large"
+                type="submit"
                 variant="contained"
               >
                 {t(`${type}.submit`)}
