@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Card, List, ListItem, CardContent, CardActions, Typography, withStyles, Button, Divider} from '@material-ui/core'
 import EditIcon from "@material-ui/icons/EditOutlined"
 import "./status.sass"
-import USERS_FS, {AUTH} from "../../lib/firebase"
+import {USERS_FS, AUTH} from "../../lib/firebase"
 import {withStore} from '../../db'
 import {withTranslation} from 'react-i18next'
 
@@ -25,38 +25,66 @@ export class Status extends Component{
       lastReportedCatchPlace: "Vestskallen",
       catchStart: "1th of January - 00:01 (GMT+1)",
       catchDuration: 55,
-      catchList: {CYH: 200, SPR: 100}
+      catchList: {CYH: 200, SPR: 100},
+      depMessages: [],
+      dcaMessages: [],
+      porMessages: []
     }
   }
 
   async componentDidMount() {
-    await this.fetchUid()
-    //this.fetchMessages()
+    await this.fetchMessages()
+    await this.updateCatchList()
   }
 
-  fetchUid() {
+  fetchMessages() {
     // Observes user object from Firebase Authentication
     AUTH.onAuthStateChanged((user) => {
       // Pushes uid to state when received
       if (user) {
         this.setState({uid: AUTH.currentUser.uid})
+        // Fetches all docs for
+        USERS_FS.doc(this.state.uid).collection("messages")
+          .where("TM", "==", "DEP")
+          .orderBy('departure', 'desc')
+          .limit(1)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              console.log(doc.id, " => ", doc.data())
+            })
+          })
+          .catch((error) => {
+            console.log("Error getting documents: ", error)
+          })
       }
     })
   }
 
-  fetchMessages() {
-    /*USERS_FS.doc("{this.state.uid").get().then((doc) => {
-      if (doc.exists) {
-        console.log("Document data:", doc.data())
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!")
+  updateCatchList() {
+    // Observes user object from Firebase Authentication
+    AUTH.onAuthStateChanged((user) => {
+      // Pushes uid to state when received
+      if (user) {
+        this.setState({uid: AUTH.currentUser.uid})
+        // Fetches all docs for
+        USERS_FS.doc(this.state.uid).collection("messages")
+          .where("TM", "==", "DCA")
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              console.log(doc.id, " => ", doc.data())
+            })
+          })
+          .catch((error) => {
+            console.log("Error getting documents: ", error)
+          })
       }
-    }).catch((error) => {
-      console.log("Error getting document:", error)
-    })*/
-    console.log("fetchMessage magic here")
+    })
   }
+
 
   render() {
     const {catchList} = this.state
@@ -66,7 +94,7 @@ export class Status extends Component{
         <StyledCard>
           <CardContent>
             <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              {t("titles.departure_port")} for uid: {this.state.uid}
+              {t("titles.departure_port")}
             </Typography>
             <Typography className="statuscard-info" color="textPrimary" gutterBottom>
               {this.state.lastDepartureHarbour}
@@ -125,7 +153,7 @@ export class Status extends Component{
                   <StyledCard>
                     <CardContent>
                       <Typography>
-                        {key}: {value}kg
+                        {key} {value}kg
                       </Typography>
                     </CardContent>
                     <CardActions>
