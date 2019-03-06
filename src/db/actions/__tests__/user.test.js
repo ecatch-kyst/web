@@ -21,14 +21,14 @@ jest.mock("../../../lib/firebase", () => ({
  * that needs to access 'this'
  */
 class ClickHandlerMockClass extends Component {
-    static defaultProps = {handlerArguments: []}
+    static defaultProps = {handlerArguments: {}}
 
     handleClick = this.props.clickHandler.bind(this)
 
     notify = jest.fn()
 
     render() {
-      return <div onClick={() => this.handleClick(...this.props.handlerArguments)}/>
+      return <div onClick={() => this.handleClick(this.props.handlerArguments)}/>
     }
 }
 
@@ -38,7 +38,7 @@ describe("login function", () => {
     mount(
       <ClickHandlerMockClass
         clickHandler={login}
-        handlerArguments={[{email: "email@email.hu", password: "password"}]}
+        handlerArguments={{email: "email@email.hu", password: "password"}}
       />
     ).simulate("click")
     expect(AUTH.signInWithEmailAndPassword).toBeCalledWith("email@email.hu", "password")
@@ -48,7 +48,6 @@ describe("login function", () => {
     mount(
       <ClickHandlerMockClass
         clickHandler={login}
-        handlerArguments={[]}
       />
     ).simulate("click")
     expect(AUTH.onAuthStateChanged).toBeCalled()
@@ -83,7 +82,7 @@ describe("updateProfile function", () => {
     mount(
       <ClickHandlerMockClass
         clickHandler={updateProfile}
-        handlerArguments={[newProfileData]}
+        handlerArguments={newProfileData}
       />
     ).simulate("click")
     expect(AUTH.currentUser.updateProfile).toBeCalledWith(newProfileData)
