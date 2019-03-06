@@ -2,7 +2,6 @@ import EditMessage from '../EditMessage'
 import {Redirect} from "react-router-dom"
 import "../../../db"
 import {routes} from "../../../lib/router"
-//{store: {messages}, match: {params: {messageId}}}
 
 jest.mock("../../../db", () => ({
   withStore: Component => props => <Component {...props}/>
