@@ -56,12 +56,25 @@
 				"cancel": "Cancel"
 			},
 			"description": "Are you sure you want to send in a departure message?"
+		},
+		"POR": {
+			"titles": {
+				"main": "Send in POR message?",
+				"submit": "Confirm",
+				"cancel": "Cancel"
+			},
+			"description": ""
+
 		}
 	},
 	"notifications": {
 		"message": {
 			"sent": {
 				"DEP": {
+					"error": "Message not sent \n{{message}}",
+					"success": "Message sent"
+				},
+				"POR": {
 					"error": "Message not sent\n{{message}}",
 					"success": "Message sent"
 				}
@@ -74,6 +87,9 @@
 		"offline": {
 			"error": "You are offline.",
 			"action": "Reload page"
+		},
+		"position": {
+			"error": "Error while fetching position. \n{{message}}"
 		},
 		"user": {
 			"updated": {

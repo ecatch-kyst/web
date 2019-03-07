@@ -2,12 +2,16 @@ import React, {Component, createContext} from "react"
 import initValues from "./initialValues.json"
 import {CONNECTION_REF} from "../lib/firebase"
 
-import * as darkMode from "./actions/darkMode"
-import {login, updateProfile, logout, deleteUser} from "./actions/users"
-import * as dialog from './actions/dialog'
-import * as messages from './actions/messages'
-import * as notification from './actions/notification'
-import * as customlists from './actions/customlists'
+import {
+  darkMode,
+  user,
+  location,
+  dialog,
+  messages,
+  notification,
+  customlists
+} from "./actions"
+
 
 const Store = createContext()
 
@@ -17,12 +21,13 @@ export class Database extends Component {
     ...initValues,
     fields: {
       departure: "", // Time of departure
-      PO: "", // Land & port
+      PO: null, // Land & port
       AC: "", // Fishing activity
       expectedFishingSpot: "",
       expectedFishingStart: "", // Expected time of fishing start
       DS: "", // Expected fish art
-      OB: [] // Fish type and weight
+      OB: [], // Fish type and weight,
+      KG: []
     },
     custom: {
       editing: {},
@@ -36,6 +41,7 @@ export class Database extends Component {
 
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
+      this.subscribeToLocation()
       this.handleRetrieveCustomLists()
     }})
 
@@ -91,14 +97,19 @@ export class Database extends Component {
 
 
   // User
-  userLogin = login.bind(this)
+  userLogin = user.login.bind(this)
 
-  userLogout = logout.bind(this)
+  userLogout = user.logout.bind(this)
 
-  userDelete = deleteUser.bind(this)
+  userDelete = user.deleteUser.bind(this)
 
-  userUpdateProfile = updateProfile.bind(this)
+  // Location
 
+  getLocation = location.get.bind(this)
+
+  subscribeToLocation = location.subscribe.bind(this)
+
+  unsubscribeFromLocation = location.unsubscribe.bind(this)
 
   // Messages
 

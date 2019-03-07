@@ -12,7 +12,6 @@ import Chip from '@material-ui/core/Chip'
 import MenuItem from '@material-ui/core/MenuItem'
 import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
-import dropdown from "./dropdown.json"
 import {useTranslation} from 'react-i18next'
 import {withStore} from '../../../db/index.js'
 import {Grid} from '@material-ui/core'
@@ -173,7 +172,7 @@ const components = {
 
 const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value, dropdown: dropdownId, inputType}) => {
 
-  const [t] = useTranslation("dropdown")
+  const [t] = useTranslation("forms")
 
   const handleChange = value => onChange(dataId, value)
 
@@ -188,7 +187,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
     })
   }
 
-  const options = dropdown[type] || t(dropdownId, {returnObjects: true})
+  const options = t(`dropdowns.${dropdownId}`, {returnObjects: true})
 
 
   return (

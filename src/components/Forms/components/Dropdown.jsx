@@ -13,7 +13,6 @@ import Chip from '@material-ui/core/Chip'
 import MenuItem from '@material-ui/core/MenuItem'
 import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
-import dropdown from "./dropdown.json"
 import {useTranslation} from 'react-i18next'
 import AddFishingSpot from "./AddFishingSpot"
 import Store from '../../../db/Store.js'
@@ -196,7 +195,7 @@ const componentsWithAddSpot = {
 
 const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placeholder, type, onChange, dataId, value}) => {
 
-  const [t] = useTranslation("dropdown")
+  const [t] = useTranslation("forms")
   const store = useContext(Store)
   const handleChange = value => onChange(dataId, value)
 
@@ -211,8 +210,8 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
     })
   }
 
-  const options = dropdown[type] || t(type, {returnObjects: true})
   const fishingspots = store.fishingspots
+  const options = t(`dropdowns.${type}`, {returnObjects: true})
 
   console.log(type)
   switch (type) {

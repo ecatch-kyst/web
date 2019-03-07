@@ -1,10 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased] 
+## [Unreleased]
 ### Added
 - User can now add his own fishingspots.
 - User get correct error messages when an error occurs. :globe_with_meridians:
+- Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
+- POR form ([#62](https://github.com/ecatch-kyst/web/issues/62))
+- WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
+
+### Fixed
+- When you are logged in on protected site you get redirected to root when you refresh ([#26](https://github.com/ecatch-kyst/web/issues/26))
+- When trying to delete user, translations are not showing. ([#49](https://github.com/ecatch-kyst/web/issues/49))
+
 ## [1.0.0-beta2] - 2019-02-26
 ### Added
 - User now gets a notification that the PWA can be added to homescreen
