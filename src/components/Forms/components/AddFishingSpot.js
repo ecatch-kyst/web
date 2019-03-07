@@ -7,17 +7,25 @@ import {withTranslation} from "react-i18next"
 
 const AddFishingSpot = ({t, store: {handleDialog, handleEditCustomSpot, handleAddCustomSpot, custom: {editing}}}) =>
   <Button
+    fullWidth
     onClick={() =>
       handleDialog({
         type: "addSpot",
         submit: handleAddCustomSpot,
-        children: <FishingSpotFields latiLabel={t("custom.addLati")} longiLabel={t("custom.addLongi")} onChange={handleEditCustomSpot} textLabel={t("custom.addFishingSpotLabel")} {...editing}/>
+        children:
+          <FishingSpotFields
+            latiLabel={t("dropdowns.addSpot.latitude")}
+            longiLabel={t("dropdowns.addSpot.longitude")}
+            onChange={handleEditCustomSpot}
+            textLabel={t("dropdowns.addSpot.label")}
+            {...editing}
+          />
       })
     }
-  >{t("custom.addSpot")}
+  >{t("dropdowns.addSpot.button")}
   </Button>
 
-export default withTranslation("dropdown")(withStore(AddFishingSpot))
+export default withTranslation("forms")(withStore(AddFishingSpot))
 
 const FishingSpotFields = ({onChange, name, latitude, longitude, textLabel, longiLabel, latiLabel}) =>
   <div>

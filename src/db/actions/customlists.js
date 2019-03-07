@@ -12,7 +12,7 @@ import {flattenDoc} from "../../utils"
 export async function addSpot(){
   const {editing} = this.state.custom
 
-  await USERS_FS.doc(AUTH.currentUser.uid).collection("fishingspots").add({label: editing.name, value: GEOPOINT(parseInt(editing.latitude,10), parseInt(editing.longitude,10)), longitude:  parseInt(editing.longitude, 10), latitude: parseInt(editing.latitude,10), id: [editing.name, editing.latitude, editing.longitude].join("")})
+  await USERS_FS.doc(AUTH.currentUser.uid).collection("fishingSpots").add({label: editing.name, value: GEOPOINT(parseInt(editing.latitude,10), parseInt(editing.longitude,10)), longitude:  parseInt(editing.longitude, 10), latitude: parseInt(editing.latitude,10), id: [editing.name, editing.latitude, editing.longitude].join("")})
   //location = new firebase.firestore.GeoPoint(editing.latitude, editing.longitude)
   this.setState(({custom}) => ({
     custom: {
@@ -43,9 +43,9 @@ export function handle({target: {name, value}}) {
  * Gets the custom list from Firebase for the logged in user.
  */
 export function subscribe(){
-  USERS_FS.doc(AUTH.currentUser.uid).collection("fishingspots")
+  USERS_FS.doc(AUTH.currentUser.uid).collection("fishingSpots")
     .onSnapshot(snap => {
-      this.setState({fishingspots: snap.docs.map(flattenDoc)})
+      this.setState({fishingSpots: snap.docs.map(flattenDoc)})
     }, error => console.error(error)
     )
 }
@@ -56,11 +56,11 @@ export function subscribe(){
  */
 export async function sending(type){
   try{
-    const{fishingspots} = this.state.custom.fishingspots
+    const{fishingSpots} = this.state.custom.fishingSpots
 
-    await USERS_FS.doc(AUTH.currentUser.uid).collection("fishingspots").add({
-      ...fishingspots,
-      fishingspots
+    await USERS_FS.doc(AUTH.currentUser.uid).collection("fishingSpots").add({
+      ...fishingSpots,
+      fishingSpots
     })
     this.notify({name: `message.sent.${type}`, type: "success"})
   } catch ({code, message}){
