@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
-- User can now add his own fishingspots.
+- User can now add his own fishingSpots.
 - User get correct error messages when an error occurs. :globe_with_meridians:
 - Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
 - POR form ([#62](https://github.com/ecatch-kyst/web/issues/62))
