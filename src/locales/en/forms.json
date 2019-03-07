@@ -43,6 +43,12 @@
     "KG": "Total catch sorted by fishtype"
   },
   "dropdowns": {
+    "addSpot": {
+      "button":  "Add custom spot",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "label": "Add your personal fishingspot"
+    },
     "ports": [{
         "value": "DKFRK",
         "label": "Føvling",
@@ -236,12 +242,6 @@
         "latitude": ""
       }
     ],
-    "expectedFishingSpot": [{
-      "value": 0,
-      "label": "Holmen",
-      "longitude": 59.8562408,
-      "latitude": 10.4836694
-    }],
     "problems": [{
         "value": "0",
         "label": "No gear problems"
