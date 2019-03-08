@@ -243,45 +243,45 @@
       "latitude": 10.4836694
     }],
     "problems": [{
-        "value": "0",
+        "value": 0,
         "label": "No gear problems"
       },
       {
-        "value": "1",
+        "value": 1,
         "label": "Missed throw"
       },
       {
-        "value": "2",
+        "value": 2,
         "label": "Net tear"
       },
       {
-        "value": "3",
+        "value": 3,
         "label": "Split"
       },
       {
-        "value": "4",
+        "value": 4,
         "label": "Hole in sack"
       },
       {
-        "value": "5",
+        "value": 5,
         "label": "Lost gear"
       },
       {
-        "value": "6",
+        "value": 6,
         "label": "Other"
       }
     ],
-    "fishing-gear": {
-      "DRB": "Harvesting machines (not specified)",
-      "FPO": "Traps - pots",
-      "GEN": "Gillnets and entangling nets",
-      "LL": "Longlines (not specified)",
-      "OTB": "Bottom trawls - otter trawls",
-      "OTM": "Midwater otter trawl",
-      "PS1": "Surrounding nets - purse seines",
-      "SSC": "Scottish seines  scottish",
-      "TBS": "Bottom trawls - prawns"
-    },
+    "fishing-gear": [
+      {"value": "DRB", "label": "Harvesting machines (not specified)"},
+      {"value": "FPO", "label": "Traps - pots"},
+      {"value": "GEN", "label": "Gillnets and entangling nets"},
+      {"value": "LL", "label": "Longlines (not specified)"},
+      {"value": "OTB", "label": "Bottom trawls - otter trawls"},
+      {"value": "OTM", "label": "Midwater otter trawl"},
+      {"value": "PS1", "label": "Surrounding nets - purse seines"},
+      {"value": "SSC", "label": "Scottish seines  scottish"},
+      {"value": "TBS", "label": "Bottom trawls - prawns"}
+    ],
     "species": [{
         "value": "AJC",
         "label": "Babberlocks"

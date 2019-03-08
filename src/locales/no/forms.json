@@ -243,45 +243,45 @@
       "latitude": 10.4836694
     }],
     "problems": [{
-        "value": "0",
+        "value": 0,
         "label": "Ingen redskapsproblemer"
       },
       {
-        "value": "1",
+        "value": 1,
         "label": "Bomkast"
       },
       {
-        "value": "2",
+        "value": 2,
         "label": "Notsprenging"
       },
       {
-        "value": "3",
+        "value": 3,
         "label": "Splitt"
       },
       {
-        "value": "4",
+        "value": 4,
         "label": "Hull i sekk"
       },
       {
-        "value": "5",
+        "value": 5,
         "label": "Mistet redskap"
       },
       {
-        "value": "6",
+        "value": 6,
         "label": "Annet"
       }
     ],
-    "fishing-gear": {
-      "DRB": "Skrape, mekanisert",
-      "FPO": "Teiner",
-      "GEN": "Garn",
-      "LL": "Liner",
-      "OTB": "Bunntrål, otter",
-      "OTM": "Flytetrål",
-      "PS1": "Snurpenot / ringnot",
-      "SSC": "Snurrevad",
-      "TBS": "Bunntrål, reker"
-    },
+    "fishing-gear": [
+      {"value": "DRB", "label": "Skrape, mekanisert"},
+      {"value": "FPO", "label": "Teiner"},
+      {"value": "GEN", "label": "Garn"},
+      {"value": "LL", "label": "Liner"},
+      {"value": "OTB", "label": "Bunntrål, otter"},
+      {"value": "OTM", "label": "Flytetrål"},
+      {"value": "PS1", "label": "Snurpenot / ringnot"},
+      {"value": "SSC", "label": "Snurrevad"},
+      {"value": "TBS", "label": "Bunntrål, reker"}
+    ],
     "species": [{
         "value": "AJC",
         "label": "Butare"
