@@ -26,7 +26,9 @@ export class Database extends Component {
       expectedFishingStart: "", // Expected time of fishing start
       DS: "", // Expected fish art
       OB: [], // Fish type and weight,
-      KG: []
+      KG: [],
+      startFishingSpot: {},
+      endFishingSpot: {}
     }
   }
 
