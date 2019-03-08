@@ -5,6 +5,7 @@ import Store from '../../db'
 import Dropdown from './components/Dropdown'
 import TextField from './components/TextField'
 import DropdownMap from './components/DropdownMap'
+import GeoPointField from './components/GeoPointField'
 
 
 /**
@@ -54,6 +55,15 @@ const FormInput = ({id, dataId, type, options}) => {
         type={dataId}
         value={value}
         {...options}
+      />
+    )
+  case "geopoint":
+    return (
+      <GeoPointField
+        dataId={id}
+        label={t(`labels.${id}`)}
+        onChange={handleChange}
+        value={value}
       />
     )
   default:
