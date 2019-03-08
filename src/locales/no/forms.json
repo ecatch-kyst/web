@@ -40,7 +40,17 @@
     "LO": "Lengdegrad",
     "portArrival": "Forventet ankomsttidspunkt",
     "LS": "Mottak",
-    "KG": "Total fangst sortert på fisketype"
+    "KG": "Total fangst sortert på fisketype",
+    "QI": "Fisketillatelse",
+    "ZO": "Fiskesone",
+    "startFishingSpot": "Start fiskeplass",
+    "geopoint": {
+      "latitude": "Breddegrad",
+      "longitude": "Lengdegrad"
+    },
+    "GS": "Redskapsspesifikasjon",
+    "GP": "Redskapsproblemer",
+    "GE": "Redskap"
   },
   "dropdowns": {
     "ports": [{
@@ -236,6 +246,37 @@
         "latitude": ""
       }
     ],
+
+    "fishingPermit": [{
+        "label": "Ordinær kvote",
+        "value": 1
+      },
+      {
+        "label": "Forskningskvote",
+        "value": 2
+      },
+      {
+        "label": "Skolekvote",
+        "value": 3
+      },
+      {
+        "label": "Agnkvote",
+        "value": 4
+      },
+      {
+        "label": "Annet",
+        "value": 5
+      },
+      {
+        "label": "Slumpfiskkvote",
+        "value": 6
+      },
+      {
+        "label": "Leiefartøykvote",
+        "value": 7
+      }
+    ],
+
     "expectedFishingSpot": [{
       "value": 0,
       "label": "Holmen",
@@ -571,6 +612,73 @@
       {
         "value": "HBH",
         "label": "Alkekonge"
+      }
+    ],
+    "ZO": [{
+        "value": "NOR",
+        "label": "Norges økonomiske sone"
+      },
+      {
+        "value": "XSV",
+        "label": "Fiskevernsonen ved Svalbard"
+      },
+      {
+        "value": "XSI",
+        "label": "Svalbards territorialfarvann"
+      },
+      {
+        "value": "XJM",
+        "label": "Fiskerisonen ved Jan Mayen"
+      },
+      {
+        "value": "XSK",
+        "label": "Skagerrak"
+      },
+      {
+        "value": "XEU",
+        "label": "EU-sonen"
+      },
+      {
+        "value": "RUS",
+        "label": "Russisk sone"
+      },
+      {
+        "value": "GRL",
+        "label": "Grønlandsk sone"
+      },
+      {
+        "value": "FRO",
+        "label": "Færøysk sone"
+      },
+      {
+        "value": "ISL",
+        "label": "Islandsk sone"
+      },
+      {
+        "value": "XNE",
+        "label": "NEAFC-området"
+      },
+      {
+        "value": "XNW",
+        "label": "NAFO-området"
+      },
+      {
+        "value": "XCA",
+        "label": "CCAMLR-området"
+      }
+    ],
+    "GS": [
+      {
+        "value": 1,
+        "label": "enkeltrål"
+      },
+      {
+        "value": 2,
+        "label": "dobbeltrål"
+      },
+      {
+        "value": 3,
+        "label": "trippeltrål"
       }
     ]
   }

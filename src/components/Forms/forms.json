@@ -47,7 +47,48 @@
   ],
   "DCA": [{
     "id": 0,
-    "fields": []
+    "fields": [
+      {
+        "id": "QI",
+        "dataId": "fishingPermit",
+        "type": "select"
+      },
+      {
+        "id": "AC",
+        "dataId": "activity",
+        "type": "select"
+      },
+      {
+        "id": "fishingStart",
+        "type": "datetime-local"
+      },
+      {
+        "id": "ZO",
+        "type": "select"
+      },
+      {
+        "id": "startFishingSpot",
+        "type": "geopoint"
+      },
+      {
+        "id": "endFishingSpot",
+        "type": "geopoint"
+      },
+      {
+        "id": "GS",
+        "type": "select"
+      },
+      {
+        "id": "GP",
+        "dataId": "problems",
+        "type": "select"
+      },
+      {
+        "id": "GE",
+        "dataId": "fishing-gear",
+        "type": "select"
+      }
+    ]
   }],
   "POR": [
     { 
