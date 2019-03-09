@@ -2,7 +2,8 @@ import React from 'react'
 import {TextField as MUITextField, InputAdornment} from "@material-ui/core"
 
 const TextField = ({dataId, label, onChange, type, value, unit}) => {
-  const handleChange = ({target: {value}}) => onChange(dataId, value)
+  const handleChange = ({target: {value}}) =>
+    onChange(dataId, type === "number" ? parseInt(value, 10) : value)
 
   return (
     <MUITextField
@@ -13,7 +14,6 @@ const TextField = ({dataId, label, onChange, type, value, unit}) => {
       onChange={handleChange}
       type={type}
       value={value}
-      {...options}
     />
   )
 }

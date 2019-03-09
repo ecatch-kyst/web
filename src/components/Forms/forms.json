@@ -1,8 +1,7 @@
 {
   "DEP": [{
       "id": 0,
-      "fields": [
-        {
+      "step": [{
           "id": "PO",
           "dataId": "ports",
           "type": "select"
@@ -15,15 +14,13 @@
     },
     {
       "id": 1,
-      "fields": [
-        {
+      "step": [{
           "id": "AC",
           "dataId": "activity",
           "type": "select"
         },
         {
           "id": "expectedFishingSpot",
-
           "type": "select"
         },
         {
@@ -91,17 +88,18 @@
         "type": "select"
       }
     ]
-  }],
-  "POR": [
-    { 
+    }
+  ],
+  "POR": [{
       "id": 0,
-      "fields": [
-        {
+      "step": [{
           "id": "PO",
           "dataId": "ports",
           "type": "select"
         },
-        {"id": "LS"},
+        {
+          "id": "LS"
+        },
         {
           "id": "portArrival",
           "type": "datetime-local"
@@ -110,7 +108,7 @@
     },
     {
       "id": 1,
-      "fields": [
+      "step": [
         {
           "id": "OB",
           "unit": "kg",

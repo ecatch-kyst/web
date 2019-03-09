@@ -70,8 +70,8 @@ const FormInput = ({id, dataId, type, options}) => {
     return (
       <TextField
         dataId={dataId}
+        label={t(`labels.${id}`)}
         onChange={handleChange}
-        placeholder={t(`labels.${id}`)}
         type={type}
         value={value}
         {...options}

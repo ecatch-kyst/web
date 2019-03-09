@@ -4,8 +4,8 @@ import {Grid, Typography, CircularProgress} from '@material-ui/core'
 import {AUTH} from '../../lib/firebase'
 import {routes} from '../../lib/router'
 import {useTranslation} from 'react-i18next'
-import {withStore} from '../../db';
-import Centered from '../Centered';
+import {withStore} from '../../db'
+import Centered from '../Centered'
 
 
 const Page = withStore(({children, isProtected, store: {isLoading}, namespace, title, ...props}) => {
@@ -14,11 +14,11 @@ const Page = withStore(({children, isProtected, store: {isLoading}, namespace, t
     <Grid container direction="column" {...props}>
       {
         (isLoading) ?
-        <Centered>
-          <CircularProgress/>
-        </Centered> : 
-        (isProtected && !AUTH.currentUser) ?
-        <Redirect to={routes.ROOT}/> :
+          <Centered>
+            <CircularProgress/>
+          </Centered> :
+          (isProtected && !AUTH.currentUser) ?
+            <Redirect to={routes.ROOT}/> :
         <>
           <Typography
             style={{padding: "24px 24px 16px"}}
