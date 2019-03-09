@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added
+ - Add persistence to Firestore ([#39](https://github.com/ecatch-kyst/web/issues/39))
  - Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
 
 ### Fixed
