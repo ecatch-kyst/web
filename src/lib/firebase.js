@@ -16,6 +16,7 @@ firebase.initializeApp({
 
 
 export const FS = firebase.firestore()
+FS.enablePersistence()
 export const DB = firebase.database()
 export const FileStore = firebase.storage()
 export const AUTH = firebase.auth()
