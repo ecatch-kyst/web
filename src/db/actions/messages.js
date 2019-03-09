@@ -28,7 +28,15 @@ export function handle(...args) {
  */
 export async function submit(type) {
   try {
-    const {AC, DS, PO, OB, KG, portArrival, LS, expectedFishingSpot, departure, expectedFishingStart, QI, fishingStart, ZO, startFishingSpot, GE, GP, endFishingSpot, GS} = this.state.fields
+    const {
+      AC, DS, PO, OB, KG,
+      portArrival, LS,
+      expectedFishingSpot, departure,
+      expectedFishingStart, QI, fishingStart,
+      ZO, startFishingSpot, GE, GP,
+      endFishingSpot,
+      DU, CA, ME, GS
+    } = this.state.fields
 
     let message = {
       TM: type,
@@ -54,12 +62,12 @@ export async function submit(type) {
     case "DCA":
       message = {
         ...message,
+        AC: AC.value,
         AD: "NOR", // NOTE: Hardcoded
         QI: QI.value,
         TS: "", // ???
         fishingStart: new Date(fishingStart),
         ZO: ZO.value,
-        //ALT UNDER LEGG TIL I DESTRUCTURE LINJE 31
         startFishingSpot: GEOPOINT(
           startFishingSpot.latitude,
           startFishingSpot.longitude
@@ -70,8 +78,10 @@ export async function submit(type) {
           endFishingSpot.latitude,
           endFishingSpot.longitude
         ),
-        GS: GS.value
-
+        GS: GS.value,
+        DU,
+        CA: CA.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {}),
+        ME
       }
       break
     case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]

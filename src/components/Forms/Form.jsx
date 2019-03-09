@@ -72,7 +72,7 @@ class Form extends Component {
     const {t} = this.props
     const {type} = this.props.match.params
     const form = forms[type] // Extract form from forms.js
-
+    const {fields} = this.context
     return (
       <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
         <Grid alignItems="center" container direction="column" spacing={16}>
@@ -80,15 +80,22 @@ class Form extends Component {
             {form ? form.map(({id, step}) => // If a valid form, iterate over its steps
               <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
                 <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
-                {fields.map(({id, dataId, type, isMulti, dropdown, inputType}) => // Iterate over all the input fields in a Form block
-                  <Grid item key={id}>
-                    <FormInput
-                      dataId={dataId || id}
-                      id={id}
+                {step.map(({id, dataId, type, unit, isMulti, dropdown, inputType, dependent}) => // Iterate over all the input fields in a Form step
+                  (!dependent ||
+                        dependent.when.includes(fields[dependent.on] ?
+                          (fields[dependent.on].value || fields[dependent.on]) :
+                          "")
+                  ) ?
+                    <Grid item key={id}>
+                      <FormInput
+                        dataId={dataId || id}
+                        id={id}
                         options={{isMulti, dropdown, inputType, unit}}
                         type={type}
                       />
                     </Grid>
+                    : null
+
                 )}
                 <Divider style={{marginTop: 16}}/>
               </Grid>
