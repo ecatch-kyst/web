@@ -21,12 +21,12 @@ export class Status extends Component{
     super(props)
     this.state = {
       uid: null,
-      lastDepartureHarbour: "Henningsvær Cruise Terminal",
+      lastDepartureHarbour: "...",
       lastReportedCatchPlace: "Vestskallen",
       catchStart: "1th of January - 00:01 (GMT+1)",
       catchDuration: 55,
       catchList: {CYH: 200, SPR: 100},
-      depMessages: [],
+      lastDepMessage: [],
       dcaMessages: [],
       porMessages: []
     }
@@ -53,6 +53,7 @@ export class Status extends Component{
             querySnapshot.forEach((doc) => {
               // doc.data() is never undefined for query doc snapshots
               console.log(doc.id, " => ", doc.data())
+              this.setState({lastDepartureHarbour: doc.data().PO})
             })
           })
           .catch((error) => {
@@ -76,6 +77,8 @@ export class Status extends Component{
             querySnapshot.forEach((doc) => {
               // doc.data() is never undefined for query doc snapshots
               console.log(doc.id, " => ", doc.data())
+              // TODO: Change this to correct field when messages are ready
+              this.setState({lastReportedCatchPlace: doc.data().TM})
             })
           })
           .catch((error) => {
