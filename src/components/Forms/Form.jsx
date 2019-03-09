@@ -85,7 +85,7 @@ class Form extends Component {
                     <FormInput
                       dataId={dataId || id}
                       id={id}
-                      options={{isMulti, dropdown, inputType}}
+                        options={{isMulti, dropdown, inputType, unit}}
                       type={type}
                     />
                   </Grid>

@@ -37,6 +37,7 @@
         },
         {
           "id": "OB",
+          "unit": "kg",
           "dropdown": "species",
           "inputType": "number",
           "isMulti": true,
@@ -63,9 +64,10 @@
         "type": "datetime-local"
       },
       {
+          "unit": "kg",
         "id": "ZO",
         "type": "select"
-      },
+          "unit": "min",
       {
         "id": "startFishingSpot",
         "type": "geopoint"
@@ -111,6 +113,7 @@
       "fields": [
         {
           "id": "OB",
+          "unit": "kg",
           "dropdown": "species",
           "inputType": "number",
           "isMulti": true,

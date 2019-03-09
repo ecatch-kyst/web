@@ -1,5 +1,5 @@
 import React from 'react'
-import {TextField, InputLabel} from "@material-ui/core"
+import {TextField, InputLabel, InputAdornment} from "@material-ui/core"
 import {withTranslation} from 'react-i18next'
 
 const GeoPointField = ({dataId, label, onChange, value, t}) => {
@@ -9,20 +9,19 @@ const GeoPointField = ({dataId, label, onChange, value, t}) => {
     <InputLabel>
       {label}
     </InputLabel>
-    <TextField
-      label={t("labels.geopoint.latitude")}
-      name="latitude"
-      onChange={handleChange}
-      type="number"
-      value={value.latitude || ""}
-    />
-    <TextField
-      label={t("labels.geopoint.longitude")}
-      name="longitude"
-      onChange={handleChange}
-      type="number"
-      value={value.longitude || ""}
-    />
+    {["latitude", "longitude"].map(degree =>
+      <TextField
+        InputProps={{
+          endAdornment: <InputAdornment position="start">˚</InputAdornment>
+        }}
+        key={degree}
+        label={t(`labels.geopoint.${degree}`)}
+        name={degree}
+        onChange={handleChange}
+        type="number"
+        value={value[degree] || ""}
+      />
+    )}
   </>
   )
 }

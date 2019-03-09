@@ -14,7 +14,7 @@ import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import {useTranslation} from 'react-i18next'
 import {withStore} from '../../../db/index.js'
-import {Grid} from '@material-ui/core'
+import {Grid, InputAdornment} from '@material-ui/core'
 
 const styles = theme => ({
   root: {
@@ -170,7 +170,7 @@ const components = {
   ValueContainer
 }
 
-const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value, dropdown: dropdownId, inputType}) => {
+const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value, dropdown: dropdownId, inputType, unit}) => {
 
   const [t] = useTranslation("forms")
 
@@ -216,6 +216,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
               label={label}
               onChange={onChange}
               type={type}
+              unit={unit}
               value={inputValue || ""}
             />
           )}
@@ -225,7 +226,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
   )
 }
 
-const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, type, inputType}) => {
+const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, type, inputType, unit}) => {
   const field = fields[type]
 
   const handleChange = ({target: {name, value}}) => {
@@ -233,7 +234,16 @@ const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, t
     onChange(type, field)
   }
   return (
-    <TextField label={label} name={id} onChange={handleChange} type={inputType} value={value}/>
+    <TextField
+      InputProps={{
+        endAdornment: unit ? <InputAdornment position="end">{unit}</InputAdornment> : null
+      }}
+      label={label}
+      name={id}
+      onChange={handleChange}
+      type={inputType}
+      value={value}
+    />
   )
 })
 

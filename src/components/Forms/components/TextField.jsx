@@ -1,11 +1,14 @@
 import React from 'react'
-import {TextField as MUITextField} from "@material-ui/core"
+import {TextField as MUITextField, InputAdornment} from "@material-ui/core"
 
-const TextField = ({dataId,label, onChange, type, value, options}) => {
+const TextField = ({dataId, label, onChange, type, value, unit}) => {
   const handleChange = ({target: {value}}) => onChange(dataId, value)
 
   return (
     <MUITextField
+      InputProps={{
+        startAdornment: unit ? <InputAdornment position="start">{unit}</InputAdornment> : null
+      }}
       label={label}
       onChange={handleChange}
       type={type}
