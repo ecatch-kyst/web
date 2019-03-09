@@ -16,9 +16,11 @@
   "DCA": {
     "title": "DCA",
     "submit": "Submit",
-    "steps": [
-      "Title"
-    ]
+    "steps": {
+      "0": "title", 
+      "location": "Location",
+      "fishing": "Fishing"
+    }
   },
   "POR": {
     "title": "POR",
@@ -43,6 +45,7 @@
     "KG": "Total catch sorted by fishtype",
     "QI": "Fishing permit",
     "ZO": "Fishing zone",
+    "fishingStart": "Start of fishing",
     "geopoint": {
       "latitude": "Latitude",
       "longitude": "Longitude"
@@ -51,7 +54,10 @@
     "endFishingSpot": "End fishing spot",
     "GS": "Gear specification",
     "GP": "Gear problems",
-    "GE": "Fishing Gear"
+    "GE": "Fishing Gear",
+    "DU": "Duration of activity",
+    "ME": "Smallest mesh size",
+    "CA": "Catch"
   },
   "dropdowns": {
     "ports": [{
