@@ -4,6 +4,7 @@ import "@firebase/firestore"
 import "@firebase/auth"
 import "@firebase/storage"
 
+
 firebase.initializeApp({
   apiKey: "AIzaSyD5l09unKGP3D3cFY_mr_BQPgcTjhkU2jc",
   authDomain: "ecatch-kyst.firebaseapp.com",
@@ -12,6 +13,7 @@ firebase.initializeApp({
   storageBucket: "ecatch-kyst.appspot.com",
   messagingSenderId: "1037945604073"
 })
+
 
 export const FS = firebase.firestore()
 export const DB = firebase.database()
