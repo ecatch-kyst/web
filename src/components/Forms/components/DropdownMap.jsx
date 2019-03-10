@@ -223,7 +223,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
               onChange={onChange}
               type={type}
               unit={unit}
-              value={inputValue || ""}
+              value={inputValue}
             />
           )}
         </Grid>
@@ -237,7 +237,7 @@ const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, t
   const [localValue, setValue] = useState(value || "")
 
   // when user inputs something into the text field, update the state
-  const handleChange = ({target: {value}}) => setValue(parseInt(value, 10) || value || "")
+  const handleChange = ({target: {value}}) => setValue(inputType === "number" ? parseInt(value, 10) : (value || ""))
 
   // when user moves away from the field, update the global state
   const handleBlur = () => {
