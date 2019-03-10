@@ -4,7 +4,10 @@
     "departure_port": "Departure port",
     "catch_place": "Catch place",
     "catching_since": "Catching since",
-    "catch_list": "Catch list"
+    "catch_list": "Catch list",
+    "catch_zone": "Catch zone",
+    "target_specie": "Target specie",
+    "activity": "Activity"
   },
   "phrases": {
     "ago": "ago",

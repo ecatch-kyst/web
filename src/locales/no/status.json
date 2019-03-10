@@ -4,7 +4,10 @@
     "departure_port": "Avgangshavn",
     "catch_place": "Fangststed",
     "catching_since": "Fanget siden",
-    "catch_list": "Fangstliste"
+    "catch_list": "Fangstliste",
+    "catch_zone": "Fangstsone",
+    "target_specie": "Målart",
+    "activity": "Aktivitet"
   },
   "phrases": {
     "ago": "siden",

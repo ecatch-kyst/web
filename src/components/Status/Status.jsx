@@ -22,7 +22,9 @@ export class Status extends Component{
     this.state = {
       uid: null,
       lastDepartureHarbour: "...",
-      lastReportedCatchPlace: "Vestskallen",
+      lastReportedCatchPlace: "...",
+      activity: "...",
+      targetSpecie: "...",
       catchStart: "1th of January - 00:01 (GMT+1)",
       catchDuration: 55,
       catchList: {CYH: 200, SPR: 100},
@@ -53,7 +55,12 @@ export class Status extends Component{
             querySnapshot.forEach((doc) => {
               // doc.data() is never undefined for query doc snapshots
               console.log(doc.id, " => ", doc.data())
-              this.setState({lastDepartureHarbour: doc.data().PO})
+              this.setState({
+                lastDepartureHarbour: doc.data().PO,
+                activity: doc.data().AC,
+                targetSpecie: doc.data().DS ? doc.data().DS : "Not catching",
+                catchZone: doc.data().ZO ? doc.data().ZO : "No zone chosen"
+              })
             })
           })
           .catch((error) => {
@@ -113,10 +120,58 @@ export class Status extends Component{
         <StyledCard>
           <CardContent>
             <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+              {t("titles.activity")}
+            </Typography>
+            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+              {this.state.activity}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small"><EditIcon/></Button>
+          </CardActions>
+        </StyledCard>
+
+        <Divider/>
+
+        <StyledCard>
+          <CardContent>
+            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+              {t("titles.target_specie")}
+            </Typography>
+            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+              {this.state.targetSpecie}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small"><EditIcon/></Button>
+          </CardActions>
+        </StyledCard>
+
+        <Divider/>
+
+        <StyledCard>
+          <CardContent>
+            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
               {t("titles.catch_place")}
             </Typography>
             <Typography className="statuscard-info" color="textPrimary" gutterBottom>
               {this.state.lastReportedCatchPlace}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small"><EditIcon/></Button>
+          </CardActions>
+        </StyledCard>
+
+        <Divider/>
+
+        <StyledCard>
+          <CardContent>
+            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+              {t("titles.catch_zone")}
+            </Typography>
+            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+              {this.state.catchZone}
             </Typography>
           </CardContent>
           <CardActions>
