@@ -81,7 +81,7 @@ class Form extends Component {
       break
     }
 
-    default: break
+    default: return
     }
     handleFieldChange(newFields)
   }
