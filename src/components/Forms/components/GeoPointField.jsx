@@ -1,14 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {TextField, InputLabel, InputAdornment} from "@material-ui/core"
 import {withTranslation} from 'react-i18next'
+import {GEOPOINT} from '../../../lib/firebase'
 
 const GeoPointField = ({dataId, label, onChange, value, t}) => {
-  const handleChange = ({target: {name, value: inputValue}}) => onChange(dataId, {...value, [name]: parseFloat(inputValue, 10)})
+
+  const [localValue, setValue] = useState(value)
+
+  // when user inputs something into the text field, update the state
+  const handleChange = ({target: {name, value: inputValue}}) => {
+    let lat, long
+    if (name === "latitude") {
+      lat = parseFloat(inputValue)
+      long = value.longitude
+    } else {
+      lat = value.latitude
+      long = parseFloat(inputValue)
+    }
+    setValue(GEOPOINT(
+      Math.min(Math.max(lat || 0, -90), 90),
+      Math.min(Math.max(long || 0, -180), 180)
+    ))
+  }
+
+  // when user moves away from the field, update the global state
+  const handleBlur = () => onChange(dataId, localValue)
+
   return (
     <>
-    <InputLabel>
-      {label}
-    </InputLabel>
+    <InputLabel>{label}</InputLabel>
     {["latitude", "longitude"].map(degree =>
       <TextField
         InputProps={{
@@ -17,9 +37,10 @@ const GeoPointField = ({dataId, label, onChange, value, t}) => {
         key={degree}
         label={t(`labels.geopoint.${degree}`)}
         name={degree}
+        onBlur={handleBlur}
         onChange={handleChange}
         type="number"
-        value={value[degree] || ""}
+        value={localValue[degree] || ""}
       />
     )}
   </>

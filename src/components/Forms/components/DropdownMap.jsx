@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import classNames from 'classnames'
 import Select from 'react-select'
 import {withStyles} from '@material-ui/core/styles'
@@ -227,22 +227,29 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 }
 
 const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, type, inputType, unit}) => {
-  const field = fields[type]
 
-  const handleChange = ({target: {name, value}}) => {
-    field[name].inputValue = inputType === "number" ? parseInt(value, 10) : value
+  const [localValue, setValue] = useState(value || "")
+
+  // when user inputs something into the text field, update the state
+  const handleChange = ({target: {value}}) => setValue(parseInt(value, 10) || value || "")
+
+  // when user moves away from the field, update the global state
+  const handleBlur = () => {
+    const field = fields[type]
+    field[id] = localValue
     onChange(type, field)
   }
+
   return (
     <TextField
       InputProps={{
         endAdornment: unit ? <InputAdornment position="end">{unit}</InputAdornment> : null
       }}
       label={label}
-      name={id}
+      onBlur={handleBlur}
       onChange={handleChange}
       type={inputType}
-      value={value}
+      value={localValue}
     />
   )
 })
