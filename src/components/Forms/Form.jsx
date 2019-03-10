@@ -35,10 +35,14 @@ class Form extends Component {
 
     const now = format(Date.now(), "yyyy-MM-dd'T'HH:mm", {awareOfUnicodeTokens: true})
 
+
     let newFields = {}
     switch (type) {
     case "DEP": {
-      newFields.departure = now
+      newFields = {
+        ...newFields,
+        departure: now
+      }
       const lastMessage = messages.find(m => m.TM === "DEP")
 
       if (lastMessage) {
@@ -54,7 +58,6 @@ class Form extends Component {
           OB
         }
       }
-      handleFieldChange(newFields)
       break
     }
     case "DCA": {
