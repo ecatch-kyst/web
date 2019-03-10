@@ -107,13 +107,9 @@ export async function submit(type) {
 export function subscribe() {
   USERS_FS.doc(AUTH.currentUser.uid)
     .collection("messages")
-    .onSnapshot(snap => {
-      this.setState({
-        messages: snap.docs.map(flattenDoc).sort(sortByTimestamp)
-      })
-    }, error => console.error(error)
+    .orderBy("timestamp", "desc")
+    .onSnapshot(
+      snap => this.setState({messages: snap.docs.map(flattenDoc)}),
+      error => console.error(error)
     ) //TODO: Add error notification
 }
-
-
-const sortByTimestamp = (a, b) => b.timestamp.toDate() - a.timestamp.toDate()
