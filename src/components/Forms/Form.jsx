@@ -24,31 +24,54 @@ class Form extends Component {
 
   componentDidMount() {
     const {match: {params: {type}}, t} = this.props
-    const {handleFieldChange, messages} = this.context
+    const {handleFieldChange, messages, position} = this.context
     /** REVIEW: When this componentDidMount is called,
      * messages is probably still empty,
      * if the user opens the form in a new tab, instead of coming from the dashboard.
      */
 
+
     if (!Object.keys(forms).includes(type)) return
 
-    const ports = t("dropdowns.ports", {returnObjects: true})
-    const activities = t("dropdowns.activity", {returnObjects: true})
-    const expectedFishingSpots = t("dropdowns.expectedFishingSpot", {returnObjects: true})
-    const species = t("dropdowns.species", {returnObjects: true})
+    const now = format(Date.now(), "yyyy-MM-dd'T'HH:mm", {awareOfUnicodeTokens: true})
 
+    let newFields = {}
     switch (type) {
     case "DEP": {
+      newFields.departure = now
       const lastMessage = messages.find(m => m.TM === "DEP")
+
       if (lastMessage) {
-        handleFieldChange({
-          PO: ports.find(port => port.value === lastMessage.PO),
-          expectedFishingSpot: expectedFishingSpots
-            .find(({latitude, longitude}) => GEOPOINT(latitude, longitude).isEqual(lastMessage.expectedFishingSpot)),
-          AC: activities.find(activity => activity.value === lastMessage.AC),
-          DS: species.find(species => species.value === lastMessage.DS),
-          departure: format(Date.now(), "yyyy-MM-dd'T'HH:mm", {awareOfUnicodeTokens: true})
-        })
+        const {PO, AC, expectedFishingSpot, DS, OB} = lastMessage
+
+        newFields = {
+          ...newFields,
+          PO: t("dropdowns.ports", {returnObjects: true}).find(({value}) => value === PO).value,
+          expectedFishingSpot: t("dropdowns.expectedFishingSpot", {returnObjects: true})
+            .find(({latitude: lat, longitude: long}) => GEOPOINT(lat, long).isEqual(expectedFishingSpot)),
+          AC: t("dropdowns.activity", {returnObjects: true}).find(({value}) => value === AC).value,
+          DS: t("dropdowns.species", {returnObjects: true}).find(({value}) => value === DS).value,
+          OB
+        }
+      }
+      handleFieldChange(newFields)
+      break
+    }
+    case "DCA": {
+      newFields = {
+        ...newFields,
+        fishingStart: now,
+        endFishingSpot: position
+      }
+      const lastMessage = messages.find(m => m.TM === "DCA")
+
+      if (lastMessage) {
+        const {QI} = lastMessage
+
+        newFields = {
+          ...newFields,
+          QI: t("dropdowns.fishingPermit", {returnObjects: true}).find(({value}) => value === QI).value
+        }
       }
       break
     }
@@ -56,6 +79,7 @@ class Form extends Component {
     default:
       break
     }
+    handleFieldChange(newFields)
   }
 
   /**
