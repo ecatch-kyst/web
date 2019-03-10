@@ -174,7 +174,9 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 
   const [t] = useTranslation("forms")
 
-  const handleChange = value => onChange(dataId, value)
+  const handleChange = options => {
+    onChange(dataId, options.reduce((acc, option) => ({...acc, [option.value]: 0}), {}))
+  }
 
 
   const selectStyles = {
@@ -189,6 +191,10 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 
   const options = t(`dropdowns.${dropdownId}`, {returnObjects: true})
 
+  const selectValue = options.reduce((acc, option) => {
+    if (Object.keys(value).includes(option.value)) return [...acc, option]
+    else return acc
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -203,17 +209,17 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
           placeholder={placeholder}
           styles={selectStyles}
           textFieldProps={{InputLabelProps: {shrink: true}}}
-          value={value}
+          value={selectValue}
         />
         <Grid container direction="column" spacing={16} style={{padding: 16}}>
-          {Object.entries(value).map(([key, {label, inputValue}]) =>
+          {Object.entries(value).map(([key, inputValue]) =>
             <Grid
               component={KeyValueInput}
               id={key}
               inputType={inputType}
               item
               key={key}
-              label={label}
+              label={selectValue.find(option => option.value === key).label}
               onChange={onChange}
               type={type}
               unit={unit}

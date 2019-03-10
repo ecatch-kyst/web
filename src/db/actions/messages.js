@@ -1,4 +1,4 @@
-import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT} from "../../lib/firebase"
+import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
 /**
  * Handles message changes.
@@ -47,40 +47,31 @@ export async function submit(type) {
     case "DEP":
       message = {
         ...message,
-        AC: AC.value,
-        DS: DS.value,
-        PO: PO.value,
+        AC,
+        DS,
+        PO,
         departure: new Date(departure),
-        expectedFishingSpot: GEOPOINT(
-          expectedFishingSpot.latitude,
-          expectedFishingSpot.longitude
-        ),
+        expectedFishingSpot,
         expectedFishingStart: new Date(expectedFishingStart),
-        OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
+        OB
       }
       break
     case "DCA":
       message = {
         ...message,
-        AC: AC.value,
+        AC,
         AD: "NOR", // NOTE: Hardcoded
-        QI: QI.value,
+        QI,
         TS: "", // ???
         fishingStart: new Date(fishingStart),
-        ZO: ZO.value,
-        startFishingSpot: GEOPOINT(
-          startFishingSpot.latitude,
-          startFishingSpot.longitude
-        ),
-        GE: GE.value,
-        GP: GP.value,
-        endFishingSpot: GEOPOINT(
-          endFishingSpot.latitude,
-          endFishingSpot.longitude
-        ),
-        GS: GS.value,
+        ZO,
+        startFishingSpot,
+        GE,
+        GP,
+        endFishingSpot,
+        GS,
         DU,
-        CA: CA.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {}),
+        CA,
         ME
       }
       break
@@ -88,11 +79,11 @@ export async function submit(type) {
       message = {
         ...message,
         AD: "NOR", // NOTE: Hardcoded
-        PO: PO.value,
+        PO,
         portArrival: new Date(portArrival),
-        OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {}),
+        OB,
         LS,
-        KG: KG.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
+        KG
       }
       break
     default:

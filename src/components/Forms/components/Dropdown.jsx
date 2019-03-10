@@ -172,7 +172,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 
   const [t] = useTranslation("forms")
 
-  const handleChange = value => onChange(dataId, value)
+  const handleChange = ({value}) => onChange(dataId, value)
 
 
   const selectStyles = {
@@ -187,6 +187,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 
   const options = t(`dropdowns.${type}`, {returnObjects: true})
 
+  value = options.find(option => option.value === value)
 
   return (
     <div className={classes.root}>
