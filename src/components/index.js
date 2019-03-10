@@ -5,8 +5,9 @@ import Landing from "./Landing"
 import NotFound from "./NotFound"
 import Profile from "./Profile"
 import Centered from "./Centered"
-import Messages from "./Messages"
+import Messages from "./Messages/Messages"
 import Forms, {Form} from "./Forms"
+import EditMessage from "./Messages/EditMessage"
 
 export {Dialog, Notification} from "./shared"
 
@@ -20,5 +21,6 @@ export {
   Profile,
   Messages,
   Forms,
-  Form
+  Form,
+  EditMessage
 }

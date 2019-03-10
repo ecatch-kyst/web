@@ -17,7 +17,8 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.4",
-    "react-select": "^2.3.0"
+    "react-select": "^2.3.0",
+    "react-virtualized": "^9.21.0"
   },
   "scripts": {
     "start": "react-scripts start",

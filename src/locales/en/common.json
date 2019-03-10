@@ -8,7 +8,8 @@
 	},
 	"links": {
 		"not-found": "Go to 404",
-		"register": "Register"
+		"register": "Register",
+		"back": "Back"
 	},
 	"navigation": {
 		"dashboard": "Dashboard",
@@ -107,6 +108,11 @@
 			"off": {
 				"default": "Night mode off."
 			}
+		}
+	},
+	"edit": {
+		"message": {
+			"submit": "Submit"
 		}
 	}
 }
