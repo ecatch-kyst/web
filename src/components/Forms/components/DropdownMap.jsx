@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import classNames from 'classnames'
 import Select from 'react-select'
 import {withStyles} from '@material-ui/core/styles'
