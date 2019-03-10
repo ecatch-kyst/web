@@ -3,10 +3,9 @@ import {useTranslation} from 'react-i18next'
 
 import Store from '../../db'
 import Dropdown from './components/Dropdown'
-import TextField from './components/TextField'
+import TextInput from './components/TextInput'
 import DropdownMap from './components/DropdownMap'
 import GeoPointField from './components/GeoPointField'
-
 
 /**
  * Dynamic input field
@@ -68,7 +67,7 @@ const FormInput = ({id, dataId, type, options}) => {
     )
   default:
     return (
-      <TextField
+      <TextInput
         dataId={dataId}
         label={t(`labels.${id}`)}
         onChange={handleChange}
