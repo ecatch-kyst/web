@@ -25,13 +25,15 @@ class Form extends Component {
   componentDidMount() {
     const {match: {params: {type}}, t} = this.props
     const {handleFieldChange, messages, position} = this.context
+
+    // Form type does not exist was opened, don't continue
+    if (!Object.keys(forms).includes(type)) return
+
+
     /** REVIEW: When this componentDidMount is called,
      * messages is probably still empty,
      * if the user opens the form in a new tab, instead of coming from the dashboard.
      */
-
-
-    if (!Object.keys(forms).includes(type)) return
 
     const now = format(Date.now(), "yyyy-MM-dd'T'HH:mm", {awareOfUnicodeTokens: true})
 
@@ -79,8 +81,7 @@ class Form extends Component {
       break
     }
 
-    default:
-      break
+    default: break
     }
     handleFieldChange(newFields)
   }
