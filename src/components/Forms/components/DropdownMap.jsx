@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import classNames from 'classnames'
 import Select from 'react-select'
 import {withStyles} from '@material-ui/core/styles'
@@ -175,7 +175,13 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
   const [t] = useTranslation("forms")
 
   const handleChange = options => {
-    onChange(dataId, options.reduce((acc, option) => ({...acc, [option.value]: 0}), {}))
+    onChange(
+      dataId,
+      {
+        ...options.reduce((acc, {value: key}) =>
+          ({...acc, [key]: value[key] || 0}), {})
+      }
+    )
   }
 
 
@@ -234,7 +240,10 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 
 const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, type, inputType, unit}) => {
 
-  const [localValue, setValue] = useState(value || "")
+  const [localValue, setValue] = useState("")
+
+  // update local state, when global is updated
+  useEffect(() => {setValue(value || "")}, [value])
 
   // when user inputs something into the text field, update the state
   const handleChange = ({target: {value}}) => setValue(inputType === "number" ? parseInt(value, 10) : (value || ""))

@@ -1,11 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {TextField, InputLabel, InputAdornment} from "@material-ui/core"
 import {withTranslation} from 'react-i18next'
 import {GEOPOINT} from '../../../lib/firebase'
 
+const defaultGeoPoint = {
+  latitude: 0,
+  longitude: 0
+}
 const GeoPointField = ({dataId, label, onChange, value, t}) => {
 
-  const [localValue, setValue] = useState(value)
+  const [localValue, setValue] = useState(defaultGeoPoint)
+
+  // update local state, when global is updated
+  useEffect(() => {setValue(value || defaultGeoPoint)}, [value])
 
   // when user inputs something into the text field, update the state
   const handleChange = ({target: {name, value: inputValue}}) => {

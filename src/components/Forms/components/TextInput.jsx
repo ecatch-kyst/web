@@ -1,12 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {TextField, InputAdornment} from "@material-ui/core"
 
 export default ({dataId, label, onChange, type, value, unit}) => {
 
-  const [localValue, setValue] = useState(value || "")
+  const [localValue, setValue] = useState("")
 
-  // when user inputs something into the text field, update the state
-  const handleChange = ({target: {value}}) => setValue(type === "number" ? parseInt(value, 10) : (value || ""))
+  // update local state, when global is updated
+  useEffect(() => {setValue(value || "")}, [value])
+
+  // when user inputs something into the text field, update the local state
+  const handleChange = ({target: {value}}) => {
+    setValue(type === "number" ? parseInt(value, 10) : (value || ""))
+  }
 
   // when user moves away from the field, update the global state
   const handleBlur = () => onChange(dataId, localValue)
