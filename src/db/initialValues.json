@@ -4,6 +4,10 @@
   "dialog": {"open": false},
   "notification": {"open": false},
   "messages": [],
-  "isLoading": true
+  "isLoading": true,
+  "position": {
+    "latitude": 0,
+    "longitude": 0
+  }
 }
 

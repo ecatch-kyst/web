@@ -19,17 +19,20 @@ export class Database extends Component {
   state = {
     ...initValues,
     fields: {
-      departure: "", // Time of departure
+      departure: null, // Time of departure
       PO: null, // Land & port
-      AC: "", // Fishing activity
-      expectedFishingSpot: "",
       expectedFishingStart: "", // Expected time of fishing start
       DS: "", // Expected fish art
-      OB: [], // Fish type and weight,
-      KG: [],
-      CA: [],
+      OB: {}, // Fish type and weight,
+      KG: {}, // Fish type and weight,
+      CA: {}, // Fish type and weight,
+      expectedFishingSpot: {},
       startFishingSpot: {},
-      endFishingSpot: {}
+      endFishingSpot: {},
+      QI: 1, // Fishing permit
+      AC: "FIS", // Fishing activity
+      GP: 0, // Gear problem
+      ZO: "NOR" // Fishing zone
     }
   }
 
