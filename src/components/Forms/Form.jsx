@@ -93,6 +93,7 @@ export class Form extends Component {
         handleFieldChange(baseMessage)
         return
       }
+      break
     }
     default: return
     }
