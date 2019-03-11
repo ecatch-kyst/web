@@ -1,4 +1,4 @@
-import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT} from "../../lib/firebase"
+import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
 /**
  * Handles message changes.
@@ -35,7 +35,7 @@ export async function submit(type) {
       expectedFishingStart, QI, fishingStart,
       ZO, startFishingSpot, GE, GP,
       endFishingSpot,
-      DU, CA, ME, GS
+      DU, CA, GS
     } = this.state.fields
 
     let message = {
@@ -51,7 +51,7 @@ export async function submit(type) {
         DS,
         PO,
         departure: new Date(departure),
-        expectedFishingSpot,
+        expectedFishingSpot: GEOPOINT(expectedFishingSpot.latitude, expectedFishingSpot.longitude),
         expectedFishingStart: new Date(expectedFishingStart),
         OB
       }
@@ -71,8 +71,7 @@ export async function submit(type) {
         endFishingSpot,
         GS,
         DU,
-        CA,
-        ME
+        CA
       }
       break
     case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
