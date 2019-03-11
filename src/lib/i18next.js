@@ -27,8 +27,8 @@ const en = {
   dashboard: dashboard_en,
   boats: boats_en,
   pages: pages_en,
-  messages: messages_en,
   register: register_en,
+  messages: messages_en,
   problems: problems_en,
   species: species_en,
   forms: forms_en

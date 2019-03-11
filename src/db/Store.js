@@ -32,7 +32,8 @@ export class Database extends Component {
       QI: 1, // Fishing permit
       AC: "FIS", // Fishing activity
       GP: 0, // Gear problem
-      ZO: "NOR" // Fishing zone
+      ZO: "NOR", // Fishing zone
+      DU: 0 // Duration of activity
     }
   }
 

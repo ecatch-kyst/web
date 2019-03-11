@@ -16,15 +16,18 @@
   "DCA": {
     "title": "DCA",
     "submit": "Submit",
-    "steps": [
-      "Title"
-    ]
+    "steps": {
+      "0": "title", 
+      "location": "Location",
+      "fishing": "Fishing"
+    }
   },
   "POR": {
     "title": "POR",
     "submit": "Submit",
     "steps": [
-      "Title"
+      "Port",
+      "Fish"
     ]
   },
   "labels": {
@@ -36,7 +39,25 @@
     "OB": "Fish onboard",
     "departure": "Departure time",
     "LA": "Latitude",
-    "LO": "Longitude"
+    "LO": "Longitude",
+    "portArrival": "Estimated time of arrival",
+    "LS": "Fish landing",
+    "KG": "Total catch sorted by fishtype",
+    "QI": "Fishing permit",
+    "ZO": "Fishing zone",
+    "fishingStart": "Start of fishing",
+    "geopoint": {
+      "latitude": "Latitude",
+      "longitude": "Longitude"
+    },
+    "startFishingSpot": "Start fishing spot",
+    "endFishingSpot": "End fishing spot",
+    "GS": "Gear specification",
+    "GP": "Gear problems",
+    "GE": "Fishing Gear",
+    "DU": "Duration of activity",
+    "ME": "Smallest mesh size",
+    "CA": "Catch"
   },
   "dropdowns": {
     "ports": [{
@@ -232,52 +253,82 @@
         "latitude": ""
       }
     ],
+    "fishingPermit": [{
+        "label": "Ordinær kvote",
+        "value": 1
+      },
+      {
+        "label": "Forskningskvote",
+        "value": 2
+      },
+      {
+        "label": "Skolekvote",
+        "value": 3
+      },
+      {
+        "label": "Agnkvote",
+        "value": 4
+      },
+      {
+        "label": "Annet",
+        "value": 5
+      },
+      {
+        "label": "Slumpfiskkvote",
+        "value": 6
+      },
+      {
+        "label": "Leiefartøykvote",
+        "value": 7
+      }
+    ],
     "expectedFishingSpot": [{
-      "value": 0,
       "label": "Holmen",
-      "longitude": 59.8562408,
-      "latitude": 10.4836694
+      "value": {
+        "longitude": 10,
+        "latitude": 10
+      }
     }],
     "problems": [{
-        "value": "0",
+        "value": 0,
         "label": "No gear problems"
       },
       {
-        "value": "1",
+        "value": 1,
         "label": "Missed throw"
       },
       {
-        "value": "2",
+        "value": 2,
         "label": "Net tear"
       },
       {
-        "value": "3",
+        "value": 3,
         "label": "Split"
       },
       {
-        "value": "4",
+        "value": 4,
         "label": "Hole in sack"
       },
       {
-        "value": "5",
+        "value": 5,
         "label": "Lost gear"
       },
       {
-        "value": "6",
+        "value": 6,
         "label": "Other"
       }
     ],
-    "fishing-gear": {
-      "DRB": "Harvesting machines (not specified)",
-      "FPO": "Traps - pots",
-      "GEN": "Gillnets and entangling nets",
-      "LL": "Longlines (not specified)",
-      "OTB": "Bottom trawls - otter trawls",
-      "OTM": "Midwater otter trawl",
-      "PS1": "Surrounding nets - purse seines",
-      "SSC": "Scottish seines  scottish",
-      "TBS": "Bottom trawls - prawns"
-    },
+    "fishing-gear": [
+      {"value": "DRB", "label": "Harvesting machines (not specified)"},
+      {"value": "FPO", "label": "Traps - pots"},
+      {"value": "GEN", "label": "Gillnets and entangling nets"},
+      {"value": "LL", "label": "Longlines (not specified)"},
+      {"value": "OTB", "label": "Bottom trawls - otter trawls"},
+      {"value": "OTM", "label": "Midwater otter trawl"},
+      {"value": "PS1", "label": "Surrounding nets - purse seines"},
+      {"value": "SSC", "label": "Scottish seines  scottish"},
+      {"value": "TBS", "label": "Bottom trawls - prawns"}
+    ],
     "species": [{
         "value": "AJC",
         "label": "Babberlocks"
@@ -462,6 +513,72 @@
       {
         "value": "OTH",
         "label": "Other"
+      }
+    ],
+    "ZO": [{
+        "value": "NOR",
+        "label": "Norway's economic zone"
+      },
+      {
+        "value": "XSV",
+        "label": "The fishing zone at Svalbard"
+      },
+      {
+        "value": "XSI",
+        "label": "Svalbard's territorial waters"
+      },
+      {
+        "value": "XJM",
+        "label": "Fishing zone at Jan Mayen"
+      },
+      {
+        "value": "XSK",
+        "label": "Skagerrak"
+      },
+      {
+        "value": "XEU",
+        "label": "EU zone"
+      },
+      {
+        "value": "RUS",
+        "label": "Russian zone"
+      },
+      {
+        "value": "GRL",
+        "label": "Greenlandic zone"
+      },
+      {
+        "value": "FRO",
+        "label": "Faroese zone"
+      },
+      {
+        "value": "ISL",
+        "label": "Icelandic zone"
+      },
+      {
+        "value": "XNE",
+        "label": "NEAFC area"
+      },
+      {
+        "value": "XNW",
+        "label": "NAFO Area"
+      },
+      {
+        "value": "XCA",
+        "label": "CCAMLR area"
+      }
+    ],
+    "GS": [{
+        "value": 1,
+        "label": "single wire"
+      },
+      {
+        "value": 2,
+        "label": "double wire"
+      },
+      {
+        "value": 3,
+        "label": "triple wire"
       }
     ]
   }

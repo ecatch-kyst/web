@@ -3,6 +3,7 @@
   "isDarkMode": false,
   "dialog": {"open": false},
   "notification": {"open": false},
+  "boats": [],
   "messages": [],
   "isLoading": true,
   "position": {

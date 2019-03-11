@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import classNames from 'classnames'
 import Select from 'react-select'
 import {withStyles} from '@material-ui/core/styles'
@@ -14,7 +14,7 @@ import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import {useTranslation} from 'react-i18next'
 import {withStore} from '../../../db/index.js'
-import {Grid} from '@material-ui/core'
+import {Grid, InputAdornment} from '@material-ui/core'
 
 const styles = theme => ({
   root: {
@@ -170,11 +170,19 @@ const components = {
   ValueContainer
 }
 
-const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value, dropdown: dropdownId, inputType}) => {
+const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value, dropdown: dropdownId, inputType, unit}) => {
 
   const [t] = useTranslation("forms")
 
-  const handleChange = value => onChange(dataId, value)
+  const handleChange = options => {
+    onChange(
+      dataId,
+      {
+        ...options.reduce((acc, {value: key}) =>
+          ({...acc, [key]: value[key] || 0}), {})
+      }
+    )
+  }
 
 
   const selectStyles = {
@@ -189,6 +197,10 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 
   const options = t(`dropdowns.${dropdownId}`, {returnObjects: true})
 
+  const selectValue = options.reduce((acc, option) => {
+    if (Object.keys(value).includes(option.value)) return [...acc, option]
+    else return acc
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -203,20 +215,21 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
           placeholder={placeholder}
           styles={selectStyles}
           textFieldProps={{InputLabelProps: {shrink: true}}}
-          value={value}
+          value={selectValue}
         />
         <Grid container direction="column" spacing={16} style={{padding: 16}}>
-          {Object.entries(value).map(([key, {label, inputValue}]) =>
+          {Object.entries(value).map(([key, inputValue]) =>
             <Grid
               component={KeyValueInput}
               id={key}
               inputType={inputType}
               item
               key={key}
-              label={label}
+              label={selectValue.find(option => option.value === key).label}
               onChange={onChange}
               type={type}
-              value={inputValue || ""}
+              unit={unit}
+              value={inputValue}
             />
           )}
         </Grid>
@@ -225,15 +238,34 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
   )
 }
 
-const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, type, inputType}) => {
-  const field = fields[type]
+const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, type, inputType, unit}) => {
 
-  const handleChange = ({target: {name, value}}) => {
-    field[name].inputValue = inputType === "number" ? parseInt(value, 10) : value
+  const [localValue, setValue] = useState("")
+
+  // update local state, when global is updated
+  useEffect(() => {setValue(value || "")}, [value])
+
+  // when user inputs something into the text field, update the state
+  const handleChange = ({target: {value}}) => setValue(inputType === "number" ? parseInt(value, 10) : (value || ""))
+
+  // when user moves away from the field, update the global state
+  const handleBlur = () => {
+    const field = fields[type]
+    field[id] = localValue
     onChange(type, field)
   }
+
   return (
-    <TextField label={label} name={id} onChange={handleChange} type={inputType} value={value}/>
+    <TextField
+      InputProps={{
+        endAdornment: unit ? <InputAdornment position="end">{unit}</InputAdornment> : null
+      }}
+      label={label}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      type={inputType}
+      value={localValue}
+    />
   )
 })
 

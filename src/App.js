@@ -16,8 +16,9 @@ import {
   OfflineStatus,
   Dashboard,
   NotFound,
-  Messages,
   Dialog,
+  Messages,
+  EditMessage,
   Form,
   Notification
 } from './components'
@@ -32,6 +33,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
+      <Route component={EditMessage} exact path={`${routes.MESSAGES}/:type/:messageId${routes.EDIT}`}/>
       <Route component={Form} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>
       <Route component={NotFound}/>
     </Switch>
@@ -54,14 +56,14 @@ const navigation = [
     to: routes.DASHBOARD
   },
   {
-    id: "profile",
-    icon: <ProfileIcon/>,
-    to: routes.PROFILE
-  },
-  {
     id: "messages",
     icon: <MessageIcon/>,
     to: routes.MESSAGES
+  },
+  {
+    id: "profile",
+    icon: <ProfileIcon/>,
+    to: routes.PROFILE
   }
 ]
 
