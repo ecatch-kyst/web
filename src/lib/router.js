@@ -10,5 +10,6 @@ export const routes = {
   DCA: "/DCA",
   POR: "/POR",
   NOT_FOUND: "/404",
-  NEW: "/new"
+  NEW: "/new",
+  EDIT: "/edit"
 }

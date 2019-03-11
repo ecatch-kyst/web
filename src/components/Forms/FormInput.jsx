@@ -1,11 +1,11 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import {useTranslation} from 'react-i18next'
 
-import Store from '../../db'
+import {withStore} from '../../db'
 import Dropdown from './components/Dropdown'
-import TextField from './components/TextField'
+import TextInput from './components/TextInput'
 import DropdownMap from './components/DropdownMap'
-
+import GeoPointField from './components/GeoPointField'
 
 /**
  * Dynamic input field
@@ -16,11 +16,9 @@ import DropdownMap from './components/DropdownMap'
  * @param {boolean} props.options
  */
 
-const FormInput = ({id, dataId, type, options}) => {
-
+export const FormInput = ({id, dataId, type, options, store: {handleFieldChange, fields}}) => {
 
   const [t] = useTranslation("forms")
-  const {handleFieldChange, fields} = useContext(Store)
 
   const handleChange = (name, value) => {
     const error = null // TODO: Uncomment validate[dataId](value) // Validating the field
@@ -31,7 +29,7 @@ const FormInput = ({id, dataId, type, options}) => {
     }
   }
 
-  const value = fields[dataId]
+  const value = fields[id || dataId]
 
   switch (type) {
   case "select":
@@ -56,9 +54,18 @@ const FormInput = ({id, dataId, type, options}) => {
         {...options}
       />
     )
+  case "geopoint":
+    return (
+      <GeoPointField
+        dataId={id}
+        label={t(`labels.${id}`)}
+        onChange={handleChange}
+        value={value}
+      />
+    )
   default:
     return (
-      <TextField
+      <TextInput
         dataId={dataId}
         label={t(`labels.${id}`)}
         onChange={handleChange}
@@ -71,4 +78,4 @@ const FormInput = ({id, dataId, type, options}) => {
 }
 
 
-export default FormInput
+export default withStore(FormInput)

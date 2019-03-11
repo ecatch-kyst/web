@@ -8,7 +8,8 @@
 	},
 	"links": {
 		"not-found": "Go to 404",
-		"register": "Register"
+		"register": "Register",
+		"back": "Back"
 	},
 	"navigation": {
 		"dashboard": "Dashboard",
@@ -55,12 +56,24 @@
 				"cancel": "Cancel"
 			},
 			"description": "..."
+		},
+		"POR": {
+			"titles": {
+				"main": "Send in POR message?",
+				"submit": "Confirm",
+				"cancel": "Cancel"
+			},
+			"description": ""
 		}
 	},
 	"notifications": {
 		"message": {
 			"sent": {
 				"DEP": {
+					"error": "Message not sent \n{{message}}",
+					"success": "Message sent"
+				},
+				"POR": {
 					"error": "Message not sent\n{{message}}",
 					"success": "Message sent"
 				}
@@ -69,6 +82,9 @@
 		"offline": {
 			"error": "You are offline.",
 			"action": "Reload page"
+		},
+		"position": {
+			"error": "Error while fetching position. \n{{message}}"
 		},
 		"user": {
 			"updated": {
@@ -106,6 +122,11 @@
 			"off": {
 				"default": "Night mode off."
 			}
+		}
+	},
+	"edit": {
+		"message": {
+			"submit": "Submit"
 		}
 	}
 }
