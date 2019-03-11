@@ -33,6 +33,14 @@
 		"title": "Welcome to {{framework}}"
 	},
 	"dialogs": {
+		"addSpot":{
+			"titles":{
+				"main":"Add personal fishing spot",
+				"cancel":"Abort",
+				"submit":"Add fishing spot"
+			},
+			"description": "Here you can add your personal fishing spot, with longitude and latitude"
+		},
 		"deleteUser": {
 			"titles": {
 				"main": "Delete user",
@@ -89,8 +97,14 @@
 		"login": {
 			"default": "Login successful.",
 			"error": {
-				"auth/invalid-email": "Invalid e-mail.",
-				"auth/argument-error": "Wrong password."
+				"auth/invalid-email": "Invalid e-mail",
+				"auth/wrong-password": "Wrong password",
+				"auth/user-not-found": "This user does not exist",
+				"auth/user-disabled": "This user has been disabled, please contact customerservice",
+				"auth/invalid-password": "The password must contain atleast 6 characters",
+				"auth/invalid-phone-number": "Invalid phonenumber",
+				"auth/email-already-exists": "There already exists a user with this email",
+				"auth/phone-number-already-exists": "There already exists a user with this phone number"
 			},
 			"warning": ""
 		},
