@@ -4,13 +4,15 @@
     "departure_port": "Avgangshavn",
     "catch_place": "Fangststed",
     "catching_since": "Fanget siden",
-    "catch_list": "Fangstliste",
+    "catch_onboard": "Fangst om bord",
     "catch_zone": "Fangstsone",
     "target_specie": "Målart",
     "activity": "Aktivitet"
   },
   "phrases": {
     "ago": "siden",
-    "minutes": "minutter"
+    "minutes": "minutter",
+    "no_catchonboard": "Ingen fangst ombord",
+    "docked": "Du ligger i havn"
   }
 }  

@@ -4,13 +4,15 @@
     "departure_port": "Departure port",
     "catch_place": "Catch place",
     "catching_since": "Catching since",
-    "catch_list": "Catch list",
+    "catch_onboard": "Catch onboard",
     "catch_zone": "Catch zone",
     "target_specie": "Target specie",
     "activity": "Activity"
   },
   "phrases": {
     "ago": "ago",
-    "minutes": "minutes"
+    "minutes": "minutes",
+    "no_catchonboard": "No catch onboard",
+    "docked": "You're currently docked"
   }
 }

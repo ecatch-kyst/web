@@ -28,14 +28,17 @@ export class Status extends Component{
       catchStart: "1th of January - 00:01 (GMT+1)",
       catchDuration: 55,
       catchList: {CYH: 200, SPR: 100},
+      catchZone: "...",
       lastDepMessage: [],
       dcaMessages: [],
-      porMessages: []
+      porMessages: [],
+      lastMessageType: null
     }
   }
 
   async componentDidMount() {
     await this.fetchMessages()
+    await this.checkLastMessage()
     await this.updateCatchList()
   }
 
@@ -59,8 +62,34 @@ export class Status extends Component{
                 lastDepartureHarbour: doc.data().PO,
                 activity: doc.data().AC,
                 targetSpecie: doc.data().DS ? doc.data().DS : "Not catching",
-                catchZone: doc.data().ZO ? doc.data().ZO : "No zone chosen"
+                catchZone: doc.data().ZO ? doc.data().ZO : "..."
               })
+            })
+          })
+          .catch((error) => {
+            console.log("Error getting documents: ", error)
+          })
+      }
+    })
+  }
+
+  checkLastMessage() {
+    AUTH.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({uid: AUTH.currentUser.uid})
+        // Checks what type the last message was
+        USERS_FS.doc(this.state.uid).collection("messages")
+          .orderBy('timestamp', 'desc')
+          .limit(1)
+          .get()
+          .then(querySnapshot => {
+            querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+              console.log(doc.id, " => ", doc.data())
+              this.setState({
+                lastMessageType: doc.data().TM
+              })
+              console.log(this.state.lastMessageType)
             })
           })
           .catch((error) => {
@@ -165,21 +194,22 @@ export class Status extends Component{
 
         <Divider/>
 
-        <StyledCard>
-          <CardContent>
-            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              {t("titles.catch_zone")}
-            </Typography>
-            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-              {this.state.catchZone}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small"><EditIcon/></Button>
-          </CardActions>
-        </StyledCard>
+        {(this.state.catchZone !== "...") &&
+          <StyledCard>
+            <CardContent>
+              <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+                {t("titles.catch_zone")}
+              </Typography>
+              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+                {this.state.catchZone}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small"><EditIcon/></Button>
+            </CardActions>
+          </StyledCard>
+        }
 
-        <Divider/>
 
         <StyledCard>
           <CardContent>
@@ -198,31 +228,51 @@ export class Status extends Component{
           </CardActions>
         </StyledCard>
 
-        <Divider/>
+        {this.state.lastMessageType === "DCA" ? (
+          <StyledCard>
+            <CardContent>
+              <Typography>
+                {t("titles.catch_onboard")}
+              </Typography>
+              <List>
+                {Object.entries(catchList).map(([key, value]) =>
+                  <ListItem key={key}>
+                    <StyledCard>
+                      <CardContent>
+                        <Typography>
+                          {key} {value}kg
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button size="small"><EditIcon/></Button>
+                      </CardActions>
+                    </StyledCard>
+                  </ListItem>
+                )}
+              </List>
+            </CardContent>
+          </StyledCard>
+        ) :
+          this.state.lastMessageType === "POR" ? (
+            <StyledCard>
+              <CardContent>
+                <Typography>
+                  {t("phrases.docked")}
+                </Typography>
+              </CardContent>
+            </StyledCard>
+          ) :
+          // Type is DEP
+            (
+              <StyledCard>
+                <CardContent>
+                  <Typography>
+                    {t("phrases.no_catchonboard")}
+                  </Typography>
+                </CardContent>
+              </StyledCard>
+            )}
 
-        <StyledCard>
-          <CardContent>
-            <Typography>
-              {t("titles.catch_list")}
-            </Typography>
-            <List>
-              {Object.entries(catchList).map(([key, value]) =>
-                <ListItem key={key}>
-                  <StyledCard>
-                    <CardContent>
-                      <Typography>
-                        {key} {value}kg
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small"><EditIcon/></Button>
-                    </CardActions>
-                  </StyledCard>
-                </ListItem>
-              )}
-            </List>
-          </CardContent>
-        </StyledCard>
       </div>
     )
   }
