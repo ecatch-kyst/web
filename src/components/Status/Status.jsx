@@ -129,72 +129,81 @@ export class Status extends Component{
     const {catchList} = this.state
     const {t} = this.props
     return(
-      <div className="cardwrapper">
+      this.state.lastMessageType === "POR" ? (
         <StyledCard>
           <CardContent>
-            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              {t("titles.departure_port")}
-            </Typography>
-            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-              {this.state.lastDepartureHarbour}
+            <Typography>
+              {t("phrases.docked")}
             </Typography>
           </CardContent>
-          <CardActions>
-            <Button size="small"><EditIcon/></Button>
-          </CardActions>
         </StyledCard>
+      ) : (
+        <div className="cardwrapper">
+          <StyledCard>
+            <CardContent>
+              <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+                {t("titles.departure_port")}
+              </Typography>
+              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+                {this.state.lastDepartureHarbour}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small"><EditIcon/></Button>
+            </CardActions>
+          </StyledCard>
 
-        <Divider/>
+          <Divider/>
 
-        <StyledCard>
-          <CardContent>
-            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              {t("titles.activity")}
-            </Typography>
-            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-              {this.state.activity}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small"><EditIcon/></Button>
-          </CardActions>
-        </StyledCard>
+          <StyledCard>
+            <CardContent>
+              <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+                {t("titles.activity")}
+              </Typography>
+              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+                {this.state.activity}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small"><EditIcon/></Button>
+            </CardActions>
+          </StyledCard>
 
-        <Divider/>
+          <Divider/>
 
-        <StyledCard>
-          <CardContent>
-            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              {t("titles.target_specie")}
-            </Typography>
-            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-              {this.state.targetSpecie}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small"><EditIcon/></Button>
-          </CardActions>
-        </StyledCard>
+          <StyledCard>
+            <CardContent>
+              <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+                {t("titles.target_specie")}
+              </Typography>
+              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+                {this.state.targetSpecie}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small"><EditIcon/></Button>
+            </CardActions>
+          </StyledCard>
 
-        <Divider/>
+          <Divider/>
 
-        <StyledCard>
-          <CardContent>
-            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              {t("titles.catch_place")}
-            </Typography>
-            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-              {this.state.lastReportedCatchPlace}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small"><EditIcon/></Button>
-          </CardActions>
-        </StyledCard>
+          <StyledCard>
+            <CardContent>
+              <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+                {t("titles.catch_place")}
+              </Typography>
+              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+                {this.state.lastReportedCatchPlace}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small"><EditIcon/></Button>
+            </CardActions>
+          </StyledCard>
 
-        <Divider/>
+          <Divider/>
 
-        {(this.state.catchZone !== "...") &&
+          {(this.state.catchZone !== "...") &&
           <StyledCard>
             <CardContent>
               <Typography className="statuscard-title" color="textPrimary" gutterBottom>
@@ -208,57 +217,48 @@ export class Status extends Component{
               <Button size="small"><EditIcon/></Button>
             </CardActions>
           </StyledCard>
-        }
+          }
 
 
-        <StyledCard>
-          <CardContent>
-            <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-              {t("titles.catching_since")}
-            </Typography>
-            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-              {this.state.catchStart}
-            </Typography>
-            <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-              {this.state.catchDuration} {t("phrases.minutes")} {t("phrases.ago")}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small"><EditIcon/></Button>
-          </CardActions>
-        </StyledCard>
-
-        {this.state.lastMessageType === "DCA" ? (
           <StyledCard>
             <CardContent>
-              <Typography>
-                {t("titles.catch_onboard")}
+              <Typography className="statuscard-title" color="textPrimary" gutterBottom>
+                {t("titles.catching_since")}
               </Typography>
-              <List>
-                {Object.entries(catchList).map(([key, value]) =>
-                  <ListItem key={key}>
-                    <StyledCard>
-                      <CardContent>
-                        <Typography>
-                          {key} {value}kg
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <Button size="small"><EditIcon/></Button>
-                      </CardActions>
-                    </StyledCard>
-                  </ListItem>
-                )}
-              </List>
+              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+                {this.state.catchStart}
+              </Typography>
+              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
+                {this.state.catchDuration} {t("phrases.minutes")} {t("phrases.ago")}
+              </Typography>
             </CardContent>
+            <CardActions>
+              <Button size="small"><EditIcon/></Button>
+            </CardActions>
           </StyledCard>
-        ) :
-          this.state.lastMessageType === "POR" ? (
+
+          {this.state.lastMessageType === "DCA" ? (
             <StyledCard>
               <CardContent>
                 <Typography>
-                  {t("phrases.docked")}
+                  {t("titles.catch_onboard")}
                 </Typography>
+                <List>
+                  {Object.entries(catchList).map(([key, value]) =>
+                    <ListItem key={key}>
+                      <StyledCard>
+                        <CardContent>
+                          <Typography>
+                            {key} {value}kg
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                          <Button size="small"><EditIcon/></Button>
+                        </CardActions>
+                      </StyledCard>
+                    </ListItem>
+                  )}
+                </List>
               </CardContent>
             </StyledCard>
           ) :
@@ -272,8 +272,8 @@ export class Status extends Component{
                 </CardContent>
               </StyledCard>
             )}
-
-      </div>
+        </div>
+      )
     )
   }
 }
