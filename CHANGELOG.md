@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 - Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
 - POR form ([#62](https://github.com/ecatch-kyst/web/issues/62))
 - WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
+- Add persistence to Firestore ([#39](https://github.com/ecatch-kyst/web/issues/39))
+- Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
 
 ### Fixed
 - When you are logged in on protected site you get redirected to root when you refresh ([#26](https://github.com/ecatch-kyst/web/issues/26))
