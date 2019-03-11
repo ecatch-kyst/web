@@ -1,7 +1,34 @@
 {
 	"titles": {
-        "main": "Messages",
-        "message-type": "Message type",
-        "time-sent": "Time sent"
-	}
+		"main": "Messages",
+		"DEP": "departure",
+		"DCA": "catch",
+		"POR": "port call"
+	},
+	"tooltips": {
+		"sort": "Sort",
+		"pending": "Pending",
+		"rejected": "Rejected",
+		"acknowledged": "Acknowledged"
+	},
+	"table-head-rows": [
+		{
+		"left": true,
+			"id": "acknowledged",
+			"label": "Status"
+		},
+		{
+			"id": "TM",
+			"label": "Type"
+		},
+		{
+			"id": "created",
+			"label": "Created"
+		},
+		{
+			"id": "edit",
+			"label": "",
+			"sortable": false
+		}
+	]
 }

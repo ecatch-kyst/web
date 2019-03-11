@@ -282,12 +282,12 @@
         "value": 7
       }
     ],
-
     "expectedFishingSpot": [{
-      "value": 0,
       "label": "Holmen",
-      "longitude": 59.8562408,
-      "latitude": 10.4836694
+      "value": {
+        "longitude": 10,
+        "latitude": 10
+      }
     }],
     "problems": [{
         "value": 0,

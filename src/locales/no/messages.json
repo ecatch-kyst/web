@@ -1,7 +1,34 @@
 {
 	"titles": {
-        "main": "Meldinger",
-        "message-type": "Meldings type",
-        "time-sent": "Tid sendt"
-	}
+		"main": "Meldinger",
+		"DEP": "avgang",
+		"DCA": "fangst",
+		"POR": "havneanløp"
+	},
+	"tooltips": {
+		"sort": "Sorter",
+		"pending": "Venter på godkjenning",
+		"rejected": "Ikke godkjent",
+		"acknowledged": "Godkjent"
+	},
+	"table-head-rows": [
+		{
+			"left": true,
+			"id": "acknowledged",
+			"label": "Status"
+		},
+		{
+			"id": "TM",
+			"label": "Type"
+		},
+		{
+			"id": "created",
+			"label": "????"
+		},
+		{
+			"id": "edit",
+			"label": "",
+			"sortable": false
+		}
+	]
 }
