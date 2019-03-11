@@ -13,6 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import {useTranslation} from 'react-i18next'
+import {GEOPOINT} from '../../../lib/firebase'
 
 const styles = theme => ({
   root: {
@@ -187,7 +188,14 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
 
   const options = t(`dropdowns.${type}`, {returnObjects: true})
 
-  value = options.find(option => option.value === value)
+  value = options.find(option =>
+    option.value === value ||
+    //REVIEW: Better solution to match geopoints ?
+    (option.value.latitude && value.latitude &&
+      GEOPOINT(option.value.latitude, option.value.longitude)
+        .isEqual(GEOPOINT(value.latitude, value.longitude))
+    )
+  )
 
   return (
     <div className={classes.root}>
