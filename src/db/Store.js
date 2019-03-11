@@ -2,11 +2,15 @@ import React, {Component, createContext} from "react"
 import initValues from "./initialValues.json"
 import {CONNECTION_REF} from "../lib/firebase"
 
-import * as darkMode from "./actions/darkMode"
-import {login, updateProfile, logout, deleteUser} from "./actions/users"
-import * as dialog from './actions/dialog'
-import * as messages from './actions/messages'
-import * as notification from './actions/notification'
+import {
+  darkMode,
+  user,
+  location,
+  dialog,
+  messages,
+  notification
+} from "./actions"
+
 
 const Store = createContext()
 
@@ -15,13 +19,21 @@ export class Database extends Component {
   state = {
     ...initValues,
     fields: {
-      departure: "", // Time of departure
-      PO: "", // Land & port
-      AC: "", // Fishing activity
-      expectedFishingSpot: "",
+      departure: null, // Time of departure
+      PO: null, // Land & port
       expectedFishingStart: "", // Expected time of fishing start
       DS: "", // Expected fish art
-      OB: [] // Fish type and weight
+      OB: {}, // Fish type and weight,
+      KG: {}, // Fish type and weight,
+      CA: {}, // Fish type and weight,
+      expectedFishingSpot: {},
+      startFishingSpot: {},
+      endFishingSpot: {},
+      QI: 1, // Fishing permit
+      AC: "FIS", // Fishing activity
+      GP: 0, // Gear problem
+      ZO: "NOR", // Fishing zone
+      DU: 0 // Duration of activity
     }
   }
 
@@ -31,6 +43,7 @@ export class Database extends Component {
 
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
+      this.subscribeToLocation()
     }})
 
 
@@ -71,14 +84,19 @@ export class Database extends Component {
 
 
   // User
-  userLogin = login.bind(this)
+  userLogin = user.login.bind(this)
 
-  userLogout = logout.bind(this)
+  userLogout = user.logout.bind(this)
 
-  userDelete = deleteUser.bind(this)
+  userDelete = user.deleteUser.bind(this)
 
-  userUpdateProfile = updateProfile.bind(this)
+  // Location
 
+  getLocation = location.get.bind(this)
+
+  subscribeToLocation = location.subscribe.bind(this)
+
+  unsubscribeFromLocation = location.unsubscribe.bind(this)
 
   // Messages
 

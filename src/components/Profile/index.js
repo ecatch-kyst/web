@@ -11,7 +11,7 @@ import {Page, DestructButton} from '../shared'
 
 export const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserDelete, handleDialog}}) => {
 
-  const handleDeleteUser = () => handleDialog("deleteUser", handleUserDelete, null, true)
+  const handleDeleteUser = () => handleDialog({type: "deleteUser", submit: handleUserDelete, isDestructive: true})
 
   return (
 

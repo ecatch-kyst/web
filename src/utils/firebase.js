@@ -1,3 +1,3 @@
 export function flattenDoc(doc) {
-  return {id: doc.key, ...doc.data()}
+  return {id: doc.id, ...doc.data()}
 }
