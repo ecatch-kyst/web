@@ -6,11 +6,10 @@ import {Grid, Button, Divider, Typography} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
 import {withTranslation} from 'react-i18next'
 import {Page} from '../shared'
-import Store from '../../db'
+import {withStore} from '../../db'
 
 import FormInput from './FormInput.jsx'
 import {format} from 'date-fns'
-import {GEOPOINT} from '../../lib/firebase.js'
 
 /**
  * Form component
@@ -19,12 +18,13 @@ import {GEOPOINT} from '../../lib/firebase.js'
  * @param {object} props.match.params
  * @param {'DEP'|'DCA'|'POR'} props.match.params.type - Type of form
  */
-class Form extends Component {
-  static contextType = Store
+export class Form extends Component {
 
   componentDidMount() {
-    const {match: {params: {type}}, t} = this.props
-    const {handleFieldChange, messages, position} = this.context
+    const {
+      store: {handleFieldChange, messages, position},
+      match: {params: {type, messageId}}
+    } = this.props
 
     // Form type does not exist was opened, don't continue
     if (!Object.keys(forms).includes(type)) return
@@ -45,18 +45,16 @@ class Form extends Component {
         ...newFields,
         departure: now
       }
-      const lastMessage = messages.find(m => m.TM === "DEP")
+      const baseMessage = messages.find(m => m.TM === "DEP")
 
-      if (lastMessage) {
-        const {PO, AC, expectedFishingSpot, DS, OB} = lastMessage
-
+      if (baseMessage) {
+        const {PO, AC, expectedFishingSpot, DS, OB} = baseMessage
         newFields = {
           ...newFields,
-          PO: t("dropdowns.ports", {returnObjects: true}).find(({value}) => value === PO).value,
-          expectedFishingSpot: t("dropdowns.expectedFishingSpot", {returnObjects: true})
-            .find(({latitude: lat, longitude: long}) => GEOPOINT(lat, long).isEqual(expectedFishingSpot)),
-          AC: t("dropdowns.activity", {returnObjects: true}).find(({value}) => value === AC).value,
-          DS: t("dropdowns.species", {returnObjects: true}).find(({value}) => value === DS).value,
+          PO,
+          expectedFishingSpot,
+          AC,
+          DS,
           OB
         }
       }
@@ -68,19 +66,34 @@ class Form extends Component {
         fishingStart: now,
         endFishingSpot: position
       }
-      const lastMessage = messages.find(m => m.TM === "DCA")
 
-      if (lastMessage) {
-        const {QI} = lastMessage
 
+      let baseMessage = messages.find(m => m.TM === "DCA")
+
+      if (messageId) {
+        baseMessage = messages.find(m => m.RN === parseInt(messageId, 10))
+        if (baseMessage) {
+          handleFieldChange(baseMessage)
+          return
+        }
+      }
+
+      if (baseMessage) {
         newFields = {
-          ...newFields,
-          QI: t("dropdowns.fishingPermit", {returnObjects: true}).find(({value}) => value === QI).value
+          ...baseMessage,
+          ...newFields
         }
       }
       break
     }
 
+    case "POR": {
+      const baseMessage = messages.find(m => m.TM === "POR")
+      if (baseMessage) {
+        handleFieldChange(baseMessage)
+        return
+      }
+    }
     default: return
     }
     handleFieldChange(newFields)
@@ -91,16 +104,16 @@ class Form extends Component {
    */
   handleSubmit = e => {
     e.preventDefault && e.preventDefault()
-    const {handleDialog, submitMessage} = this.context
-    const {type} = this.props.match.params
+    const {
+      store: {handleDialog, submitMessage},
+      match: {params: {type}}
+    } = this.props
     handleDialog({type, submit: () => submitMessage(type)})
   }
 
   render() {
-    const {t} = this.props
-    const {type} = this.props.match.params
+    const {t, store: {fields}, match: {params: {type}}} = this.props
     const form = forms[type] // Extract form from forms.js
-    const {fields} = this.context
     return (
       <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
         <Grid alignItems="center" container direction="column" spacing={16}>
@@ -160,4 +173,4 @@ class Form extends Component {
   }
 }
 
-export default withTranslation("forms")(Form)
+export default withStore(withRouter(withTranslation("forms")(Form)))
