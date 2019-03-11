@@ -27,7 +27,7 @@ const AddFishingSpot = ({t, store: {handleDialog, handleEditCustomSpot, handleAd
 
 export default withTranslation("forms")(withStore(AddFishingSpot))
 
-const FishingSpotFields = ({onChange, name, latitude, longitude, textLabel, longiLabel, latiLabel}) =>
+export const FishingSpotFields = ({onChange, name, latitude, longitude, textLabel, longiLabel, latiLabel}) =>
   <div>
     <TextField label={textLabel} name="name" onChange={onChange} value={name} />
     <TextField label={latiLabel} name="latitude" onChange={onChange} type="number" value={latitude}/>
