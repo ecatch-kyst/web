@@ -7,10 +7,7 @@ export async function login({email, password, afterLogin=null}) {
   try {
     await AUTH.signInWithEmailAndPassword(email, password)
   } catch (error) {
-    if (error.code !== "auth/argument-error") {
-      // TODO: Add translations for all possible error codes
-      this.notify({name: "login", type: `error.${error.code}`, duration: 5000})
-    }
+    this.notify({name: "login", type: `error.${error.code}`, duration: 5000})
   } finally {
     AUTH.onAuthStateChanged(user => {
       if (user) {

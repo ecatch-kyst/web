@@ -1,19 +1,28 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
-### Added
- - Assets for Android, iOS, macOS Safari, Windows
-
+## Unreleased
 ### Changed
  - New Logo
  - Logo instead of text on Landing
  - name from eCatch Kyst to eCatch Kyst Pilot
- - Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
+ 
+### Added
+- Assets for Android, iOS, macOS Safari, Windows
+- WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
+
+## [1.0.0-beta3] - 2019-03-11
+### Changed
+- Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
+- POR form ([#62](https://github.com/ecatch-kyst/web/issues/62))
+- Add persistence to Firestore ([#39](https://github.com/ecatch-kyst/web/issues/39))
+- Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
+- Message overview ([#38](https://github.com/ecatch-kyst/web/issues/38))
 
 ### Fixed
- - When you are logged in on protected site you get redirected to root when you refresh ([#26](https://github.com/ecatch-kyst/web/issues/26))
- - When trying to delete user, translations are not showing. ([#49](https://github.com/ecatch-kyst/web/issues/49))
+- When you are logged in on protected site you get redirected to root when you refresh ([#26](https://github.com/ecatch-kyst/web/issues/26))
+- When trying to delete user, translations are not showing. ([#49](https://github.com/ecatch-kyst/web/issues/49))
+- When getting an error login, translations now show correct error messages ([#56](https://github.com/ecatch-kyst/web/issues/56))
 
 ## [1.0.0-beta2] - 2019-02-26
 ### Added
