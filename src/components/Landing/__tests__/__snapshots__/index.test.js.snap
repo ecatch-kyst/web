@@ -72,10 +72,21 @@ ShallowWrapper {
           src="blob.svg"
         />
         <WithStyles(Typography)
-          variant="h4"
+          style={
+            Object {
+              "height": 0,
+              "opacity": 0,
+              "width": 0,
+            }
+          }
+          variant="h1"
         >
-          eCatch Kyst
+          eCatch Kyst Pilot
         </WithStyles(Typography)>
+        <img
+          alt="eCatch Kyst Pilot"
+          src="eCatch_pilot_h.png"
+        />
         <WithStyles(Card)
           style={
             Object {
@@ -203,10 +214,21 @@ ShallowWrapper {
             src="blob.svg"
           />,
           <WithStyles(Typography)
-            variant="h4"
+            style={
+              Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              }
+            }
+            variant="h1"
           >
-            eCatch Kyst
+            eCatch Kyst Pilot
           </WithStyles(Typography)>,
+          <img
+            alt="eCatch Kyst Pilot"
+            src="eCatch_pilot_h.png"
+          />,
           <WithStyles(Card)
             style={
               Object {
@@ -348,12 +370,29 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": "eCatch Kyst",
-            "variant": "h4",
+            "children": "eCatch Kyst Pilot",
+            "style": Object {
+              "height": 0,
+              "opacity": 0,
+              "width": 0,
+            },
+            "variant": "h1",
           },
           "ref": null,
-          "rendered": "eCatch Kyst",
+          "rendered": "eCatch Kyst Pilot",
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "eCatch Kyst Pilot",
+            "src": "eCatch_pilot_h.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
         },
         Object {
           "instance": null,
@@ -948,10 +987,21 @@ ShallowWrapper {
             src="blob.svg"
           />
           <WithStyles(Typography)
-            variant="h4"
+            style={
+              Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              }
+            }
+            variant="h1"
           >
-            eCatch Kyst
+            eCatch Kyst Pilot
           </WithStyles(Typography)>
+          <img
+            alt="eCatch Kyst Pilot"
+            src="eCatch_pilot_h.png"
+          />
           <WithStyles(Card)
             style={
               Object {
@@ -1079,10 +1129,21 @@ ShallowWrapper {
               src="blob.svg"
             />,
             <WithStyles(Typography)
-              variant="h4"
+              style={
+                Object {
+                  "height": 0,
+                  "opacity": 0,
+                  "width": 0,
+                }
+              }
+              variant="h1"
             >
-              eCatch Kyst
+              eCatch Kyst Pilot
             </WithStyles(Typography)>,
+            <img
+              alt="eCatch Kyst Pilot"
+              src="eCatch_pilot_h.png"
+            />,
             <WithStyles(Card)
               style={
                 Object {
@@ -1224,12 +1285,29 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "eCatch Kyst",
-              "variant": "h4",
+              "children": "eCatch Kyst Pilot",
+              "style": Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              },
+              "variant": "h1",
             },
             "ref": null,
-            "rendered": "eCatch Kyst",
+            "rendered": "eCatch Kyst Pilot",
             "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "eCatch Kyst Pilot",
+              "src": "eCatch_pilot_h.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
           },
           Object {
             "instance": null,

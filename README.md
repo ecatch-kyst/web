@@ -1,12 +1,12 @@
 <p align="center">
   <a href="https://ecatch-kyst.firebaseapp.com" rel="noopener noreferrer" target="_blank">
-    <img src="https://ecatch.no/wp-content/uploads/2016/12/ecatch-logo-dark.png" height=64/>
+    <img src="https://github.com/ecatch-kyst/web/blob/feature/new-logo/src/assets/eCatch_pilot_h.png?raw=true" height=64/>
   </a>
 </p>
 
-# eCatch Kyst - IT2901 [![Build status](https://api.travis-ci.org/ecatch-kyst/web.svg?branch=master)](https://travis-ci.org/ecatch-kyst/web) [![Coverage status](https://codecov.io/gh/ecatch-kyst/web/branch/master/graph/badge.svg)](https://codecov.io/gh/ecatch-kyst/web) [![Greenkeeper badge](https://badges.greenkeeper.io/ecatch-kyst/web.svg)](https://greenkeeper.io/)
+# eCatch Kyst Pilot - IT2901 [![Build status](https://api.travis-ci.org/ecatch-kyst/web.svg?branch=master)](https://travis-ci.org/ecatch-kyst/web) [![Coverage status](https://codecov.io/gh/ecatch-kyst/web/branch/master/graph/badge.svg)](https://codecov.io/gh/ecatch-kyst/web) [![Greenkeeper badge](https://badges.greenkeeper.io/ecatch-kyst/web.svg)](https://greenkeeper.io/)
 
-**eCatch Kyst** is a Progressive Web App developed in [React.js](https://reactjs.org/) on behalf of [Dualog AS](https://dualog.com/) for reporting of catch by small fishing vessels.
+**eCatch Kyst Pilot** is a Progressive Web App developed in [React.js](https://reactjs.org/) on behalf of [Dualog AS](https://dualog.com/) for reporting of catch by small fishing vessels.
 
 ## Getting started
 - [Prerequisites](#prerequisites)
