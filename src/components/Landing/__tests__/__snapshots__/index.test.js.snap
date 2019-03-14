@@ -71,8 +71,20 @@ ShallowWrapper {
           className="landing-blob landing-blob-2"
           src="blob.svg"
         />
+        <WithStyles(Typography)
+          style={
+            Object {
+              "height": 0,
+              "opacity": 0,
+              "width": 0,
+            }
+          }
+          variant="h1"
+        >
+          eCatch Kyst Pilot
+        </WithStyles(Typography)>
         <img
-          alt="Logo"
+          alt="eCatch Kyst Pilot"
           src="eCatch_pilot_h.png"
         />
         <WithStyles(Card)
@@ -201,8 +213,20 @@ ShallowWrapper {
             className="landing-blob landing-blob-2"
             src="blob.svg"
           />,
+          <WithStyles(Typography)
+            style={
+              Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              }
+            }
+            variant="h1"
+          >
+            eCatch Kyst Pilot
+          </WithStyles(Typography)>,
           <img
-            alt="Logo"
+            alt="eCatch Kyst Pilot"
             src="eCatch_pilot_h.png"
           />,
           <WithStyles(Card)
@@ -344,9 +368,26 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "eCatch Kyst Pilot",
+            "style": Object {
+              "height": 0,
+              "opacity": 0,
+              "width": 0,
+            },
+            "variant": "h1",
+          },
+          "ref": null,
+          "rendered": "eCatch Kyst Pilot",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "alt": "Logo",
+            "alt": "eCatch Kyst Pilot",
             "src": "eCatch_pilot_h.png",
           },
           "ref": null,
@@ -945,8 +986,20 @@ ShallowWrapper {
             className="landing-blob landing-blob-2"
             src="blob.svg"
           />
+          <WithStyles(Typography)
+            style={
+              Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              }
+            }
+            variant="h1"
+          >
+            eCatch Kyst Pilot
+          </WithStyles(Typography)>
           <img
-            alt="Logo"
+            alt="eCatch Kyst Pilot"
             src="eCatch_pilot_h.png"
           />
           <WithStyles(Card)
@@ -1075,8 +1128,20 @@ ShallowWrapper {
               className="landing-blob landing-blob-2"
               src="blob.svg"
             />,
+            <WithStyles(Typography)
+              style={
+                Object {
+                  "height": 0,
+                  "opacity": 0,
+                  "width": 0,
+                }
+              }
+              variant="h1"
+            >
+              eCatch Kyst Pilot
+            </WithStyles(Typography)>,
             <img
-              alt="Logo"
+              alt="eCatch Kyst Pilot"
               src="eCatch_pilot_h.png"
             />,
             <WithStyles(Card)
@@ -1218,9 +1283,26 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "eCatch Kyst Pilot",
+              "style": Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              },
+              "variant": "h1",
+            },
+            "ref": null,
+            "rendered": "eCatch Kyst Pilot",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "alt": "Logo",
+              "alt": "eCatch Kyst Pilot",
               "src": "eCatch_pilot_h.png",
             },
             "ref": null,
