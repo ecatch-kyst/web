@@ -8,7 +8,8 @@
 	},
 	"links": {
 		"not-found": "Go to 404",
-		"register": "Register"
+		"register": "Register",
+		"back": "Back"
 	},
 	"navigation": {
 		"dashboard": "Dashboard",
@@ -102,10 +103,14 @@
 		"login": {
 			"default": "Login successful.",
 			"error": {
-				"auth/invalid-email": "Invalid e-mail.",
+				"auth/invalid-email": "Invalid e-mail",
 				"auth/wrong-password": "Wrong password",
-				"auth/user-not-found": "User does not exist",
-				"auth/user-disabled": "User has been disabled, contact customer-service"
+				"auth/user-not-found": "This user does not exist",
+				"auth/user-disabled": "This user has been disabled, please contact customerservice",
+				"auth/invalid-password": "The password must contain atleast 6 characters",
+				"auth/invalid-phone-number": "Invalid phonenumber",
+				"auth/email-already-exists": "There already exists a user with this email",
+				"auth/phone-number-already-exists": "There already exists a user with this phone number"
 			},
 			"warning": ""
 		},
@@ -123,6 +128,11 @@
 			"off": {
 				"default": "Night mode off."
 			}
+		}
+	},
+	"edit": {
+		"message": {
+			"submit": "Submit"
 		}
 	}
 }

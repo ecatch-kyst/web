@@ -7,23 +7,7 @@ export async function login({email, password, afterLogin=null}) {
   try {
     await AUTH.signInWithEmailAndPassword(email, password)
   } catch (error) {
-    switch (error.code) {
-    case "auth/invalid-email":
-      this.notify({name: "login", type: `error.${error.code}`, duration: 5000})
-      break
-    case "auth/wrong-password":
-      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
-      break
-    case "auth/user-disabled":
-      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
-      break
-    case "auth/user-not-found":
-      this.notify({name:"login", type: `error.${error.code}`, duration: 5000})
-      break
-    default:
-      console.log(error)
-      break
-    }
+    this.notify({name: "login", type: `error.${error.code}`, duration: 5000})
   } finally {
     AUTH.onAuthStateChanged(user => {
       if (user) {

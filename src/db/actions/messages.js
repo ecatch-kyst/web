@@ -29,7 +29,15 @@ export function handle(...args) {
  */
 export async function submit(type) {
   try {
-    const {AC, DS, PO, OB, KG, portArrival, LS, expectedFishingSpot, departure, expectedFishingStart} = this.state.fields
+    const {
+      AC, DS, PO, OB, KG,
+      portArrival, LS,
+      expectedFishingSpot, departure,
+      expectedFishingStart, QI, fishingStart,
+      ZO, startFishingSpot, GE, GP,
+      endFishingSpot,
+      DU, CA, GS
+    } = this.state.fields
 
     let message = {
       TM: type,
@@ -40,27 +48,42 @@ export async function submit(type) {
     case "DEP":
       message = {
         ...message,
-        AC: AC.value,
-        DS: DS.value,
-        PO: PO.value,
+        AC,
+        DS,
+        PO,
         departure: new Date(departure),
-        expectedFishingSpot: GEOPOINT(
-          expectedFishingSpot.latitude,
-          expectedFishingSpot.longitude
-        ),
+        expectedFishingSpot: GEOPOINT(expectedFishingSpot.latitude, expectedFishingSpot.longitude),
         expectedFishingStart: new Date(expectedFishingStart),
-        OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
+        OB
+      }
+      break
+    case "DCA":
+      message = {
+        ...message,
+        AC,
+        AD: "NOR", // NOTE: Hardcoded
+        QI,
+        TS: "", // ???
+        fishingStart: new Date(fishingStart),
+        ZO,
+        startFishingSpot,
+        GE,
+        GP,
+        endFishingSpot,
+        GS,
+        DU,
+        CA
       }
       break
     case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
       message = {
         ...message,
         AD: "NOR", // NOTE: Hardcoded
-        PO: PO.value,
+        PO,
         portArrival: new Date(portArrival),
-        OB: OB.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {}),
+        OB,
         LS,
-        KG: KG.reduce((acc, {value, inputValue}) => ({...acc, [value]: inputValue}), {})
+        KG
       }
       break
     default:
@@ -84,13 +107,9 @@ export async function submit(type) {
 export function subscribe() {
   USERS_FS.doc(AUTH.currentUser.uid)
     .collection("messages")
-    .onSnapshot(snap => {
-      this.setState({
-        messages: snap.docs.map(flattenDoc).sort(sortByTimestamp)
-      })
-    }, error => console.error(error)
+    .orderBy("timestamp", "desc")
+    .onSnapshot(
+      snap => this.setState({messages: snap.docs.map(flattenDoc)}),
+      error => console.error(error)
     ) //TODO: Add error notification
 }
-
-
-const sortByTimestamp = (a, b) => b.timestamp.toDate() - a.timestamp.toDate()

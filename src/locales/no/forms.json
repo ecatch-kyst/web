@@ -16,9 +16,11 @@
   "DCA": {
     "title": "DCA",
     "submit": "Meld",
-    "steps": [
-      "Tittel"
-    ]
+    "steps": {
+      "0": "Tittel",
+      "location": "Lokasjon",
+      "fishing": "Fisking"
+    }
   },
   "POR": {
     "title": "POR",
@@ -40,7 +42,21 @@
     "LO": "Lengdegrad",
     "portArrival": "Forventet ankomsttidspunkt",
     "LS": "Mottak",
-    "KG": "Total fangst sortert på fisketype"
+    "KG": "Total fangst sortert på fisketype",
+    "QI": "Fisketillatelse",
+    "ZO": "Fiskesone",
+    "fishingStart": "Start av fiske",
+    "startFishingSpot": "Start fiskeplass",
+    "geopoint": {
+      "latitude": "Breddegrad",
+      "longitude": "Lengdegrad"
+    },
+    "GS": "Redskapsspesifikasjon",
+    "GP": "Redskapsproblemer",
+    "GE": "Redskap",
+    "DU": "Varighet av aktivitet",
+    "ME": "Minste maskevidde",
+    "CA": "fangst"
   },
   "dropdowns": {
     "addSpot": {
@@ -51,7 +67,7 @@
     },
     "ports": [{
         "value": "DKFRK",
-        "label": "Føvling",
+        "label": "Føvlinlabelsg",
         "longitude": "5527N",
         "latitude": "00857E"
       },
@@ -242,46 +258,83 @@
         "latitude": ""
       }
     ],
+
+    "fishingPermit": [{
+        "label": "Ordinær kvote",
+        "value": 1
+      },
+      {
+        "label": "Forskningskvote",
+        "value": 2
+      },
+      {
+        "label": "Skolekvote",
+        "value": 3
+      },
+      {
+        "label": "Agnkvote",
+        "value": 4
+      },
+      {
+        "label": "Annet",
+        "value": 5
+      },
+      {
+        "label": "Slumpfiskkvote",
+        "value": 6
+      },
+      {
+        "label": "Leiefartøykvote",
+        "value": 7
+      }
+    ],
+    "expectedFishingSpot": [{
+      "label": "Holmen",
+      "value": {
+        "longitude": 10,
+        "latitude": 10
+      }
+    }],
     "problems": [{
-        "value": "0",
+        "value": 0,
         "label": "Ingen redskapsproblemer"
       },
       {
-        "value": "1",
+        "value": 1,
         "label": "Bomkast"
       },
       {
-        "value": "2",
+        "value": 2,
         "label": "Notsprenging"
       },
       {
-        "value": "3",
+        "value": 3,
         "label": "Splitt"
       },
       {
-        "value": "4",
+        "value": 4,
         "label": "Hull i sekk"
       },
       {
-        "value": "5",
+        "value": 5,
         "label": "Mistet redskap"
       },
       {
-        "value": "6",
+        "value": 6,
         "label": "Annet"
       }
     ],
-    "fishing-gear": {
-      "DRB": "Skrape, mekanisert",
-      "FPO": "Teiner",
-      "GEN": "Garn",
-      "LL": "Liner",
-      "OTB": "Bunntrål, otter",
-      "OTM": "Flytetrål",
-      "PS1": "Snurpenot / ringnot",
-      "SSC": "Snurrevad",
-      "TBS": "Bunntrål, reker"
-    },
+    "fishing-gear": [
+      {"value": "DRB", "label": "Skrape, mekanisert"},
+      {"value": "FPO", "label": "Teiner"},
+      {"value": "GEN", "label": "Garn"},
+      {"value": "LL", "label": "Liner"},
+      {"value": "OTB", "label": "Bunntrål, otter"},
+      {"value": "OTM", "label": "Flytetrål"},
+      {"value": "PS1", "label": "Snurpenot / ringnot"},
+      {"value": "SSC", "label": "Snurrevad"},
+      {"value": "TBS", "label": "Bunntrål, reker"}
+    ],
     "species": [{
         "value": "AJC",
         "label": "Butare"
@@ -571,6 +624,73 @@
       {
         "value": "HBH",
         "label": "Alkekonge"
+      }
+    ],
+    "ZO": [{
+        "value": "NOR",
+        "label": "Norges økonomiske sone"
+      },
+      {
+        "value": "XSV",
+        "label": "Fiskevernsonen ved Svalbard"
+      },
+      {
+        "value": "XSI",
+        "label": "Svalbards territorialfarvann"
+      },
+      {
+        "value": "XJM",
+        "label": "Fiskerisonen ved Jan Mayen"
+      },
+      {
+        "value": "XSK",
+        "label": "Skagerrak"
+      },
+      {
+        "value": "XEU",
+        "label": "EU-sonen"
+      },
+      {
+        "value": "RUS",
+        "label": "Russisk sone"
+      },
+      {
+        "value": "GRL",
+        "label": "Grønlandsk sone"
+      },
+      {
+        "value": "FRO",
+        "label": "Færøysk sone"
+      },
+      {
+        "value": "ISL",
+        "label": "Islandsk sone"
+      },
+      {
+        "value": "XNE",
+        "label": "NEAFC-området"
+      },
+      {
+        "value": "XNW",
+        "label": "NAFO-området"
+      },
+      {
+        "value": "XCA",
+        "label": "CCAMLR-området"
+      }
+    ],
+    "GS": [
+      {
+        "value": 1,
+        "label": "enkeltrål"
+      },
+      {
+        "value": 2,
+        "label": "dobbeltrål"
+      },
+      {
+        "value": 3,
+        "label": "trippeltrål"
       }
     ]
   }

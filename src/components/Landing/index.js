@@ -8,6 +8,7 @@ import blob from "../../assets/blob.svg"
 import {withTranslation} from 'react-i18next'
 import Store from '../../db'
 import {AUTH} from '../../lib/firebase'
+import logo from '../../assets/eCatch_pilot_h.png'
 
 
 class Landing extends Component {
@@ -40,7 +41,8 @@ class Landing extends Component {
           {AUTH.currentUser ? <Redirect to={routes.DASHBOARD} /> : null}
           <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-1" src={blob}/>
           <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-2" src={blob}/>
-          <Typography variant="h4">{process.env.REACT_APP_TITLE}</Typography>
+          <Typography style={{width:0, height:0, opacity:0}} variant="h1">{process.env.REACT_APP_TITLE}</Typography>
+          <img alt={process.env.REACT_APP_TITLE} src={logo} />
           <Card style={{minWidth: "calc(100vw/3)", maxWidth: "calc(100vw - 32px)", margin: 16}}>
             <CardContent>
               <Grid container direction="column" justify="center" spacing={8}>

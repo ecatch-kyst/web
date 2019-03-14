@@ -16,6 +16,7 @@ import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import {useTranslation} from 'react-i18next'
 import AddFishingSpot from "./AddFishingSpot"
 import Store from '../../../db/Store.js'
+import {GEOPOINT} from '../../../lib/firebase'
 
 const styles = theme => ({
   root: {
@@ -179,7 +180,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
   const [t] = useTranslation("forms")
   const store = useContext(Store)
 
-  const handleChange = value => onChange(dataId, value)
+  const handleChange = ({value}) => onChange(dataId, value)
 
 
   const selectStyles = {
@@ -195,10 +196,14 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
   let options = t(`dropdowns.${type}`, {returnObjects: true})
   let NoOptionsMessage = DefaultNoOptionsMessage
 
-  if(type === "expectedFishingSpot"){
-    options = store.fishingSpots
-    NoOptionsMessage = AddFishingSpot
-  }
+  value = options.find(option =>
+    option.value === value ||
+    //REVIEW: Better solution to match geopoints ?
+    (option.value.latitude && value.latitude &&
+      GEOPOINT(option.value.latitude, option.value.longitude)
+        .isEqual(GEOPOINT(value.latitude, value.longitude))
+    )
+  )
 
 
   return(

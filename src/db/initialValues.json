@@ -3,7 +3,12 @@
   "isDarkMode": false,
   "dialog": {"open": false},
   "notification": {"open": false},
+  "boats": [],
   "messages": [],
-  "isLoading": true
+  "isLoading": true,
+  "position": {
+    "latitude": 0,
+    "longitude": 0
+  }
 }
 
