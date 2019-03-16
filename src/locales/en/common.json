@@ -33,13 +33,15 @@
 		"title": "Welcome to {{framework}}"
 	},
 	"dialogs": {
-		"addSpot":{
-			"titles":{
-				"main":"Add personal fishing spot",
-				"cancel":"Abort",
-				"submit":"Add fishing spot"
-			},
-			"description": "Here you can add your personal fishing spot, with longitude and latitude"
+		"customLists": {
+			"fishingSpots": {
+				"titles":{
+					"main": "Add personal fishing spot",
+					"cancel": "Cancel",
+					"submit": "Add"
+				},
+				"description": ""
+			}
 		},
 		"deleteUser": {
 			"titles": {
@@ -81,9 +83,16 @@
 				}
 			}
 		},
-		"addSpot":{
-			"error": "Something went wrong {{message}}",
-			"success": "Sent to the database"
+		"customLists": {
+			"subscribe": {
+				"error": "Something went wrong {{message}}"
+			},
+			"fishingSpots": {
+				"added":{
+					"error": "Something went wrong {{message}}",
+					"success": "Added"
+				}
+			}
 		},
 		"offline": {
 			"error": "You are offline.",

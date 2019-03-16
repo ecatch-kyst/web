@@ -33,13 +33,15 @@
 		"title": "Velkommen til {{framework}}"
 	},
 	"dialogs": {
-		"addSpot":{
-			"titles":{
-				"main":"Legg til din fiskeplass",
-				"cancel":"Avbryt",
-				"submit":"Legg til fiskeplass"
-			},
-			"description": "Her kan du legge til din egen fiskeplass med breddegrad og lengdegrad"
+		"customLists": {
+			"fishingSpots": {
+					"titles":{
+						"main": "Legg til din fiskeplass",
+						"cancel": "Avbryt",
+						"submit": "Legg til fiskeplass"
+					},
+					"description": ""
+			}
 		},
 		"deleteUser": {
 			"titles": {
@@ -80,10 +82,16 @@
 				}
 			}
 		},
-		"addSpot":{
-			"error": "Noe gikk feil: {{message}}",
-			"success": "Sendt til databasen",
-			"default": "Fiskeplass lagt til"
+		"customLists": {
+			"subscribe": {
+				"error": "Noe gikk galt: {{message}}"
+			},
+			"fishingSpots": {
+				"added":{
+					"error": "Noe gikk galt: {{message}}",
+					"success": "Fiskeplass lagt til"
+				}
+			}
 		},
 		"offline": {
 			"error": "Du er offline.",

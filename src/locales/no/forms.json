@@ -48,8 +48,8 @@
     "fishingStart": "Start av fiske",
     "startFishingSpot": "Start fiskeplass",
     "geopoint": {
-      "latitude": "Breddegrad",
-      "longitude": "Lengdegrad"
+      "latitude": "Breddegrad N→90°, S→-90°",
+      "longitude": "Lengdegrad Ø→180°, V→-180°"
     },
     "GS": "Redskapsspesifikasjon",
     "GP": "Redskapsproblemer",
@@ -59,11 +59,12 @@
     "CA": "fangst"
   },
   "dropdowns": {
-    "addSpot": {
-      "button":  "Legg til fiskeplass",
-      "latitude": "Breddegrad",
-      "longitude": "Lengdegrad",
-      "label": "Legg til din personlige fiskeplass"
+    "customLists": {
+      "fishingSpots": {
+        "button":  "Legg til fiskeplass",
+        "coordinates": "Koordinater",
+        "label": "Gi et navn til din fiskeplass"
+      }
     },
     "ports": [{
         "value": "DKFRK",
