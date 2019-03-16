@@ -47,8 +47,8 @@
     "ZO": "Fishing zone",
     "fishingStart": "Start of fishing",
     "geopoint": {
-      "latitude": "Latitude",
-      "longitude": "Longitude"
+      "latitude": "Latitude N→90°, S→-90°",
+      "longitude": "Longitude E→180°, W→-180°"
     },
     "startFishingSpot": "Start fishing spot",
     "endFishingSpot": "End fishing spot",
@@ -60,6 +60,13 @@
     "CA": "Catch"
   },
   "dropdowns": {
+    "customLists": {
+      "fishingSpots": {
+        "button":  "Add custom spot",
+        "coordinates": "Coordinates",
+        "label": "Name your spot"
+      }
+    },
     "ports": [{
         "value": "DKFRK",
         "label": "Føvling",
@@ -282,13 +289,6 @@
         "value": 7
       }
     ],
-    "expectedFishingSpot": [{
-      "label": "Holmen",
-      "value": {
-        "longitude": 10,
-        "latitude": 10
-      }
-    }],
     "problems": [{
         "value": 0,
         "label": "No gear problems"

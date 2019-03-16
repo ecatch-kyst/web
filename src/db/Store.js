@@ -8,7 +8,8 @@ import {
   location,
   dialog,
   messages,
-  notification
+  notification,
+  customLists
 } from "./actions"
 
 
@@ -34,6 +35,10 @@ export class Database extends Component {
       GP: 0, // Gear problem
       ZO: "NOR", // Fishing zone
       DU: 0 // Duration of activity
+    },
+    custom: {
+      editing: {},
+      fishingSpots: []
     }
   }
 
@@ -44,8 +49,8 @@ export class Database extends Component {
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
       this.subscribeToLocation()
+      this.subscribeToCustomList("fishingSpots")
     }})
-
 
     setTimeout(() => {
       CONNECTION_REF
@@ -62,6 +67,15 @@ export class Database extends Component {
     )
 
   }
+
+  // Custom lists
+
+  addToCustomList = customLists.add.bind(this)
+
+  handleCustomListChange = customLists.handle.bind(this)
+
+  subscribeToCustomList = customLists.subscribe.bind(this)
+
 
   // Dark mode
   initDarkMode = darkMode.init.bind(this)
@@ -106,6 +120,7 @@ export class Database extends Component {
 
   subscribeToMessages = messages.subscribe.bind(this)
 
+
   render() {
     return (
       <Store.Provider
@@ -121,6 +136,8 @@ export class Database extends Component {
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
           submitMessage: this.submitMessage,
+          addToCustomList: this.addToCustomList,
+          handleCustomListChange: this.handleCustomListChange,
           ...this.state
         }}
       >
