@@ -4,7 +4,7 @@ import * as location from "./location"
 import * as dialog from './dialog'
 import * as messages from './messages'
 import * as notification from './notification'
-import * as customlists from './customlists'
+import * as customLists from './customLists'
 
 export {
   darkMode,
@@ -13,5 +13,5 @@ export {
   dialog,
   messages,
   notification,
-  customlists
+  customLists
 }

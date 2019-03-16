@@ -196,6 +196,11 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
   let options = t(`dropdowns.${type}`, {returnObjects: true})
   let NoOptionsMessage = DefaultNoOptionsMessage
 
+  if(type === "expectedFishingSpot"){
+    options = store.custom.fishingSpots
+    NoOptionsMessage = AddFishingSpot
+  }
+
   value = options.find(option =>
     option.value === value ||
     //REVIEW: Better solution to match geopoints ?
@@ -210,7 +215,6 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
     <div className={classes.root}>
       <NoSsr>
         <div className={classes.divider} />
-        {customizable && <AddFishingSpot/>}
         <Select
           classes={classes}
           components={{...components, NoOptionsMessage}}

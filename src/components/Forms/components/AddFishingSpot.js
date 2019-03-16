@@ -1,35 +1,50 @@
 /* eslint-disable require-jsdoc */
 import React from 'react'
 
-import {Button, TextField} from '@material-ui/core'
+import {Button, Grid} from '@material-ui/core'
 import {withStore} from '../../../db'
 import {withTranslation} from "react-i18next"
+import GeoPointField from './GeoPointField'
+import TextInput from './TextInput'
 
-const AddFishingSpot = ({t, store: {handleDialog, handleEditCustomSpot, handleAddCustomSpot, custom: {editing}}}) =>
+const AddFishingSpot = ({t, store: {
+  handleDialog,
+  handleCustomListChange,
+  addToCustomList,
+  custom: {editing: {label, value}}
+}}) =>
   <Button
     fullWidth
     onClick={() =>
       handleDialog({
-        type: "addSpot",
-        submit: handleAddCustomSpot,
+        type: "customLists.fishingSpots",
+        submit: () => addToCustomList("fishingSpots"),
         children:
-          <FishingSpotFields
-            latiLabel={t("dropdowns.addSpot.latitude")}
-            longiLabel={t("dropdowns.addSpot.longitude")}
-            onChange={handleEditCustomSpot}
-            textLabel={t("dropdowns.addSpot.label")}
-            {...editing}
-          />
+          <Grid alignItems="stretch" container direction="column" spacing={16}>
+            <Grid item>
+              <TextInput
+                autoFocus
+                dataId="label"
+                fullWidth
+                label={t("dropdowns.customLists.fishingSpots.label")}
+                onChange={handleCustomListChange}
+                value={label}
+              />
+            </Grid>
+            <Grid container direction="column" item justify="center">
+              <GeoPointField
+                dataId="value"
+                // label={t("dropdowns.customLists.fishingSpots.coordinates")}
+                onChange={handleCustomListChange}
+                value={value}
+              />
+            </Grid>
+          </Grid>
       })
     }
-  >{t("dropdowns.addSpot.button")}
+    variant="text"
+  >{t("dropdowns.customLists.fishingSpots.button")}
   </Button>
 
-export default withTranslation("forms")(withStore(AddFishingSpot))
 
-export const FishingSpotFields = ({onChange, name, latitude, longitude, textLabel, longiLabel, latiLabel}) =>
-  <div>
-    <TextField label={textLabel} name="name" onChange={onChange} value={name} />
-    <TextField label={latiLabel} name="latitude" onChange={onChange} type="number" value={latitude}/>
-    <TextField label={longiLabel} max={180} min={-180} name="longitude" onChange={onChange} type="number" value={longitude}/>
-  </div>
+export default withTranslation("forms")(withStore(AddFishingSpot))

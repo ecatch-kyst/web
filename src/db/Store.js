@@ -9,7 +9,7 @@ import {
   dialog,
   messages,
   notification,
-  customlists
+  customLists
 } from "./actions"
 
 
@@ -38,7 +38,7 @@ export class Database extends Component {
     },
     custom: {
       editing: {},
-      fishingspots: []
+      fishingSpots: []
     }
   }
 
@@ -49,9 +49,8 @@ export class Database extends Component {
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
       this.subscribeToLocation()
-      this.handleRetrieveCustomLists()
+      this.subscribeToCustomList("fishingSpots")
     }})
-
 
     setTimeout(() => {
       CONNECTION_REF
@@ -69,19 +68,14 @@ export class Database extends Component {
 
   }
 
-  async componentWillUnmount(){
-    this.handleSendingToFirebaseFishingspot()
-  }
-
   // Custom lists
 
-  handleAddCustomSpot = customlists.addSpot.bind(this)
+  addToCustomList = customLists.add.bind(this)
 
-  handleEditCustomSpot = customlists.handle.bind(this)
+  handleCustomListChange = customLists.handle.bind(this)
 
-  handleRetrieveCustomLists = customlists.subscribe.bind(this)
+  subscribeToCustomList = customLists.subscribe.bind(this)
 
-  handleSendingToFirebaseFishingspot = customlists.sending.bind(this)
 
   // Dark mode
   initDarkMode = darkMode.init.bind(this)
@@ -142,8 +136,8 @@ export class Database extends Component {
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
           submitMessage: this.submitMessage,
-          handleAddCustomSpot: this.handleAddCustomSpot,
-          handleEditCustomSpot: this.handleEditCustomSpot,
+          addToCustomList: this.addToCustomList,
+          handleCustomListChange: this.handleCustomListChange,
           ...this.state
         }}
       >
