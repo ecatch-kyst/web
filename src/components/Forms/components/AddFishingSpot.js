@@ -4,7 +4,7 @@ import React from 'react'
 import {Button, Grid} from '@material-ui/core'
 import {withStore} from '../../../db'
 import {withTranslation} from "react-i18next"
-import GeoPointField from './GeoPointField'
+import GeoPointInput from './GeoPointInput'
 import TextInput from './TextInput'
 
 const AddFishingSpot = ({t, store: {
@@ -32,7 +32,7 @@ const AddFishingSpot = ({t, store: {
               />
             </Grid>
             <Grid container direction="column" item justify="center">
-              <GeoPointField
+              <GeoPointInput
                 dataId="value"
                 // label={t("dropdowns.customLists.fishingSpots.coordinates")}
                 onChange={handleCustomListChange}

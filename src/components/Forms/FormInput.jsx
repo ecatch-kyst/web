@@ -5,7 +5,7 @@ import {withStore} from '../../db'
 import Dropdown from './components/Dropdown'
 import TextInput from './components/TextInput'
 import DropdownMap from './components/DropdownMap'
-import GeoPointField from './components/GeoPointField'
+import GeoPointInput from './components/GeoPointInput'
 
 /**
  * Dynamic input field
@@ -56,7 +56,7 @@ export const FormInput = ({id, dataId, type, options, store: {handleFieldChange,
     )
   case "geopoint":
     return (
-      <GeoPointField
+      <GeoPointInput
         dataId={id}
         label={t(`labels.${id}`)}
         onChange={handleChange}
