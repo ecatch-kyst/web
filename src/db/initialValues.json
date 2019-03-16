@@ -5,10 +5,32 @@
   "notification": {"open": false},
   "boats": [],
   "messages": [],
+  "trips": [],
   "isLoading": true,
   "position": {
     "latitude": 0,
     "longitude": 0
+  },
+  "fields": {
+    "departure": null,
+    "PO": null,
+    "expectedFishingStart": "",
+    "DS": "",
+    "OB": {},
+    "KG": {},
+    "CA": {},
+    "expectedFishingSpot": {},
+    "startFishingSpot": {},
+    "endFishingSpot": {},
+    "QI": 1,
+    "AC": "FIS",
+    "GP": 0,
+    "ZO": "NOR",
+    "DU": 0
+  },
+  "custom": {
+    "editing": {},
+    "fishingSpots": []
   }
 }
 

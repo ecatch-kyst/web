@@ -8,7 +8,8 @@ import {
   location,
   dialog,
   messages,
-  notification
+  notification,
+  customLists
 } from "./actions"
 
 
@@ -16,26 +17,7 @@ const Store = createContext()
 
 export class Database extends Component {
 
-  state = {
-    ...initValues,
-    fields: {
-      departure: null, // Time of departure
-      PO: null, // Land & port
-      expectedFishingStart: "", // Expected time of fishing start
-      DS: "", // Expected fish art
-      OB: {}, // Fish type and weight,
-      KG: {}, // Fish type and weight,
-      CA: {}, // Fish type and weight,
-      expectedFishingSpot: {},
-      startFishingSpot: {},
-      endFishingSpot: {},
-      QI: 1, // Fishing permit
-      AC: "FIS", // Fishing activity
-      GP: 0, // Gear problem
-      ZO: "NOR", // Fishing zone
-      DU: 0 // Duration of activity
-    }
-  }
+  state = initValues
 
   async componentDidMount() {
 
@@ -44,8 +26,8 @@ export class Database extends Component {
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
       this.subscribeToLocation()
+      this.subscribeToCustomList("fishingSpots")
     }})
-
 
     setTimeout(() => {
       CONNECTION_REF
@@ -62,6 +44,15 @@ export class Database extends Component {
     )
 
   }
+
+  // Custom lists
+
+  addToCustomList = customLists.add.bind(this)
+
+  handleCustomListChange = customLists.handle.bind(this)
+
+  subscribeToCustomList = customLists.subscribe.bind(this)
+
 
   // Dark mode
   initDarkMode = darkMode.init.bind(this)
@@ -106,6 +97,7 @@ export class Database extends Component {
 
   subscribeToMessages = messages.subscribe.bind(this)
 
+
   render() {
     return (
       <Store.Provider
@@ -121,6 +113,8 @@ export class Database extends Component {
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
           submitMessage: this.submitMessage,
+          addToCustomList: this.addToCustomList,
+          handleCustomListChange: this.handleCustomListChange,
           ...this.state
         }}
       >

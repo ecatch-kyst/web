@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
 /**

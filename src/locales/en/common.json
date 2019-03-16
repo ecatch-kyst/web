@@ -33,19 +33,22 @@
 		"title": "Welcome to {{framework}}"
 	},
 	"dialogs": {
-		"addSpot":{
-			"titles":{
-				"main":"Add personal fishing spot",
-				"cancel":"Abort",
-				"submit":"Add fishing spot"
-			},
-			"description": "Here you can add your personal fishing spot, with longitude and latitude"
+		"customLists": {
+			"fishingSpots": {
+				"titles":{
+					"main": "Add personal fishing spot",
+					"cancel": "Cancel",
+					"submit": "Add"
+				},
+				"description": ""
+			}
 		},
 		"deleteUser": {
 			"titles": {
 				"main": "Delete user",
 				"submit": "Delete",
 				"cancel": "Cancel"
+				
 			},
 			"description": "Are you sure you want to do this? All your data will be removed."
 		},
@@ -55,7 +58,7 @@
 				"submit": "Confirm",
 				"cancel": "Cancel"
 			},
-			"description": "..."
+			"description": "Are you sure you want to send in a departure message?"
 		},
 		"POR": {
 			"titles": {
@@ -64,6 +67,7 @@
 				"cancel": "Cancel"
 			},
 			"description": ""
+
 		}
 	},
 	"notifications": {
@@ -76,6 +80,17 @@
 				"POR": {
 					"error": "Message not sent\n{{message}}",
 					"success": "Message sent"
+				}
+			}
+		},
+		"customLists": {
+			"subscribe": {
+				"error": "Something went wrong {{message}}"
+			},
+			"fishingSpots": {
+				"added":{
+					"error": "Something went wrong {{message}}",
+					"success": "Added"
 				}
 			}
 		},
