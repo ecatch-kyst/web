@@ -7,7 +7,7 @@ import {withTranslation} from "react-i18next"
 import GeoPointInput from './GeoPointInput'
 import TextInput from './TextInput'
 
-const AddFishingSpot = ({t, store: {
+export const AddFishingSpot = withTranslation("forms")(({t, store: {
   handleDialog,
   handleCustomListChange,
   addToCustomList,
@@ -44,7 +44,7 @@ const AddFishingSpot = ({t, store: {
     }
     variant="text"
   >{t("dropdowns.customLists.fishingSpots.button")}
-  </Button>
+  </Button>)
 
 
-export default withTranslation("forms")(withStore(AddFishingSpot))
+export default withStore(AddFishingSpot)
