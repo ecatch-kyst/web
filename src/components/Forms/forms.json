@@ -22,7 +22,9 @@
         {
           "id": "expectedFishingSpot",
           "type": "select",
-          "customizable": true
+          "options": {
+            "customizable": true
+          }
         },
         {
           "id": "expectedFishingStart",
@@ -35,11 +37,13 @@
         },
         {
           "id": "OB",
-          "unit": "kg",
-          "dropdown": "species",
-          "inputType": "number",
-          "isMulti": true,
-          "type": "select-map"
+          "type": "select-map",
+          "options": {
+            "dropdown": "species",
+            "unit": "kg",
+            "inputType": "number",
+            "isMulti": true
+          }
         }
       ]
     }
@@ -66,23 +70,28 @@
         },
         {
           "id": "CA",
-          "dropdown": "species",
-          "inputType": "number",
-          "isMulti": true,
           "type": "select-map",
-          "unit": "kg",
           "dependent": {
             "on": "AC",
             "when": ["FIS"]
+          },
+          "options": {
+            "dropdown": "species",
+            "inputType": "number",
+            "isMulti": true,
+            "unit": "kg"
           }
         },
         {
           "id": "DU",
           "type": "number",
-          "unit": "min",
           "dependent": {
             "on": "AC",
             "when": ["FIS"]
+          },
+          "options": {
+            "unit": "min",
+            "editable": false
           }
         },
         {
@@ -97,10 +106,12 @@
         {
           "id": "ME",
           "type": "number",
-          "unit": "mm",
           "dependent": {
             "on": "GE",
             "when": ["OTB", "OTM", "SSC", "GEN", "TBS"]
+          },
+          "options": {
+            "unit": "mm"
           }
         },
         {
@@ -110,7 +121,10 @@
         {
           "id": "GP",
           "dataId": "problems",
-          "type": "select"
+          "type": "select",
+          "options": {
+            "editable": false
+          }
         }
       ]
     },
@@ -122,11 +136,17 @@
         },
         {
           "id": "startFishingSpot",
-          "type": "geopoint"
+          "type": "geopoint",
+          "options": {
+            "editable": false
+          }
         },
         {
           "id": "endFishingSpot",
-          "type": "geopoint"
+          "type": "geopoint",
+          "options": {
+            "editable": false
+          }
         }
       ]
     }
@@ -152,18 +172,22 @@
       "step": [
         {
           "id": "OB",
-          "unit": "kg",
-          "dropdown": "species",
-          "inputType": "number",
-          "isMulti": true,
-          "type": "select-map"
+          "type": "select-map",
+          "options": {
+            "dropdown": "species",
+            "unit": "kg",
+            "inputType": "number",
+            "isMulti": true
+          }
         },
         {
           "id": "KG",
-          "dropdown": "species",
-          "inputType": "number",
-          "isMulti": true,
-          "type": "select-map"
+          "type": "select-map",
+          "options": {
+            "dropdown": "species",
+            "inputType": "number",
+            "isMulti": true
+          }
         }
       ]
     }
