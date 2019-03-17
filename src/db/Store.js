@@ -79,6 +79,9 @@ export class Database extends Component {
 
   userLogout = user.logout.bind(this)
 
+
+  userUpdateProfile = user.updateProfile.bind(this)
+
   userDelete = user.deleteUser.bind(this)
 
   // Location
