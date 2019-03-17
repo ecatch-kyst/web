@@ -32,3 +32,13 @@ describe('Test stubbed login and logout', () => {
     cy.logout()
   })
 })
+
+describe('Test stubbed login and logout', () => {
+  it('Only DEP on page', () => {
+    cy.login()
+    cy.wait(500)
+    cy.contains('Report departure')
+    cy.contains('Report catch').should('not.exist')
+    cy.contains('Port call').should('not.exist')
+  })
+})
