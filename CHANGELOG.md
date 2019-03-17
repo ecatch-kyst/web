@@ -3,14 +3,19 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Changed
- - New Logo
- - Logo instead of text on Landing
- - name from eCatch Kyst to eCatch Kyst Pilot
- 
+- New Logo
+- Logo instead of text on Landing
+- name from eCatch Kyst to eCatch Kyst Pilot
+- Form fields can now be disabled
+
 ### Added
 - Assets for Android, iOS, macOS Safari, Windows
 - WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
 - User can now add his own fishingSpots. ([#52](https://github.com/ecatch-kyst/web/issues/52))
+- Trip view
+
+### Fixed
+- register bug (name was not updated correctly at registration)
 
 ## [1.0.0-beta3] - 2019-03-11
 ### Added
