@@ -1,0 +1,31 @@
+{
+	"titles": {
+		"main": "Turer"
+  },
+  "tooltips": {
+		"sort": "Sorter"
+	},
+	"table-head-rows": [
+		{
+		"left": true,
+			"id": "fromTo",
+			"label": "Fra → Til"
+		},
+		{
+			"id": "period",
+			"label": "Periode"
+		}
+	],
+	"DCAList": {
+		"fishingMessages": {
+			"tableHeads": {
+				"status": "Status",
+				"fish": "Fisk (kg)",
+				"edit": "Rediger"
+			},
+			"tooltips": {
+				"deadline": "Rediger denne meldingen før {{until, relativeDate}}."
+			}
+		}
+	}
+}

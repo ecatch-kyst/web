@@ -14,7 +14,8 @@
 	"navigation": {
 		"dashboard": "Dashboard",
 		"profile": "Profil",
-		"messages": "Meldinger"
+		"messages": "Meldinger",
+		"trips": "Turer"
 	},
 	"loading": {
 		"tooltip": "Laster..."
@@ -58,6 +59,14 @@
 				"cancel": "Avlys"
 			},
 			"description": "Er du sikker på at du vil sende inn avgangsmeldingen?"
+		},
+		"DCA": {
+			"titles": {
+				"main": "Send inn DA melding?",
+				"submit": "Bekreft",
+				"cancel": "Avlys"
+			},
+			"description": "Er du sikker på at du vil sende inn fangstmeldingen?"
 		},
 		"POR": {
 			"titles": {

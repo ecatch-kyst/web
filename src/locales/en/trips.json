@@ -1,0 +1,31 @@
+{
+	"titles": {
+		"main": "Trips"
+	},
+	"tooltips": {
+		"sort": "Sort"
+	},
+	"table-head-rows": [
+		{
+		"left": true,
+			"id": "fromTo",
+			"label": "From → To"
+		},
+		{
+			"id": "period",
+			"label": "Period"
+		}
+	],
+	"DCAList": {
+		"fishingMessages": {
+			"tableHeads": {
+				"status": "Status",
+				"fish": "Fish (kg)",
+				"edit": "Edit"
+			},
+			"tooltips": {
+				"deadline": "Edit this message until {{until, relativeDate}}."
+			}
+		}
+	}
+}

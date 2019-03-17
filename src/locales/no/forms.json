@@ -47,6 +47,7 @@
     "ZO": "Fiskesone",
     "fishingStart": "Start av fiske",
     "startFishingSpot": "Start fiskeplass",
+    "endFishingSpot": "Slutt fiskeplass",
     "geopoint": {
       "latitude": "Breddegrad N→90°, S→-90°",
       "longitude": "Lengdegrad Ø→180°, V→-180°"
