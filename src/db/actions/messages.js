@@ -107,9 +107,75 @@ export async function submit(type) {
 export function subscribe() {
   USERS_FS.doc(AUTH.currentUser.uid)
     .collection("messages")
-    .orderBy("timestamp", "desc")
+    .orderBy("timestamp", "asc")
     .onSnapshot(
-      snap => this.setState({messages: snap.docs.map(flattenDoc)}),
+      snap => {
+        if (!snap.empty) {
+          const messages = snap.docs.map(flattenDoc)
+          const trips = generateTrips(messages)
+          const isEnRoute = !trips[0].isFinished
+          this.setState({messages, isEnRoute, trips})
+        }
+      },
       error => console.error(error)
     ) //TODO: Add error notification
+}
+
+/**
+ * A full Trip object contains
+ * a POR, a DEP, and one or more DCA messages.
+ * In time, POR is the earliest, DCA is the latest,
+ * with DCAs between those two.
+ * @typedef Trip
+ * @property {DEP} DEP
+ * @property {DCA[]} DCAList
+ * @property {POR} POR
+ * @property {Date} start
+ * @property {Date} end
+ * @property {object} fish
+ *
+ *
+ * @param {Message[]} messages
+ * @returns {Trip[]}
+ */
+const generateTrips = messages => {
+  let isTripFinished = false
+  return messages
+    .reduce((acc, message) => {
+      const lastTripIndex = acc.length-1
+      switch (message.TM) {
+      case "DEP": {
+        isTripFinished = false
+        acc.push({
+          id: message.id,
+          DEP: message,
+          POR: null,
+          start: message.created.toDate(),
+          DCAList: [],
+          end: null,
+          isFinished: false,
+          fish: {} // TODO:
+        })
+        return acc
+      }
+      case "DCA": {
+        if (!isTripFinished) acc[lastTripIndex].DCAList.push(message)
+        return acc
+      }
+      case "POR": {
+        isTripFinished = true
+        acc[lastTripIndex] = {
+          ...acc[lastTripIndex],
+          POR: message,
+          end: message.portArrival.toDate(),
+          isFinished: true
+        }
+        return acc
+      }
+
+      default:
+        return acc
+      }
+    }, [])
+    .sort((a, b) => b.start - a.start)
 }

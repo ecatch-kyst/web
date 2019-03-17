@@ -3,6 +3,9 @@ import DestructButton from "./DestructButton"
 import Dialog from "./Dialog"
 import Notification from "./Notification"
 import Page, {withPage} from "./Page"
+import TableHead from "./TableHead"
+import Status from "./Status"
+import Countdown from "./Countdown"
 
 
 export {
@@ -11,5 +14,8 @@ export {
   Page,
   Dialog,
   Notification,
-  withPage
+  withPage,
+  TableHead,
+  Countdown,
+  Status
 }

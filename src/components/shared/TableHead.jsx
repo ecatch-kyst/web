@@ -1,14 +1,14 @@
 import React from 'react'
 
 import {
-  TableHead, TableRow, TableCell, TableSortLabel,
+  TableHead as MuiTableHead, TableRow, TableCell, TableSortLabel,
   Tooltip
 } from '@material-ui/core'
 import {useTranslation} from 'react-i18next'
 
-export default ({order, orderBy, onRequestSort}) => {
+const TableHead = ({namespace, order, orderBy, onRequestSort}) => {
 
-  const [t] = useTranslation("messages")
+  const [t] = useTranslation(namespace)
   const createSortHandler = property => {
     onRequestSort(property)
   }
@@ -16,7 +16,7 @@ export default ({order, orderBy, onRequestSort}) => {
   const rows = t("table-head-rows", {returnObjects: true})
 
   return (
-    <TableHead>
+    <MuiTableHead>
       <TableRow>
         {rows.map(({left, id, sortable, label}) => {
           sortable = sortable === undefined
@@ -45,6 +45,12 @@ export default ({order, orderBy, onRequestSort}) => {
           )
         })}
       </TableRow>
-    </TableHead>
+    </MuiTableHead>
   )
 }
+
+TableHead.defaultProps = {
+  namespace: "common"
+}
+
+export default TableHead

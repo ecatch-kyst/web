@@ -2,14 +2,15 @@ import React from 'react'
 import CheckIcon from "@material-ui/icons/CheckOutlined"
 import CloseIcon from "@material-ui/icons/CloseOutlined"
 import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
-import {colors} from '../../../lib/material-ui'
-import {withTranslation} from 'react-i18next'
+import {colors} from '../../lib/material-ui'
+import {useTranslation} from 'react-i18next'
 import {Tooltip} from '@material-ui/core'
 
 const {yellow, green, red} = colors
 
 /*Switch for acknowledged from database*/
-export default withTranslation("messages")(({t, result={}}) => {
+export const Status = ({result}) => {
+  const [t] = useTranslation("messages")
   let Icon, color, type
 
   switch (result.RS) {
@@ -35,4 +36,10 @@ export default withTranslation("messages")(({t, result={}}) => {
       <Icon style={{color}}/>
     </Tooltip>
   )
-})
+}
+
+Status.defaultProps = {
+  result: {}
+}
+
+export default Status
