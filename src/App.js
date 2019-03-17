@@ -4,6 +4,7 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
 import TripIcon from "@material-ui/icons/CompareArrowsOutlined"
+import MessageIcon from "@material-ui/icons/MessageOutlined"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -20,6 +21,7 @@ import {
   Trips,
   Messages,
   Trip,
+  EditCatch,
   Form,
   Notification
 } from './components'
@@ -36,7 +38,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Trips} exact path={routes.TRIPS}/>
       <Route component={Trip} exact path={`${routes.TRIPS}/:tripId`}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
-      <Route component={EditMessage} exact path={`${routes.MESSAGES}/:type/:messageId${routes.EDIT}`}/>
+      <Route component={EditCatch} exact path={`${routes.MESSAGES}/:type/:messageId${routes.EDIT}`}/>
       <Route component={Form} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>
       <Route component={NotFound}/>
     </Switch>

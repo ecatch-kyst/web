@@ -113,26 +113,31 @@ export class Form extends Component {
   }
 
   render() {
-    const {t, store: {fields}, match: {params: {type}}} = this.props
+
+    const {t, store: {fields, isEnRoute}, match: {path, params: {type}}} = this.props
     const form = forms[type] // Extract form from forms.js
+    const isAllowed = isEnRoute ? ["DCA", "POR"].includes(type) : type === "DEP"
     return (
       <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
         <Grid alignItems="center" container direction="column" spacing={16}>
           <Grid component="form" item onSubmit={this.handleSubmit}>
-            {form ? form.map(({id, step}) => // If a valid form, iterate over its steps
+            {isAllowed ? form.map(({id, step}) => // If a valid form, iterate over its steps
               <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
                 <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
-                {step.map(({id, dataId, type, unit, isMulti, dropdown, inputType, dependent}) => // Iterate over all the input fields in a Form step
-                  (!dependent ||
-                        dependent.when.includes(fields[dependent.on] ?
-                          (fields[dependent.on].value || fields[dependent.on]) :
-                          "")
+                {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
+                  (!dependent || dependent.when.includes(
+                    fields[dependent.on] ?
+                      (fields[dependent.on].value || fields[dependent.on]) :
+                      "")
                   ) ?
                     <Grid item key={id}>
                       <FormInput
                         dataId={dataId || id}
                         id={id}
-                        options={{isMulti, dropdown, inputType, unit}}
+                        options={{
+                          ...options,
+                          editable: ((options.editable !== false) || path.endsWith(routes.NEW))
+                        }}
                         type={type}
                       />
                     </Grid>

@@ -1,10 +1,12 @@
 import React from 'react'
 import {Select, MenuItem, Typography} from "@material-ui/core"
-import {withTranslation} from "react-i18next"
+import {useTranslation} from "react-i18next"
 import {languages} from "../../locales/locales.json"
 import {useNotification} from '../../hooks'
 
-const LanguageChooser = ({i18n}) => {
+export default () => {
+
+  const i18n = useTranslation("profile")[1]
 
   const {notify} = useNotification()
 
@@ -34,5 +36,3 @@ const LanguageChooser = ({i18n}) => {
     </Select>
   )
 }
-
-export default withTranslation("profile")(LanguageChooser)

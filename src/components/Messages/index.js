@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Loading, withPage} from '../shared'
+import {Loading, withPage, TableHead} from '../shared'
 import {withStore} from '../../db'
 
 import {Table, TableBody, Toolbar, InputBase} from '@material-ui/core'
@@ -7,9 +7,8 @@ import SearchIcon from "@material-ui/icons/SearchOutlined"
 
 import Message from './components/Message'
 
-import EditMessage from './components/EditMessage'
-import TableHead from './components/TableHead'
-export {EditMessage}
+import EditCatch from './components/EditCatch'
+export {EditCatch}
 
 
 const desc = (a, b, orderBy) =>
@@ -72,6 +71,7 @@ export class Messages extends Component {
         {messages.length ?
           <Table>
             <TableHead
+              namespace="messages"
               onRequestSort={this.handleRequestSort}
               order={order}
               orderBy={orderBy}

@@ -170,7 +170,9 @@ const components = {
   ValueContainer
 }
 
-const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value, dropdown: dropdownId, inputType, unit}) => {
+const IntegrationReactSelect = ({
+  classes, theme, isMulti, placeholder, type, onChange, dataId, value, dropdown: dropdownId, inputType, unit
+}) => {
 
   const [t] = useTranslation("forms")
 

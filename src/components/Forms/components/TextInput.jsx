@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {TextField, InputAdornment} from "@material-ui/core"
 
-export default ({dataId, label, onChange, type, value, unit, ...props}) => {
+export default ({dataId, label, onChange, type, value, unit, disabled}) => {
 
   const [localValue, setValue] = useState("")
 
@@ -18,7 +18,7 @@ export default ({dataId, label, onChange, type, value, unit, ...props}) => {
 
   return (
     <TextField
-      {...props}
+      disabled={disabled}
       InputProps={{
         startAdornment: unit ? <InputAdornment position="start">{unit}</InputAdornment> : null
       }}

@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
-import React, {useContext} from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import Select from 'react-select'
 import {withStyles} from '@material-ui/core/styles'
@@ -15,8 +15,8 @@ import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import {useTranslation} from 'react-i18next'
 import AddFishingSpot from "./AddFishingSpot"
-import Store from '../../../db/Store.js'
 import {GEOPOINT} from '../../../lib/firebase'
+import {useStore} from '../../../hooks'
 
 const styles = theme => ({
   root: {
@@ -175,10 +175,10 @@ const components = {
   ValueContainer
 }
 
-const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placeholder, type, onChange, dataId, value}) => {
+const IntegrationReactSelect = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("forms")
-  const store = useContext(Store)
+  const {custom: {fishingSpots}} = useStore()
 
   const handleChange = ({value}) => onChange(dataId, value)
 
@@ -197,7 +197,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
   let NoOptionsMessage = DefaultNoOptionsMessage
 
   if(type === "expectedFishingSpot"){
-    options = store.custom.fishingSpots
+    options = fishingSpots
     NoOptionsMessage = AddFishingSpot
   }
 
@@ -218,6 +218,7 @@ const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placehol
         <Select
           classes={classes}
           components={{...components, NoOptionsMessage}}
+          isDisabled={disabled}
           isMulti={isMulti}
           onChange={handleChange}
           options={options}

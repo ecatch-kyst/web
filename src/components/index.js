@@ -6,6 +6,7 @@ import NotFound from "./NotFound"
 import Profile from "./Profile"
 import Centered from "./Centered"
 import Trips, {Trip} from "./Trips"
+import Messages, {EditCatch} from "./Messages"
 import Forms, {Form} from "./Forms"
 
 export {Dialog, Notification} from "./shared"
@@ -23,5 +24,5 @@ export {
   Messages,
   Forms,
   Form,
-  EditMessage
+  EditCatch
 }

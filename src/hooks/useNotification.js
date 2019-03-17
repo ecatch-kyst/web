@@ -1,5 +1,4 @@
-import {useContext} from "react"
-import Store from "../db"
+import useStore from "./useStore"
 
 /**
  * Hook for Notifications
@@ -10,7 +9,7 @@ export default function useNotification() {
     notify,
     processNotificationQueue,
     notificationClose
-  } = useContext(Store)
+  } = useStore()
 
   return ({
     ...notification,

@@ -2,24 +2,27 @@
 import React from 'react'
 
 import {Button, Grid} from '@material-ui/core'
-import {withStore} from '../../../db'
-import {withTranslation} from "react-i18next"
+import {useTranslation} from "react-i18next"
 import GeoPointInput from './GeoPointInput'
 import TextInput from './TextInput'
+import {useStore} from '../../../hooks'
 
-export const AddFishingSpot = withTranslation("forms")(({t, store: {
-  handleDialog,
-  handleCustomListChange,
-  addToCustomList,
-  custom: {editing: {label, value}}
-}}) =>
-  <Button
-    fullWidth
-    onClick={() =>
-      handleDialog({
-        type: "customLists.fishingSpots",
-        submit: () => addToCustomList("fishingSpots"),
-        children:
+export const AddFishingSpot = () => {
+  const [t] = useTranslation("forms")
+  const {
+    handleDialog,
+    handleCustomListChange,
+    addToCustomList,
+    custom: {editing: {label, value}}
+  } = useStore()
+  return (
+    <Button
+      fullWidth
+      onClick={() =>
+        handleDialog({
+          type: "customLists.fishingSpots",
+          submit: () => addToCustomList("fishingSpots"),
+          children:
           <Grid alignItems="stretch" container direction="column" spacing={16}>
             <Grid item>
               <TextInput
@@ -40,11 +43,13 @@ export const AddFishingSpot = withTranslation("forms")(({t, store: {
               />
             </Grid>
           </Grid>
-      })
-    }
-    variant="text"
-  >{t("dropdowns.customLists.fishingSpots.button")}
-  </Button>)
+        })
+      }
+      variant="text"
+    >{t("dropdowns.customLists.fishingSpots.button")}
+    </Button>
+  )
+}
 
 
-export default withStore(AddFishingSpot)
+export default AddFishingSpot
