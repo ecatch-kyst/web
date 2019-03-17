@@ -1,9 +1,10 @@
 import {Messages} from '..'
 import Message from '../components/Message'
 import {InputBase} from '@material-ui/core'
-import TableHead from '../components/TableHead'
+import {TableHead} from '../../shared'
 
-describe("EditMessage component", () => {
+
+describe("Messages component", () => {
   const props = {
     store: {messages: [
       {TM: "DCA", created: new Date("2000-01-01")},

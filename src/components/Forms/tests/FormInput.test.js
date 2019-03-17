@@ -1,12 +1,16 @@
 import {FormInput} from "../FormInput"
-describe("FormInput component", () => {
-  const props = {
-    store: {
-      handleFieldChange: jest.fn(),
-      fields: {}
-    }
-  }
+import useStore from "../../../hooks/useStore"
 
+jest.mock("../../../hooks/useStore", () => jest.fn().mockReturnValue({
+  handleFieldChange: jest.fn(),
+  fields: {}
+}))
+
+describe("FormInput component", () => {
+
+  const props = {
+    options: {}
+  }
   describe("types", () => {
     ["select", "select-map", "geopoint", "default"].forEach(type => {
       const wrapper = shallow(<FormInput {...props} type={type}/>)
@@ -15,7 +19,7 @@ describe("FormInput component", () => {
       })
       it("handle field change", () => {
         wrapper.simulate("change", "NAME", "VALUE")
-        expect(props.store.handleFieldChange).toBeCalledWith("NAME", "VALUE")
+        expect(useStore().handleFieldChange).toBeCalledWith("NAME", "VALUE")
       })
     })
 
