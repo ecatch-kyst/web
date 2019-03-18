@@ -37,9 +37,9 @@
         },
         {
           "id": "OB",
+          "dataId": "species",
           "type": "select-map",
           "options": {
-            "dropdown": "species",
             "unit": "kg",
             "inputType": "number",
             "isMulti": true
@@ -70,13 +70,13 @@
         },
         {
           "id": "CA",
+          "dataId": "species",
           "type": "select-map",
           "dependent": {
             "on": "AC",
             "when": ["FIS"]
           },
           "options": {
-            "dropdown": "species",
             "inputType": "number",
             "isMulti": true,
             "unit": "kg"
@@ -172,9 +172,9 @@
       "step": [
         {
           "id": "OB",
+          "dataId": "species",
           "type": "select-map",
           "options": {
-            "dropdown": "species",
             "unit": "kg",
             "inputType": "number",
             "isMulti": true
@@ -182,9 +182,9 @@
         },
         {
           "id": "KG",
+          "dataId": "species",
           "type": "select-map",
           "options": {
-            "dropdown": "species",
             "inputType": "number",
             "isMulti": true
           }
