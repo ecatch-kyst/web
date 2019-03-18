@@ -2,15 +2,15 @@ import React from 'react'
 import {useTranslation} from 'react-i18next'
 import {Snackbar, SnackbarContent, Button, withTheme} from '@material-ui/core'
 import {colors} from '../../lib/material-ui'
-import {useNotification} from '../../hooks'
+import {useStore} from '../../hooks'
 
 export const Notification = ({theme}) => {
 
   const {
-    open, name, type, handleAction, duration, message,
-    processQueue,
-    close
-  } = useNotification()
+    notification: {open, name, type, handleAction, duration, message},
+    processNotificationQueue: processQueue,
+    notificationClose: close
+  } = useStore()
 
   const handleClose = (_, reason) => {
     if (reason === 'clickaway') return

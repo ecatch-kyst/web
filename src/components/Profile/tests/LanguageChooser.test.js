@@ -4,7 +4,7 @@ import "../../../hooks"
 import {useTranslation} from "react-i18next"
 
 jest.mock("../../../hooks", () => ({
-  useNotification: () => ({
+  useStore: () => ({
     notification: {},
     notify: jest.fn(),
     processQueue: [],

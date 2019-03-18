@@ -6,8 +6,10 @@ import {SnackbarContent} from "@material-ui/core"
 
 
 jest.mock("../../../hooks", () => ({
-  useNotification: () => ({
-    handleAction: jest.fn(),
+  useStore: () => ({
+    notification: {
+      handleAction: jest.fn()
+    },
     notify: jest.fn(),
     processQueue: [],
     close: jest.fn()
@@ -15,8 +17,7 @@ jest.mock("../../../hooks", () => ({
 }))
 
 describe("Notification component", () => {
-  const props = {}
-  const wrapper = shallow(<Notification {...props}/>)
+  const wrapper = shallow(<Notification/>)
 
   it("renders correctly", () => {
     expect(wrapper).toHaveLength(1)
