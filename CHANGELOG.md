@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - Logo instead of text on Landing
 - name from eCatch Kyst to eCatch Kyst Pilot
 - Form fields can now be disabled
+- useReactHooks everywhere! 🎣🎉 [React v16.8: The One With Hooks](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html)
 
 ### Added
 - Assets for Android, iOS, macOS Safari, Windows
