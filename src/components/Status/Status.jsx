@@ -105,7 +105,7 @@ export class Status extends Component{
               // Makes copy of current catchlist
               const currentCatchlist = Object.assign({}, this.state.catchList)
 
-              Object.keys(doc.data().CA).map((key) => {
+              Object.keys(doc.data().CA).forEach((key) => {
                 console.log(key, doc.data().CA[key])
                 // Adds new specie to catchlist
                 if (currentCatchlist[key] === undefined) {
