@@ -5,7 +5,6 @@ import {USERS_FS, AUTH} from "../../lib/firebase"
 import {withStore} from '../../db'
 import {withTranslation} from 'react-i18next'
 
-// import differenceInMinutes from "date-fns"
 
 const StyledCard = withStyles({
   root: {
@@ -24,55 +23,19 @@ export class Status extends Component{
       lastReportedCatchPlace: "...",
       activity: "...",
       targetSpecie: "...",
-      catchStart: "1th of January - 00:01 (GMT+1)",
-      catchDuration: 55,
-      catchList: {CYH: 200, SPR: 100},
       catchZone: "...",
-      lastDepMessage: [],
-      dcaMessages: [],
-      porMessages: [],
+      catchList: {CYH: 200, SPR: 100},
       lastMessageType: null
     }
   }
 
   async componentDidMount() {
-    await this.fetchMessages()
-    await this.checkLastMessage()
+    await this.checkLastMessageType()
+    await this.fetchLatestDEP()
     await this.updateCatchList()
   }
 
-  fetchMessages() {
-    // Observes user object from Firebase Authentication
-    AUTH.onAuthStateChanged((user) => {
-      // Pushes uid to state when received
-      if (user) {
-        this.setState({uid: AUTH.currentUser.uid})
-        // Fetches all docs for
-        USERS_FS.doc(this.state.uid).collection("messages")
-          .where("TM", "==", "DEP")
-          .orderBy('departure', 'desc')
-          .limit(1)
-          .get()
-          .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-              // doc.data() is never undefined for query doc snapshots
-              console.log(doc.id, " => ", doc.data())
-              this.setState({
-                lastDepartureHarbour: doc.data().PO,
-                activity: doc.data().AC,
-                targetSpecie: doc.data().DS ? doc.data().DS : "Not catching",
-                catchZone: doc.data().ZO ? doc.data().ZO : "..."
-              })
-            })
-          })
-          .catch((error) => {
-            console.log("Error getting documents: ", error)
-          })
-      }
-    })
-  }
-
-  checkLastMessage() {
+  checkLastMessageType() {
     AUTH.onAuthStateChanged((user) => {
       if (user) {
         this.setState({uid: AUTH.currentUser.uid})
@@ -84,11 +47,37 @@ export class Status extends Component{
           .then(querySnapshot => {
             querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-              console.log(doc.id, " => ", doc.data())
               this.setState({
                 lastMessageType: doc.data().TM
               })
-              console.log(this.state.lastMessageType)
+              console.log("Last messagetype was", this.state.lastMessageType)
+            })
+          })
+          .catch((error) => {
+            console.log("Error getting documents: ", error)
+          })
+      }
+    })
+  }
+
+  fetchLatestDEP() {
+    AUTH.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({uid: AUTH.currentUser.uid})
+        // Observes user object from Firebase Authentication
+        USERS_FS.doc(this.state.uid).collection("messages")
+          .where("TM", "==", "DEP")
+          .orderBy('departure', 'desc')
+          .limit(1)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              this.setState({
+                lastDepartureHarbour: doc.data().PO,
+                activity: doc.data().AC,
+                targetSpecie: doc.data().DS ? doc.data().DS : "Not catching",
+                catchZone: doc.data().ZO ? doc.data().ZO : "..."
+              })
             })
           })
           .catch((error) => {
@@ -111,7 +100,6 @@ export class Status extends Component{
           .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
               // doc.data() is never undefined for query doc snapshots
-              console.log(doc.id, " => ", doc.data())
               // TODO: Change this to correct field when messages are ready
               this.setState({lastReportedCatchPlace: doc.data().TM})
             })
