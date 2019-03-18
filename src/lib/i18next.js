@@ -20,10 +20,8 @@ import messages_en from "../locales/en/messages.json"
 import messages_no from "../locales/no/messages.json"
 import forms_en from "../locales/en/forms.json"
 import forms_no from "../locales/no/forms.json"
-import dropdown_en from "../locales/en/dropdown.json"
-import dropdown_no from "../locales/no/dropdown.json"
-import status_en from "../locales/en/status.json"
 import status_no from "../locales/no/status.json"
+import status_en from "../locales/en/status.json"
 
 const en = {
   common: common_en,
@@ -31,12 +29,11 @@ const en = {
   dashboard: dashboard_en,
   boats: boats_en,
   pages: pages_en,
-  messages: messages_en,
   register: register_en,
+  messages: messages_en,
   problems: problems_en,
   species: species_en,
-  forms: forms_en,
-  dropdown: dropdown_en,
+  forms: forms_en
   status: status_en
 }
 
@@ -50,8 +47,7 @@ const no = {
   species: species_no,
   register: register_no,
   forms: forms_no,
-  messages: messages_no,
-  dropdown: dropdown_no,
+  messages: messages_no
   status: status_no
 }
 

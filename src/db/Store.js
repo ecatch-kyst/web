@@ -2,11 +2,16 @@ import React, {Component, createContext} from "react"
 import initValues from "./initialValues.json"
 import {CONNECTION_REF} from "../lib/firebase"
 
-import * as darkMode from "./actions/darkMode"
-import {login, updateProfile, logout, deleteUser} from "./actions/users"
-import * as dialog from './actions/dialog'
-import * as messages from './actions/messages'
-import * as notification from './actions/notification'
+import {
+  darkMode,
+  user,
+  location,
+  dialog,
+  messages,
+  notification,
+  customLists
+} from "./actions"
+
 
 const Store = createContext()
 
@@ -15,13 +20,25 @@ export class Database extends Component {
   state = {
     ...initValues,
     fields: {
-      departure: "", // Time of departure
-      PO: "", // Land & port
-      AC: "", // Fishing activity
-      expectedFishingSpot: "",
+      departure: null, // Time of departure
+      PO: null, // Land & port
       expectedFishingStart: "", // Expected time of fishing start
       DS: "", // Expected fish art
-      OB: [] // Fish type and weight
+      OB: {}, // Fish type and weight,
+      KG: {}, // Fish type and weight,
+      CA: {}, // Fish type and weight,
+      expectedFishingSpot: {},
+      startFishingSpot: {},
+      endFishingSpot: {},
+      QI: 1, // Fishing permit
+      AC: "FIS", // Fishing activity
+      GP: 0, // Gear problem
+      ZO: "NOR", // Fishing zone
+      DU: 0 // Duration of activity
+    },
+    custom: {
+      editing: {},
+      fishingSpots: []
     }
   }
 
@@ -31,8 +48,9 @@ export class Database extends Component {
 
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
+      this.subscribeToLocation()
+      this.subscribeToCustomList("fishingSpots")
     }})
-
 
     setTimeout(() => {
       CONNECTION_REF
@@ -49,6 +67,15 @@ export class Database extends Component {
     )
 
   }
+
+  // Custom lists
+
+  addToCustomList = customLists.add.bind(this)
+
+  handleCustomListChange = customLists.handle.bind(this)
+
+  subscribeToCustomList = customLists.subscribe.bind(this)
+
 
   // Dark mode
   initDarkMode = darkMode.init.bind(this)
@@ -71,14 +98,19 @@ export class Database extends Component {
 
 
   // User
-  userLogin = login.bind(this)
+  userLogin = user.login.bind(this)
 
-  userLogout = logout.bind(this)
+  userLogout = user.logout.bind(this)
 
-  userDelete = deleteUser.bind(this)
+  userDelete = user.deleteUser.bind(this)
 
-  userUpdateProfile = updateProfile.bind(this)
+  // Location
 
+  getLocation = location.get.bind(this)
+
+  subscribeToLocation = location.subscribe.bind(this)
+
+  unsubscribeFromLocation = location.unsubscribe.bind(this)
 
   // Messages
 
@@ -87,6 +119,7 @@ export class Database extends Component {
   submitMessage = messages.submit.bind(this)
 
   subscribeToMessages = messages.subscribe.bind(this)
+
 
   render() {
     return (
@@ -103,6 +136,8 @@ export class Database extends Component {
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
           submitMessage: this.submitMessage,
+          addToCustomList: this.addToCustomList,
+          handleCustomListChange: this.handleCustomListChange,
           ...this.state
         }}
       >

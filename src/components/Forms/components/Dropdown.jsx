@@ -1,6 +1,7 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
-import React from 'react'
+import React, {useContext} from 'react'
 import classNames from 'classnames'
 import Select from 'react-select'
 import {withStyles} from '@material-ui/core/styles'
@@ -12,8 +13,10 @@ import Chip from '@material-ui/core/Chip'
 import MenuItem from '@material-ui/core/MenuItem'
 import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
-import dropdown from "./dropdownlist.json"
 import {useTranslation} from 'react-i18next'
+import AddFishingSpot from "./AddFishingSpot"
+import Store from '../../../db/Store.js'
+import {GEOPOINT} from '../../../lib/firebase'
 
 const styles = theme => ({
   root: {
@@ -62,7 +65,8 @@ const styles = theme => ({
   }
 })
 
-function NoOptionsMessage(props) {
+
+function DefaultNoOptionsMessage(props) {
   return (
     <Typography
       className={props.selectProps.classes.noOptionsMessage}
@@ -82,19 +86,21 @@ function Control(props) {
   return (
     <TextField
       fullWidth
+      // eslint-disable-next-line react/jsx-sort-props
       InputProps={{
         inputComponent,
         inputProps: {
           className: props.selectProps.classes.input,
           inputRef: props.innerRef,
           children: props.children,
-          ...props.innerProps,
-        },
+          ...props.innerProps
+        }
       }}
       {...props.selectProps.textFieldProps}
     />
   )
 }
+
 
 function Option(props) {
   return (
@@ -158,22 +164,23 @@ function Menu(props) {
   )
 }
 
+
 const components = {
   Control,
   Menu,
   MultiValue,
-  NoOptionsMessage,
   Option,
   Placeholder,
   SingleValue,
   ValueContainer
 }
 
-const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
+const IntegrationReactSelect = ({classes, theme, isMulti, customizable, placeholder, type, onChange, dataId, value}) => {
 
-  const [t] = useTranslation("dropdown")
+  const [t] = useTranslation("forms")
+  const store = useContext(Store)
 
-  const handleChange = value => onChange(dataId, value)
+  const handleChange = ({value}) => onChange(dataId, value)
 
 
   const selectStyles = {
@@ -186,16 +193,31 @@ const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onC
     })
   }
 
-  const options = dropdown[type] || t(type, {returnObjects: true})
+  let options = t(`dropdowns.${type}`, {returnObjects: true})
+  let NoOptionsMessage = DefaultNoOptionsMessage
+
+  if(type === "expectedFishingSpot"){
+    options = store.custom.fishingSpots
+    NoOptionsMessage = AddFishingSpot
+  }
+
+  value = options.find(option =>
+    option.value === value ||
+    //REVIEW: Better solution to match geopoints ?
+    (option.value.latitude && value.latitude &&
+      GEOPOINT(option.value.latitude, option.value.longitude)
+        .isEqual(GEOPOINT(value.latitude, value.longitude))
+    )
+  )
 
 
-  return (
+  return(
     <div className={classes.root}>
       <NoSsr>
         <div className={classes.divider} />
         <Select
           classes={classes}
-          components={components}
+          components={{...components, NoOptionsMessage}}
           isMulti={isMulti}
           onChange={handleChange}
           options={options}

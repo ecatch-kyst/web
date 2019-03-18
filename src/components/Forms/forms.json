@@ -1,8 +1,7 @@
 {
   "DEP": [{
       "id": 0,
-      "fields": [
-        {
+      "step": [{
           "id": "PO",
           "dataId": "ports",
           "type": "select"
@@ -15,16 +14,15 @@
     },
     {
       "id": 1,
-      "fields": [
-        {
+      "step": [{
           "id": "AC",
           "dataId": "activity",
           "type": "select"
         },
         {
           "id": "expectedFishingSpot",
-
-          "type": "select"
+          "type": "select",
+          "customizable": true
         },
         {
           "id": "expectedFishingStart",
@@ -37,6 +35,7 @@
         },
         {
           "id": "OB",
+          "unit": "kg",
           "dropdown": "species",
           "inputType": "number",
           "isMulti": true,
@@ -46,11 +45,127 @@
     }
   ],
   "DCA": [{
-    "id": 0,
-    "fields": []
-  }],
+      "id": 0,
+      "step": [{
+          "id": "fishingStart",
+          "type": "datetime-local"
+        },
+        {
+          "id": "QI",
+          "dataId": "fishingPermit",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "id": "fishing",
+      "step": [{
+          "id": "AC",
+          "dataId": "activity",
+          "type": "select"
+        },
+        {
+          "id": "CA",
+          "dropdown": "species",
+          "inputType": "number",
+          "isMulti": true,
+          "type": "select-map",
+          "unit": "kg",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS"]
+          }
+        },
+        {
+          "id": "DU",
+          "type": "number",
+          "unit": "min",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS"]
+          }
+        },
+        {
+          "id": "GE",
+          "dataId": "fishing-gear",
+          "type": "select",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS", "SET"]
+          }
+        },
+        {
+          "id": "ME",
+          "type": "number",
+          "unit": "mm",
+          "dependent": {
+            "on": "GE",
+            "when": ["OTB", "OTM", "SSC", "GEN", "TBS"]
+          }
+        },
+        {
+          "id": "GS",
+          "type": "select"
+        },
+        {
+          "id": "GP",
+          "dataId": "problems",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "id": "location",
+      "step": [{
+          "id": "ZO",
+          "type": "select"
+        },
+        {
+          "id": "startFishingSpot",
+          "type": "geopoint"
+        },
+        {
+          "id": "endFishingSpot",
+          "type": "geopoint"
+        }
+      ]
+    }
+  ],
   "POR": [{
-    "id": 0,
-    "fields": []
-  }]
+      "id": 0,
+      "step": [{
+          "id": "PO",
+          "dataId": "ports",
+          "type": "select"
+        },
+        {
+          "id": "LS"
+        },
+        {
+          "id": "portArrival",
+          "type": "datetime-local"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "step": [
+        {
+          "id": "OB",
+          "unit": "kg",
+          "dropdown": "species",
+          "inputType": "number",
+          "isMulti": true,
+          "type": "select-map"
+        },
+        {
+          "id": "KG",
+          "dropdown": "species",
+          "inputType": "number",
+          "isMulti": true,
+          "type": "select-map"
+        }
+      ]
+    }
+  ]
 }

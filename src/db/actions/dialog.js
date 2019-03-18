@@ -1,4 +1,5 @@
 import initialValues from "../initialValues.json"
+//import {Component} from 'react'
 
 /**
  * Resets the dialog. A 100ms delay is added to avoid UI glitches.
@@ -22,6 +23,7 @@ export function reset() {
  * @param {function} dialog.cancel - The action to execute when the dialog is cancelled
  * @param {function|string|null} [dialog.children=null] - The action to execute when the dialog is cancelled
  * @param {boolean} [dialog.isDestructive=false] - Is the submit action destructive?
+ * @param {Component} [dialog.children=null] - Extra content
  * Meaning the action leads to data loss (remove, delete etc.)
  */
 export function handle({type, submit, cancel, isDestructive=false, children=null}) {
