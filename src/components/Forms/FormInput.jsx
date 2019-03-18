@@ -22,7 +22,7 @@ export const FormInput = ({id, dataId, type, options}) => {
   const [t] = useTranslation("forms")
 
   const handleChange = (name, value) => {
-    const error = null // TODO: Uncomment validate[dataId](value) // Validating the field
+    const error = null // TODO: validate[dataId](value) // Validating the field
     if (error) {
       console.error(error) // TODO: Add error notification
     } else {
