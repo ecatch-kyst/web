@@ -1,4 +1,4 @@
-import Dropdown from "../Dropdown"
+import {Dropdown} from "../Dropdown"
 import "../../../../hooks"
 import {GEOPOINT} from "../../../../lib/firebase"
 
