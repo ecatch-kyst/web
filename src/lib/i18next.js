@@ -33,7 +33,7 @@ const en = {
   messages: messages_en,
   problems: problems_en,
   species: species_en,
-  forms: forms_en
+  forms: forms_en,
   status: status_en
 }
 
@@ -47,7 +47,7 @@ const no = {
   species: species_no,
   register: register_no,
   forms: forms_no,
-  messages: messages_no
+  messages: messages_no,
   status: status_no
 }
 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Card, List, ListItem, CardContent, CardActions, Typography, withStyles, Button, Divider} from '@material-ui/core'
-import EditIcon from "@material-ui/icons/EditOutlined"
+import {Card, List, ListItem, CardContent, Typography, withStyles,Divider} from '@material-ui/core'
 import "./status.sass"
 import {USERS_FS, AUTH} from "../../lib/firebase"
 import {withStore} from '../../db'
@@ -148,9 +147,6 @@ export class Status extends Component{
                 {this.state.lastDepartureHarbour}
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button size="small"><EditIcon/></Button>
-            </CardActions>
           </StyledCard>
 
           <Divider/>
@@ -164,9 +160,6 @@ export class Status extends Component{
                 {this.state.activity}
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button size="small"><EditIcon/></Button>
-            </CardActions>
           </StyledCard>
 
           <Divider/>
@@ -180,9 +173,6 @@ export class Status extends Component{
                 {this.state.targetSpecie}
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button size="small"><EditIcon/></Button>
-            </CardActions>
           </StyledCard>
 
           <Divider/>
@@ -196,9 +186,6 @@ export class Status extends Component{
                 {this.state.lastReportedCatchPlace}
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button size="small"><EditIcon/></Button>
-            </CardActions>
           </StyledCard>
 
           <Divider/>
@@ -213,29 +200,9 @@ export class Status extends Component{
                 {this.state.catchZone}
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button size="small"><EditIcon/></Button>
-            </CardActions>
           </StyledCard>
           }
 
-
-          <StyledCard>
-            <CardContent>
-              <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-                {t("titles.catching_since")}
-              </Typography>
-              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-                {this.state.catchStart}
-              </Typography>
-              <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-                {this.state.catchDuration} {t("phrases.minutes")} {t("phrases.ago")}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small"><EditIcon/></Button>
-            </CardActions>
-          </StyledCard>
 
           {this.state.lastMessageType === "DCA" ? (
             <StyledCard>
@@ -252,9 +219,6 @@ export class Status extends Component{
                             {key} {value}kg
                           </Typography>
                         </CardContent>
-                        <CardActions>
-                          <Button size="small"><EditIcon/></Button>
-                        </CardActions>
                       </StyledCard>
                     </ListItem>
                   )}
