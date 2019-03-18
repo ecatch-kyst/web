@@ -3,13 +3,16 @@ import {
   List, ListItem, Grid, FormControlLabel,
   Switch, Typography, withTheme, Button, Divider
 } from '@material-ui/core'
-import {withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 import ProfileDetails from './ProfileDetails'
-import {withStore} from '../../db'
 import {Page, DestructButton} from '../shared'
+import {useStore} from '../../hooks'
 
-export const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUserDelete, handleDialog}}) => {
+export const Profile = () => {
+
+  const [t] = useTranslation("profile")
+  const {isDarkMode, handleToggleDarkMode, handleUserDelete, handleDialog} = useStore()
 
   const handleDeleteUser = () => handleDialog({type: "deleteUser", submit: handleUserDelete, isDestructive: true})
 
@@ -66,11 +69,12 @@ export const Profile = ({t, store: {isDarkMode, handleToggleDarkMode, handleUser
   )
 }
 
-export default withTranslation("profile")(withStore(withTheme()(Profile)))
+export default withTheme()(Profile)
 
 
-export const Element = withTranslation("profile")(
-  ({t, id, actionComponent, onClick, clickable}) =>
+export const Element = ({id, actionComponent, onClick, clickable}) => {
+  const [t] = useTranslation("profile")
+  return (
     <ListItem>
       <Grid alignItems="center" container>
         <Grid item xs={7}>
@@ -82,16 +86,22 @@ export const Element = withTranslation("profile")(
         </Grid>
       </Grid>
     </ListItem>
-)
 
-export const Logout = withTranslation("profile")(withStore(({t, store: {handleUserLogout}}) =>
-  <Button
-    color="secondary"
-    name="logout"
-    onClick={handleUserLogout}
-    size="large"
-    variant="contained"
-  >
-    {t("buttons.logout")}
-  </Button>
-))
+  )
+}
+
+export const Logout = () => {
+  const [t] = useTranslation("profile")
+  const {handleUserLogout} = useStore()
+  return (
+    <Button
+      color="secondary"
+      name="logout"
+      onClick={handleUserLogout}
+      size="large"
+      variant="contained"
+    >
+      {t("buttons.logout")}
+    </Button>
+  )
+}

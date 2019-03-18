@@ -3,12 +3,13 @@ import {withRouter} from "react-router-dom"
 import {format} from 'date-fns'
 import {Tooltip, TableRow, TableCell, Typography} from '@material-ui/core'
 
-import {withStore} from '../../../db'
 import {colors} from '../../../lib/material-ui'
 import {routes} from '../../../lib/router'
+import {useStore} from '../../../hooks'
 
 
-export default withStore(withRouter(({id, store: {trips}, history}) => {
+export default withRouter(({id, history}) => {
+  const {trips} = useStore()
   const {POR, DEP, start, end, isFinished} = trips.find(trip => trip.id === id)
   return (
     <Tooltip title={isFinished ? "": "Ongoing trip"}>
@@ -28,4 +29,4 @@ export default withStore(withRouter(({id, store: {trips}, history}) => {
       </TableRow>
     </Tooltip>
   )
-}))
+})

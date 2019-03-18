@@ -13,8 +13,9 @@ import MenuItem from '@material-ui/core/MenuItem'
 import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import {useTranslation} from 'react-i18next'
-import {withStore} from '../../../db/index.js'
 import {Grid, InputAdornment} from '@material-ui/core'
+import {useStore} from '../../../hooks'
+
 
 const styles = theme => ({
   root: {
@@ -240,8 +241,9 @@ const IntegrationReactSelect = ({
   )
 }
 
-const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, type, inputType, unit}) => {
+const KeyValueInput = ({id, onChange, label, value, type, inputType, unit}) => {
 
+  const {fields} = useStore()
   const [localValue, setValue] = useState("")
 
   // update local state, when global is updated
@@ -269,6 +271,6 @@ const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, t
       value={localValue}
     />
   )
-})
+}
 
 export default withStyles(styles, {withTheme: true})(IntegrationReactSelect)
