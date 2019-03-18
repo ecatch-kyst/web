@@ -18,6 +18,9 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - register bug (name was not updated correctly at registration)
 
+### Removed
+- useNotification hook (useStore does basically the same, thus it's only an unnecessary complication)
+
 ## [1.0.0-beta3] - 2019-03-11
 ### Added
 - Spinner on loading ([#55](https://github.com/ecatch-kyst/web/issues/55))
