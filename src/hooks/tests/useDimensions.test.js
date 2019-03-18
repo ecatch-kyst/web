@@ -1,14 +1,18 @@
 import React from 'react'
+import {act} from 'react-dom/test-utils'
 
 import useDimensions from '../useDimensions'
 
 /**
  * simulate window resize
  */
-function fireResize(width, height) {
-  window.innerWidth = width
-  window.innerHeight = height
-  window.dispatchEvent(new Event('resize'))
+function fireResize(width, height, wrapper) {
+  act(() => {
+    window.innerWidth = width
+    window.innerHeight = height
+    window.dispatchEvent(new Event('resize'))
+  })
+  wrapper.setProps({})
 }
 
 /**
@@ -24,22 +28,20 @@ function Component() {
   )
 }
 
-beforeAll(() =>
-  jest.spyOn(React, 'useEffect').mockImplementation(React.useLayoutEffect)
-)
-afterAll(() => React.useEffect.mockRestore())
-
 describe("useDimensions hook", () => {
-  it('listen to window resize', () => {
-    const wrapper = mount(<Component/>)
+  let wrapper
 
-    fireResize(360, 240)
-    wrapper.update()
+  beforeEach(() => wrapper = mount(<Component/>))
+
+  afterEach(() => wrapper = null)
+
+  it('listen to window resize', () => {
+    fireResize(360, 240, wrapper)
+
     expect(wrapper.find("span").first().prop("children")).toBe(360)
     expect(wrapper.find("span").last().prop("children")).toBe(240)
 
-    fireResize(480, 600)
-    wrapper.update()
+    fireResize(480, 600, wrapper)
     expect(wrapper.find("span").first().prop("children")).toBe(480)
     expect(wrapper.find("span").last().prop("children")).toBe(600)
   })
