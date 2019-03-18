@@ -100,7 +100,7 @@ export class Status extends Component{
           .get()
           .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              this.setState({lastReportedCatchPlace: doc.data().TM})
+              this.setState({lastReportedCatchZone: doc.data().ZO})
 
               // Makes copy of current catchlist
               const currentCatchlist = Object.assign({}, this.state.catchList)
@@ -184,10 +184,10 @@ export class Status extends Component{
           <StyledCard>
             <CardContent>
               <Typography className="statuscard-title" color="textPrimary" gutterBottom>
-                {t("titles.catch_place")}
+                {t("titles.catch_zone")}
               </Typography>
               <Typography className="statuscard-info" color="textPrimary" gutterBottom>
-                {this.state.lastReportedCatchPlace}
+                {this.state.lastReportedCatchZone}
               </Typography>
             </CardContent>
           </StyledCard>
