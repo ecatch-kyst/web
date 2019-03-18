@@ -24,7 +24,7 @@ export class Status extends Component{
       activity: "...",
       targetSpecie: "...",
       catchZone: "...",
-      catchList: {CYH: 200, SPR: 100},
+      catchList: {},
       lastMessageType: null
     }
   }
@@ -95,13 +95,29 @@ export class Status extends Component{
         this.setState({uid: AUTH.currentUser.uid})
         // Fetches all docs for
         USERS_FS.doc(this.state.uid).collection("messages")
+          // TODO: make sure only DCAs after last DEP are fetched
           .where("TM", "==", "DCA")
           .get()
           .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              // doc.data() is never undefined for query doc snapshots
-              // TODO: Change this to correct field when messages are ready
               this.setState({lastReportedCatchPlace: doc.data().TM})
+
+              // Makes copy of current catchlist
+              const currentCatchlist = Object.assign({}, this.state.catchList)
+
+              Object.keys(doc.data().CA).map((key) => {
+                console.log(key, doc.data().CA[key])
+                // Adds new specie to catchlist
+                if (currentCatchlist[key] === undefined) {
+                  currentCatchlist[key] = doc.data().CA[key]
+                }
+                // Adds more of previously catched specie
+                else {
+                  currentCatchlist[key] += doc.data().CA[key]
+                }
+              })
+
+              this.setState({catchList: currentCatchlist})
             })
           })
           .catch((error) => {
@@ -191,6 +207,7 @@ export class Status extends Component{
           </StyledCard>
           }
 
+          <Divider/>
 
           {this.state.lastMessageType === "DCA" ? (
             <StyledCard>
@@ -204,7 +221,7 @@ export class Status extends Component{
                       <StyledCard>
                         <CardContent>
                           <Typography>
-                            {key} {value}kg
+                            {key}: {value} kg
                           </Typography>
                         </CardContent>
                       </StyledCard>
