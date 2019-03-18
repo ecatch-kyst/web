@@ -1,13 +1,16 @@
 import {Profile, Logout, Element} from ".."
+import useStore from "../../../hooks/useStore"
+
+
+jest.mock("../../../hooks/useStore", () => jest.fn()
+  .mockReturnValue({
+    isDarkMode: false,
+    handleUserLogout: jest.fn()
+  }))
 
 describe("Profile component", () => {
 
-  const props = {
-    t: t => t,
-    store: {isDarkMode: false}
-  }
-
-  const wrapper = shallow(<Profile {...props}/>)
+  const wrapper = shallow(<Profile/>)
 
   it("renders correctly", () => {
     expect(wrapper).toHaveLength(1)
@@ -28,12 +31,8 @@ describe("Element component", () => {
 
 
 describe("Logout component", () => {
-  const props = {
-    store: {
-      handleUserLogout: jest.fn()
-    }
-  }
-  const wrapper = mount(<Logout {...props}/>)
+
+  const wrapper = shallow(<Logout/>)
 
   it("renders correctly", () => {
     expect(wrapper).toHaveLength(1)
@@ -41,6 +40,6 @@ describe("Logout component", () => {
 
   it("logout is handled", () => {
     wrapper.simulate("click")
-    expect(props.store.handleUserLogout).toBeCalled()
+    expect(useStore().handleUserLogout).toBeCalled()
   })
 })
