@@ -15,7 +15,7 @@
     "react-dom": "^16.8.0-alpha.1",
     "react-i18next": "^10.0.0",
     "react-router": "^5.0.0",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.0.0",
     "react-select": "^2.3.0",
     "react-virtualized": "^9.21.0",
     "react-scripts": "2.1.8"
