@@ -4,7 +4,6 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
 import TripIcon from "@material-ui/icons/CompareArrowsOutlined"
-import MessageIcon from "@material-ui/icons/MessageOutlined"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -43,7 +42,12 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={NotFound}/>
     </Switch>
     <Route
-      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation value={pathname.slice(1)} /> : null}
+      render={
+        ({location: {pathname}}) =>
+          ![routes.ROOT, routes.REGISTER].includes(pathname) ?
+            <Navigation value={pathname.slice(1)} /> :
+            null
+      }
     />
     <OfflineStatus/>
     <Dialog/>
@@ -64,11 +68,6 @@ const navigation = [
     id: "trips",
     icon: <TripIcon/>,
     to: routes.TRIPS
-  },
-  {
-    id: "messages",
-    icon: <MessageIcon/>,
-    to: routes.MESSAGES
   },
   {
     id: "profile",

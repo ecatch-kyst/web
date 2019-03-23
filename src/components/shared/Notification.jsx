@@ -21,6 +21,7 @@ export const Notification = ({theme}) => {
 
   let actionColor
   let backgroundColor = theme.palette.primary.main
+  const color = "#fff"
   switch (type) {
   case "success":
     backgroundColor = colors.green
@@ -53,7 +54,7 @@ export const Notification = ({theme}) => {
 
   return (
     <Snackbar
-      anchorOrigin={{vertical: "bottom", horizontal: "right"}}
+      anchorOrigin={{vertical: "top", horizontal: "right"}}
       autoHideDuration={duration}
       key={name+type}
       onClose={handleClose}
@@ -63,7 +64,8 @@ export const Notification = ({theme}) => {
       <SnackbarContent
         action={ActionButton}
         message={t(`notifications.${name}.${type || "default"}`, {message})}
-        style={{backgroundColor}}
+        style={{backgroundColor, color}}
+
       />
     </Snackbar>
   )

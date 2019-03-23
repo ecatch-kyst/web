@@ -34,7 +34,7 @@ const TableHead = ({namespace, order, orderBy, onRequestSort}) => {
                 <TableSortLabel
                   active={orderBy === id}
                   direction={order}
-                  hideSortIcon={sortable}
+                  disabled={!sortable}
                   onClick={() => sortable ? createSortHandler(id): null}
                 >
                   {label}

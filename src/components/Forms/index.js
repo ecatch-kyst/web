@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 import {routes} from "../../lib/router"
-import {Centered} from '..'
 import {useTranslation} from 'react-i18next'
 import Form from './Form'
 import {Button, Grid} from '@material-ui/core'
@@ -10,22 +9,20 @@ import {useStore} from '../../hooks'
 export {Form}
 
 
-export default () => {
+export default props => {
   const {isEnRoute, trips} = useStore()
   return (
-    <Centered style={{minHeight: 0}}>
-      <Grid alignItems="center" container direction="column" spacing={16} style={{padding: 16}}>
-        {isEnRoute ?
+    <Grid alignItems="center" container direction="column" spacing={16} style={{padding: 16}} {...props}>
+      {isEnRoute ?
           <>
             <FormButton type="DCA"/>
             {trips[0] && trips[0].DCAList.length ?
               <FormButton type="POR"/> : null
             }
           </> :
-          <FormButton type="DEP"/>
-        }
-      </Grid>
-    </Centered>
+        <FormButton type="DEP"/>
+      }
+    </Grid>
   )
 }
 
