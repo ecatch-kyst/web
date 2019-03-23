@@ -1,51 +1,47 @@
-import React, {Component} from 'react'
-import {Loading, withPage, TableHead} from '../shared'
-import {withStore} from '../../db'
+import React from 'react'
+import {Loading, TableHead, Page, SwitchView} from '../shared'
 
-import {Table, TableBody} from '@material-ui/core'
+import {Table, TableBody, Grid, Typography} from '@material-ui/core'
 
 import Trip, {TripRow} from './Trip'
+import {useStore, useListMutations} from '../../hooks'
+import {useTranslation} from 'react-i18next'
 
 export {Trip}
 
-export class Trips extends Component {
+export default () => {
+  const {trips} = useStore()
+  const [t] = useTranslation("trips")
 
-    state = {
-      order: 'desc',
-      orderBy: 'created'
-    }
-
-    handleRequestSort = orderBy =>
-      this.setState(({order}) => ({
-        order: order === "desc" ? "asc" : "desc",
-        orderBy
-      }))
+  const {
+    list: mutatedTrips, order, orderBy, handleRequestSort
+  } = useListMutations(trips, {order: "desc", orderBy: "start"})
 
 
-    render() {
-      const {order, orderBy} = this.state
-      const {trips} = this.props.store
-
-      return (
-        <>
-        {trips.length ?
-          <Table>
-            <TableHead
-              namespace="trips"
-              onRequestSort={this.handleRequestSort}
-              order={order}
-              orderBy={orderBy}
-            />
-            <TableBody>
-              {trips.map(trip => <TripRow id={trip.id} key={trip.id}/>)}
-            </TableBody>
-          </Table> :
-          <Loading/>
-        }
-        </>
-      )
-    }
+  return (
+    <Page
+      namespace="trips"
+      title={
+        <Grid alignItems="center" container justify="space-between">
+          <Typography variant="h4">{t("titles.main")}</Typography>
+          <SwitchView/>
+        </Grid>
+      }
+    >
+      {trips.length ?
+        <Table>
+          <TableHead
+            namespace="trips"
+            onRequestSort={handleRequestSort}
+            order={order}
+            orderBy={orderBy}
+          />
+          <TableBody>
+            {mutatedTrips.map(trip => <TripRow id={trip.id} key={trip.id}/>)}
+          </TableBody>
+        </Table> :
+        <Loading/>
+      }
+    </Page>
+  )
 }
-
-
-export default withPage(withStore(Trips), {namespace: "trips"})
