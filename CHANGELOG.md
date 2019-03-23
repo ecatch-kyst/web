@@ -17,6 +17,13 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - register bug (name was not updated correctly at registration)
+- Dropdown did not show selected values
+- DropdownMap did not propagate inputType to TextInput fields
+- GeoPointInput did not update state correctly
+- TextInput did not update state correctly
+- EditCatch did redirections wrong
+- ME field was missing from messages sent to Firebase ([#67](https://github.com/ecatch-kyst/web/issues/67))
+- Firebase tried to login without credentials
 
 ### Removed
 - useNotification hook (useStore does basically the same, thus it's only an unnecessary complication)
