@@ -36,7 +36,7 @@ export async function submit(type) {
       expectedFishingStart, QI, fishingStart,
       ZO, startFishingSpot, GE, GP,
       endFishingSpot,
-      DU, CA, GS
+      DU, CA, GS, ME
     } = this.state.fields
 
     let message = {
@@ -74,6 +74,7 @@ export async function submit(type) {
         DU,
         CA
       }
+      if (["OTB", "OTM", "SSC", "GEN", "TBS"].includes(GE)) message.ME = ME
       break
     case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
       message = {

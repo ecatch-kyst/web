@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {TextField, InputLabel, InputAdornment} from "@material-ui/core"
 import {useTranslation} from 'react-i18next'
 import {GEOPOINT} from '../../../lib/firebase'
@@ -6,7 +6,13 @@ import {GEOPOINT} from '../../../lib/firebase'
 const GeoPointInput = ({disabled, dataId, label, onChange, value: {latitude, longitude}}) => {
 
   const [t] = useTranslation("forms")
-  const [localValue, setValue] = useState(GEOPOINT(latitude || 0, longitude || 0))
+  const [localValue, setValue] = useState({})
+
+
+  useEffect(() => {
+    setValue(GEOPOINT(latitude || 0, longitude || 0))
+  }, [latitude, longitude])
+
 
   // when user inputs something into the text field, update the state
   const handleChange = ({target: {name, value}}) => {

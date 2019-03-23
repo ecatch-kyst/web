@@ -5,7 +5,9 @@ import {AUTH} from "../../lib/firebase"
  */
 export async function login({email, password, afterLogin=null}) {
   try {
-    await AUTH.signInWithEmailAndPassword(email, password)
+    if (email && password) {
+      await AUTH.signInWithEmailAndPassword(email, password)
+    }
   } catch (error) {
     this.notify({name: "login", type: `error.${error.code}`, duration: 5000})
   } finally {

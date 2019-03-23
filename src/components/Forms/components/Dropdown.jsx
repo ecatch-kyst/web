@@ -48,7 +48,7 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
     }
 
     handleChange = ({value}) => onChange(dataId, value)
-    value = options.find(option =>
+    selectValue = options.find(option =>
       option.value === value ||
       //REVIEW: Better solution to match geopoints ?
       (option.value.latitude && value.latitude &&
@@ -57,6 +57,7 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
       )
     )
   }
+
 
   return(
     <Select
