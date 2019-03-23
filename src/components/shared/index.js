@@ -6,6 +6,7 @@ import Page, {withPage} from "./Page"
 import TableHead from "./TableHead"
 import Status from "./Status"
 import Countdown from "./Countdown"
+import SwitchView from "./SwitchView"
 
 
 export {
@@ -17,5 +18,6 @@ export {
   withPage,
   TableHead,
   Countdown,
-  Status
+  Status,
+  SwitchView
 }
