@@ -86,6 +86,10 @@
 					"error": "Message not sent \n{{message}}",
 					"success": "Message sent"
 				},
+				"DCA": {
+					"error": "Message not sent \n{{message}}",
+					"success": "Message sent"
+				},
 				"POR": {
 					"error": "Message not sent\n{{message}}",
 					"success": "Message sent"

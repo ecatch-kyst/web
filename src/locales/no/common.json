@@ -85,6 +85,10 @@
 					"error": "Meldingen ble ikke sendt \n{{message}}",
 					"success": "Meldingen ble sendt"
 				},
+				"DCA": {
+					"error": "Meldingen ble ikke sendt \n{{message}}",
+					"success": "Meldingen ble sendt"
+				},
 				"POR": {
 					"error": "Meldingen ble ikke sendt: {{message}}",
 					"success": "Meldingen ble sendt"

@@ -1,31 +1,44 @@
 {
 	"titles": {
-		"main": "Turer"
-  },
-  "tooltips": {
-		"sort": "Sorter"
+		"main": "Turer",
+		"enRoute": "På tur",
+		"switch": {
+			"trips": "Individuelle meldinger",
+			"messages": "Grupper etter turer"
+		}
 	},
-	"table-head-rows": [
-		{
-		"left": true,
+	"tooltips": {
+		"sort": "Sorter",
+		"enRoute": "Aktiv tur"
+	},
+	"table-head-rows": [{
+			"left": true,
+			"sortable": false,
 			"id": "fromTo",
 			"label": "Fra → Til"
 		},
 		{
-			"id": "period",
+			"id": "start",
 			"label": "Periode"
 		}
 	],
-	"DCAList": {
-		"fishingMessages": {
-			"tableHeads": {
-				"status": "Status",
-				"fish": "Fisk (kg)",
-				"edit": "Rediger"
-			},
-			"tooltips": {
-				"deadline": "Rediger denne meldingen før {{until, relativeDate}}."
-			}
+	"actions": {
+		"tooltips": {
+			"countdown": "Rediger før {{deadline, relativeDate}}.",
+			"disabled": "Kan ikke redigeres."
+		},
+		"buttons": {
+			"edit": "Rediger"
+		}
+	},
+	"summary": {
+		"default": {
+			"created": "{{created, date}}"
+		}
+	},
+	"details": {
+		"FIS": {
+			"fish": "Fisk fanget (kg)"
 		}
 	}
 }

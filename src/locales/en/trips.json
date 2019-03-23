@@ -1,31 +1,44 @@
 {
 	"titles": {
-		"main": "Trips"
+		"main": "Trips",
+		"enRoute": "En route",
+		"switch": {
+			"trips": "Show individual messages",
+			"messages": "Group messages into trips"
+		}
 	},
 	"tooltips": {
-		"sort": "Sort"
+		"sort": "Sort",
+		"enRoute": "Ongoing trip"
 	},
-	"table-head-rows": [
-		{
-		"left": true,
+	"table-head-rows": [{
+			"left": true,
+			"sortable": false,
 			"id": "fromTo",
 			"label": "From → To"
 		},
 		{
-			"id": "period",
+			"id": "start",
 			"label": "Period"
 		}
 	],
-	"DCAList": {
-		"fishingMessages": {
-			"tableHeads": {
-				"status": "Status",
-				"fish": "Fish (kg)",
-				"edit": "Edit"
-			},
-			"tooltips": {
-				"deadline": "Edit this message until {{until, relativeDate}}."
-			}
+	"actions": {
+		"tooltips": {
+			"countdown": "Edit before {{deadline, relativeDate}}.",
+			"disabled": "Cannot edit."
+		},
+		"buttons": {
+			"edit": "Edit"
+		}
+	},
+	"summary": {
+		"default": {
+			"created": "{{created, relativeDate}}"
+		}
+	},
+	"details": {
+		"FIS": {
+			"fish": "Fish caught (kg)"
 		}
 	}
 }

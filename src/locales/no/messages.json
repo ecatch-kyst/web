@@ -3,7 +3,8 @@
 		"main": "Meldinger",
 		"DEP": "avgang",
 		"DCA": "fangst",
-		"POR": "havneanløp"
+		"POR": "havneanløp",
+		"search": "Søk…"
 	},
 	"tooltips": {
 		"sort": "Sorter",
