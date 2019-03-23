@@ -9,7 +9,7 @@ import Status from '../../shared/Status'
 
 export const Message = ({RN, TM, result, created, history}) => {
   const [t] = useTranslation("messages")
-  const disabled = isBefore(addHours(created.toDate(), 12), Date.now())
+  const disabled = isBefore(addHours(created, 12), Date.now())
   return (
     <TableRow
       hover={TM === "DCA" && !disabled}
@@ -31,9 +31,9 @@ export const Message = ({RN, TM, result, created, history}) => {
         </Grid>
       </TableCell>
       <TableCell align="right">
-        <Tooltip title={format(created.toDate(), "yyyy. MMMM dd HH:mm")}>
+        <Tooltip title={format(created, "yyyy. MMMM dd HH:mm")}>
           <Typography>
-            {format(created.toDate(), "MMM d. HH:mm")}
+            {format(created, "MMM d. HH:mm")}
           </Typography>
         </Tooltip>
       </TableCell>

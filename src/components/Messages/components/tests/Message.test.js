@@ -2,11 +2,7 @@ import {Message} from "../Message"
 
 
 describe("Message component", () => {
-  const props = {
-    created: {
-      toDate: () => new Date()
-    }
-  }
+  const props = {created: new Date()}
   const wrapper = shallow(<Message {...props}/>)
 
   it("renders correctly", () => {

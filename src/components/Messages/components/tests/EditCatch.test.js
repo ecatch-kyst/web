@@ -5,7 +5,7 @@ import Form from '../../../Forms/Form'
 import useStore from '../../../../hooks/useStore'
 
 jest.mock('../../../../hooks/useStore', () => jest.fn().mockReturnValue({
-  messages: [{RN: 1, TM: "DCA", created: {toDate: () => new Date()}}]
+  messages: [{RN: 1, TM: "DCA", created: new Date()}]
 }))
 
 describe("EditCatch component", () => {
@@ -46,7 +46,7 @@ describe("EditCatch component", () => {
 
     it("created more than 12 hours ago", () => {
       useStore.mockReturnValueOnce({
-        messages: [{RN: 1, TM: "DCA", created: {toDate: () => new Date("2000-01-01")}}]
+        messages: [{RN: 1, TM: "DCA", created: new Date("2000-01-01")}]
       })
       const wrapper = shallow(<EditCatch {...props}/>)
       expect(wrapper.find(Redirect)).toHaveLength(1)

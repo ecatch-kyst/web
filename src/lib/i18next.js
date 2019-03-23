@@ -23,7 +23,7 @@ import trips_no from "../locales/no/trips.json"
 import forms_en from "../locales/en/forms.json"
 import forms_no from "../locales/no/forms.json"
 
-import {formatRelative} from 'date-fns'
+import {formatRelative, format} from 'date-fns'
 import {nb as nbDateFns, enGB as enDateFns} from "date-fns/locale"
 
 const en = {
@@ -67,6 +67,7 @@ i18next.init({
   interpolation: {
     format: (value, type, language) => {
       switch (type) {
+
       case "relativeDate": {
         let locale
         switch (language) {
@@ -78,6 +79,17 @@ i18next.init({
           break
         }
         return formatRelative(value, Date.now(), {locale})
+      }
+      case "date": {
+        let locale
+        switch (language) {
+        case "no":
+          locale = nbDateFns
+          return format(value, "dd. MMMM YYYY HH:mm", {awareOfUnicodeTokens: true, locale})
+        default:
+          locale = enDateFns
+          return format(value, "YYYY.MMM.dd HH:mm", {awareOfUnicodeTokens: true, locale})
+        }
       }
 
       default:

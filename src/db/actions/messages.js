@@ -112,7 +112,10 @@ export function subscribe() {
     .onSnapshot(
       snap => {
         if (!snap.empty) {
-          const messages = snap.docs.map(flattenDoc)
+          const messages = snap.docs.map(flattenDoc).map(m => Object.entries(m).reduce((acc, [key,value]) => {
+            return ({...acc, [key]: key !== "timestamp" && value.toDate ? value.toDate() : value})
+          }
+          , {}))
           const trips = generateTrips(messages)
           const isEnRoute = !trips[0].isFinished
           this.setState({messages, isEnRoute, trips})
@@ -151,7 +154,7 @@ const generateTrips = messages => {
           id: message.id,
           DEP: message,
           POR: null,
-          start: message.created.toDate(),
+          start: message.created,
           DCAList: [],
           end: null,
           isFinished: false,
@@ -168,7 +171,7 @@ const generateTrips = messages => {
         acc[lastTripIndex] = {
           ...acc[lastTripIndex],
           POR: message,
-          end: message.portArrival.toDate(),
+          end: message.portArrival,
           isFinished: true
         }
         return acc
