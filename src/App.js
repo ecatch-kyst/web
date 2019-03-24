@@ -4,6 +4,7 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
 import MessageIcon from "@material-ui/icons/ModeCommentOutlined"
+import Controlled from './joyride'
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -28,6 +29,7 @@ import {useTranslation} from 'react-i18next'
 export const App = ({theme: {palette: {type}}}) =>
   <div className="app" style={{backgroundColor: type === "dark" ? "#000" : ""}}>
     <Switch>
+      <Route path="/controlled" component={Controlled} />
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
