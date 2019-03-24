@@ -10,13 +10,14 @@ All notable changes to this project will be documented in this file.
 - useReactHooks everywhere! 🎣🎉 [React v16.8: The One With Hooks](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html)
 - util functions to calculate deadlines more easily
 - Turn Firebase Timestamps into plain JS Dates at fetching. This way, the programmer only has to use normal date objects throughout the app
-- add date format interpolation to i18n (show dates differently for different languages)
 
 ### Added
 - Assets for Android, iOS, macOS Safari, Windows
 - WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
 - User can now add his own fishingSpots. ([#52](https://github.com/ecatch-kyst/web/issues/52))
-- Trip view
+- date format interpolation to i18n (show dates differently for different languages)
+- Trips view
+- Trip overview
 
 ### Fixed
 - register bug (name was not updated correctly at registration)
