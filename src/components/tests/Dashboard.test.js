@@ -1,14 +1,6 @@
-import Dashboard from "../Dashboard"
-
-import "../../lib/firebase"
-
-jest.mock("../../lib/firebase", () => ({
-  AUTH: {currentUser: {}}
-}))
-
+import {Dashboard} from "../Dashboard"
 
 describe("Dashboard component", () => {
-  const props = {t: text => text}
-  const wrapper = shallow(<Dashboard {...props}/>).dive()
+  const wrapper = shallow(<Dashboard/>)
   it("renders correctly", () => expect(wrapper).toHaveLength(1))
 })
