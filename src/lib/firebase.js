@@ -17,7 +17,7 @@ firebase.initializeApp({
 
 export const FS = firebase.firestore()
 
-if (process.env.NODE_ENV !== "test") FS.enablePersistence()
+if (process.env.NODE_ENV !== "test") FS.enablePersistence({experimentalTabSynchronization: true})
 
 export const DB = firebase.database()
 export const FileStore = firebase.storage()
