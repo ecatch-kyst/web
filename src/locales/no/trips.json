@@ -11,15 +11,24 @@
 		"sort": "Sorter",
 		"enRoute": "Aktiv tur"
 	},
-	"table-head-rows": [{
+	"table-head-rows": [
+		{
 			"left": true,
-			"sortable": false,
-			"id": "fromTo",
-			"label": "Fra → Til"
+			"id": "startPort",
+			"label": "Fra"
+		},
+		{
+			"left": true,
+			"id": "endPort",
+			"label": "Til"
 		},
 		{
 			"id": "start",
-			"label": "Periode"
+			"label": "Start"
+		},
+		{
+			"id": "end",
+			"label": "Slutt"
 		}
 	],
 	"actions": {

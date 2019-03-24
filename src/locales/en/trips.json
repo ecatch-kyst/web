@@ -11,15 +11,24 @@
 		"sort": "Sort",
 		"enRoute": "Ongoing trip"
 	},
-	"table-head-rows": [{
+	"table-head-rows": [
+		{
 			"left": true,
-			"sortable": false,
-			"id": "fromTo",
-			"label": "From → To"
+			"id": "startPort",
+			"label": "From"
+		},
+		{
+			"left": true,
+			"id": "endPort",
+			"label": "To"
 		},
 		{
 			"id": "start",
-			"label": "Period"
+			"label": "Start"
+		},
+		{
+			"id": "end",
+			"label": "End"
 		}
 	],
 	"actions": {
