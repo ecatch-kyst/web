@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next'
 import MergeIcon from "@material-ui/icons/CallMergeOutlined"
 import SplitIcon from "@material-ui/icons/CallSplitOutlined"
 
-export const SwitchView = ({history, location: {pathname}}) => {
+export const SwitchView = memo(({history, location: {pathname}}) => {
   const [t] = useTranslation("trips")
 
   const handleSwitchView = () => {
@@ -42,9 +42,8 @@ export const SwitchView = ({history, location: {pathname}}) => {
       labelPlacement="start"
     />
   )
-}
-
-
-export default withRouter(
-  memo(SwitchView, (prevProps, nextProps) => prevProps.location.pathname !== nextProps.location.pathname)
+}, (prevProps, nextProps) => prevProps.location.pathname === nextProps.location.pathname
 )
+
+
+export default withRouter(SwitchView)

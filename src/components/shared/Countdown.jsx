@@ -6,7 +6,7 @@ export default class extends Component {
 
   state = {
     end: this.props.end,
-    hours: "00",
+    hours: "0",
     minutes: "00",
     seconds: "00"
   }
@@ -31,7 +31,7 @@ export default class extends Component {
   render() {
     const {hours, minutes, seconds} = this.state
     return (
-      <Typography style={{fontFamily: "monospace"}}>{hours}:{minutes}:{seconds}</Typography>
+      <Typography style={{fontFamily: "monospace"}}>{`${hours}:${minutes}:${seconds}`}</Typography>
     )
   }
 }

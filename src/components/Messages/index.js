@@ -12,20 +12,12 @@ import {useTranslation} from 'react-i18next'
 export {EditCatch}
 
 export const Messages = () => {
-  const {messages} = useStore()
   const [t] = useTranslation("messages")
+  const {messages} = useStore()
   const {list: mutatedMessages, order, orderBy, handleQuery, handleRequestSort} = useListMutations(messages, {orderBy: "created"})
 
   return (
-    <Page
-      namespace="messages"
-      title={
-        <Grid alignItems="center" container justify="space-between">
-          <Typography variant="h4">{t("titles.main")}</Typography>
-          <SwitchView/>
-        </Grid>
-      }
-    >
+    <>
       <Toolbar> {/*NOTE: Maybe add Chip or Toggle components to filter on message types instead*/}
         <SearchIcon />
         <InputBase fullWidth onChange={handleQuery} placeholder={t("titles.search")}/>
@@ -44,9 +36,25 @@ export const Messages = () => {
         </Table> :
         <Loading/>
       }
-    </Page>
+    </>
   )
 }
 
 
-export default Messages
+export default props => {
+  const [t] = useTranslation("messages")
+
+  return(
+    <Page
+      namespace="messages"
+      title={
+        <Grid alignItems="center" container justify="space-between">
+          <Typography variant="h4">{t("titles.main")}</Typography>
+          <SwitchView/>
+        </Grid>
+      }
+    >
+      <Messages {...props}/>
+    </Page>
+  )
+}
