@@ -18,6 +18,13 @@ export default () => {
   } = useListMutations(trips, {order: "desc", orderBy: "start"})
 
 
+  const activeTripIndex = mutatedTrips.findIndex(t => !t.isFinished)
+  let activeTrip
+  if (activeTripIndex !== -1) {
+    activeTrip = mutatedTrips[activeTripIndex]
+    mutatedTrips.splice(activeTripIndex, 1)
+  }
+
   return (
     <Page
       namespace="trips"
@@ -37,7 +44,8 @@ export default () => {
             orderBy={orderBy}
           />
           <TableBody>
-            {mutatedTrips.map(trip => <TripRow id={trip.id} key={trip.id}/>)}
+            {activeTrip ? <TripRow {...activeTrip}/> : null}
+            {mutatedTrips.map(trip => <TripRow key={trip.id} {...trip}/>)}
           </TableBody>
         </Table> :
         <Loading/>

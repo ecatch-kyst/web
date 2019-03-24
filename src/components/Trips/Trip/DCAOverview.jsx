@@ -40,7 +40,7 @@ export const DCAOverview = ({list}) => {
 
 
   return (
-    <Grid container>
+    <Grid container style={{marginBottom: 64}}>
       {Object.values(activities).flat().reverse().map((activity) => {
         const type = activityTranslations.find(a => a.value === activity.AC).label
 
@@ -99,15 +99,15 @@ const Summary = ({title, status, TM, created}) => {
 
   return (
     <Grid alignItems="center" container justify="space-between">
-      <Grid component={Status} item result={status}/>
-      <Grid item xs="auto">{title}</Grid>
-      {disabled ? null :
-        <Grid item>
+      <Grid component={Status} item result={status} xs={1}/>
+      <Grid item md={7} xs={6}>{title}</Grid>
+      <Grid container item justify="flex-end" md={4} xs={3}>
+        {disabled ? "" :
           <Tooltip title={t("actions.tooltips.countdown", {deadline: deadline(created)})}>
             <div><Countdown end={deadline(created)}/></div>
           </Tooltip>
-        </Grid>
-      }
+        }
+      </Grid>
     </Grid>
   )
 }

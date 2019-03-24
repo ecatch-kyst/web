@@ -155,6 +155,7 @@ const generateTrips = messages => {
           DEP: message,
           POR: null,
           start: message.created,
+          startPort: message.PO,
           DCAList: [],
           end: null,
           isFinished: false,
@@ -172,6 +173,7 @@ const generateTrips = messages => {
           ...acc[lastTripIndex],
           POR: message,
           end: message.portArrival,
+          endPort: message.PO,
           isFinished: true
         }
         return acc
