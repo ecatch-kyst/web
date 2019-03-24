@@ -1,5 +1,5 @@
 import React from 'react'
-import {withTranslation, useTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 import {Tooltip, Chip} from '@material-ui/core'
 
 export default ({type, weight}) => {
