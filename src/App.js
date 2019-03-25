@@ -29,7 +29,7 @@ import {useTranslation} from 'react-i18next'
 export const App = ({theme: {palette: {type}}}) =>
   <div className="app" style={{backgroundColor: type === "dark" ? "#000" : ""}}>
     <Switch>
-      <Route path="/controlled" component={Controlled} />
+      <Route component={Controlled} excat path={routes.CONTROLLED}/>
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
