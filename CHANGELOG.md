@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
+
+## [1.0.0-beta4] - 2019-03-25
 ### Changed
 - New Logo
 - Logo instead of text on Landing
