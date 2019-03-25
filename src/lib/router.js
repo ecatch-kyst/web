@@ -11,5 +11,6 @@ export const routes = {
   POR: "/POR",
   NOT_FOUND: "/404",
   NEW: "/new",
-  EDIT: "/edit"
+  EDIT: "/edit",
+  CONTROLLED: "/controlled"
 }

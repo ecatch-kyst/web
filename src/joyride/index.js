@@ -30,11 +30,11 @@ import {
 import {useTranslation} from 'react-i18next'
 
 const Wrapper = styled(Grommet)`
-  background-color: #3c3f41;
+  //background-color: #3c3f41;
   color: #fff;
   padding-bottom: 50px;
   height: auto;
-  // overflow: initial;`
+  overflow: initial;`
 
 class JoyRideControlled extends Component {
 
@@ -52,7 +52,7 @@ class JoyRideControlled extends Component {
       run: true,
       steps: [
         {
-          target: this.Dashboard,
+          target: this.Button,  
           content: (
             <div>
                   You can interact with your own components through the spotlight.<br />
@@ -168,20 +168,21 @@ class JoyRideControlled extends Component {
     Notification
 
     render() {
-      const {run, sidebarOpen, steps, stepIndex} = this.state
+      const {run, steps, stepIndex} = this.state
 
       return (
-        <Wrapper full={true} id="outerContainer" theme={grommet}>
+        <Wrapper theme={grommet} full={true} id="outerContainer">
           <ReactJoyride
-            //callback={this.handleJoyrideCallback}
             continuous
             run={run}
+            steps={steps}
+            stepIndex={stepIndex}
             scrollToFirstStep
             showProgress
             showSkipButton
-            stepIndex={stepIndex}
-            steps={steps}
-          />
+            callback={this.handleJoyrideCallback}
+            />
+          <Dashboard/>
         </Wrapper>
       )
     }
