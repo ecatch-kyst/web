@@ -17,30 +17,7 @@ const Store = createContext()
 
 export class Database extends Component {
 
-  state = {
-    ...initValues,
-    fields: {
-      departure: null, // Time of departure
-      PO: null, // Land & port
-      expectedFishingStart: "", // Expected time of fishing start
-      DS: "", // Expected fish art
-      OB: {}, // Fish type and weight,
-      KG: {}, // Fish type and weight,
-      CA: {}, // Fish type and weight,
-      expectedFishingSpot: {},
-      startFishingSpot: {},
-      endFishingSpot: {},
-      QI: 1, // Fishing permit
-      AC: "FIS", // Fishing activity
-      GP: 0, // Gear problem
-      ZO: "NOR", // Fishing zone
-      DU: 0 // Duration of activity
-    },
-    custom: {
-      editing: {},
-      fishingSpots: []
-    }
-  }
+  state = initValues
 
   async componentDidMount() {
 
@@ -101,6 +78,9 @@ export class Database extends Component {
   userLogin = user.login.bind(this)
 
   userLogout = user.logout.bind(this)
+
+
+  userUpdateProfile = user.updateProfile.bind(this)
 
   userDelete = user.deleteUser.bind(this)
 

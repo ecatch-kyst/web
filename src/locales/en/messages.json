@@ -3,7 +3,8 @@
 		"main": "Messages",
 		"DEP": "departure",
 		"DCA": "catch",
-		"POR": "port call"
+		"POR": "port call",
+		"search": "Search…"
 	},
 	"tooltips": {
 		"sort": "Sort",

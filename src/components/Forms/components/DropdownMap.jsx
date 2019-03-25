@@ -1,272 +1,55 @@
-/* eslint-disable react/prop-types, react/jsx-handler-names */
+import React from 'react'
+import {Grid} from '@material-ui/core'
 
-import React, {useState, useEffect} from 'react'
-import classNames from 'classnames'
-import Select from 'react-select'
-import {withStyles} from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import NoSsr from '@material-ui/core/NoSsr'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper'
-import Chip from '@material-ui/core/Chip'
-import MenuItem from '@material-ui/core/MenuItem'
-import CancelIcon from '@material-ui/icons/Cancel'
-import {emphasize} from '@material-ui/core/styles/colorManipulator'
+import TextInput from './TextInput'
+import Dropdown from './Dropdown'
 import {useTranslation} from 'react-i18next'
-import {withStore} from '../../../db/index.js'
-import {Grid, InputAdornment} from '@material-ui/core'
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1
-  },
-  input: {
-    display: 'flex',
-    padding: 0
-  },
-  valueContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flex: 1,
-    alignItems: 'center',
-    overflow: 'hidden'
-  },
-  chip: {
-    margin: `${theme.spacing.unit / 2}px ${theme.spacing.unit / 4}px`
-  },
-  chipFocused: {
-    backgroundColor: emphasize(
-      theme.palette.type === 'light' ? theme.palette.grey[300] : theme.palette.grey[700],
-      0.08,
-    )
-  },
-  noOptionsMessage: {
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
-  },
-  singleValue: {
-    fontSize: 16
-  },
-  placeholder: {
-    position: 'absolute',
-    left: 2,
-    fontSize: 16
-  },
-  paper: {
-    position: 'absolute',
-    zIndex: 1,
-    marginTop: theme.spacing.unit,
-    left: 0,
-    right: 0
-  },
-  divider: {
-    height: theme.spacing.unit * 2
+const DropdownMap = props => {
+
+  const handleKeyValueChange = (name, inputValue) => {
+    const {onChange, dataId, value, inputType} = props
+    const newValue = {...value}
+    newValue[name] = (inputType === "number" ? parseInt(inputValue, 10) : inputValue) || ""
+    onChange(dataId, newValue)
   }
-})
 
-function NoOptionsMessage(props) {
+
   return (
-    <Typography
-      className={props.selectProps.classes.noOptionsMessage}
-      color="textSecondary"
-      {...props.innerProps}
-    >
-      {props.children}
-    </Typography>
+    <>
+      <Dropdown {...props}/>
+      <Grid container direction="column" spacing={16} style={{padding: 16}}>
+        {Object.entries(props.value).map(([key, value]) =>
+          <KeyValueInput
+            dataId={key}
+            inputType={props.inputType}
+            key={key}
+            onChange={handleKeyValueChange}
+            type={props.type}
+            unit={props.unit}
+            value={value}
+          />
+        )}
+      </Grid>
+    </>
   )
 }
 
-function inputComponent({inputRef, ...props}) {
-  return <div ref={inputRef} {...props} />
-}
-
-function Control(props) {
-  return (
-    <TextField
-      fullWidth
-      InputProps={{
-        inputComponent,
-        inputProps: {
-          children: props.children,
-          className: props.selectProps.classes.input,
-          inputRef: props.innerRef,
-          ...props.innerProps
-        }
-      }}
-      {...props.selectProps.textFieldProps}
-    />
-  )
-}
-
-function Option(props) {
-  return (
-    <MenuItem
-      buttonRef={props.innerRef}
-      component="div"
-      selected={props.isFocused}
-      style={{
-        fontWeight: props.isSelected ? 500 : 400
-      }}
-      {...props.innerProps}
-    >
-      {props.children}
-    </MenuItem>
-  )
-}
-
-function Placeholder(props) {
-  return (
-    <Typography
-      className={props.selectProps.classes.placeholder}
-      color="textSecondary"
-      {...props.innerProps}
-    >
-      {props.children}
-    </Typography>
-  )
-}
-
-function SingleValue(props) {
-  return (
-    <Typography className={props.selectProps.classes.singleValue} {...props.innerProps}>
-      {props.children}
-    </Typography>
-  )
-}
-
-function ValueContainer(props) {
-  return <div className={props.selectProps.classes.valueContainer}>{props.children}</div>
-}
-
-function MultiValue(props) {
-  return (
-    <Chip
-      className={classNames(props.selectProps.classes.chip, {
-        [props.selectProps.classes.chipFocused]: props.isFocused
-      })}
-      deleteIcon={<CancelIcon {...props.removeProps} />}
-      label={props.children}
-      onDelete={props.removeProps.onClick}
-      tabIndex={-1}
-    />
-  )
-}
-
-function Menu(props) {
-  return (
-    <Paper className={props.selectProps.classes.paper} square {...props.innerProps}>
-      {props.children}
-    </Paper>
-  )
-}
-
-const components = {
-  Control,
-  Menu,
-  MultiValue,
-  NoOptionsMessage,
-  Option,
-  Placeholder,
-  SingleValue,
-  ValueContainer
-}
-
-const IntegrationReactSelect = ({classes, theme, isMulti, placeholder, type, onChange, dataId, value, dropdown: dropdownId, inputType, unit}) => {
-
+const KeyValueInput = ({dataId, inputType, type, ...props}) => {
   const [t] = useTranslation("forms")
-
-  const handleChange = options => {
-    onChange(
-      dataId,
-      {
-        ...options.reduce((acc, {value: key}) =>
-          ({...acc, [key]: value[key] || 0}), {})
-      }
-    )
-  }
-
-
-  const selectStyles = {
-    input: base => ({
-      ...base,
-      color: theme.palette.text.primary,
-      '& input': {
-        font: 'inherit'
-      }
-    })
-  }
-
-  const options = t(`dropdowns.${dropdownId}`, {returnObjects: true})
-
-  const selectValue = options.reduce((acc, option) => {
-    if (Object.keys(value).includes(option.value)) return [...acc, option]
-    else return acc
-  }, [])
+  const label = t(`dropdowns.${type}`, {returnObjects: true})
+    .find(option => option.value === dataId).label
 
   return (
-    <div className={classes.root}>
-      <NoSsr>
-        <div className={classes.divider} />
-        <Select
-          classes={classes}
-          components={components}
-          isMulti={isMulti}
-          onChange={handleChange}
-          options={options}
-          placeholder={placeholder}
-          styles={selectStyles}
-          textFieldProps={{InputLabelProps: {shrink: true}}}
-          value={selectValue}
-        />
-        <Grid container direction="column" spacing={16} style={{padding: 16}}>
-          {Object.entries(value).map(([key, inputValue]) =>
-            <Grid
-              component={KeyValueInput}
-              id={key}
-              inputType={inputType}
-              item
-              key={key}
-              label={selectValue.find(option => option.value === key).label}
-              onChange={onChange}
-              type={type}
-              unit={unit}
-              value={inputValue}
-            />
-          )}
-        </Grid>
-      </NoSsr>
-    </div>
+    <Grid
+      {...props}
+      component={TextInput}
+      dataId={dataId}
+      item
+      label={label}
+      type={inputType}
+    />
   )
 }
 
-const KeyValueInput = withStore(({store: {fields}, id, onChange, label, value, type, inputType, unit}) => {
-
-  const [localValue, setValue] = useState("")
-
-  // update local state, when global is updated
-  useEffect(() => {setValue(value || "")}, [value])
-
-  // when user inputs something into the text field, update the state
-  const handleChange = ({target: {value}}) => setValue(inputType === "number" ? parseInt(value, 10) : (value || ""))
-
-  // when user moves away from the field, update the global state
-  const handleBlur = () => {
-    const field = fields[type]
-    field[id] = localValue
-    onChange(type, field)
-  }
-
-  return (
-    <TextField
-      InputProps={{
-        endAdornment: unit ? <InputAdornment position="end">{unit}</InputAdornment> : null
-      }}
-      label={label}
-      onBlur={handleBlur}
-      onChange={handleChange}
-      type={inputType}
-      value={localValue}
-    />
-  )
-})
-
-export default withStyles(styles, {withTheme: true})(IntegrationReactSelect)
+export default DropdownMap

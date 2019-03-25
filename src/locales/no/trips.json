@@ -1,0 +1,53 @@
+{
+	"titles": {
+		"main": "Turer",
+		"enRoute": "På tur",
+		"switch": {
+			"trips": "Individuelle meldinger",
+			"messages": "Grupper etter turer"
+		}
+	},
+	"tooltips": {
+		"sort": "Sorter",
+		"enRoute": "Aktiv tur"
+	},
+	"table-head-rows": [
+		{
+			"left": true,
+			"id": "startPort",
+			"label": "Fra"
+		},
+		{
+			"left": true,
+			"id": "endPort",
+			"label": "Til"
+		},
+		{
+			"id": "start",
+			"label": "Start"
+		},
+		{
+			"id": "end",
+			"label": "Slutt"
+		}
+	],
+	"actions": {
+		"tooltips": {
+			"countdown": "Rediger før {{deadline, relativeDate}}.",
+			"disabled": "Kan ikke redigeres."
+		},
+		"buttons": {
+			"edit": "Rediger"
+		}
+	},
+	"summary": {
+		"default": {
+			"created": "{{created, date}}"
+		}
+	},
+	"details": {
+		"FIS": {
+			"fish": "Fisk fanget (kg)"
+		}
+	}
+}

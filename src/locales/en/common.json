@@ -14,7 +14,8 @@
 	"navigation": {
 		"dashboard": "Dashboard",
 		"profile": "Profile",
-		"messages": "Messages"
+		"messages": "Messages",
+		"trips": "Trips"
 	},
 	"loading": {
 		"tooltip": "Loading..."
@@ -60,6 +61,14 @@
 			},
 			"description": "Are you sure you want to send in a departure message?"
 		},
+		"DCA": {
+			"titles": {
+				"main": "Send in DCA message?",
+				"submit": "Confirm",
+				"cancel": "Cancel"
+			},
+			"description": "Are you sure you want to send in a catch message?"
+		},
 		"POR": {
 			"titles": {
 				"main": "Send in POR message?",
@@ -74,6 +83,10 @@
 		"message": {
 			"sent": {
 				"DEP": {
+					"error": "Message not sent \n{{message}}",
+					"success": "Message sent"
+				},
+				"DCA": {
 					"error": "Message not sent \n{{message}}",
 					"success": "Message sent"
 				},

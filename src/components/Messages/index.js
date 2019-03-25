@@ -1,91 +1,60 @@
-import React, {Component} from 'react'
-import {Loading, withPage} from '../shared'
-import {withStore} from '../../db'
+import React from 'react'
+import {Loading, TableHead, Page, SwitchView} from '../shared'
 
-import {Table, TableBody, Toolbar, InputBase} from '@material-ui/core'
+import {Table, TableBody, Toolbar, InputBase, Grid, Typography} from '@material-ui/core'
 import SearchIcon from "@material-ui/icons/SearchOutlined"
 
 import Message from './components/Message'
 
-import EditMessage from './components/EditMessage'
-import TableHead from './components/TableHead'
-export {EditMessage}
+import EditCatch from './components/EditCatch'
+import {useStore, useListMutations} from '../../hooks'
+import {useTranslation} from 'react-i18next'
+export {EditCatch}
 
+export const Messages = () => {
+  const [t] = useTranslation("messages")
+  const {messages} = useStore()
+  const {list: mutatedMessages, order, orderBy, handleQuery, handleRequestSort} = useListMutations(messages, {orderBy: "created"})
 
-const desc = (a, b, orderBy) =>
-  (b[orderBy] < a[orderBy]) ? -1 :
-    (b[orderBy] > a[orderBy]) ? 1 :
-      0
-
-const stableSort = (array, cmp) => {
-  const stabilizedThis = array.map((el, index) => [el, index])
-  stabilizedThis.sort((a, b) => {
-    const order = cmp(a[0], b[0])
-    if (order !== 0) return order
-    return a[1] - b[1]
-  })
-  return stabilizedThis.map(el => el[0])
-}
-
-const getSorting = (order, orderBy) =>
-  order === 'desc' ?
-    (a, b) => desc(a, b, orderBy) :
-    (a, b) => -desc(a, b, orderBy)
-
-
-export class Messages extends Component {
-
-    state = {
-      order: 'desc',
-      orderBy: 'created',
-      query: ""
-    }
-
-    handleRequestSort = orderBy =>
-      this.setState(({order}) => ({
-        order: order === "desc" ? "asc" : "desc",
-        orderBy
-      }))
-
-    handleQuery = ({target: {value}}) =>
-      this.setState({query: value.toLowerCase()})
-
-
-    render() {
-      const {order, orderBy, query} = this.state
-      let {messages} = this.props.store
-
-      messages = stableSort(messages, getSorting(order, orderBy))
-        .filter(m => m.TM.toLowerCase() === query || query === "")
-        .map(
-          (message) => {
-            return <Message key={message.RN || Math.random() * Math.random()} {...message}/>
-          }
-        )
-
-      return (
-        <>
-          <Toolbar>
-            <SearchIcon />
-            <InputBase onChange={this.handleQuery} placeholder="Search…"/>
-          </Toolbar>
-        {messages.length ?
-          <Table>
-            <TableHead
-              onRequestSort={this.handleRequestSort}
-              order={order}
-              orderBy={orderBy}
-            />
-            <TableBody>
-              {messages}
-            </TableBody>
-          </Table> :
-          <Loading/>
-        }
-        </>
-      )
-    }
+  return (
+    <>
+      <Toolbar> {/*NOTE: Maybe add Chip or Toggle components to filter on message types instead*/}
+        <SearchIcon />
+        <InputBase fullWidth onChange={handleQuery} placeholder={t("titles.search")}/>
+      </Toolbar>
+      {mutatedMessages.length ?
+        <Table>
+          <TableHead
+            namespace="messages"
+            onRequestSort={handleRequestSort}
+            order={order}
+            orderBy={orderBy}
+          />
+          <TableBody>
+            {mutatedMessages.map(message => <Message key={message.id} {...message}/>)}
+          </TableBody>
+        </Table> :
+        <Loading/>
+      }
+    </>
+  )
 }
 
 
-export default withPage(withStore(Messages), {namespace: "messages"})
+export default props => {
+  const [t] = useTranslation("messages")
+
+  return(
+    <Page
+      namespace="messages"
+      title={
+        <Grid alignItems="center" container justify="space-between">
+          <Typography variant="h4">{t("titles.main")}</Typography>
+          <SwitchView/>
+        </Grid>
+      }
+    >
+      <Messages {...props}/>
+    </Page>
+  )
+}

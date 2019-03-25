@@ -3,14 +3,34 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Changed
- - New Logo
- - Logo instead of text on Landing
- - name from eCatch Kyst to eCatch Kyst Pilot
- 
+- New Logo
+- Logo instead of text on Landing
+- name from eCatch Kyst to eCatch Kyst Pilot
+- Form fields can now be disabled
+- useReactHooks everywhere! 🎣🎉 [React v16.8: The One With Hooks](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html)
+- util functions to calculate deadlines more easily
+- Turn Firebase Timestamps into plain JS Dates at fetching. This way, the programmer only has to use normal date objects throughout the app
+
 ### Added
 - Assets for Android, iOS, macOS Safari, Windows
 - WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
 - User can now add his own fishingSpots. ([#52](https://github.com/ecatch-kyst/web/issues/52))
+- date format interpolation to i18n (show dates differently for different languages)
+- Trips view
+- Trip overview
+
+### Fixed
+- register bug (name was not updated correctly at registration)
+- Dropdown did not show selected values
+- DropdownMap did not propagate inputType to TextInput fields
+- GeoPointInput did not update state correctly
+- TextInput did not update state correctly
+- EditCatch did redirections wrong
+- ME field was missing from messages sent to Firebase ([#67](https://github.com/ecatch-kyst/web/issues/67))
+- Firebase tried to login without credentials
+
+### Removed
+- useNotification hook (useStore does basically the same, thus it's only an unnecessary complication)
 
 ## [1.0.0-beta3] - 2019-03-11
 ### Added

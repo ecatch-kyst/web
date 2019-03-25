@@ -1,15 +1,17 @@
-import React, {Component} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import {Link, Redirect, withRouter} from "react-router-dom"
 import forms from "./forms.json"
 import {Grid, Button, Divider, Typography} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
-import {withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 import {Page} from '../shared'
-import {withStore} from '../../db'
 
 import FormInput from './FormInput.jsx'
-import {format} from 'date-fns'
+import {useStore} from '../../hooks'
+import {addHours} from 'date-fns'
+
+import initialValues from "../../db/initialValues.json"
 
 /**
  * Form component
@@ -17,161 +19,234 @@ import {format} from 'date-fns'
  * @param {object} props.match
  * @param {object} props.match.params
  * @param {'DEP'|'DCA'|'POR'} props.match.params.type - Type of form
+ * @param {number} props.match.params.messageId - id of message if form is used for editing
  */
-export class Form extends Component {
+export const Form = ({match: {path, params: {type, messageId}}}) => {
+  const {fields, isEnRoute, handleFieldChange, messages, position, handleDialog, submitMessage} = useStore()
+  const [t] = useTranslation("forms")
 
-  componentDidMount() {
-    const {
-      store: {handleFieldChange, messages, position},
-      match: {params: {type, messageId}}
-    } = this.props
+  const [canEdit, setCanEdit] = useState(false)
+  const [baseMessage, setBaseMessage] = useState({})
 
-    // Form type does not exist was opened, don't continue
-    if (!Object.keys(forms).includes(type)) return
+  const [validType, setValidType] = useState(false)
 
 
-    /** REVIEW: When this componentDidMount is called,
-     * messages is probably still empty,
-     * if the user opens the form in a new tab, instead of coming from the dashboard.
-     */
+  useEffect(() => {
+    setCanEdit(messageId && type === "DCA"&& messages.find(m => m.TM === "DCA" && m.RN === parseInt(messageId, 10)))
+    const newValidType = Object.keys(forms).includes(type)
+    setValidType(newValidType)
+    if (newValidType)
+      setBaseMessage(messages.find(m => m.TM === type) || {})
+  }, [type, messageId])
 
-    const now = format(Date.now(), "yyyy-MM-dd'T'HH:mm", {awareOfUnicodeTokens: true})
 
-
-    let newFields = {}
+  useEffect(() => {
+    if(!validType) return
+    let newFields = {...initialValues.fields} // Start with empty fields, to prevent rogue values.
+    const now = new Date()
     switch (type) {
-    case "DEP": {
-      newFields = {
+    case "DEP":
+      newFields = { // These values will be preset, no matter if there is a base message.
         ...newFields,
-        departure: now
+        departure: now,
+        expectedFishingStart: addHours(now, 2)
       }
-      const baseMessage = messages.find(m => m.TM === "DEP")
-
-      if (baseMessage) {
-        const {PO, AC, expectedFishingSpot, DS, OB} = baseMessage
-        newFields = {
+      if (Object.keys(baseMessage).length) {
+        newFields = { // Preset from base (previous message, with the same type)
           ...newFields,
-          PO,
-          expectedFishingSpot,
-          AC,
-          DS,
-          OB
+          AC: baseMessage.AC,
+          DS: baseMessage.DS,
+          PO: baseMessage.PO,
+          OB: baseMessage.OB,
+          expectedFishingSpot: baseMessage.expectedFishingSpot
         }
       }
       break
-    }
-    case "DCA": {
-      newFields = {
+
+    case "DCA":
+      newFields = { // These values will be preset, no matter if there is a base message.
         ...newFields,
         fishingStart: now,
-        endFishingSpot: position
+        expectedFishingStart: addHours(now, 2)
       }
-
-
-      let baseMessage = messages.find(m => m.TM === "DCA")
-
-      if (messageId) {
-        baseMessage = messages.find(m => m.RN === parseInt(messageId, 10))
-        if (baseMessage) {
-          handleFieldChange(baseMessage)
-          return
-        }
-      }
-
-      if (baseMessage) {
-        newFields = {
-          ...baseMessage,
-          ...newFields
+      if (Object.keys(baseMessage).length) {
+        newFields = { // Preset from base (previous message, with the same type)
+          ...newFields,
+          PO: baseMessage.PO,
+          AC: baseMessage.AC,
+          expectedFishingSpot: baseMessage.expectedFishingSpot,
+          DS: baseMessage.DS,
+          CA: baseMessage.CA,
+          GE: baseMessage.GE,
+          GS: baseMessage.GS,
+          DU: baseMessage.DU,
+          QI: baseMessage.QI,
+          startFishingSpot: position,
+          endFishingSpot: baseMessage.endFishingSpot
         }
       }
       break
-    }
-
-    case "POR": {
-      const baseMessage = messages.find(m => m.TM === "POR")
-      if (baseMessage) {
-        handleFieldChange(baseMessage)
-        return
+    case "POR":
+      newFields = { // These values will be preset, no matter if there is a base message.
+        ...newFields,
+        portArrival: now // NOTE: try to calculate from position, speed and PO (port)
+      }
+      if (Object.keys(baseMessage).length) {
+        newFields = { // Preset from base (previous message, with the same type)
+          ...newFields,
+          KG: baseMessage.KG,
+          LS: baseMessage.LS,
+          OB: baseMessage.OB,
+          PO: baseMessage.PO
+        }
       }
       break
-    }
-    default: return
+    default:
+      break
     }
     handleFieldChange(newFields)
-  }
+  }, [baseMessage /**REVIEW: Deep compare? */, messages.length])
+
+
+  // useEffect(() => {
+
+  //   // Form type does not exist was opened, don't continue
+  //   if (!Object.keys(forms).includes(type)) return
+
+
+  //   /** REVIEW: When this componentDidMount is called,
+  //    * messages is probably still empty,
+  //    * if the user opens the form in a new tab, instead of coming from the dashboard.
+  //    */
+
+  //   const now = new Date()
+
+
+  //   let newFields = {}
+  //   switch (type) {
+  //   case "DEP": {
+  //     newFields = {
+  //       departure: now,
+  //       expectedFishingStart: addHours(now, 2) // TODO: Calculate
+  //     }
+
+  //     if (baseMessage) {
+  //       const {PO, AC, expectedFishingSpot, DS, OB} = baseMessage
+  //       newFields = {
+  //         ...newFields,
+  //         PO,
+  //         expectedFishingSpot,
+  //         AC,
+  //         DS,
+  //         OB
+  //       }
+  //     }
+  //     break
+  //   }
+  //   case "DCA": {
+
+  //     newFields = {
+  //       ...newFields,
+  //       endFishingSpot: position,
+  //       fishingStart: now
+  //     }
+  //     if (messageId) {
+  //       const baseMessage = messages.find(m => m.RN === parseInt(messageId, 10))
+  //       if (baseMessage) {
+  //         handleFieldChange(baseMessage)
+  //         return
+  //       }
+  //     }
+
+  //     if (baseMessage) {
+  //       newFields = {
+  //         ...baseMessage,
+  //         ...newFields
+  //       }
+  //     }
+  //     break
+  //   }
+
+  //   case "POR": {
+  //     if (baseMessage) {
+  //       handleFieldChange(baseMessage)
+  //       return
+  //     }
+  //     break
+  //   }
+  //   default: return
+  //   }
+  //   handleFieldChange(newFields)
+
+  // }, [])
+
 
   /**
    * Submits the filled out form.
    */
-  handleSubmit = e => {
-    e.preventDefault && e.preventDefault()
-    const {
-      store: {handleDialog, submitMessage},
-      match: {params: {type}}
-    } = this.props
+  const handleSubmit = e => {
+    e.preventDefault()
     handleDialog({type, submit: () => submitMessage(type)})
   }
 
-  render() {
-    const {t, store: {fields}, match: {params: {type}}} = this.props
-    const form = forms[type] // Extract form from forms.js
-    return (
-      <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
-        <Grid alignItems="center" container direction="column" spacing={16}>
-          <Grid component="form" item onSubmit={this.handleSubmit}>
-            {form ? form.map(({id, step}) => // If a valid form, iterate over its steps
-              <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
-                <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
-                {step.map(({id, dataId, type, unit, isMulti, dropdown, inputType, dependent}) => // Iterate over all the input fields in a Form step
-                  (!dependent ||
-                        dependent.when.includes(fields[dependent.on] ?
-                          (fields[dependent.on].value || fields[dependent.on]) :
-                          "")
-                  ) ?
-                    <Grid item key={id}>
-                      <FormInput
-                        dataId={dataId || id}
-                        id={id}
-                        options={{isMulti, dropdown, inputType, unit}}
-                        type={type}
-                      />
-                    </Grid>
-                    : null
+  const form = forms[type] // Extract form from forms.json
 
-                )}
-                <Divider style={{marginTop: 16}}/>
-              </Grid>
-            ) :
-              <Redirect to={routes.DASHBOARD}/> // If the form is invalid, redirect to the dashboard
-            }
+  const isAllowed = (isEnRoute ? ["DCA", "POR"].includes(type) : type === "DEP") || (canEdit && type === "DCA")
+
+  return (
+    <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
+      <Grid alignItems="center" container direction="column" spacing={16}>
+        <Grid component="form" item onSubmit={handleSubmit}>
+          {isAllowed ? form.map(({id, step}) => // If a valid form, iterate over its steps
+            <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
+              <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
+              {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
+                (!dependent || dependent.when.includes(fields[dependent.on] || "")) ?
+                  <Grid item key={id}>
+                    <FormInput
+                      dataId={dataId || id}
+                      id={id}
+                      options={{
+                        ...options,
+                        editable: ((options.editable !== false) || path.endsWith(routes.NEW))
+                      }}
+                      type={type}
+                    />
+                  </Grid>
+                  : null
+              )}
+              <Divider style={{marginTop: 16}}/>
+            </Grid>
+          ) :
+            <Redirect to={routes.DASHBOARD}/> // If the form is invalid, redirect to the dashboard
+          }
+        </Grid>
+        <Grid container item justify="center">
+          <Grid item>
+            <Button
+              color="secondary"
+              component={Link}
+              size="large"
+              to={routes.DASHBOARD}
+            >
+              {t("links.back")}
+            </Button>
           </Grid>
-          <Grid container item justify="center">
-            <Grid item>
-              <Button
-                color="secondary"
-                component={Link}
-                size="large"
-                to={routes.DASHBOARD}
-              >
-                {t("links.back")}
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                color="primary"
-                onClick={this.handleSubmit}
-                size="large"
-                type="submit"
-                variant="contained"
-              >
-                {t(`${type}.submit`)}
-              </Button>
-            </Grid>
+          <Grid item>
+            <Button
+              color="primary"
+              onClick={handleSubmit}
+              size="large"
+              type="submit"
+              variant="contained"
+            >
+              {t(`${type}.submit`)}
+            </Button>
           </Grid>
         </Grid>
-      </Page>
-    )
-  }
+      </Grid>
+    </Page>
+  )
 }
 
-export default withStore(withRouter(withTranslation("forms")(Form)))
+export default withRouter(Form)
