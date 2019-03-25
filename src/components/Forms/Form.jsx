@@ -22,7 +22,7 @@ import initialValues from "../../db/initialValues.json"
  * @param {number} props.match.params.messageId - id of message if form is used for editing
  */
 export const Form = ({match: {path, params: {type, messageId}}}) => {
-  const {fields, isEnRoute, handleFieldChange, messages, position, handleDialog, submitMessage} = useStore()
+  const {fields, isEnRoute, handleFieldChange, messages, position, handleDialog, submitMessage, trips} = useStore()
   const [t] = useTranslation("forms")
 
   const [canEdit, setCanEdit] = useState(false)
@@ -32,12 +32,13 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
 
 
   useEffect(() => {
+
     setCanEdit(messageId && type === "DCA"&& messages.find(m => m.TM === "DCA" && m.RN === parseInt(messageId, 10)))
     const newValidType = Object.keys(forms).includes(type)
     setValidType(newValidType)
     if (newValidType)
       setBaseMessage(messages.find(m => m.TM === type) || {})
-  }, [type, messageId])
+  }, [])
 
 
   useEffect(() => {
@@ -92,11 +93,19 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
         portArrival: now // NOTE: try to calculate from position, speed and PO (port)
       }
       if (Object.keys(baseMessage).length) {
+        const activeTrip = trips.find(t => !t.isFinished)
+        const sum = activeTrip ? activeTrip.DCAList.reduce((acc, d) => {
+          Object.entries(d.CA).forEach(([type, weight]) => {
+            acc[type] ? acc[type] += weight : acc[type] = weight
+          })
+          return acc
+        }, {}) : {}
+
         newFields = { // Preset from base (previous message, with the same type)
           ...newFields,
-          KG: baseMessage.KG,
+          KG: sum,
           LS: baseMessage.LS,
-          OB: baseMessage.OB,
+          OB: sum,
           PO: baseMessage.PO
         }
       }

@@ -3,8 +3,8 @@
 		"main": "Turer",
 		"enRoute": "På tur",
 		"switch": {
-			"trips": "Individuelle meldinger",
-			"messages": "Grupper etter turer"
+			"trips": "Vis meldingslogg",
+			"messages": "Vis turer"
 		}
 	},
 	"tooltips": {

@@ -100,7 +100,10 @@ const Summary = ({title, status, TM, created}) => {
   return (
     <Grid alignItems="center" container justify="space-between">
       <Grid component={Status} item result={status} xs={1}/>
-      <Grid item md={7} xs={6}>{title}</Grid>
+      <Grid container item md={7} xs={6}>
+        <Typography style={{marginRight: 16}}>DCA</Typography>
+        {title}
+      </Grid>
       <Grid container item justify="flex-end" md={4} xs={3}>
         {disabled ? "" :
           <Tooltip title={t("actions.tooltips.countdown", {deadline: deadline(created)})}>
@@ -141,7 +144,7 @@ const Actions = ({messageId, created, TM}) => {
           component={Link}
           size="large"
           style={{marginLeft: 16}}
-          to={`${routes.MESSAGES}/${messageId}${routes.EDIT}`}
+          to={`${routes.MESSAGES}/${TM}/${messageId}${routes.EDIT}`}
           variant="contained"
         >
           {/* {t("actions.buttons.edit")} */}
