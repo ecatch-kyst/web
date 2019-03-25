@@ -3,7 +3,7 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
-import MessageIcon from "@material-ui/icons/ModeCommentOutlined"
+import TripIcon from "@material-ui/icons/CompareArrowsOutlined"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -17,8 +17,10 @@ import {
   Dashboard,
   NotFound,
   Dialog,
+  Trips,
   Messages,
-  EditMessage,
+  Trip,
+  EditCatch,
   Form,
   Notification
 } from './components'
@@ -32,13 +34,20 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={Dashboard} exact path={routes.DASHBOARD}/>
+      <Route component={Trips} exact path={routes.TRIPS}/>
+      <Route component={Trip} exact path={`${routes.TRIPS}/:tripId`}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
-      <Route component={EditMessage} exact path={`${routes.MESSAGES}/:type/:messageId${routes.EDIT}`}/>
+      <Route component={EditCatch} exact path={`${routes.MESSAGES}/:type/:messageId${routes.EDIT}`}/>
       <Route component={Form} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>
       <Route component={NotFound}/>
     </Switch>
     <Route
-      render={({location: {pathname}}) => ![routes.ROOT, routes.REGISTER].includes(pathname) ? <Navigation value={pathname.slice(1)} /> : null}
+      render={
+        ({location: {pathname}}) =>
+          ![routes.ROOT, routes.REGISTER].includes(pathname) ?
+            <Navigation value={pathname.slice(1)} /> :
+            null
+      }
     />
     <OfflineStatus/>
     <Dialog/>
@@ -56,9 +65,9 @@ const navigation = [
     to: routes.DASHBOARD
   },
   {
-    id: "messages",
-    icon: <MessageIcon/>,
-    to: routes.MESSAGES
+    id: "trips",
+    icon: <TripIcon/>,
+    to: routes.TRIPS
   },
   {
     id: "profile",

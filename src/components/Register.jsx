@@ -23,7 +23,7 @@ export class Register extends Component {
 
 
   handleSubmitRegistration = async e => {
-    e.preventDefault && e.preventDefault()
+    e.preventDefault()
     const {email, password, name} = this.state
     try {
       await AUTH.createUserWithEmailAndPassword(email, password)
@@ -67,6 +67,7 @@ export class Register extends Component {
           <Grid container item>
             <Button
               color="secondary"
+              onClick={this.handleSubmitRegistration}
               size="large"
               type="submit"
               variant="contained"

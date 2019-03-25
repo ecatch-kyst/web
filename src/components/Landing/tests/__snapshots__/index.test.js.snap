@@ -1,0 +1,1916 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing component renders correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Landing
+    i18n={
+      Object {
+        "changeLanguage": Object {
+          "addMatchers": [Function],
+          "advanceTimersByTime": [Function],
+          "autoMockOff": [Function],
+          "autoMockOn": [Function],
+          "clearAllMocks": [Function],
+          "clearAllTimers": [Function],
+          "deepUnmock": [Function],
+          "disableAutomock": [Function],
+          "doMock": [Function],
+          "dontMock": [Function],
+          "enableAutomock": [Function],
+          "fn": [Function],
+          "genMockFromModule": [Function],
+          "isMockFunction": [Function],
+          "mock": [Function],
+          "requireActual": [Function],
+          "requireMock": [Function],
+          "resetAllMocks": [Function],
+          "resetModuleRegistry": [Function],
+          "resetModules": [Function],
+          "restoreAllMocks": [Function],
+          "retryTimes": [Function],
+          "runAllImmediates": [Function],
+          "runAllTicks": [Function],
+          "runAllTimers": [Function],
+          "runOnlyPendingTimers": [Function],
+          "runTimersToTime": [Function],
+          "setMock": [Function],
+          "setTimeout": [Function],
+          "spyOn": [Function],
+          "unmock": [Function],
+          "useFakeTimers": [Function],
+          "useRealTimers": [Function],
+        },
+        "language": "en",
+      }
+    }
+    t={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <Centered>
+        <img
+          alt="landing.blob-img-alt"
+          className="landing-blob landing-blob-1"
+          src="blob.svg"
+        />
+        <img
+          alt="landing.blob-img-alt"
+          className="landing-blob landing-blob-2"
+          src="blob.svg"
+        />
+        <WithStyles(Typography)
+          style={
+            Object {
+              "height": 0,
+              "opacity": 0,
+              "width": 0,
+            }
+          }
+          variant="h1"
+        >
+          eCatch Kyst Pilot
+        </WithStyles(Typography)>
+        <img
+          alt="eCatch Kyst Pilot"
+          src="eCatch_pilot_h.png"
+        />
+        <WithStyles(Card)
+          style={
+            Object {
+              "margin": 16,
+              "maxWidth": "calc(100vw - 32px)",
+              "minWidth": "calc(100vw/3)",
+            }
+          }
+        >
+          <WithStyles(CardContent)>
+            <WithStyles(Grid)
+              container={true}
+              direction="column"
+              justify="center"
+              spacing={8}
+            >
+              <WithStyles(Grid)
+                item={true}
+              >
+                <TextField
+                  autoFocus={true}
+                  fullWidth={true}
+                  label="landing.email"
+                  name="email"
+                  onChange={[Function]}
+                  required={false}
+                  select={false}
+                  type="email"
+                  variant="outlined"
+                />
+              </WithStyles(Grid)>
+              <WithStyles(Grid)
+                item={true}
+              >
+                <TextField
+                  fullWidth={true}
+                  label="landing.password"
+                  name="password"
+                  onChange={[Function]}
+                  required={false}
+                  select={false}
+                  type="password"
+                  variant="outlined"
+                />
+              </WithStyles(Grid)>
+            </WithStyles(Grid)>
+          </WithStyles(CardContent)>
+          <WithStyles(CardActions)>
+            <WithStyles(Grid)
+              alignItems="center"
+              container={true}
+              justify="flex-end"
+              spacing={16}
+            >
+              <WithStyles(Grid)
+                alignItems="center"
+                container={true}
+                item={true}
+                justify="space-evenly"
+                spacing={8}
+              >
+                <WithStyles(Grid)
+                  item={true}
+                >
+                  <WithStyles(Button)
+                    color="secondary"
+                    onClick={[Function]}
+                    size="large"
+                    type="submit"
+                    variant="contained"
+                  >
+                    landing.login
+                  </WithStyles(Button)>
+                </WithStyles(Grid)>
+                <WithStyles(Grid)
+                  item={true}
+                >
+                  <WithStyles(Link)
+                    component={[Function]}
+                    style={
+                      Object {
+                        "marginRight": 16,
+                      }
+                    }
+                    to="/new-password"
+                  >
+                    landing.forgot-password
+                  </WithStyles(Link)>
+                </WithStyles(Grid)>
+                <WithStyles(Grid)
+                  item={true}
+                >
+                  <WithStyles(Button)
+                    color="primary"
+                    component={[Function]}
+                    size="large"
+                    to="/register"
+                  >
+                    landing.register
+                  </WithStyles(Button)>
+                </WithStyles(Grid)>
+              </WithStyles(Grid)>
+            </WithStyles(Grid)>
+          </WithStyles(CardActions)>
+        </WithStyles(Card)>
+      </Centered>,
+      "onSubmit": [Function],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          null,
+          <img
+            alt="landing.blob-img-alt"
+            className="landing-blob landing-blob-1"
+            src="blob.svg"
+          />,
+          <img
+            alt="landing.blob-img-alt"
+            className="landing-blob landing-blob-2"
+            src="blob.svg"
+          />,
+          <WithStyles(Typography)
+            style={
+              Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              }
+            }
+            variant="h1"
+          >
+            eCatch Kyst Pilot
+          </WithStyles(Typography)>,
+          <img
+            alt="eCatch Kyst Pilot"
+            src="eCatch_pilot_h.png"
+          />,
+          <WithStyles(Card)
+            style={
+              Object {
+                "margin": 16,
+                "maxWidth": "calc(100vw - 32px)",
+                "minWidth": "calc(100vw/3)",
+              }
+            }
+          >
+            <WithStyles(CardContent)>
+              <WithStyles(Grid)
+                container={true}
+                direction="column"
+                justify="center"
+                spacing={8}
+              >
+                <WithStyles(Grid)
+                  item={true}
+                >
+                  <TextField
+                    autoFocus={true}
+                    fullWidth={true}
+                    label="landing.email"
+                    name="email"
+                    onChange={[Function]}
+                    required={false}
+                    select={false}
+                    type="email"
+                    variant="outlined"
+                  />
+                </WithStyles(Grid)>
+                <WithStyles(Grid)
+                  item={true}
+                >
+                  <TextField
+                    fullWidth={true}
+                    label="landing.password"
+                    name="password"
+                    onChange={[Function]}
+                    required={false}
+                    select={false}
+                    type="password"
+                    variant="outlined"
+                  />
+                </WithStyles(Grid)>
+              </WithStyles(Grid)>
+            </WithStyles(CardContent)>
+            <WithStyles(CardActions)>
+              <WithStyles(Grid)
+                alignItems="center"
+                container={true}
+                justify="flex-end"
+                spacing={16}
+              >
+                <WithStyles(Grid)
+                  alignItems="center"
+                  container={true}
+                  item={true}
+                  justify="space-evenly"
+                  spacing={8}
+                >
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <WithStyles(Button)
+                      color="secondary"
+                      onClick={[Function]}
+                      size="large"
+                      type="submit"
+                      variant="contained"
+                    >
+                      landing.login
+                    </WithStyles(Button)>
+                  </WithStyles(Grid)>
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <WithStyles(Link)
+                      component={[Function]}
+                      style={
+                        Object {
+                          "marginRight": 16,
+                        }
+                      }
+                      to="/new-password"
+                    >
+                      landing.forgot-password
+                    </WithStyles(Link)>
+                  </WithStyles(Grid)>
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <WithStyles(Button)
+                      color="primary"
+                      component={[Function]}
+                      size="large"
+                      to="/register"
+                    >
+                      landing.register
+                    </WithStyles(Button)>
+                  </WithStyles(Grid)>
+                </WithStyles(Grid)>
+              </WithStyles(Grid)>
+            </WithStyles(CardActions)>
+          </WithStyles(Card)>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "landing.blob-img-alt",
+            "className": "landing-blob landing-blob-1",
+            "src": "blob.svg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "landing.blob-img-alt",
+            "className": "landing-blob landing-blob-2",
+            "src": "blob.svg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "eCatch Kyst Pilot",
+            "style": Object {
+              "height": 0,
+              "opacity": 0,
+              "width": 0,
+            },
+            "variant": "h1",
+          },
+          "ref": null,
+          "rendered": "eCatch Kyst Pilot",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "eCatch Kyst Pilot",
+            "src": "eCatch_pilot_h.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <WithStyles(CardContent)>
+                <WithStyles(Grid)
+                  container={true}
+                  direction="column"
+                  justify="center"
+                  spacing={8}
+                >
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <TextField
+                      autoFocus={true}
+                      fullWidth={true}
+                      label="landing.email"
+                      name="email"
+                      onChange={[Function]}
+                      required={false}
+                      select={false}
+                      type="email"
+                      variant="outlined"
+                    />
+                  </WithStyles(Grid)>
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <TextField
+                      fullWidth={true}
+                      label="landing.password"
+                      name="password"
+                      onChange={[Function]}
+                      required={false}
+                      select={false}
+                      type="password"
+                      variant="outlined"
+                    />
+                  </WithStyles(Grid)>
+                </WithStyles(Grid)>
+              </WithStyles(CardContent)>,
+              <WithStyles(CardActions)>
+                <WithStyles(Grid)
+                  alignItems="center"
+                  container={true}
+                  justify="flex-end"
+                  spacing={16}
+                >
+                  <WithStyles(Grid)
+                    alignItems="center"
+                    container={true}
+                    item={true}
+                    justify="space-evenly"
+                    spacing={8}
+                  >
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Button)
+                        color="secondary"
+                        onClick={[Function]}
+                        size="large"
+                        type="submit"
+                        variant="contained"
+                      >
+                        landing.login
+                      </WithStyles(Button)>
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Link)
+                        component={[Function]}
+                        style={
+                          Object {
+                            "marginRight": 16,
+                          }
+                        }
+                        to="/new-password"
+                      >
+                        landing.forgot-password
+                      </WithStyles(Link)>
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Button)
+                        color="primary"
+                        component={[Function]}
+                        size="large"
+                        to="/register"
+                      >
+                        landing.register
+                      </WithStyles(Button)>
+                    </WithStyles(Grid)>
+                  </WithStyles(Grid)>
+                </WithStyles(Grid)>
+              </WithStyles(CardActions)>,
+            ],
+            "style": Object {
+              "margin": 16,
+              "maxWidth": "calc(100vw - 32px)",
+              "minWidth": "calc(100vw/3)",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <WithStyles(Grid)
+                  container={true}
+                  direction="column"
+                  justify="center"
+                  spacing={8}
+                >
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <TextField
+                      autoFocus={true}
+                      fullWidth={true}
+                      label="landing.email"
+                      name="email"
+                      onChange={[Function]}
+                      required={false}
+                      select={false}
+                      type="email"
+                      variant="outlined"
+                    />
+                  </WithStyles(Grid)>
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <TextField
+                      fullWidth={true}
+                      label="landing.password"
+                      name="password"
+                      onChange={[Function]}
+                      required={false}
+                      select={false}
+                      type="password"
+                      variant="outlined"
+                    />
+                  </WithStyles(Grid)>
+                </WithStyles(Grid)>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <TextField
+                        autoFocus={true}
+                        fullWidth={true}
+                        label="landing.email"
+                        name="email"
+                        onChange={[Function]}
+                        required={false}
+                        select={false}
+                        type="email"
+                        variant="outlined"
+                      />
+                    </WithStyles(Grid)>,
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <TextField
+                        fullWidth={true}
+                        label="landing.password"
+                        name="password"
+                        onChange={[Function]}
+                        required={false}
+                        select={false}
+                        type="password"
+                        variant="outlined"
+                      />
+                    </WithStyles(Grid)>,
+                  ],
+                  "container": true,
+                  "direction": "column",
+                  "justify": "center",
+                  "spacing": 8,
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": <TextField
+                        autoFocus={true}
+                        fullWidth={true}
+                        label="landing.email"
+                        name="email"
+                        onChange={[Function]}
+                        required={false}
+                        select={false}
+                        type="email"
+                        variant="outlined"
+                      />,
+                      "item": true,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "autoFocus": true,
+                        "fullWidth": true,
+                        "label": "landing.email",
+                        "name": "email",
+                        "onChange": [Function],
+                        "required": false,
+                        "select": false,
+                        "type": "email",
+                        "variant": "outlined",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": <TextField
+                        fullWidth={true}
+                        label="landing.password"
+                        name="password"
+                        onChange={[Function]}
+                        required={false}
+                        select={false}
+                        type="password"
+                        variant="outlined"
+                      />,
+                      "item": true,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "fullWidth": true,
+                        "label": "landing.password",
+                        "name": "password",
+                        "onChange": [Function],
+                        "required": false,
+                        "select": false,
+                        "type": "password",
+                        "variant": "outlined",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <WithStyles(Grid)
+                  alignItems="center"
+                  container={true}
+                  justify="flex-end"
+                  spacing={16}
+                >
+                  <WithStyles(Grid)
+                    alignItems="center"
+                    container={true}
+                    item={true}
+                    justify="space-evenly"
+                    spacing={8}
+                  >
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Button)
+                        color="secondary"
+                        onClick={[Function]}
+                        size="large"
+                        type="submit"
+                        variant="contained"
+                      >
+                        landing.login
+                      </WithStyles(Button)>
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Link)
+                        component={[Function]}
+                        style={
+                          Object {
+                            "marginRight": 16,
+                          }
+                        }
+                        to="/new-password"
+                      >
+                        landing.forgot-password
+                      </WithStyles(Link)>
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Button)
+                        color="primary"
+                        component={[Function]}
+                        size="large"
+                        to="/register"
+                      >
+                        landing.register
+                      </WithStyles(Button)>
+                    </WithStyles(Grid)>
+                  </WithStyles(Grid)>
+                </WithStyles(Grid)>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "alignItems": "center",
+                  "children": <WithStyles(Grid)
+                    alignItems="center"
+                    container={true}
+                    item={true}
+                    justify="space-evenly"
+                    spacing={8}
+                  >
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Button)
+                        color="secondary"
+                        onClick={[Function]}
+                        size="large"
+                        type="submit"
+                        variant="contained"
+                      >
+                        landing.login
+                      </WithStyles(Button)>
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Link)
+                        component={[Function]}
+                        style={
+                          Object {
+                            "marginRight": 16,
+                          }
+                        }
+                        to="/new-password"
+                      >
+                        landing.forgot-password
+                      </WithStyles(Link)>
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Button)
+                        color="primary"
+                        component={[Function]}
+                        size="large"
+                        to="/register"
+                      >
+                        landing.register
+                      </WithStyles(Button)>
+                    </WithStyles(Grid)>
+                  </WithStyles(Grid)>,
+                  "container": true,
+                  "justify": "flex-end",
+                  "spacing": 16,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "alignItems": "center",
+                    "children": Array [
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Button)
+                          color="secondary"
+                          onClick={[Function]}
+                          size="large"
+                          type="submit"
+                          variant="contained"
+                        >
+                          landing.login
+                        </WithStyles(Button)>
+                      </WithStyles(Grid)>,
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Link)
+                          component={[Function]}
+                          style={
+                            Object {
+                              "marginRight": 16,
+                            }
+                          }
+                          to="/new-password"
+                        >
+                          landing.forgot-password
+                        </WithStyles(Link)>
+                      </WithStyles(Grid)>,
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Button)
+                          color="primary"
+                          component={[Function]}
+                          size="large"
+                          to="/register"
+                        >
+                          landing.register
+                        </WithStyles(Button)>
+                      </WithStyles(Grid)>,
+                    ],
+                    "container": true,
+                    "item": true,
+                    "justify": "space-evenly",
+                    "spacing": 8,
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": <WithStyles(Button)
+                          color="secondary"
+                          onClick={[Function]}
+                          size="large"
+                          type="submit"
+                          variant="contained"
+                        >
+                          landing.login
+                        </WithStyles(Button)>,
+                        "item": true,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "landing.login",
+                          "color": "secondary",
+                          "onClick": [Function],
+                          "size": "large",
+                          "type": "submit",
+                          "variant": "contained",
+                        },
+                        "ref": null,
+                        "rendered": "landing.login",
+                        "type": [Function],
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": <WithStyles(Link)
+                          component={[Function]}
+                          style={
+                            Object {
+                              "marginRight": 16,
+                            }
+                          }
+                          to="/new-password"
+                        >
+                          landing.forgot-password
+                        </WithStyles(Link)>,
+                        "item": true,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "landing.forgot-password",
+                          "component": [Function],
+                          "style": Object {
+                            "marginRight": 16,
+                          },
+                          "to": "/new-password",
+                        },
+                        "ref": null,
+                        "rendered": "landing.forgot-password",
+                        "type": [Function],
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": <WithStyles(Button)
+                          color="primary"
+                          component={[Function]}
+                          size="large"
+                          to="/register"
+                        >
+                          landing.register
+                        </WithStyles(Button)>,
+                        "item": true,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": "landing.register",
+                          "color": "primary",
+                          "component": [Function],
+                          "size": "large",
+                          "to": "/register",
+                        },
+                        "ref": null,
+                        "rendered": "landing.register",
+                        "type": [Function],
+                      },
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Centered>
+          <img
+            alt="landing.blob-img-alt"
+            className="landing-blob landing-blob-1"
+            src="blob.svg"
+          />
+          <img
+            alt="landing.blob-img-alt"
+            className="landing-blob landing-blob-2"
+            src="blob.svg"
+          />
+          <WithStyles(Typography)
+            style={
+              Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              }
+            }
+            variant="h1"
+          >
+            eCatch Kyst Pilot
+          </WithStyles(Typography)>
+          <img
+            alt="eCatch Kyst Pilot"
+            src="eCatch_pilot_h.png"
+          />
+          <WithStyles(Card)
+            style={
+              Object {
+                "margin": 16,
+                "maxWidth": "calc(100vw - 32px)",
+                "minWidth": "calc(100vw/3)",
+              }
+            }
+          >
+            <WithStyles(CardContent)>
+              <WithStyles(Grid)
+                container={true}
+                direction="column"
+                justify="center"
+                spacing={8}
+              >
+                <WithStyles(Grid)
+                  item={true}
+                >
+                  <TextField
+                    autoFocus={true}
+                    fullWidth={true}
+                    label="landing.email"
+                    name="email"
+                    onChange={[Function]}
+                    required={false}
+                    select={false}
+                    type="email"
+                    variant="outlined"
+                  />
+                </WithStyles(Grid)>
+                <WithStyles(Grid)
+                  item={true}
+                >
+                  <TextField
+                    fullWidth={true}
+                    label="landing.password"
+                    name="password"
+                    onChange={[Function]}
+                    required={false}
+                    select={false}
+                    type="password"
+                    variant="outlined"
+                  />
+                </WithStyles(Grid)>
+              </WithStyles(Grid)>
+            </WithStyles(CardContent)>
+            <WithStyles(CardActions)>
+              <WithStyles(Grid)
+                alignItems="center"
+                container={true}
+                justify="flex-end"
+                spacing={16}
+              >
+                <WithStyles(Grid)
+                  alignItems="center"
+                  container={true}
+                  item={true}
+                  justify="space-evenly"
+                  spacing={8}
+                >
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <WithStyles(Button)
+                      color="secondary"
+                      onClick={[Function]}
+                      size="large"
+                      type="submit"
+                      variant="contained"
+                    >
+                      landing.login
+                    </WithStyles(Button)>
+                  </WithStyles(Grid)>
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <WithStyles(Link)
+                      component={[Function]}
+                      style={
+                        Object {
+                          "marginRight": 16,
+                        }
+                      }
+                      to="/new-password"
+                    >
+                      landing.forgot-password
+                    </WithStyles(Link)>
+                  </WithStyles(Grid)>
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <WithStyles(Button)
+                      color="primary"
+                      component={[Function]}
+                      size="large"
+                      to="/register"
+                    >
+                      landing.register
+                    </WithStyles(Button)>
+                  </WithStyles(Grid)>
+                </WithStyles(Grid)>
+              </WithStyles(Grid)>
+            </WithStyles(CardActions)>
+          </WithStyles(Card)>
+        </Centered>,
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            null,
+            <img
+              alt="landing.blob-img-alt"
+              className="landing-blob landing-blob-1"
+              src="blob.svg"
+            />,
+            <img
+              alt="landing.blob-img-alt"
+              className="landing-blob landing-blob-2"
+              src="blob.svg"
+            />,
+            <WithStyles(Typography)
+              style={
+                Object {
+                  "height": 0,
+                  "opacity": 0,
+                  "width": 0,
+                }
+              }
+              variant="h1"
+            >
+              eCatch Kyst Pilot
+            </WithStyles(Typography)>,
+            <img
+              alt="eCatch Kyst Pilot"
+              src="eCatch_pilot_h.png"
+            />,
+            <WithStyles(Card)
+              style={
+                Object {
+                  "margin": 16,
+                  "maxWidth": "calc(100vw - 32px)",
+                  "minWidth": "calc(100vw/3)",
+                }
+              }
+            >
+              <WithStyles(CardContent)>
+                <WithStyles(Grid)
+                  container={true}
+                  direction="column"
+                  justify="center"
+                  spacing={8}
+                >
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <TextField
+                      autoFocus={true}
+                      fullWidth={true}
+                      label="landing.email"
+                      name="email"
+                      onChange={[Function]}
+                      required={false}
+                      select={false}
+                      type="email"
+                      variant="outlined"
+                    />
+                  </WithStyles(Grid)>
+                  <WithStyles(Grid)
+                    item={true}
+                  >
+                    <TextField
+                      fullWidth={true}
+                      label="landing.password"
+                      name="password"
+                      onChange={[Function]}
+                      required={false}
+                      select={false}
+                      type="password"
+                      variant="outlined"
+                    />
+                  </WithStyles(Grid)>
+                </WithStyles(Grid)>
+              </WithStyles(CardContent)>
+              <WithStyles(CardActions)>
+                <WithStyles(Grid)
+                  alignItems="center"
+                  container={true}
+                  justify="flex-end"
+                  spacing={16}
+                >
+                  <WithStyles(Grid)
+                    alignItems="center"
+                    container={true}
+                    item={true}
+                    justify="space-evenly"
+                    spacing={8}
+                  >
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Button)
+                        color="secondary"
+                        onClick={[Function]}
+                        size="large"
+                        type="submit"
+                        variant="contained"
+                      >
+                        landing.login
+                      </WithStyles(Button)>
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Link)
+                        component={[Function]}
+                        style={
+                          Object {
+                            "marginRight": 16,
+                          }
+                        }
+                        to="/new-password"
+                      >
+                        landing.forgot-password
+                      </WithStyles(Link)>
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <WithStyles(Button)
+                        color="primary"
+                        component={[Function]}
+                        size="large"
+                        to="/register"
+                      >
+                        landing.register
+                      </WithStyles(Button)>
+                    </WithStyles(Grid)>
+                  </WithStyles(Grid)>
+                </WithStyles(Grid)>
+              </WithStyles(CardActions)>
+            </WithStyles(Card)>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "landing.blob-img-alt",
+              "className": "landing-blob landing-blob-1",
+              "src": "blob.svg",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "landing.blob-img-alt",
+              "className": "landing-blob landing-blob-2",
+              "src": "blob.svg",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "eCatch Kyst Pilot",
+              "style": Object {
+                "height": 0,
+                "opacity": 0,
+                "width": 0,
+              },
+              "variant": "h1",
+            },
+            "ref": null,
+            "rendered": "eCatch Kyst Pilot",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "eCatch Kyst Pilot",
+              "src": "eCatch_pilot_h.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <WithStyles(CardContent)>
+                  <WithStyles(Grid)
+                    container={true}
+                    direction="column"
+                    justify="center"
+                    spacing={8}
+                  >
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <TextField
+                        autoFocus={true}
+                        fullWidth={true}
+                        label="landing.email"
+                        name="email"
+                        onChange={[Function]}
+                        required={false}
+                        select={false}
+                        type="email"
+                        variant="outlined"
+                      />
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <TextField
+                        fullWidth={true}
+                        label="landing.password"
+                        name="password"
+                        onChange={[Function]}
+                        required={false}
+                        select={false}
+                        type="password"
+                        variant="outlined"
+                      />
+                    </WithStyles(Grid)>
+                  </WithStyles(Grid)>
+                </WithStyles(CardContent)>,
+                <WithStyles(CardActions)>
+                  <WithStyles(Grid)
+                    alignItems="center"
+                    container={true}
+                    justify="flex-end"
+                    spacing={16}
+                  >
+                    <WithStyles(Grid)
+                      alignItems="center"
+                      container={true}
+                      item={true}
+                      justify="space-evenly"
+                      spacing={8}
+                    >
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Button)
+                          color="secondary"
+                          onClick={[Function]}
+                          size="large"
+                          type="submit"
+                          variant="contained"
+                        >
+                          landing.login
+                        </WithStyles(Button)>
+                      </WithStyles(Grid)>
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Link)
+                          component={[Function]}
+                          style={
+                            Object {
+                              "marginRight": 16,
+                            }
+                          }
+                          to="/new-password"
+                        >
+                          landing.forgot-password
+                        </WithStyles(Link)>
+                      </WithStyles(Grid)>
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Button)
+                          color="primary"
+                          component={[Function]}
+                          size="large"
+                          to="/register"
+                        >
+                          landing.register
+                        </WithStyles(Button)>
+                      </WithStyles(Grid)>
+                    </WithStyles(Grid)>
+                  </WithStyles(Grid)>
+                </WithStyles(CardActions)>,
+              ],
+              "style": Object {
+                "margin": 16,
+                "maxWidth": "calc(100vw - 32px)",
+                "minWidth": "calc(100vw/3)",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <WithStyles(Grid)
+                    container={true}
+                    direction="column"
+                    justify="center"
+                    spacing={8}
+                  >
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <TextField
+                        autoFocus={true}
+                        fullWidth={true}
+                        label="landing.email"
+                        name="email"
+                        onChange={[Function]}
+                        required={false}
+                        select={false}
+                        type="email"
+                        variant="outlined"
+                      />
+                    </WithStyles(Grid)>
+                    <WithStyles(Grid)
+                      item={true}
+                    >
+                      <TextField
+                        fullWidth={true}
+                        label="landing.password"
+                        name="password"
+                        onChange={[Function]}
+                        required={false}
+                        select={false}
+                        type="password"
+                        variant="outlined"
+                      />
+                    </WithStyles(Grid)>
+                  </WithStyles(Grid)>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <TextField
+                          autoFocus={true}
+                          fullWidth={true}
+                          label="landing.email"
+                          name="email"
+                          onChange={[Function]}
+                          required={false}
+                          select={false}
+                          type="email"
+                          variant="outlined"
+                        />
+                      </WithStyles(Grid)>,
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <TextField
+                          fullWidth={true}
+                          label="landing.password"
+                          name="password"
+                          onChange={[Function]}
+                          required={false}
+                          select={false}
+                          type="password"
+                          variant="outlined"
+                        />
+                      </WithStyles(Grid)>,
+                    ],
+                    "container": true,
+                    "direction": "column",
+                    "justify": "center",
+                    "spacing": 8,
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": <TextField
+                          autoFocus={true}
+                          fullWidth={true}
+                          label="landing.email"
+                          name="email"
+                          onChange={[Function]}
+                          required={false}
+                          select={false}
+                          type="email"
+                          variant="outlined"
+                        />,
+                        "item": true,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "autoFocus": true,
+                          "fullWidth": true,
+                          "label": "landing.email",
+                          "name": "email",
+                          "onChange": [Function],
+                          "required": false,
+                          "select": false,
+                          "type": "email",
+                          "variant": "outlined",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": <TextField
+                          fullWidth={true}
+                          label="landing.password"
+                          name="password"
+                          onChange={[Function]}
+                          required={false}
+                          select={false}
+                          type="password"
+                          variant="outlined"
+                        />,
+                        "item": true,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "fullWidth": true,
+                          "label": "landing.password",
+                          "name": "password",
+                          "onChange": [Function],
+                          "required": false,
+                          "select": false,
+                          "type": "password",
+                          "variant": "outlined",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <WithStyles(Grid)
+                    alignItems="center"
+                    container={true}
+                    justify="flex-end"
+                    spacing={16}
+                  >
+                    <WithStyles(Grid)
+                      alignItems="center"
+                      container={true}
+                      item={true}
+                      justify="space-evenly"
+                      spacing={8}
+                    >
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Button)
+                          color="secondary"
+                          onClick={[Function]}
+                          size="large"
+                          type="submit"
+                          variant="contained"
+                        >
+                          landing.login
+                        </WithStyles(Button)>
+                      </WithStyles(Grid)>
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Link)
+                          component={[Function]}
+                          style={
+                            Object {
+                              "marginRight": 16,
+                            }
+                          }
+                          to="/new-password"
+                        >
+                          landing.forgot-password
+                        </WithStyles(Link)>
+                      </WithStyles(Grid)>
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Button)
+                          color="primary"
+                          component={[Function]}
+                          size="large"
+                          to="/register"
+                        >
+                          landing.register
+                        </WithStyles(Button)>
+                      </WithStyles(Grid)>
+                    </WithStyles(Grid)>
+                  </WithStyles(Grid)>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "alignItems": "center",
+                    "children": <WithStyles(Grid)
+                      alignItems="center"
+                      container={true}
+                      item={true}
+                      justify="space-evenly"
+                      spacing={8}
+                    >
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Button)
+                          color="secondary"
+                          onClick={[Function]}
+                          size="large"
+                          type="submit"
+                          variant="contained"
+                        >
+                          landing.login
+                        </WithStyles(Button)>
+                      </WithStyles(Grid)>
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Link)
+                          component={[Function]}
+                          style={
+                            Object {
+                              "marginRight": 16,
+                            }
+                          }
+                          to="/new-password"
+                        >
+                          landing.forgot-password
+                        </WithStyles(Link)>
+                      </WithStyles(Grid)>
+                      <WithStyles(Grid)
+                        item={true}
+                      >
+                        <WithStyles(Button)
+                          color="primary"
+                          component={[Function]}
+                          size="large"
+                          to="/register"
+                        >
+                          landing.register
+                        </WithStyles(Button)>
+                      </WithStyles(Grid)>
+                    </WithStyles(Grid)>,
+                    "container": true,
+                    "justify": "flex-end",
+                    "spacing": 16,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "alignItems": "center",
+                      "children": Array [
+                        <WithStyles(Grid)
+                          item={true}
+                        >
+                          <WithStyles(Button)
+                            color="secondary"
+                            onClick={[Function]}
+                            size="large"
+                            type="submit"
+                            variant="contained"
+                          >
+                            landing.login
+                          </WithStyles(Button)>
+                        </WithStyles(Grid)>,
+                        <WithStyles(Grid)
+                          item={true}
+                        >
+                          <WithStyles(Link)
+                            component={[Function]}
+                            style={
+                              Object {
+                                "marginRight": 16,
+                              }
+                            }
+                            to="/new-password"
+                          >
+                            landing.forgot-password
+                          </WithStyles(Link)>
+                        </WithStyles(Grid)>,
+                        <WithStyles(Grid)
+                          item={true}
+                        >
+                          <WithStyles(Button)
+                            color="primary"
+                            component={[Function]}
+                            size="large"
+                            to="/register"
+                          >
+                            landing.register
+                          </WithStyles(Button)>
+                        </WithStyles(Grid)>,
+                      ],
+                      "container": true,
+                      "item": true,
+                      "justify": "space-evenly",
+                      "spacing": 8,
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": <WithStyles(Button)
+                            color="secondary"
+                            onClick={[Function]}
+                            size="large"
+                            type="submit"
+                            variant="contained"
+                          >
+                            landing.login
+                          </WithStyles(Button)>,
+                          "item": true,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "landing.login",
+                            "color": "secondary",
+                            "onClick": [Function],
+                            "size": "large",
+                            "type": "submit",
+                            "variant": "contained",
+                          },
+                          "ref": null,
+                          "rendered": "landing.login",
+                          "type": [Function],
+                        },
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": <WithStyles(Link)
+                            component={[Function]}
+                            style={
+                              Object {
+                                "marginRight": 16,
+                              }
+                            }
+                            to="/new-password"
+                          >
+                            landing.forgot-password
+                          </WithStyles(Link)>,
+                          "item": true,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "landing.forgot-password",
+                            "component": [Function],
+                            "style": Object {
+                              "marginRight": 16,
+                            },
+                            "to": "/new-password",
+                          },
+                          "ref": null,
+                          "rendered": "landing.forgot-password",
+                          "type": [Function],
+                        },
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": <WithStyles(Button)
+                            color="primary"
+                            component={[Function]}
+                            size="large"
+                            to="/register"
+                          >
+                            landing.register
+                          </WithStyles(Button)>,
+                          "item": true,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "children": "landing.register",
+                            "color": "primary",
+                            "component": [Function],
+                            "size": "large",
+                            "to": "/register",
+                          },
+                          "ref": null,
+                          "rendered": "landing.register",
+                          "type": [Function],
+                        },
+                        "type": [Function],
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": true,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "handleUserLogin": [MockFunction],
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

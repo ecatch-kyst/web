@@ -1,0 +1,53 @@
+{
+	"titles": {
+		"main": "Trips",
+		"enRoute": "En route",
+		"switch": {
+			"trips": "Show individual messages",
+			"messages": "Group messages into trips"
+		}
+	},
+	"tooltips": {
+		"sort": "Sort",
+		"enRoute": "Ongoing trip"
+	},
+	"table-head-rows": [
+		{
+			"left": true,
+			"id": "startPort",
+			"label": "From"
+		},
+		{
+			"left": true,
+			"id": "endPort",
+			"label": "To"
+		},
+		{
+			"id": "start",
+			"label": "Start"
+		},
+		{
+			"id": "end",
+			"label": "End"
+		}
+	],
+	"actions": {
+		"tooltips": {
+			"countdown": "Edit before {{deadline, relativeDate}}.",
+			"disabled": "Cannot edit."
+		},
+		"buttons": {
+			"edit": "Edit"
+		}
+	},
+	"summary": {
+		"default": {
+			"created": "{{created, relativeDate}}"
+		}
+	},
+	"details": {
+		"FIS": {
+			"fish": "Fish caught (kg)"
+		}
+	}
+}

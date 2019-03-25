@@ -1,7 +1,7 @@
 {
   "name": "web",
   "license": "GPL",
-  "version": "1.0.0-beta3",
+  "version": "1.0.0-beta4",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.1",
@@ -11,14 +11,14 @@
     "firebase": "^5.8.0",
     "i18next": "^15.0.0",
     "prop-types": "^15.6.2",
-    "react": "^16.8.0-alpha.1",
-    "react-dom": "^16.8.0-alpha.1",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "react-i18next": "^10.0.0",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
     "react-select": "^2.3.0",
-    "react-virtualized": "^9.21.0",
-    "react-scripts": "2.1.8"
+    "react-virtualized": "^9.21.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,6 +33,13 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/",
+      "!**/vendor/**"
+    ]
   },
   "browserslist": [
     ">0.2%",

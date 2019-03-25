@@ -35,7 +35,10 @@ module.exports = {
   withTranslation: () => Component => props => <Component t={k => k} {...{i18n: i18nMock,...props}} />,
   Trans: ({children}) => renderNodes(children),
   NamespacesConsumer: ({children}) => children(k => k, {i18n: i18nMock}),
-  useTranslation: () => ([t => t])
+  useTranslation: () => ([
+    t => t,
+    {changeLanguage: jest.fn()}
+  ])
   // mock if needed
   // Interpolate: reactI18next.Interpolate,
   // I18nextProvider: reactI18next.I18nextProvider,

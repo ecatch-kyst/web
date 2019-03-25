@@ -1,6 +1,6 @@
 import React from 'react'
 import {Redirect} from "react-router-dom"
-import {Grid, Typography, CircularProgress} from '@material-ui/core'
+import {Grid, Typography, CircularProgress, Paper} from '@material-ui/core'
 import {AUTH} from '../../lib/firebase'
 import {routes} from '../../lib/router'
 import {useTranslation} from 'react-i18next'
@@ -8,24 +8,27 @@ import {withStore} from '../../db'
 import Centered from '../Centered'
 
 
-const Page = withStore(({children, isProtected, store: {isLoading}, namespace, title, ...props}) => {
+const Page = withStore(({children, isProtected, store: {isLoading}, namespace, title, subtitle, headerProps, ...props}) => {
   const [t] = useTranslation(namespace)
   return(
     <Grid container direction="column" {...props}>
       {
-        (isLoading) ?
+        isLoading ?
           <Centered>
             <CircularProgress/>
           </Centered> :
           (isProtected && !AUTH.currentUser) ?
             <Redirect to={routes.ROOT}/> :
         <>
+        <Paper {...headerProps} square>
           <Typography
-            style={{padding: "24px 24px 16px"}}
+            style={{padding: subtitle ? "24px 24px 0" : "24px 24px 16px"}}
             variant="h4"
           >
             {title || t("titles.main")}
           </Typography>
+          {subtitle ? <Typography style={{padding:"0 24px 16px"}} variant="h6"> {subtitle}</Typography> : null}
+        </Paper>
           {children}
         </>
       }
@@ -35,7 +38,10 @@ const Page = withStore(({children, isProtected, store: {isLoading}, namespace, t
 
 Page.defaultProps = {
   namespace: "common",
-  isProtected: true
+  isProtected: true,
+  headerProps: {
+    elevation: 0
+  }
 }
 
 export default Page

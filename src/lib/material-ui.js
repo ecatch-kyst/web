@@ -12,6 +12,11 @@ export const colors = {
 
 
 const base = {
+  props: {
+    MuiTooltip: {
+      enterTouchDelay: 0
+    }
+  },
   palette: {
     primary: {
       dark: "#02405a",
@@ -32,9 +37,6 @@ const base = {
     h4: {
       fontWeight: "bolder"
     },
-    h5: {
-      fontFamily: secondaryFontFamily
-    },
     h6: {
       fontFamily: secondaryFontFamily
     },
@@ -53,11 +55,11 @@ const base = {
     }
   },
   overrides: {
-    MuiCard: {
-      root: {
-        boxShadow: "none"
-      }
-    },
+    // MuiCard: {
+    //   root: {
+    //     boxShadow: "none"
+    //   }
+    // },
     MuiButton: {
       sizeLarge: {
         padding: '8px 24px',
@@ -132,11 +134,11 @@ const darkTheme = {
     }
   },
   overrides: {
-    MuiCard: {
-      root: {
-        backgroundColor: "transparent"
-      }
-    },
+    // MuiCard: {
+    //   root: {
+    //     backgroundColor: "transparent"
+    //   }
+    // },
     MuiFormControl:{
       root:{
         backgroundColor: "#333",

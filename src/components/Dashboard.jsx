@@ -3,7 +3,7 @@ import {withPage} from './shared'
 import {Forms} from '.'
 
 
-const Dashboard = () =>
+export const Dashboard = () =>
   <>
     <Forms/>
   </>

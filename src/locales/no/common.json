@@ -14,7 +14,8 @@
 	"navigation": {
 		"dashboard": "Dashboard",
 		"profile": "Profil",
-		"messages": "Meldinger"
+		"messages": "Meldinger",
+		"trips": "Turer"
 	},
 	"loading": {
 		"tooltip": "Laster..."
@@ -33,13 +34,15 @@
 		"title": "Velkommen til {{framework}}"
 	},
 	"dialogs": {
-		"addSpot":{
-			"titles":{
-				"main":"Legg til din fiskeplass",
-				"cancel":"Avbryt",
-				"submit":"Legg til fiskeplass"
-			},
-			"description": "Her kan du legge til din egen fiskeplass med breddegrad og lengdegrad"
+		"customLists": {
+			"fishingSpots": {
+					"titles":{
+						"main": "Legg til din fiskeplass",
+						"cancel": "Avbryt",
+						"submit": "Legg til fiskeplass"
+					},
+					"description": ""
+			}
 		},
 		"deleteUser": {
 			"titles": {
@@ -55,7 +58,15 @@
 				"submit": "Bekreft",
 				"cancel": "Avlys"
 			},
-			"description": "..."
+			"description": "Er du sikker på at du vil sende inn avgangsmeldingen?"
+		},
+		"DCA": {
+			"titles": {
+				"main": "Send inn DA melding?",
+				"submit": "Bekreft",
+				"cancel": "Avlys"
+			},
+			"description": "Er du sikker på at du vil sende inn fangstmeldingen?"
 		},
 		"POR": {
 			"titles": {
@@ -64,6 +75,7 @@
 				"cancel": "Avlys"
 			},
 			"description": ""
+
 		}
 	},
 	"notifications": {
@@ -73,9 +85,24 @@
 					"error": "Meldingen ble ikke sendt \n{{message}}",
 					"success": "Meldingen ble sendt"
 				},
+				"DCA": {
+					"error": "Meldingen ble ikke sendt \n{{message}}",
+					"success": "Meldingen ble sendt"
+				},
 				"POR": {
 					"error": "Meldingen ble ikke sendt: {{message}}",
 					"success": "Meldingen ble sendt"
+				}
+			}
+		},
+		"customLists": {
+			"subscribe": {
+				"error": "Noe gikk galt: {{message}}"
+			},
+			"fishingSpots": {
+				"added":{
+					"error": "Noe gikk galt: {{message}}",
+					"success": "Fiskeplass lagt til"
 				}
 			}
 		},
