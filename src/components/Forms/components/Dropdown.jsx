@@ -10,7 +10,7 @@ import withStyle, {components} from './vendor/ReactSelect'
 export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("forms")
-  const {custom: {fishingSpots}} = useStore()
+  const {custom: {fishingSpots, ports}} = useStore()
 
 
   const selectStyles = {
@@ -45,6 +45,12 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
     if(type === "expectedFishingSpot"){
       options = fishingSpots
       components.NoOptionsMessage = AddFishingSpot
+    }
+
+    if(type === "ports"){
+      console.log(options)
+      //options = [...options]
+      options = [...ports, ...options]
     }
 
     handleChange = ({value}) => onChange(dataId, value)

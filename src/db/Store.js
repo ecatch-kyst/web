@@ -27,6 +27,7 @@ export class Database extends Component {
       this.subscribeToMessages()
       this.subscribeToLocation()
       this.subscribeToCustomList("fishingSpots")
+      this.subscribeToCustomList("ports")
     }})
 
     setTimeout(() => {

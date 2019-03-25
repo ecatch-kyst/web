@@ -30,7 +30,8 @@
   },
   "custom": {
     "editing": {},
-    "fishingSpots": []
+    "fishingSpots": [],
+    "ports": []
   }
 }
 
