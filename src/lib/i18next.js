@@ -22,6 +22,12 @@ import trips_en from "../locales/en/trips.json"
 import trips_no from "../locales/no/trips.json"
 import forms_en from "../locales/en/forms.json"
 import forms_no from "../locales/no/forms.json"
+import dropdowns_en from "../locales/en/dropdowns.json"
+import dropdowns_no from "../locales/no/dropdowns.json"
+import notifications_en from "../locales/en/notifications.json"
+import notifications_no from "../locales/no/notifications.json"
+import dialogs_en from "../locales/en/dialogs.json"
+import dialogs_no from "../locales/no/dialogs.json"
 
 import {formatRelative, format} from 'date-fns'
 import {nb as nbDateFns, enGB as enDateFns} from "date-fns/locale"
@@ -37,7 +43,10 @@ const en = {
   trips: trips_en,
   problems: problems_en,
   species: species_en,
-  forms: forms_en
+  forms: forms_en,
+  dropdowns: dropdowns_en,
+  notifications: notifications_en,
+  dialogs: dialogs_en
 }
 
 const no = {
@@ -51,7 +60,10 @@ const no = {
   register: register_no,
   forms: forms_no,
   messages: messages_no,
-  trips: trips_no
+  trips: trips_no,
+  dropdowns: dropdowns_no,
+  notifications: notifications_no,
+  dialogs: dialogs_no
 }
 
 i18next.init({

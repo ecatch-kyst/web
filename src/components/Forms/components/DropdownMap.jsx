@@ -36,8 +36,8 @@ const DropdownMap = props => {
 }
 
 const KeyValueInput = ({dataId, inputType, type, ...props}) => {
-  const [t] = useTranslation("forms")
-  const label = t(`dropdowns.${type}`, {returnObjects: true})
+  const [t] = useTranslation("dropdowns")
+  const label = t(type, {returnObjects: true})
     .find(option => option.value === dataId).label
 
   return (

@@ -4,19 +4,26 @@
 		"DEP": "avgang",
 		"DCA": "fangst",
 		"POR": "havneanløp",
-		"search": "Søk…"
+		"search": "Søk…",
+		"pending": "Venter"
 	},
 	"tooltips": {
 		"sort": "Sorter",
-		"pending": "Venter på godkjenning",
+		"pending": "Venter på godkjenning (ACK)",
 		"rejected": "Ikke godkjent",
 		"acknowledged": "Godkjent"
 	},
 	"table-head-rows": [
 		{
 			"left": true,
+			"sortable": false,
 			"id": "acknowledged",
 			"label": "Status"
+		},
+		{
+			"left": true,
+			"id": "RN",
+			"label": "Meldingsnummer"
 		},
 		{
 			"id": "TM",
