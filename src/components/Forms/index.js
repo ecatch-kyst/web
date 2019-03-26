@@ -15,7 +15,8 @@ export default props => {
     <Grid alignItems="center" container direction="column" spacing={16} style={{padding: 16}} {...props}>
       {isEnRoute ?
           <>
-            <FormButton type="DCA"/>
+            <FormButton type="DCA1"/>
+            <FormButton type="DCA2"/>
             {trips[0] && trips[0].DCAList.length ?
               <FormButton type="POR"/> : null
             }
