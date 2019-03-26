@@ -13,13 +13,25 @@
       "Planlagt fiskested"
     ]
   },
-  "DCA": {
+  "DCA1": {
+    "title": "DCA",
+    "submit": "Meld",
+    "steps": {
+      "0": "Tittel",
+      "start": "Start",
+      "activity": "Aktivitet",
+      "zone": "Sone",
+      "permit": "Fiskeritillatelse"
+    }
+  },
+  "DCA2": {
     "title": "DCA",
     "submit": "Meld",
     "steps": {
       "0": "Tittel",
       "location": "Lokasjon",
-      "fishing": "Fisking"
+      "fishing": "Fisking",
+      "catch": "Fangst"
     }
   },
   "POR": {

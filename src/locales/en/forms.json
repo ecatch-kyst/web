@@ -13,7 +13,16 @@
       "Planned fishing area"
     ]
   },
-  "DCA": {
+  "DCA1": {
+    "title": "DCA",
+    "submit": "Submit",
+    "steps": {
+      "0": "title", 
+      "location": "Location",
+      "fishing": "Fishing"
+    }
+  },
+  "DCA2": {
     "title": "DCA",
     "submit": "Submit",
     "steps": {
