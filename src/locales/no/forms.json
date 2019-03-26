@@ -1,8 +1,9 @@
 {
   "links": {
-    "DEP": "Meld avgang",
-    "DCA": "Meld fangst",
-    "POR": "Havneanløp",
+    "DEP": "Meld avgang (DEP)",
+    "DCA1": "Start fangst (DCA)",
+    "DCA2": "Avslutt fangst (DCA)",
+    "POR": "Havneanløp (POR)",
     "back": "Tilbake"
   },
   "DEP": {

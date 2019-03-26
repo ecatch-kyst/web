@@ -1,8 +1,8 @@
 {
   "links": {
-    "DEP": "Report departure",
-    "DCA": "Report catch",
-    "POR": "Port call",
+    "DEP": "Report departure (DEP)",
+    "DCA": "Report catch (DCA)",
+    "POR": "Port call (POR)",
     "back": "Back"
   },
   "DEP": {
