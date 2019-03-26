@@ -7,24 +7,24 @@ import {useTranslation} from 'react-i18next'
 
 export const Dialog = ({store: {dialog: {open, children, handleSubmit, handleCancel, isDestructive, type}}}) => {
   const SubmitButton = isDestructive ? DestructButton : Button
-  const [t] = useTranslation("common")
+  const [t] = useTranslation("dialogs")
 
   return (
     <MuiDialog {...{open}} onClose={() => handleCancel && handleCancel()}>
-      <DialogTitle>{t(`dialogs.${type}.titles.main`)}</DialogTitle>
+      <DialogTitle>{t(`${type}.titles.main`)}</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          {t(`dialogs.${type}.description`)}
+          {t(`${type}.description`)}
 
         </DialogContentText>
         {children}
       </DialogContent>
       <DialogActions>
         <Button color="primary" onClick={handleCancel} size="large">
-          {t(`dialogs.${type}.titles.cancel`)}
+          {t(`${type}.titles.cancel`)}
         </Button>
         <SubmitButton color="secondary" onClick={handleSubmit} size="large" variant="contained">
-          {t(`dialogs.${type}.titles.submit`)}
+          {t(`${type}.titles.submit`)}
         </SubmitButton>
       </DialogActions>
     </MuiDialog>

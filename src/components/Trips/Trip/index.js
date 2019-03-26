@@ -16,17 +16,19 @@ export {TripRow}
 
 export const Trip = ({match: {params: {tripId}}}) => {
   const {trips} = useStore()
-  const [t] = useTranslation("trips")
-  const [dropdownT] = useTranslation("forms")
+  const [t] = useTranslation("dropdowns")
 
   const {POR, DEP, DCAList, start, end, isFinished} = trips.find(trip => trip.id === tripId) || {}
 
-  let title = t("titles.enRoute")
+  const ports = t("ports", {returnObjects: true})
+  const departureLabel = (ports.find(p => DEP && p.value === DEP.PO) || {}).label || ""
+
+  let title = `${departureLabel} → `
   const subtitle = `${start ? format(start, "MMMM dd - H:mm") : ""} / ${isFinished ? format(end, "MMMM dd - H:mm") : "..."}`
 
   if (isFinished) {
-    const departureLabel = dropdownT("dropdowns.ports", {returnObjects: true}).find(p => p.value === DEP.PO).label
-    const arrivalLabel = dropdownT("dropdowns.ports", {returnObjects: true}).find(p => p.value === POR.PO).label
+    const arrivalLabel = ports.find(p => p.value === POR.PO).label
+    title += arrivalLabel
     title = `${departureLabel} → ${arrivalLabel}`
   }
 
