@@ -16,6 +16,7 @@ export const Message = ({RN, TM, result, created, history}) => {
       onClick={() => TM === "DCA" && !disabled ? history.push(`${routes.MESSAGES}/DCA/${RN}${routes.EDIT}`) : null}
     >
       <TableCell><Status result={result}/></TableCell>
+      <TableCell><Typography>{RN}</Typography></TableCell>
       <TableCell>
         <Grid container justify="flex-end" spacing={8}>
           <Grid item>

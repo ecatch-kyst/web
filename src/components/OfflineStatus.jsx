@@ -1,6 +1,6 @@
 import React from 'react'
 
-import OfflineIcon from "@material-ui/icons/OfflineBoltTwoTone"
+import OfflineIcon from "@material-ui/icons/WifiOffOutlined"
 import {useTranslation} from 'react-i18next'
 import {Tooltip, Fab, Zoom} from '@material-ui/core'
 import {useStore} from '../hooks'

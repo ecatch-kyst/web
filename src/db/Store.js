@@ -1,4 +1,5 @@
 import React, {Component, createContext} from "react"
+import {withRouter} from "react-router-dom"
 import initValues from "./initialValues.json"
 import {CONNECTION_REF} from "../lib/firebase"
 
@@ -15,7 +16,7 @@ import {
 
 const Store = createContext()
 
-export class Database extends Component {
+export const Database = withRouter(class extends Component {
 
   state = initValues
 
@@ -100,6 +101,9 @@ export class Database extends Component {
 
   subscribeToMessages = messages.subscribe.bind(this)
 
+  handleCancelTrip = messages.cancelTrip.bind(this)
+
+  notifyAboutLastMessageStatus = messages.notifyAboutLastMessageStatus.bind(this)
 
   render() {
     return (
@@ -115,6 +119,7 @@ export class Database extends Component {
           processNotificationQueue: this.processNotificationQueue,
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
+          handleCancelTrip: this.handleCancelTrip,
           submitMessage: this.submitMessage,
           addToCustomList: this.addToCustomList,
           handleCustomListChange: this.handleCustomListChange,
@@ -125,6 +130,6 @@ export class Database extends Component {
       </Store.Provider>
     )
   }
-}
+})
 
 export default Store

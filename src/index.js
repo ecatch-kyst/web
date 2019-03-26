@@ -15,8 +15,8 @@ import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <I18nextProvider i18n={i18next}>
-    <Database>
-      <Router>
+    <Router>
+      <Database>
         <Store.Consumer>
           {({isDarkMode}) =>
             <MuiThemeProvider theme={isDarkMode ? dark : light}>
@@ -24,8 +24,8 @@ ReactDOM.render(
             </MuiThemeProvider>
           }
         </Store.Consumer>
-      </Router>
-    </Database>
+      </Database>
+    </Router>
   </I18nextProvider>,
   document.getElementById('root')
 )

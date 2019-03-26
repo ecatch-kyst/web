@@ -5,19 +5,27 @@ import {useTranslation} from 'react-i18next'
 import Form from './Form'
 import {Button, Grid} from '@material-ui/core'
 import {useStore} from '../../hooks'
+import {DestructButton} from '../shared'
 
 export {Form}
 
 
 export default props => {
-  const {isEnRoute, trips} = useStore()
+  const {isEnRoute, trips, handleCancelTrip} = useStore()
   return (
     <Grid alignItems="center" container direction="column" spacing={16} style={{padding: 16}} {...props}>
       {isEnRoute ?
           <>
             <FormButton type="DCA"/>
-            {trips[0] && trips[0].DCAList.length ?
-              <FormButton type="POR"/> : null
+            {(trips.length && !trips[0].DCAList.length) ?
+              <DestructButton
+                color="primary"
+                onClick={handleCancelTrip}
+                size="large"
+                variant="contained"
+              >Cancel trip
+              </DestructButton> :
+              <FormButton type="POR"/>
             }
           </> :
         <FormButton type="DEP"/>

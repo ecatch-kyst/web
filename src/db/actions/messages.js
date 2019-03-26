@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
-import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT} from "../../lib/firebase"
+import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT, FS} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
+import {routes} from "../../lib/router"
 /**
  * Handles message changes.
  * @param {string} key
@@ -91,15 +92,44 @@ export async function submit(type) {
       break
     }
     // TODO: Add final validation before sending to firebase
+    if (this.state.isOffline) {
+      this.notify({name: `message.sent.offline`, type: "warning"})
+    }
+
+    let successRoute = routes.TRIPS
+    if (this.state.trips.length && !this.state.trips[0].isFinished) {
+      successRoute = `${routes.TRIPS}/${this.state.trips[0].id}`
+    }
+
+    this.props.history.push(successRoute)
+
     await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add({
       ...message,
       created: TIMESTAMP_CLIENT()
     })
     this.notify({name: `message.sent.${type}`, type: "success"})
+
   } catch ({code, message}) {
     this.notify({name: `message.sent.${type}`, type: "error", message: [code, message].join(": ")})
   }
+}
 
+/**
+ * Creates an "empty" DCA and a POR message based on the DEP
+ * DCA and POR are batched for integrity.
+ */
+export async function cancelTrip() {
+  try {
+    const activeTrips = this.state.trips[0]
+    console.log(activeTrips)
+    const messageBatch = FS.batch()
+    messageBatch.set({}) // Empty DCA
+
+    messageBatch.set({}) // POR from DEP
+    await messageBatch.commit()
+    this.notify({name: `message.sent.cancel`, type: "success"})
+  } catch (error) {
+  }
 }
 
 /**
@@ -116,13 +146,33 @@ export function subscribe() {
             return ({...acc, [key]: key !== "timestamp" && value.toDate ? value.toDate() : value})
           }
           , {}))
+          this.notifyAboutLastMessageStatus(this.state.messages[this.state.messages.length - 1], messages[messages.length - 1] )
           const trips = generateTrips(messages)
           const isEnRoute = !trips[0].isFinished
           this.setState({messages, isEnRoute, trips})
         }
       },
-      error => console.error(error)
+      error => {
+        this.notify({name: "yooo", type: "error"})
+        console.error(error)
+      }
     ) //TODO: Add error notification
+}
+
+/**
+ * Send notification to the user about the last message's status
+ * @param {*} oldMessage
+ * @param {*} newMessage
+ */
+export function notifyAboutLastMessageStatus (oldMessage, newMessage) {
+  if ((oldMessage && !oldMessage.result) && newMessage.result) {
+    this.notify({
+      duration: 8000,
+      name: `message.responses.${newMessage.result.RS}`,
+      message: newMessage.RN,
+      type: newMessage.result.RS === "ACK" ? "success" : "error"
+    })
+  }
 }
 
 /**
@@ -159,12 +209,21 @@ const generateTrips = messages => {
           DCAList: [],
           end: null,
           isFinished: false,
-          fish: {} // TODO:
+          fish: {}
         })
         return acc
       }
       case "DCA": {
-        if (!isTripFinished) acc[lastTripIndex].DCAList.push(message)
+        if (!isTripFinished) {
+          Object.entries(message.CA).forEach(([type, weight]) => {
+            if (acc[lastTripIndex].fish[type]) {
+              acc[lastTripIndex].fish[type] += weight
+            } else {
+              acc[lastTripIndex].fish[type] = weight
+            }
+          })
+          acc[lastTripIndex].DCAList.push(message)
+        }
         return acc
       }
       case "POR": {
