@@ -43,7 +43,7 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
 
   useEffect(() => {
     if(!validType) return
-    let newFields = {...initialValues.fields} // Start with empty fields, to prevent rogue values.
+    let newFields = {}//{...initialValues.fields} // Start with empty fields, to prevent rogue values.
     const now = new Date()
     switch (type) {
     case "DEP":
@@ -200,13 +200,12 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
 
   const form = forms[type] // Extract form from forms.json
 
-  const isAllowed = (isEnRoute ? ["DCA", "POR"].includes(type) : type === "DEP") || (canEdit && type === "DCA")
 
   return (
     <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
       <Grid alignItems="center" container direction="column" spacing={16}>
         <Grid component="form" item onSubmit={handleSubmit}>
-          {isAllowed ? form.map(({id, step}) => // If a valid form, iterate over its steps
+          {form.map(({id, step}) => // If a valid form, iterate over its steps
             <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
               <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
               {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
@@ -226,8 +225,7 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
               )}
               <Divider style={{marginTop: 16}}/>
             </Grid>
-          ) :
-            <Redirect to={routes.DASHBOARD}/> // If the form is invalid, redirect to the dashboard
+          )
           }
         </Grid>
         <Grid container item justify="center">
