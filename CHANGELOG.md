@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - notification, dialogs, dropdowns moved to their own namespaces in `locales`
 
+### Removed
+- unused translations
+
 ## [1.0.0-beta4] - 2019-03-25
 ### Changed
 - New Logo
