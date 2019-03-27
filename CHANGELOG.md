@@ -2,7 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
+### Changed
+- DCA is split into two parts
 
+### Fixed
+- DU field is now calculated from fishingStart and fishingEnd
 ## [1.0.0-beta4] - 2019-03-25
 ### Changed
 - New Logo
