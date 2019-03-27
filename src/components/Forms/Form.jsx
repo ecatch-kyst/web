@@ -9,7 +9,7 @@ import {Page} from '../shared'
 
 import FormInput from './FormInput.jsx'
 import {useStore} from '../../hooks'
-import {addHours} from 'date-fns'
+import {addHours, format} from 'date-fns'
 
 import initialValues from "../../db/initialValues.json"
 
@@ -21,8 +21,8 @@ import initialValues from "../../db/initialValues.json"
  * @param {'DEP'|'DCA'|'POR'} props.match.params.type - Type of form
  * @param {number} props.match.params.messageId - id of message if form is used for editing
  */
-export const Form = ({match: {path, params: {type, messageId}}}) => {
-  const {fields, isEnRoute, handleFieldChange, messages, position, handleDialog, submitMessage, trips} = useStore()
+export const Form = ({history, match: {path, params: {type, messageId}}}) => {
+  const {fields, isEnRoute, handleFieldChange, messages, position, handleDialog, submitMessage, trips, toggleDCAStart} = useStore()
   const [t] = useTranslation("forms")
 
   const [canEdit, setCanEdit] = useState(false)
@@ -64,11 +64,27 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
       }
       break
 
-    case "DCA":
+    case "DCA0":
       newFields = { // These values will be preset, no matter if there is a base message.
         ...newFields,
         fishingStart: now,
-        expectedFishingStart: addHours(now, 2)
+        startFishingSpot: position,
+        GE: "DRB"
+      }
+      if (Object.keys(baseMessage).length) {
+        newFields = { // Preset from base (previous message, with the same type)
+          ...newFields,
+          AC: baseMessage.AC,
+          GS: baseMessage.GS,
+          QI: baseMessage.QI
+        }
+      }
+      break
+    case "DCA":
+      newFields = { // These values will be preset, no matter if there is a base message.
+        ...newFields,
+        endFishingSpot: position,
+        DU: fields.fishingStart ? parseInt(format(Date.now() - new Date(fields.fishingStart).getTime(), "m"), 10) : 0
       }
       if (Object.keys(baseMessage).length) {
         newFields = { // Preset from base (previous message, with the same type)
@@ -80,10 +96,7 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
           CA: baseMessage.CA,
           GE: baseMessage.GE,
           GS: baseMessage.GS,
-          DU: baseMessage.DU,
-          QI: baseMessage.QI,
-          startFishingSpot: position,
-          endFishingSpot: baseMessage.endFishingSpot
+          QI: baseMessage.QI
         }
       }
       break
@@ -113,6 +126,7 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
     default:
       break
     }
+    console.log(newFields)
     handleFieldChange(newFields)
   }, [baseMessage /**REVIEW: Deep compare? */, messages.length])
 
@@ -195,6 +209,11 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
    */
   const handleSubmit = e => {
     e.preventDefault()
+    if (type === "DCA0") {
+      toggleDCAStart(true)
+      history.push(routes.DASHBOARD)
+      return
+    }
     handleDialog({type, submit: () => submitMessage(type)})
   }
 

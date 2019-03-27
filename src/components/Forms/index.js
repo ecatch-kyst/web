@@ -10,16 +10,14 @@ export {Form}
 
 
 export default props => {
-  const {isEnRoute, trips} = useStore()
+  const {isEnRoute, trips, DCAStarted} = useStore()
   return (
     <Grid alignItems="center" container direction="column" spacing={16} style={{padding: 16}} {...props}>
       {isEnRoute ?
           <>
-            <FormButton type="DCA1"/>
-            <FormButton type="DCA2"/>
-            {trips[0] && trips[0].DCAList.length ?
-              <FormButton type="POR"/> : null
-            }
+            <FormButton show={DCAStarted && (trips[0] && !trips[0].isFinished)} type="DCA"/>
+            <FormButton type="DCA0"/>
+            <FormButton show={trips[0] && trips[0].DCAList.length} type="POR"/>
           </> :
         <FormButton type="DEP"/>
       }
@@ -27,19 +25,24 @@ export default props => {
   )
 }
 
-export const FormButton = ({type}) => {
+export const FormButton = ({type, show}) => {
   const [t] = useTranslation("forms")
   return(
-    <Grid item>
-      <Button
-        color="primary"
-        component={Link}
-        size="large"
-        to={`${routes.MESSAGES}${routes[type]}${routes.NEW}`}
-        variant="contained"
-      >
-        {t(`links.${type}`)}
-      </Button>
-    </Grid>
+    show ?
+      <Grid item>
+        <Button
+          color="primary"
+          component={Link}
+          size="large"
+          to={`${routes.MESSAGES}${routes[type]}${routes.NEW}`}
+          variant="contained"
+        >
+          {t(`links.${type}`)}
+        </Button>
+      </Grid> : null
   )
+}
+
+FormButton.defaultProps = {
+  show: true
 }
