@@ -48,7 +48,7 @@
       ]
     }
   ],
-  "DCA1": [
+  "DCA0": [
     {
       "id": "activity",
       "step": [
@@ -123,7 +123,7 @@
       ]
     }
   ],
-  "DCA2": [
+  "DCA": [
     {
       "id": "catch",
       "step": [

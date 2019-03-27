@@ -1,8 +1,8 @@
 {
   "links": {
     "DEP": "Meld avgang (DEP)",
-    "DCA1": "Start fangst (DCA)",
-    "DCA2": "Avslutt fangst (DCA)",
+    "DCA0": "Start fangst (DCA)",
+    "DCA": "Avslutt fangst (DCA)",
     "POR": "Havneanløp (POR)",
     "back": "Tilbake"
   },
@@ -14,9 +14,9 @@
       "Planlagt fiskested"
     ]
   },
-  "DCA1": {
-    "title": "DCA",
-    "submit": "Meld",
+  "DCA0": {
+    "title": "Start DCA",
+    "submit": "Start",
     "steps": {
       "0": "Tittel",
       "start": "Start",
@@ -25,7 +25,7 @@
       "permit": "Fiskeritillatelse"
     }
   },
-  "DCA2": {
+  "DCA": {
     "title": "DCA",
     "submit": "Meld",
     "steps": {
