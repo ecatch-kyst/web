@@ -96,6 +96,7 @@ export async function submit(type) {
       created: TIMESTAMP_CLIENT()
     })
     this.notify({name: `message.sent.${type}`, type: "success"})
+    this.toggleDCAStart(false)
   } catch ({code, message}) {
     this.notify({name: `message.sent.${type}`, type: "error", message: [code, message].join(": ")})
   }
@@ -184,4 +185,8 @@ const generateTrips = messages => {
       }
     }, [])
     .sort((a, b) => b.start - a.start)
+}
+
+export function toggleDCAStart(DCAStarted){
+  this.setState({DCAStarted})
 }
