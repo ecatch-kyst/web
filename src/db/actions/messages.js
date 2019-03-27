@@ -70,10 +70,10 @@ export async function submit(type) {
         GE,
         GP,
         endFishingSpot,
-        GS,
         DU,
         CA
       }
+      if (["OTB", "OTM", "TBS"].includes(GE)) message.GS = GS
       if (["OTB", "OTM", "SSC", "GEN", "TBS"].includes(GE)) message.ME = ME
       break
     case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
