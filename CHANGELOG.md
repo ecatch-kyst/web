@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
+### Changed
+- notification, dialogs, dropdowns moved to their own namespaces in `locales`
+- dashboard -> homepage
+
+### Removed
+- unused translations
+- delete option
 
 ## [1.0.0-beta4] - 2019-03-25
 ### Changed

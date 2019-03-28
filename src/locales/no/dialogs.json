@@ -1,0 +1,30 @@
+{
+  "customLists": {
+    "fishingSpots": {
+      "titles": {
+        "main": "Legg til din fiskeplass"
+      },
+      "description": ""
+    }
+  },
+  "DEP": {
+    "titles": {
+      "main": "Send inn DEP melding?"
+    },
+    "description": "Er du sikker på at du vil sende inn avgangsmeldingen(DEP)?"
+  },
+  "DCA": {
+    "titles": {
+      "main": "Send inn DCA melding?"
+    },
+    "description": "Er du sikker på at du vil sende inn fangstmeldingen(DCA)?"
+  },
+  "POR": {
+    "titles": {
+      "main": "Send inn POR melding?"
+
+    },
+    "description": "Er du sikker på at du vil sende inn havneanløpmelding(POR)?"
+
+  }
+}

@@ -6,13 +6,19 @@
 		"report-fishing": "Send",
 		"return-journey": "Report return journey"
 	},
+	"negative": {
+		"cancel-message": "Cancel"
+	},
+	"positive": {
+		"submit": "OK"
+	},
 	"links": {
 		"not-found": "Go to 404",
 		"register": "Register",
 		"back": "Back"
 	},
 	"navigation": {
-		"dashboard": "Dashboard",
+		"homepage": "HomePage",
 		"profile": "Profile",
 		"messages": "Messages",
 		"trips": "Trips"
@@ -28,133 +34,5 @@
 	},
 	"states": {
 		"offline": "You are offline"
-	},
-	"welcome": {
-		"intro": "To get started, edit <1><0></0></1> and save to reload.",
-		"title": "Welcome to {{framework}}"
-	},
-	"dialogs": {
-		"customLists": {
-			"fishingSpots": {
-				"titles":{
-					"main": "Add personal fishing spot",
-					"cancel": "Cancel",
-					"submit": "Add"
-				},
-				"description": ""
-			}
-		},
-		"deleteUser": {
-			"titles": {
-				"main": "Delete user",
-				"submit": "Delete",
-				"cancel": "Cancel"
-				
-			},
-			"description": "Are you sure you want to do this? All your data will be removed."
-		},
-		"DEP": {
-			"titles": {
-				"main": "Send in DEP message?",
-				"submit": "Confirm",
-				"cancel": "Cancel"
-			},
-			"description": "Are you sure you want to send in a departure message?"
-		},
-		"DCA": {
-			"titles": {
-				"main": "Send in DCA message?",
-				"submit": "Confirm",
-				"cancel": "Cancel"
-			},
-			"description": "Are you sure you want to send in a catch message?"
-		},
-		"POR": {
-			"titles": {
-				"main": "Send in POR message?",
-				"submit": "Confirm",
-				"cancel": "Cancel"
-			},
-			"description": ""
-
-		}
-	},
-	"notifications": {
-		"message": {
-			"sent": {
-				"DEP": {
-					"error": "Message not sent \n{{message}}",
-					"success": "Message sent"
-				},
-				"DCA": {
-					"error": "Message not sent \n{{message}}",
-					"success": "Message sent"
-				},
-				"POR": {
-					"error": "Message not sent\n{{message}}",
-					"success": "Message sent"
-				}
-			}
-		},
-		"customLists": {
-			"subscribe": {
-				"error": "Something went wrong {{message}}"
-			},
-			"fishingSpots": {
-				"added":{
-					"error": "Something went wrong {{message}}",
-					"success": "Added"
-				}
-			}
-		},
-		"offline": {
-			"error": "You are offline.",
-			"action": "Reload page"
-		},
-		"position": {
-			"error": "Error while fetching position. \n{{message}}"
-		},
-		"user": {
-			"updated": {
-				"default": "User updated."
-			},
-			"deleted": {
-				"default": "User deleted."
-			}
-		},
-		"login": {
-			"default": "Login successful.",
-			"error": {
-				"auth/invalid-email": "Invalid e-mail",
-				"auth/wrong-password": "Wrong password",
-				"auth/user-not-found": "This user does not exist",
-				"auth/user-disabled": "This user has been disabled, please contact customerservice",
-				"auth/invalid-password": "The password must contain atleast 6 characters",
-				"auth/invalid-phone-number": "Invalid phonenumber",
-				"auth/email-already-exists": "There already exists a user with this email",
-				"auth/phone-number-already-exists": "There already exists a user with this phone number"
-			},
-			"warning": ""
-		},
-		"logout": {
-			"default": "Logout successful.",
-			"error": "Something went wrong when you tried to log out."
-		},
-		"language": {
-			"default": "The language has been changed."
-		},
-		"darkMode": {
-			"on": {
-				"default": "Night mode on."
-			},
-			"off": {
-				"default": "Night mode off."
-			}
-		}
-	},
-	"edit": {
-		"message": {
-			"submit": "Submit"
-		}
 	}
 }

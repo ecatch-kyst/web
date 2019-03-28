@@ -9,10 +9,5 @@
     "email": "E-mail",
     "name": "Name",
     "password": "Password"
-  },
-  "placeholders": {
-    "email": "E-mail",
-    "name": "Name",
-    "password": "Password"
   }
 }
