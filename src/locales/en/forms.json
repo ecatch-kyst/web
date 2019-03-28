@@ -17,9 +17,9 @@
     "title": "DCA",
     "submit": "Submit",
     "steps": {
-      "0": "title",
+      "0": "Fishingstart & quota",
       "location": "Location",
-      "fishing": "Fishing"
+      "fishing": "Activity, catch and fishing tools"
     }
   },
   "POR": {

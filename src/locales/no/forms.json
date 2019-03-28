@@ -17,9 +17,9 @@
     "title": "DCA",
     "submit": "Meld",
     "steps": {
-      "0": "Tittel",
+      "0": "Fiskestart og kvote",
       "location": "Lokasjon",
-      "fishing": "Fisking"
+      "fishing": "Aktivitet, fangst og redskap"
     }
   },
   "POR": {
