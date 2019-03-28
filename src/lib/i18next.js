@@ -10,8 +10,6 @@ import pages_no from "../locales/no/pages.json"
 import register_en from "../locales/en/register.json"
 import register_no from "../locales/no/register.json"
 import languages from "../locales/locales.json"
-import problems_en from "../locales/en/problems.json"
-import problems_no from "../locales/no/problems.json"
 import messages_en from "../locales/en/messages.json"
 import messages_no from "../locales/no/messages.json"
 import trips_en from "../locales/en/trips.json"
@@ -36,7 +34,6 @@ const en = {
   register: register_en,
   messages: messages_en,
   trips: trips_en,
-  problems: problems_en,
   forms: forms_en,
   dropdowns: dropdowns_en,
   notifications: notifications_en,
@@ -48,7 +45,6 @@ const no = {
   profile: profile_no,
   dashboard: dashboard_no,
   pages: pages_no,
-  problems: problems_no,
   register: register_no,
   forms: forms_no,
   messages: messages_no,
