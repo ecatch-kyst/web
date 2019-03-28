@@ -10,7 +10,6 @@ import {Page} from '../shared'
 import {useStore} from '../../hooks'
 
 export const Profile = () => {
-
   const {isDarkMode, handleToggleDarkMode} = useStore()
 
   return (
@@ -45,6 +44,14 @@ export const Profile = () => {
           }
           id="logout"
         />
+        <Element actionComponent={
+          <Typography align="center">
+          </Typography>
+        }
+        id="about-us"
+        >
+
+        </Element>
         <Element
           actionComponent={
             <Typography align="center">
