@@ -3,8 +3,8 @@ import common_en from "../locales/en/common.json"
 import common_no from "../locales/no/common.json"
 import profile_en from "../locales/en/profile.json"
 import profile_no from "../locales/no/profile.json"
-import dashboard_en from "../locales/en/dashboard.json"
-import dashboard_no from "../locales/no/dashboard.json"
+import homepage_en from "../locales/en/homepage.json"
+import homepage_no from "../locales/no/homepage.json"
 import pages_en from "../locales/en/pages.json"
 import pages_no from "../locales/no/pages.json"
 import register_en from "../locales/en/register.json"
@@ -29,7 +29,7 @@ import {nb as nbDateFns, enGB as enDateFns} from "date-fns/locale"
 const en = {
   common: common_en,
   profile: profile_en,
-  dashboard: dashboard_en,
+  homepage: homepage_en,
   pages: pages_en,
   register: register_en,
   messages: messages_en,
@@ -43,7 +43,7 @@ const en = {
 const no = {
   common: common_no,
   profile: profile_no,
-  dashboard: dashboard_no,
+  homepage: homepage_no,
   pages: pages_no,
   register: register_no,
   forms: forms_no,
