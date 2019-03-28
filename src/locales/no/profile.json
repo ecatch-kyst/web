@@ -1,6 +1,5 @@
 {
 	"buttons": {
-		"deleteUser": "Slett",
 		"logout": "Logg ut"
 	},
 	"descriptions": {
@@ -12,7 +11,6 @@
 		"negative": "Nei",
 		"positive": "Ja",
 		"profildescription": "Her kan du redigere profilen din, legge til informasjon og verifisere at alt stemmer",
-		"slett-meg": "Er du sikker på at du vil slette brukeren din?",
 		"version": ""
 	},
 	"labels": {
@@ -23,7 +21,6 @@
 		"about-us": "Om oss",
 		"changeLanguage": "Språk",
 		"dark-mode": "Nattmodus",
-		"deleteUser": "Slett bruker",
 		"logout": "Logg ut",
 		"main": "Min profil",
 		"version": "Versjon"
