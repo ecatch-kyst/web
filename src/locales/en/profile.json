@@ -3,9 +3,9 @@
 		"logout": "Logout"
 	},
 	"descriptions": {
-		"about-us": "This is the description of the company and how to contact us",
-		"changeLanguage": "The preferred language will be used throughout the app",
-		"dark-mode": "Give your eyes a break when you just have to work after dark",
+		"about-us": "Need help? Contact Dualog Fisknett AS at support@dualog.com or +4792084000. ",
+		"changeLanguage": "Select language",
+		"dark-mode": "Enable / Disable dark mode",
 		"logout": "",
 		"negative": "No",
 		"positive": "Yes",
