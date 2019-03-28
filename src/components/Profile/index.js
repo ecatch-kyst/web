@@ -6,15 +6,12 @@ import {
 import {useTranslation} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 import ProfileDetails from './ProfileDetails'
-import {Page, DestructButton} from '../shared'
+import {Page} from '../shared'
 import {useStore} from '../../hooks'
 
 export const Profile = () => {
 
-  const [t] = useTranslation("profile")
-  const {isDarkMode, handleToggleDarkMode, handleUserDelete, handleDialog} = useStore()
-
-  const handleDeleteUser = () => handleDialog({type: "deleteUser", submit: handleUserDelete, isDestructive: true})
+  const {isDarkMode, handleToggleDarkMode} = useStore()
 
   return (
 
@@ -42,14 +39,6 @@ export const Profile = () => {
           id="changeLanguage"
         />
         <Divider/>
-        <Element
-          actionComponent={
-            <DestructButton onClick={handleDeleteUser}>
-              {t("buttons.deleteUser")}
-            </DestructButton>
-          }
-          id="deleteUser"
-        />
         <Element
           actionComponent={
             <Logout/>
