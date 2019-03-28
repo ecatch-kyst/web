@@ -2,42 +2,27 @@
   "customLists": {
     "fishingSpots": {
       "titles": {
-        "main": "Legg til din fiskeplass",
-        "cancel": "Avbryt",
-        "submit": "Legg til fiskeplass"
+        "main": "Legg til din fiskeplass"
       },
       "description": ""
     }
   },
-  "deleteUser": {
-    "titles": {
-      "main": "Slett bruker",
-      "submit": "Slett",
-      "cancel": "Nei"
-    },
-    "description": "Er du sikker på at du vil slette brukeren din? All informasjon blir slettet. Dette kan ikke reverseres."
-  },
   "DEP": {
     "titles": {
-      "main": "Send inn DEP melding?",
-      "submit": "Bekreft",
-      "cancel": "Avlys"
+      "main": "Send inn DEP melding?"
     },
     "description": "Er du sikker på at du vil sende inn avgangsmeldingen(DEP)?"
   },
   "DCA": {
     "titles": {
-      "main": "Send inn DA melding?",
-      "submit": "Bekreft",
-      "cancel": "Avlys"
+      "main": "Send inn DCA melding?"
     },
     "description": "Er du sikker på at du vil sende inn fangstmeldingen(DCA)?"
   },
   "POR": {
     "titles": {
-      "main": "Send inn POR melding?",
-      "submit": "Bekreft",
-      "cancel": "Avlys"
+      "main": "Send inn POR melding?"
+
     },
     "description": "Er du sikker på at du vil sende inn havneanløpmelding(POR)?"
 

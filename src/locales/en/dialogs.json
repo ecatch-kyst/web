@@ -2,43 +2,26 @@
   "customLists": {
     "fishingSpots": {
       "titles": {
-        "main": "Add personal fishing spot",
-        "cancel": "Cancel",
-        "submit": "Add"
+        "main": "Add personal fishing spot"
       },
       "description": ""
     }
   },
-  "deleteUser": {
-    "titles": {
-      "main": "Delete user",
-      "submit": "Delete",
-      "cancel": "Cancel"
-
-    },
-    "description": "Are you sure you want to do this? All your data will be removed."
-  },
   "DEP": {
     "titles": {
-      "main": "Send in DEP message?",
-      "submit": "Confirm",
-      "cancel": "Cancel"
+      "main": "Send in DEP message?"
     },
     "description": "Are you sure you want to send in a departure(DEP) message?"
   },
   "DCA": {
     "titles": {
-      "main": "Send in DCA message?",
-      "submit": "Confirm",
-      "cancel": "Cancel"
+      "main": "Send in DCA message?"
     },
     "description": "Are you sure you want to send in a catch(DCA) message?"
   },
   "POR": {
     "titles": {
-      "main": "Send in POR message?",
-      "submit": "Confirm",
-      "cancel": "Cancel"
+      "main": "Send in POR message?"
     },
     "description": "Are you sure you want to send in a port(POR) message?"
   }
