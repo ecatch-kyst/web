@@ -7,7 +7,7 @@
   },
   "DEP": {
     "title": "DEP",
-    "submit": "Submit",
+    "submit": "Report departure",
     "steps": [
       "Departure port",
       "Planned fishing area"
@@ -15,7 +15,7 @@
   },
   "DCA": {
     "title": "DCA",
-    "submit": "Submit",
+    "submit": "Send catch report",
     "steps": {
       "0": "Fishingstart & quota",
       "location": "Location",
@@ -24,7 +24,7 @@
   },
   "POR": {
     "title": "POR",
-    "submit": "Submit",
+    "submit": "Report port call",
     "steps": [
       "Port",
       "Fish"

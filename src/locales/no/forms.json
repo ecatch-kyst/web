@@ -15,7 +15,7 @@
   },
   "DCA": {
     "title": "DCA",
-    "submit": "Meld",
+    "submit": "Meld fangst",
     "steps": {
       "0": "Fiskestart og kvote",
       "location": "Lokasjon",
@@ -24,7 +24,7 @@
   },
   "POR": {
     "title": "POR",
-    "submit": "Meld",
+    "submit": "Meld hjemreise",
     "steps": [
       "Havn",
       "Fisk"
