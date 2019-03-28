@@ -23,7 +23,7 @@
       "submit": "Bekreft",
       "cancel": "Avlys"
     },
-    "description": "Er du sikker på at du vil sende inn avgangsmeldingen?"
+    "description": "Er du sikker på at du vil sende inn avgangsmeldingen(DEP)?"
   },
   "DCA": {
     "titles": {
@@ -31,7 +31,7 @@
       "submit": "Bekreft",
       "cancel": "Avlys"
     },
-    "description": "Er du sikker på at du vil sende inn fangstmeldingen?"
+    "description": "Er du sikker på at du vil sende inn fangstmeldingen(DCA)?"
   },
   "POR": {
     "titles": {
@@ -39,7 +39,7 @@
       "submit": "Bekreft",
       "cancel": "Avlys"
     },
-    "description": ""
+    "description": "Er du sikker på at du vil sende inn havneanløpmelding(POR)?"
 
   }
 }

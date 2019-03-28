@@ -24,7 +24,7 @@
       "submit": "Confirm",
       "cancel": "Cancel"
     },
-    "description": "Are you sure you want to send in a departure message?"
+    "description": "Are you sure you want to send in a departure(DEP) message?"
   },
   "DCA": {
     "titles": {
@@ -32,7 +32,7 @@
       "submit": "Confirm",
       "cancel": "Cancel"
     },
-    "description": "Are you sure you want to send in a catch message?"
+    "description": "Are you sure you want to send in a catch(DCA) message?"
   },
   "POR": {
     "titles": {
@@ -40,6 +40,6 @@
       "submit": "Confirm",
       "cancel": "Cancel"
     },
-    "description": ""
+    "description": "Are you sure you want to send in a port(POR) message?"
   }
 }
