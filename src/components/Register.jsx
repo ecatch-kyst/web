@@ -46,14 +46,14 @@ export class Register extends Component {
               label={t("labels.email")}
               name="email"
               onChange={this.handleChange}
-              placeholder={t("placeholders.email")}
+              placeholder={t("labels.email")}
               value={email}
             />
             <Input
               label={t("labels.password")}
               name="password"
               onChange={this.handleChange}
-              placeholder={t("placeholders.password")}
+              placeholder={t("labels.password")}
               value={password}
             />
           </Grid>
@@ -61,7 +61,7 @@ export class Register extends Component {
             label={t("labels.name")}
             name="name"
             onChange={this.handleChange}
-            placeholder={t("placeholders.name")}
+            placeholder={t("labels.name")}
             value={name}
           />
           <Grid container item>
