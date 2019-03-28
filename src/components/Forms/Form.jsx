@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-import {Link, Redirect, withRouter} from "react-router-dom"
+import {Link, withRouter} from "react-router-dom"
 import forms from "./forms.json"
 import {Grid, Button, Divider, Typography} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
@@ -11,7 +11,6 @@ import FormInput from './FormInput.jsx'
 import {useStore} from '../../hooks'
 import {addHours, format} from 'date-fns'
 
-import initialValues from "../../db/initialValues.json"
 
 /**
  * Form component
@@ -22,10 +21,10 @@ import initialValues from "../../db/initialValues.json"
  * @param {number} props.match.params.messageId - id of message if form is used for editing
  */
 export const Form = ({history, match: {path, params: {type, messageId}}}) => {
-  const {fields, isEnRoute, handleFieldChange, messages, position, handleDialog, submitMessage, trips, toggleDCAStart} = useStore()
+  const {fields, handleFieldChange, messages, position, handleDialog, submitMessage, trips, toggleDCAStart} = useStore()
   const [t] = useTranslation("forms")
 
-  const [canEdit, setCanEdit] = useState(false)
+  const [setCanEdit] = useState(false)
   const [baseMessage, setBaseMessage] = useState({})
 
   const [validType, setValidType] = useState(false)
