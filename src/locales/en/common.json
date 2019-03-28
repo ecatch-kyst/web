@@ -12,7 +12,7 @@
 		"back": "Back"
 	},
 	"navigation": {
-		"dashboard": "Dashboard",
+		"homepage": "HomePage",
 		"profile": "Profile",
 		"messages": "Messages",
 		"trips": "Trips"
