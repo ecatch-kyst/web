@@ -1,6 +1,6 @@
 export const routes = {
   ROOT: "/",
-  DASHBOARD: "/dashboard",
+  HOMEPAGE: "/homepage",
   TEST: "/test",
   FORGOT_PASSWORD: "/new-password",
   REGISTER: "/register",

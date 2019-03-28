@@ -38,7 +38,7 @@ class Landing extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <Centered>
-          {AUTH.currentUser ? <Redirect to={routes.DASHBOARD} /> : null}
+          {AUTH.currentUser ? <Redirect to={routes.HOMEPAGE} /> : null}
           <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-1" src={blob}/>
           <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-2" src={blob}/>
           <Typography style={{width:0, height:0, opacity:0}} variant="h1">{process.env.REACT_APP_TITLE}</Typography>

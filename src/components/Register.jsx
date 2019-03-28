@@ -39,7 +39,7 @@ export class Register extends Component {
     const {t} = this.props
     return (
       <form onSubmit={this.handleSubmitRegistration}>
-        {isSubmitted ? <Redirect to={routes.DASHBOARD}/> : null}
+        {isSubmitted ? <Redirect to={routes.HOMEPAGE}/> : null}
         <Grid container direction="column" spacing={16} style={{margin: 16}}>
           <Grid container item spacing={16}>
             <Input
