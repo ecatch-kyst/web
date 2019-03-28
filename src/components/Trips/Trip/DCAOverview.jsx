@@ -10,9 +10,6 @@ export const DCAOverview = ({list, fish}) => {
 
   console.log(fish)
 
-export const DCAOverview = ({list}) => {
-  const [t] = useTranslation("dropdowns")
-  const activityTranslations = t("activity", {returnObjects: true})
 
   if (list.length === 0) {
     return (
