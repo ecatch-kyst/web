@@ -6,6 +6,12 @@
 		"report-fishing": "Rapporter inn",
 		"return-journey": "Meld hjemreise"
 	},
+	"negative": {
+		"cancel-message": "Avbryt"
+	},
+	"positive": {
+		"submit": "OK"
+	},
 	"links": {
 		"not-found": "Gå til 404",
 		"register": "Registrer",
