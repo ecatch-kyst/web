@@ -1,5 +1,5 @@
 import OfflineStatus from "./OfflineStatus"
-import Dashboard from "./Dashboard"
+import HomePage from "./HomePage"
 import Register from "./Register"
 import Landing from "./Landing"
 import NotFound from "./NotFound"
@@ -14,7 +14,7 @@ export {Dialog, Notification} from "./shared"
 export {
   Centered,
   OfflineStatus,
-  Dashboard,
+  HomePage,
   Register,
   Landing,
   NotFound,

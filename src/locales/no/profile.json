@@ -1,18 +1,15 @@
 {
 	"buttons": {
-		"deleteUser": "Slett",
 		"logout": "Logg ut"
 	},
 	"descriptions": {
-		"about-us": "Dette er beskrivelsen av selskapet og hvordan man kontakter oss",
-		"changeLanguage": "Vis appen på språket som du velger",
-		"dark-mode": "Bytt til nattmodus for å gjøre det bedre å bruke appen om natten",
-		"deleteUser": "Du kan slette deg fra vårt system",
+		"about-us": "Trenger du hjelp? Kontakt Dualog Fisknett AS på support@dualog.com eller +4792084000.",
+		"changeLanguage": "Velg språk",
+		"dark-mode": "Bytt til / fra nattmodus",
 		"logout": "",
 		"negative": "Nei",
 		"positive": "Ja",
 		"profildescription": "Her kan du redigere profilen din, legge til informasjon og verifisere at alt stemmer",
-		"slett-meg": "Er du sikker på at du vil slette brukeren din?",
 		"version": ""
 	},
 	"labels": {
@@ -23,7 +20,6 @@
 		"about-us": "Om oss",
 		"changeLanguage": "Språk",
 		"dark-mode": "Nattmodus",
-		"deleteUser": "Slett bruker",
 		"logout": "Logg ut",
 		"main": "Min profil",
 		"version": "Versjon"

@@ -14,7 +14,7 @@ import {
   Profile,
   Register,
   OfflineStatus,
-  Dashboard,
+  HomePage,
   NotFound,
   Dialog,
   Trips,
@@ -33,7 +33,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
-      <Route component={Dashboard} exact path={routes.DASHBOARD}/>
+      <Route component={HomePage} exact path={routes.HOMEPAGE}/>
       <Route component={Trips} exact path={routes.TRIPS}/>
       <Route component={Trip} exact path={`${routes.TRIPS}/:tripId`}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
@@ -60,9 +60,9 @@ export default withRouter(withTheme()(App))
 
 const navigation = [
   {
-    id: "dashboard",
+    id: "homepage",
     icon: <DashboardIcon/>,
-    to: routes.DASHBOARD
+    to: routes.HOMEPAGE
   },
   {
     id: "trips",

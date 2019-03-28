@@ -17,8 +17,8 @@ import {deadlinePassed, deadline} from '../../../utils'
 
 
 export const DCAOverview = ({list}) => {
-  const [t] = useTranslation("forms")
-  const activityTranslations = t("dropdowns.activity", {returnObjects: true})
+  const [t] = useTranslation("dropdowns")
+  const activityTranslations = t("activity", {returnObjects: true})
 
   if (list.length === 0) {
     return (

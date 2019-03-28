@@ -42,9 +42,9 @@ describe("Form component", () => {
         }
         switch (type) {
         case "INVALID": {
-          it("redirects to dashboard", () => {
+          it("redirects to homepage", () => {
             expect(wrapper.find(Redirect)).toHaveLength(1)
-            expect(wrapper.find(Redirect).prop("to")).toBe(routes.DASHBOARD)
+            expect(wrapper.find(Redirect).prop("to")).toBe(routes.HOMEPAGE)
           })
           break
         }

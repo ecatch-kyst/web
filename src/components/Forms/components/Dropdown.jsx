@@ -9,8 +9,8 @@ import withStyle, {components} from './vendor/ReactSelect'
 
 export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
 
-  const [t] = useTranslation("forms")
-  const {custom: {fishingSpots, ports}} = useStore()
+  const [t] = useTranslation("dropdowns")
+  const {custom: {fishingSpots}} = useStore()
 
 
   const selectStyles = {
@@ -23,7 +23,7 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
     })
   }
 
-  let options = t(`dropdowns.${type}`, {returnObjects: true})
+  let options = t(type, {returnObjects: true})
   let handleChange
   let selectValue
 
