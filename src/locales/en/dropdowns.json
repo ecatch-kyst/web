@@ -1,4 +1,8 @@
 {
+  "labels": {
+    "favorites": "Favorites",
+    "all": "All"
+  },
   "customLists": {
     "fishingSpots": {
       "button": "Add custom spot",

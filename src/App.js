@@ -24,6 +24,8 @@ import {
   Form,
   Notification
 } from './components'
+
+import { AddPort } from './components/Forms/components/AddFavoritePort'
 import {useTranslation} from 'react-i18next'
 
 
@@ -32,6 +34,7 @@ export const App = ({theme: {palette: {type}}}) =>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Register} exact path={routes.REGISTER}/>
+      <Route component={AddPort} exact path="/test"/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={HomePage} exact path={routes.HOMEPAGE}/>
       <Route component={Trips} exact path={routes.TRIPS}/>

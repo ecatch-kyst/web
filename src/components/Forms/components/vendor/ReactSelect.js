@@ -96,6 +96,13 @@ function Control(props) {
   )
 }
 
+export function GroupLabel (data) {
+  return(
+    <Typography style={{textDecoration: "underline"}} variant="subtitle2">
+      {data.label}
+    </Typography>
+  )
+}
 
 function Option(props) {
   return (
@@ -178,7 +185,10 @@ export default Component =>
       return (
         <div className={root}>
           <NoSsr>
-            <Component {...props} classes={classes}/>
+            <Component
+              {...props}
+              classes={classes}
+            />
             <div className={divider} />
           </NoSsr>
         </div>

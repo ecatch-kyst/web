@@ -1,4 +1,8 @@
 {
+  "labels": {
+    "favorites": "Favoritter",
+    "all": "Alle"
+  },
   "customLists": {
     "fishingSpots": {
       "button": "Legg til fiskeplass",
@@ -229,13 +233,6 @@
       "value": 7
     }
   ],
-  "expectedFishingSpot": [{
-    "label": "Holmen",
-    "value": {
-      "longitude": 10,
-      "latitude": 10
-    }
-  }],
   "problems": [{
       "value": 0,
       "label": "Ingen redskapsproblemer"

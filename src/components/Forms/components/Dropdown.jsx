@@ -5,12 +5,12 @@ import AddFishingSpot from "./AddFishingSpot"
 import {GEOPOINT} from '../../../lib/firebase'
 import {useStore} from '../../../hooks'
 
-import withStyle, {components} from './vendor/ReactSelect'
+import withStyle, {components, GroupLabel} from './vendor/ReactSelect'
 
 export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("dropdowns")
-  const {custom: {fishingSpots}} = useStore()
+  const {custom: {fishingSpots, ports}} = useStore()
 
 
   const selectStyles = {
@@ -23,7 +23,10 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
     })
   }
 
-  let options = t(type, {returnObjects: true})
+  let allOptions = t(type, {returnObjects: true})
+
+  let selectOptions = allOptions
+
   let handleChange
   let selectValue
 
@@ -35,26 +38,42 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
       }), {})})
     }
 
-    selectValue = options.reduce((acc, option) => {
+    selectValue = allOptions.reduce((acc, option) => {
       if (Object.keys(value).includes(option.value)) return [...acc, option]
       else return acc
     }, [])
 
   } else {
 
-    if(type === "expectedFishingSpot"){
-      options = fishingSpots
+    switch (type) {
+    case "expectedFishingSpot":
+      allOptions = fishingSpots
+      selectOptions = fishingSpots
       components.NoOptionsMessage = AddFishingSpot
-    }
+      break
 
-    if(type === "ports"){
-      console.log(options)
-      //options = [...options]
-      options = [...ports, ...options]
+    case "ports":
+      const portOptions = ports.map(p => allOptions.find(o => o.value === p.value))
+      const newOptions = allOptions.filter(o => !portOptions.find(p => p.value === o.value))
+      selectOptions = [
+        {
+          label: t("labels.favorites"),
+          options: portOptions
+        },
+        {
+          label: t("labels.all"), //TODO: Translate
+          options: newOptions
+        }
+      ]
+      break
+    default:
+      break
     }
 
     handleChange = ({value}) => onChange(dataId, value)
-    selectValue = options.find(option =>
+
+
+    selectValue = allOptions.find(option =>
       option.value === value ||
       //REVIEW: Better solution to match geopoints ?
       (option.value.latitude && value.latitude &&
@@ -64,15 +83,15 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
     )
   }
 
-
   return(
     <Select
       classes={classes}
       components={components}
+      formatGroupLabel={GroupLabel}
       isDisabled={disabled}
       isMulti={isMulti}
       onChange={handleChange}
-      options={options}
+      options={selectOptions}
       placeholder={placeholder}
       styles={selectStyles}
       textFieldProps={{InputLabelProps: {shrink: true}}}
