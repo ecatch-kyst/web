@@ -33,11 +33,13 @@ const GeoPointInput = ({disabled, dataId, label, onChange, value: {latitude, lon
   // when user moves away from the field, update the global state
   const handleBlur = () => onChange(dataId, localValue)
 
+  //TODO: calculate the size of the map, should be improved to update on window rescale
+
   return (
     <>
     <GoogleMaps
-      mapHeight={400}
-      mapWidth={400}
+      mapHeight={window.innerHeight*0.5}
+      mapWidth={window.innerWidth*0.8}
     />
     <InputLabel>{label}</InputLabel>
     {["latitude", "longitude"].map(degree =>
