@@ -10,7 +10,7 @@ import withStyle, {components, GroupLabel} from './vendor/ReactSelect'
 export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("dropdowns")
-  const {custom: {fishingSpots, ports}} = useStore()
+  const {custom: {fishingSpots, ports, tools, activites}} = useStore()
 
 
   const selectStyles = {
@@ -24,6 +24,8 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
   }
 
   let allOptions = t(type, {returnObjects: true})
+  console.log(allOptions, type)
+
 
   let selectOptions = allOptions
 
@@ -63,6 +65,35 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
         {
           label: t("labels.all"), //TODO: Translate
           options: newOptions
+        }
+      ]
+      break
+
+    case "fishing-gear":
+      const fishingGearOptions = tools.map(p => allOptions.find(o => o.value === p.value))
+      const newfishingGearOptions = allOptions.filter(o => !fishingGearOptions.find(p => p.value === o.value))
+      selectOptions = [
+        {
+          label: t("labels.favorites"),
+          options: fishingGearOptions
+        },
+        {
+          label: t("labels.all"), //TODO: Translate
+          options: newfishingGearOptions
+        }
+      ]
+      break
+    case "activity":
+      const activityOptions = activites.map(p => allOptions.find(o => o.value === p.value))
+      const newActivityOptions = allOptions.filter(o => !activityOptions.find(p => p.value === o.value))
+      selectOptions = [
+        {
+          label: t("labels.favorites"),
+          options: activityOptions
+        },
+        {
+          label: t("labels.all"), //TODO: Translate
+          options: newActivityOptions
         }
       ]
       break
