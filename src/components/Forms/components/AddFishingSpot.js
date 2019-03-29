@@ -6,6 +6,7 @@ import {useTranslation} from "react-i18next"
 import GeoPointInput from './GeoPointInput'
 import TextInput from './TextInput'
 import {useStore} from '../../../hooks'
+import GoogleMaps from '../../GoogleMapsCustom/GoogleMapsSelectiveMarker'
 
 export const AddFishingSpot = () => {
   const [t] = useTranslation("forms")
@@ -34,6 +35,11 @@ export const AddFishingSpot = () => {
                 value={label}
               />
             </Grid>
+            {/*TODO: make map responsive, not static size */}
+            <GoogleMaps
+              mapHeight={400}
+              mapWidth={400}
+            />
             <Grid container direction="column" item justify="center">
               <GeoPointInput
                 dataId="value"

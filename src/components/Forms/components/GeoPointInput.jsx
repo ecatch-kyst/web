@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {TextField, InputLabel, InputAdornment} from "@material-ui/core"
 import {useTranslation} from 'react-i18next'
 import {GEOPOINT} from '../../../lib/firebase'
+import GoogleMaps from "../../GoogleMapsCustom/GoogleMapsSelectiveMarker"
 
 const GeoPointInput = ({disabled, dataId, label, onChange, value: {latitude, longitude}}) => {
 
@@ -34,6 +35,10 @@ const GeoPointInput = ({disabled, dataId, label, onChange, value: {latitude, lon
 
   return (
     <>
+    <GoogleMaps
+      mapHeight={400}
+      mapWidth={400}
+    />
     <InputLabel>{label}</InputLabel>
     {["latitude", "longitude"].map(degree =>
       <TextField
