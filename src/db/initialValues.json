@@ -32,7 +32,10 @@
     "fishingSpots": [],
     "ports": [],
     "tools": [],
-    "activities": []
+    "activities": [],
+    "species": [],
+    "fishingPermit": [],
+    "ZO": []
   }
 }
 

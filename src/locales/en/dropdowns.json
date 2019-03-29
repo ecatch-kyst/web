@@ -274,7 +274,7 @@
       "label": "Gillnets and entangling nets"
     },
     {
-      "value": "LL",
+      "value": "LLS",
       "label": "Longlines (not specified)"
     },
     {
@@ -299,6 +299,10 @@
     }
   ],
   "species": [{
+      "value": "COD",
+      "label": "Atlantic cod"
+    },
+    {
       "value": "AJC",
       "label": "Babberlocks"
     },

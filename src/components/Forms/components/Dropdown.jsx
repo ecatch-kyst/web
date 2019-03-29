@@ -10,7 +10,7 @@ import withStyle, {components, GroupLabel} from './vendor/ReactSelect'
 export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("dropdowns")
-  const {custom: {fishingSpots, ports, tools, activities}} = useStore()
+  const {custom: {fishingSpots, ports, tools, activities, species, fishingPermit, ZO}} = useStore()
 
 
   const selectStyles = {
@@ -94,6 +94,51 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
         {
           label: t("labels.all"), //TODO: Translate
           options: newActivityOptions
+        }
+      ]
+      break
+    case "species":
+      const specieOptions = species.map(p => allOptions.find(o => o.value === p.value))
+      const newSpecieOptions = allOptions.filter(o => !specieOptions.find(p => p.value === o.value))
+
+      selectOptions = [
+        {
+          label: t("labels.favorites"),
+          options: specieOptions
+        },
+        {
+          label: t("labels.all"), //TODO: Translate
+          options: newSpecieOptions
+        }
+      ]
+      break
+    case "fishingPermit":
+      const fishingPermitOptions = fishingPermit.map(p => allOptions.find(o => o.value === p.value))
+      const newFishingPermitOptions = allOptions.filter(o => !fishingPermitOptions.find(p => p.value === o.value))
+
+      selectOptions = [
+        {
+          label: t("labels.favorites"),
+          options: fishingPermitOptions
+        },
+        {
+          label: t("labels.all"), //TODO: Translate
+          options: newFishingPermitOptions
+        }
+      ]
+      break
+    case "ZO":
+      const ZOOptions = ZO.map(p => allOptions.find(o => o.value === p.value))
+      const newZOOptions = allOptions.filter(o => !ZOOptions.find(p => p.value === o.value))
+
+      selectOptions = [
+        {
+          label: t("labels.favorites"),
+          options: ZOOptions
+        },
+        {
+          label: t("labels.all"), //TODO: Translate
+          options: newZOOptions
         }
       ]
       break
