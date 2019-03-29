@@ -15,7 +15,7 @@ export const AddTool = () => {
   const {
     handleCustomListChange,
     addToCustomList,
-    custom: {ports}
+    custom: {tools}
   } = useStore()
 
 
@@ -48,7 +48,7 @@ export const AddTool = () => {
             placeholder={placeholder}
             styles={selectStyles}
             textFieldProps={{InputLabelProps: {shrink: true}}}
-            value={options.find(option => ports[i] && option.value === ports[i].value)}
+            value={options.find(option => tools[i] && option.value === tools[i].value)}
           />
         )}
       </Grid>

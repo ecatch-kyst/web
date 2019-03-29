@@ -29,7 +29,7 @@ export class Database extends Component {
       this.subscribeToCustomList("fishingSpots")
       this.subscribeToCustomList("ports")
       this.subscribeToCustomList("tools")
-      this.subscribeToCustomList("activity")
+      this.subscribeToCustomList("activities")
     }})
 
     setTimeout(() => {

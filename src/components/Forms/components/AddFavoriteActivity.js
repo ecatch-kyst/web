@@ -15,7 +15,7 @@ export const AddActivity = () => {
   const {
     handleCustomListChange,
     addToCustomList,
-    custom: {ports}
+    custom: {activities}
   } = useStore()
 
 
@@ -23,7 +23,7 @@ export const AddActivity = () => {
     handleCustomListChange({
       name: "value",
       value: option.value,
-      callback: () => addToCustomList("activites", `${index}`)})
+      callback: () => addToCustomList("activities", `${index}`)})
   }
 
   const selectStyles = {
@@ -48,7 +48,7 @@ export const AddActivity = () => {
             placeholder={placeholder}
             styles={selectStyles}
             textFieldProps={{InputLabelProps: {shrink: true}}}
-            value={options.find(option => ports[i] && option.value === ports[i].value)}
+            value={options.find(option => activities[i] && option.value === activities[i].value)}
           />
         )}
       </Grid>
