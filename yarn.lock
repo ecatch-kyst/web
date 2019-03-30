@@ -949,10 +949,10 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.11.tgz#32a853fad9974cbbc9fc766ec5699a18b22ccee6"
   integrity sha512-WyMXDxk/WZ+f2lOCeEvDWUce2f5Kk2sNfvArK8f+PlUnzFdy/MBzLXrmbMgyZXP7GP4ooUxYV8Sdmoh1hGk1Uw==
 
-"@material-ui/core@^3.9.1":
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.9.1.tgz#994fa54f0936092556d231d1055b8f76b12be06e"
-  integrity sha512-26GtjuwxPPfSsUnYrTOC8zuCuhWPVhc4SsUSFTZq0n1QvpGi9UEZRFe8yp6FykQE+PmqyyY+eWdrfiXKSUKZ0w==
+"@material-ui/core@^3.9.3":
+  version "3.9.3"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.9.3.tgz#d378c1f4beb18df9a534ca7258c2c33fb8e0e51f"
+  integrity sha512-REIj62+zEvTgI/C//YL4fZxrCVIySygmpZglsu/Nl5jPqy3CDjZv1F9ubBYorHqmRgeVPh64EghMMWqk4egmfg==
   dependencies:
     "@babel/runtime" "^7.2.0"
     "@material-ui/system" "^3.0.0-alpha.0"
