@@ -22,15 +22,10 @@ import {
   Trip,
   EditCatch,
   Form,
-  Notification
+  Notification,
+  Preset
 } from './components'
 
-import {AddPort} from './components/Forms/components/AddFavoritePort'
-import {AddTool} from './components/Forms/components/AddFavoriteTool'
-import {AddActivity} from './components/Forms/components/AddFavoriteActivity'
-import {AddSpecie} from './components/Forms/components/AddFavoriteSpecie'
-import {AddFishingPermit} from './components/Forms/components/AddFAvoriteFishingPermit'
-import {AddZO} from './components/Forms/components/AddFavoriteZO'
 import {useTranslation} from 'react-i18next'
 
 
@@ -39,12 +34,7 @@ export const App = ({theme: {palette: {type}}}) =>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Register} exact path={routes.REGISTER}/>
-      <Route component={AddPort} exact path="/test"/>
-      <Route component={AddTool} exact path="/test1"/>
-      <Route component={AddActivity} exact path="/test2"/>
-      <Route component={AddSpecie} exact path="/test3"/>
-      <Route component={AddFishingPermit} exact path="/test4"/>
-      <Route component={AddZO} exact path="/test5"/>
+      <Route component={Preset} exact path={"/test"}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={HomePage} exact path={routes.HOMEPAGE}/>
       <Route component={Trips} exact path={routes.TRIPS}/>
