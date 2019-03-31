@@ -4,7 +4,7 @@ import Select from 'react-select'
 
 
 import {Grid} from '@material-ui/core'
-import {useTranslation} from "react-i18next"
+import {useTranslation, withTranslation} from "react-i18next"
 import {useStore} from '../../../hooks'
 
 export const AddFishingPermit = () => {
@@ -58,4 +58,4 @@ export const AddFishingPermit = () => {
 }
 
 
-export default AddFishingPermit
+export default withTranslation("pages")(AddFishingPermit)

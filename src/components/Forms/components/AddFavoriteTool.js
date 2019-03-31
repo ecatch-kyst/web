@@ -4,7 +4,7 @@ import Select from 'react-select'
 
 
 import {Grid} from '@material-ui/core'
-import {useTranslation} from "react-i18next"
+import {useTranslation, withTranslation} from "react-i18next"
 import {useStore} from '../../../hooks'
 
 export const AddTool = () => {
@@ -58,4 +58,4 @@ export const AddTool = () => {
 }
 
 
-export default AddTool
+export default withTranslation("pages")(AddTool)

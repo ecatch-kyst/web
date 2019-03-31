@@ -1,16 +1,24 @@
-import React from 'react'
-import {withPage} from './shared'
-import {AddActivity, AddSpecie, AddZO, AddFishingPermit, AddPort, AddTool} from './Forms/components'
+import React, {} from 'react'
+import {Page} from './shared'
+import {AddActivity, AddSpecie, AddZO, AddFishingPermit, AddPort, AddTool} from './Forms'
+import {
+  List, ListItem, Grid, FormControlLabel,
+  Switch, Typography, withTheme, Button, Divider
+} from '@material-ui/core'
 
+export const Preset = () => {
 
-export const Preset = () =>
-  <>
-    <AddActivity/>
-    <AddSpecie/>
-    <AddZO/>
-    <AddFishingPermit/>
-    <AddPort/>
-    <AddTool/>
-  </>
+  return (
+    <Page namespace="preset" style={{marginBottom: 64}}>
+      <AddActivity/>
+      <AddSpecie/>
+      <AddZO/>
+      <AddFishingPermit/>
+      <AddPort/>
+      <AddTool/>
+    </Page>
+  )
 
-export default withPage(Preset, {namespace: "preset"})
+}
+
+export default withTheme()(Preset)

@@ -5,8 +5,14 @@ import {useTranslation} from 'react-i18next'
 import Form from './Form'
 import {Button, Grid} from '@material-ui/core'
 import {useStore} from '../../hooks'
+import {AddTool} from "./components/AddFavoriteTool"
+import {AddZO} from "./components/AddFavoriteZO"
+import {AddSpecie} from "./components/AddFavoriteSpecie"
+import {AddActivity} from "./components/AddFavoriteActivity"
+import {AddPort} from "./components/AddFavoritePort"
+import {AddFishingPermit} from "./components/AddFavoriteFishingPermit"
 
-export {Form}
+export {Form, AddTool, AddZO, AddSpecie, AddActivity, AddPort, AddFishingPermit}
 
 
 export default props => {

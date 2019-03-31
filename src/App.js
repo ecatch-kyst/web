@@ -34,9 +34,9 @@ export const App = ({theme: {palette: {type}}}) =>
     <Switch>
       <Route component={Landing} exact path={routes.ROOT}/>
       <Route component={Register} exact path={routes.REGISTER}/>
-      <Route component={Preset} exact path={"/test"}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={HomePage} exact path={routes.HOMEPAGE}/>
+      <Route component={Preset} exact path={routes.PRESET}/>
       <Route component={Trips} exact path={routes.TRIPS}/>
       <Route component={Trip} exact path={`${routes.TRIPS}/:tripId`}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
