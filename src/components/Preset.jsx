@@ -1,6 +1,6 @@
-import React, {} from 'react'
-import {Page, Loading} from './shared'
-import {AddActivity, AddSpecie, AddZO, AddFishingPermit, AddPort, AddTool} from './Forms'
+import React from 'react'
+import {Page} from './shared'
+import {/**AddActivity, AddSpecie, AddZO, AddFishingPermit, AddPort, **/AddTool} from './Forms/components/AddFavoriteTool'
 import {
   Grid, withTheme
 } from '@material-ui/core'
@@ -9,18 +9,14 @@ export const Preset = () => {
 
   return (
     <Page namespace="preset" style={{marginBottom: 64}}>
-      <Grid>
-        <AddActivity/>
-        <AddSpecie/>
-        <AddZO/>
-        <AddFishingPermit/>
-        <AddPort/>
-        <AddTool/>
-      </Grid> :
-      <Loading/>
+      {
+        <Grid>
+          <AddTool/>
+        </Grid>
+      }
     </Page>
   )
 
 }
 
-export default withTheme()(Preset)
+export default Preset

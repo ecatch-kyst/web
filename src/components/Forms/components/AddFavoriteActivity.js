@@ -58,4 +58,4 @@ export const AddActivity = () => {
 }
 
 
-export default withTranslation("pages")(AddActivity)
+export default withTranslation("dropdowns")(AddActivity)

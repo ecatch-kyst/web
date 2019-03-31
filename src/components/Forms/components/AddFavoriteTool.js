@@ -1,14 +1,12 @@
 /* eslint-disable require-jsdoc */
 import React from 'react'
 import Select from 'react-select'
-
-
 import {Grid} from '@material-ui/core'
-import {useTranslation, withTranslation} from "react-i18next"
+import {withTranslation} from "react-i18next"
 import {useStore} from '../../../hooks'
+import {withPage} from '../../shared'
 
-export const AddTool = () => {
-  const [t] = useTranslation("dropdowns")
+export const AddTool = ({t}) => {
   const options = t("fishing-gear", {returnObjects: true})
   const placeholder = "Favorite Tool"
   const disabled = false
@@ -42,7 +40,7 @@ export const AddTool = () => {
           <Select
             isDisabled={disabled}
             key={i}
-            label={t("dropdowns.customLists.fishingSpots.label")}
+            label={t("customLists.fishingSpots.label")}
             onChange={option => handleChange(option, i)}
             options={options}
             placeholder={placeholder}
@@ -52,10 +50,9 @@ export const AddTool = () => {
           />
         )}
       </Grid>
-
     </Grid>
   )
 }
 
 
-export default withTranslation("pages")(AddTool)
+export default withPage(withTranslation("dropdowns"))(AddTool)
