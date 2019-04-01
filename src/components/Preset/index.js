@@ -3,15 +3,19 @@ import {withPage} from '../shared'
 //import {AddActivity, AddSpecie, AddZO, AddFishingPermit, AddPort, AddTool} from '../Forms'
 import AddType from "./components/AddFavoriteType"
 
+const {
+  custom: {activites, species}
+} = useStore()
+
 const mapping = [
   {
     type: "activity",
-    list: {custom: {activites}} = useStore(),
+    list: activites,
     numberOfChoices: 3
   },
   {
     type: "species",
-    list: {custom: {species}} = useStore(),
+    list: species,
     numberOfChoices: 2
   }
 ]
