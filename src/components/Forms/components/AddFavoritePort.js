@@ -7,9 +7,10 @@ import {useStore} from '../../../hooks'
 
 export const AddPort = () => {
   const [t] = useTranslation("dropdowns")
+  const type = "ports"
   const [presetT] = useTranslation("preset")
-  const options = t("ports", {returnObjects: true})
-  const placeholder = presetT("placeholders.favoritePort")
+  const options = t(type, {returnObjects: true})
+  const placeholder = presetT(`placeholders.${type}`)
   const disabled = false
   const {
     handleCustomListChange,
@@ -22,7 +23,7 @@ export const AddPort = () => {
     handleCustomListChange({
       name: "value",
       value: option.value,
-      callback: () => addToCustomList("ports", `${index}`)})
+      callback: () => addToCustomList(type, `${index}`)})
   }
 
   const selectStyles = {
@@ -36,7 +37,7 @@ export const AddPort = () => {
 
   return (
     <div>
-      <Typography variant="h6">{presetT("headline.favoritePort")}</Typography>
+      <Typography variant="h6">{presetT(`headline.${type}`)}</Typography>
       <Grid alignItems="stretch" container direction="column" spacing={16}>
         <Grid item>
           {new Array(3).fill(null).map((_, i) =>

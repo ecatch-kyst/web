@@ -7,9 +7,10 @@ import {useStore} from '../../../hooks'
 
 export const AddSpecie = () => {
   const [t] = useTranslation("dropdowns")
+  const type = "species"
   const [presetT] = useTranslation("preset")
-  const options = t("species", {returnObjects: true})
-  const placeholder = presetT("placeholders.favoriteSpecie")
+  const options = t(type, {returnObjects: true})
+  const placeholder = presetT(`placeholders.${type}`)
   const disabled = false
   const {
     handleCustomListChange,
@@ -22,7 +23,7 @@ export const AddSpecie = () => {
     handleCustomListChange({
       name: "value",
       value: option.value,
-      callback: () => addToCustomList("species", `${index}`)})
+      callback: () => addToCustomList(type, `${index}`)})
   }
 
   const selectStyles = {
@@ -36,7 +37,7 @@ export const AddSpecie = () => {
 
   return (
     <div>
-      <Typography variant="h6">{presetT("headline.favoriteSpecie")}</Typography>
+      <Typography variant="h6">{presetT(`headline.${type}`)}</Typography>
       <Grid alignItems="stretch" container direction="column" spacing={16}>
         <Grid item>
           {new Array(3).fill(null).map((_, i) =>

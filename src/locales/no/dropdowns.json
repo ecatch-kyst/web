@@ -262,7 +262,7 @@
       "label": "Annet"
     }
   ],
-  "fishing-gear": [{
+  "fishinggear": [{
       "value": "DRB",
       "label": "Skrape, mekanisert"
     },

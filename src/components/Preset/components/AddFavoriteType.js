@@ -5,17 +5,16 @@ import {Grid, Typography} from '@material-ui/core'
 import {useTranslation} from "react-i18next"
 import {useStore} from '../../../hooks'
 
-export const AddZO = () => {
+export const AddActivity = ({type, list, number}) => {
   const [t] = useTranslation("dropdowns")
-  const type = "ZO"
   const [presetT] = useTranslation("preset")
   const options = t(type, {returnObjects: true})
-  const placeholder = presetT(`placeholders.${type}`)
+  const placeholder = presetT("placeholders.activity")
   const disabled = false
   const {
     handleCustomListChange,
     addToCustomList,
-    custom: {ZO}
+    custom: {list}
   } = useStore()
 
 
@@ -23,7 +22,7 @@ export const AddZO = () => {
     handleCustomListChange({
       name: "value",
       value: option.value,
-      callback: () => addToCustomList(type, `${index}`)})
+      callback: () => addToCustomList(list, `${index}`)})
   }
 
   const selectStyles = {
@@ -37,7 +36,7 @@ export const AddZO = () => {
 
   return (
     <div>
-      <Typography variant="h6">{presetT(`headline.${type}`)}</Typography>
+      <Typography variant="h6">{presetT("headline.favoriteActivity")}</Typography>
       <Grid alignItems="stretch" container direction="column" spacing={16}>
         <Grid item>
           {new Array(3).fill(null).map((_, i) =>
@@ -50,14 +49,15 @@ export const AddZO = () => {
               placeholder={placeholder}
               styles={selectStyles}
               textFieldProps={{InputLabelProps: {shrink: true}}}
-              value={options.find(option => ZO[i] && option.value === ZO[i].value)}
+              value={options.find(option => list[i] && option.value === list[i].value)}
             />
           )}
         </Grid>
+
       </Grid>
     </div>
   )
 }
 
 
-export default AddZO
+export default AddActivity

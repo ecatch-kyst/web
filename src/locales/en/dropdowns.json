@@ -261,7 +261,7 @@
       "label": "Other"
     }
   ],
-  "fishing-gear": [{
+  "fishinggear": [{
       "value": "DRB",
       "label": "Harvesting machines (not specified)"
     },

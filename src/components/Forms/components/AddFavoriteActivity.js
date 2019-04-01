@@ -7,14 +7,15 @@ import {useStore} from '../../../hooks'
 
 export const AddActivity = () => {
   const [t] = useTranslation("dropdowns")
+  const type = "activity"
   const [presetT] = useTranslation("preset")
-  const options = t("activity", {returnObjects: true})
-  const placeholder = presetT("placeholders.favoriteActivity")
+  const options = t(type, {returnObjects: true})
+  const placeholder = presetT(`placeholders.${type}`)
   const disabled = false
   const {
     handleCustomListChange,
     addToCustomList,
-    custom: {activities}
+    custom: {activity}
   } = useStore()
 
 
@@ -22,7 +23,7 @@ export const AddActivity = () => {
     handleCustomListChange({
       name: "value",
       value: option.value,
-      callback: () => addToCustomList("activities", `${index}`)})
+      callback: () => addToCustomList(type, `${index}`)})
   }
 
   const selectStyles = {
@@ -36,7 +37,7 @@ export const AddActivity = () => {
 
   return (
     <div>
-      <Typography variant="h6">{presetT("headline.favoriteActivity")}</Typography>
+      <Typography variant="h6">{presetT(`headline.${type}`)}</Typography>
       <Grid alignItems="stretch" container direction="column" spacing={16}>
         <Grid item>
           {new Array(3).fill(null).map((_, i) =>
@@ -49,7 +50,7 @@ export const AddActivity = () => {
               placeholder={placeholder}
               styles={selectStyles}
               textFieldProps={{InputLabelProps: {shrink: true}}}
-              value={options.find(option => activities[i] && option.value === activities[i].value)}
+              value={options.find(option => activity[i] && option.value === activity[i].value)}
             />
           )}
         </Grid>

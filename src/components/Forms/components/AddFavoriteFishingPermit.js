@@ -7,9 +7,10 @@ import {useStore} from '../../../hooks'
 
 export const AddFishingPermit = () => {
   const [t] = useTranslation("dropdowns")
+  const type = "fishingPermit"
   const [presetT] = useTranslation("preset")
-  const options = t("fishingPermit", {returnObjects: true})
-  const placeholder = presetT("placeholders.favoriteFishingPermit")
+  const options = t(type, {returnObjects: true})
+  const placeholder = presetT(`placeholders.${type}`)
   const disabled = false
   const {
     handleCustomListChange,
@@ -22,7 +23,7 @@ export const AddFishingPermit = () => {
     handleCustomListChange({
       name: "value",
       value: option.value,
-      callback: () => addToCustomList("fishingPermit", `${index}`)})
+      callback: () => addToCustomList(type, `${index}`)})
   }
 
   const selectStyles = {
@@ -36,7 +37,7 @@ export const AddFishingPermit = () => {
 
   return (
     <div>
-      <Typography variant="h6">{presetT("headline.favoriteFishingPermit")}</Typography>
+      <Typography variant="h6">{presetT(`headline.${type}`)}</Typography>
       <Grid alignItems="stretch" container direction="column" spacing={16}>
         <Grid item>
           {new Array(3).fill(null).map((_, i) =>

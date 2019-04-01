@@ -3,19 +3,20 @@
     "main": "Preset"
   },
   "placeholders": {
-    "favoriteTool": "Favorite tool",
+    "fishinggear": "Favorite tool",
     "favoriteActivity": "Favorite Activity",
-    "favoriteFishingPermit": "Favorite Fishingpermit",
-    "favoritePort": "Favorite Port",
-    "favoriteZO": "Favorite ZO",
-    "favoriteSpecie": "Favorite Specie"
+    "activity": "Favorite Activity",
+    "fishingPermit": "Favorite Fishingpermit",
+    "ports": "Favorite Port",
+    "ZO": "Favorite ZO",
+    "species": "Favorite Specie"
   },
   "headline": {
-    "favoriteTool": "Set your favorite tools",
-    "favoriteActivity": "Set your favorite activities",
-    "favoriteFishingPermit": "Set your favorite fishingpermit",
-    "favoritePort": "Set your favorite ports",
-    "favoriteSpecie": "Set your favorite species",
-    "favoriteZO": "Set your favorite ZOs"
+    "fishinggear": "Set your favorite tools",
+    "activity": "Set your favorite activities",
+    "fishingPermit": "Set your favorite fishingpermit",
+    "ports": "Set your favorite ports",
+    "species": "Set your favorite species",
+    "ZO": "Set your favorite ZOs"
   }
 }

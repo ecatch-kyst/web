@@ -10,7 +10,7 @@ import withStyle, {components, GroupLabel} from './vendor/ReactSelect'
 export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("dropdowns")
-  const {custom: {fishingSpots, ports, tools, activities, species, fishingPermit, ZO}} = useStore()
+  const {custom: {fishingSpots, ports, fishinggear, activity, species, fishingPermit, ZO}} = useStore()
 
 
   const selectStyles = {
@@ -69,8 +69,8 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
       ]
       break
 
-    case "fishing-gear":
-      const fishingGearOptions = tools.map(p => allOptions.find(o => o.value === p.value))
+    case "fishinggear":
+      const fishingGearOptions = fishinggear.map(p => allOptions.find(o => o.value === p.value))
       const newfishingGearOptions = allOptions.filter(o => !fishingGearOptions.find(p => p.value === o.value))
       selectOptions = [
         {
@@ -84,7 +84,7 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
       ]
       break
     case "activity":
-      const activityOptions = activities.map(p => allOptions.find(o => o.value === p.value))
+      const activityOptions = activity.map(p => allOptions.find(o => o.value === p.value))
       const newActivityOptions = allOptions.filter(o => !activityOptions.find(p => p.value === o.value))
       selectOptions = [
         {
