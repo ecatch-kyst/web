@@ -1,7 +1,6 @@
 import React from 'react'
 import {withPage} from '../shared'
-//import {AddActivity, AddSpecie, AddZO, AddFishingPermit, AddPort, AddTool} from '../Forms'
-import AddType from "./components/AddFavoriteType"
+import AddFavorite from "./components/AddFavorite"
 import {useStore} from '../../hooks'
 
 
@@ -20,7 +19,7 @@ export const Preset = () => {
     }
   ]
 
-  return favorites.map(favorite => <AddType key={favorite.type} {...favorite}/>)
+  return favorites.map(favorite => <AddFavorite key={favorite.type} {...favorite}/>)
 
 }
 

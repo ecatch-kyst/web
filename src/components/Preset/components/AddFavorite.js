@@ -5,7 +5,7 @@ import {Grid, Typography} from '@material-ui/core'
 import {useTranslation} from "react-i18next"
 import {useStore} from '../../../hooks'
 
-export const AddType = ({type, list, numberOfChoices}) => {
+export const AddFavorite = ({type, list, numberOfChoices}) => {
   const [t] = useTranslation("dropdowns")
   const [presetT] = useTranslation("preset")
   const options = t(type, {returnObjects: true})
@@ -58,4 +58,4 @@ export const AddType = ({type, list, numberOfChoices}) => {
 }
 
 
-export default AddType
+export default AddFavorite
