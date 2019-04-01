@@ -2,13 +2,14 @@
 import React from 'react'
 import Select from 'react-select'
 import {Grid} from '@material-ui/core'
-import {withTranslation} from "react-i18next"
+import {useTranslation} from "react-i18next"
 import {useStore} from '../../../hooks'
-import {withPage} from '../../shared'
 
-export const AddTool = ({t}) => {
+export const AddTool = () => {
+  const [t] = useTranslation("dropdowns")
+  const [presetT] = useTranslation("preset")
   const options = t("fishing-gear", {returnObjects: true})
-  const placeholder = "Favorite Tool"
+  const placeholder = presetT("placeholders.favoriteTool")
   const disabled = false
   const {
     handleCustomListChange,
@@ -55,4 +56,4 @@ export const AddTool = ({t}) => {
 }
 
 
-export default withPage(withTranslation("dropdowns"))(AddTool)
+export default AddTool
