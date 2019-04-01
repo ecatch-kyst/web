@@ -5,11 +5,11 @@ import {useStore} from '../../hooks'
 
 
 export const Preset = () => {
-  const {custom: {activites, species, ZO, fishingPermit, ports, fishinggear}} = useStore()
+  const {custom: {activity, species, ZO, fishingPermit, ports, fishinggear}} = useStore()
   const favorites = [
     {
       type: "activity",
-      list: activites || [],
+      list: activity || [],
       numberOfChoices: 3
     },
     {
