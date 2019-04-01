@@ -8,6 +8,7 @@ import {useStore} from '../../../hooks'
 export const AddFishingPermit = () => {
   const [t] = useTranslation("dropdowns")
   const type = "fishingPermit"
+  const numberOfChocies = 3
   const [presetT] = useTranslation("preset")
   const options = t(type, {returnObjects: true})
   const placeholder = presetT(`placeholders.${type}`)
@@ -40,16 +41,16 @@ export const AddFishingPermit = () => {
       <Typography variant="h6">{presetT(`headline.${type}`)}</Typography>
       <Grid alignItems="stretch" container direction="column" spacing={16}>
         <Grid item>
-          {new Array(3).fill(null).map((_, i) =>
+          {new Array(numberOfChocies).fill(null).map((_, numberOfChocies) =>
             <Select
               isDisabled={disabled}
-              key={i}
-              onChange={option => handleChange(option, i)}
+              key={numberOfChocies}
+              onChange={option => handleChange(option, numberOfChocies)}
               options={options}
               placeholder={placeholder}
               styles={selectStyles}
               textFieldProps={{InputLabelProps: {shrink: true}}}
-              value={options.find(option => fishingPermit[i] && option.value === fishingPermit[i].value)}
+              value={options.find(option => fishingPermit[numberOfChocies] && option.value === fishingPermit[numberOfChocies].value)}
             />
           )}
         </Grid>
