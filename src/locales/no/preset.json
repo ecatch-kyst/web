@@ -3,6 +3,19 @@
     "main": "Frohåndsinnstill"
   },
   "placeholders": {
-    "favoriteTool": "Favoritt verktøy"
+    "fishinggear": "Favoritt verktøy",
+    "activity": "Favoritt aktivitet",
+    "fishingPermit": "Favoritt fisketilatelse",
+    "ports": "Favoritt havn",
+    "ZO": "Favoritt ZO",
+    "species": "Favoritt art"
+  },
+  "headline": {
+    "fishinggear": "Sett dine favoritt verktøy",
+    "activity": "Sett dine favoritt aktiviteter",
+    "fishingPermit": "Sett done favoritt fisketilatelser",
+    "ports": "Sett dine favoritt havner",
+    "species": "Sett dine favoritt arter",
+    "ZO": "Sett dine favoritt ZOer"
   }
 }
