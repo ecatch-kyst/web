@@ -44,7 +44,6 @@ export const AddTool = () => {
             <Select
               isDisabled={disabled}
               key={i}
-              label={t("customLists.fishingSpots.label")}
               onChange={option => handleChange(option, i)}
               options={options}
               placeholder={placeholder}
