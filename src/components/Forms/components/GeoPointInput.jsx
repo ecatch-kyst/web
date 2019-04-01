@@ -15,6 +15,23 @@ const GeoPointInput = ({disabled, dataId, label, onChange, value: {latitude, lon
   }, [latitude, longitude])
 
 
+  //TODO: fix bug, the map coordinates only saves you click the text field afterwards
+  const handleMapClick = (event) => {
+    let latValue = parseFloat(event.latLng.lat())
+    let longValue = parseFloat(event.latLng.lng())
+
+//    let lat = localValue.latitude
+//    let long = localValue.longitude
+
+    let lat = latValue
+    let long = longValue
+
+    setValue(GEOPOINT(
+      Math.min(Math.max(lat || 0, -90), 90),
+      Math.min(Math.max(long || 0, -180), 180)
+    ))
+  }
+
   // when user inputs something into the text field, update the state
   const handleChange = ({target: {name, value}}) => {
     value = parseFloat(value, 10)
@@ -38,8 +55,9 @@ const GeoPointInput = ({disabled, dataId, label, onChange, value: {latitude, lon
   return (
     <>
     <GoogleMaps
-      mapHeight={window.innerHeight*0.5}
-      mapWidth={window.innerWidth*0.8}
+      handleMapClick = {handleMapClick}
+      mapHeight = {window.innerHeight*0.5}
+      mapWidth = {window.innerWidth*0.8}
     />
     <InputLabel>{label}</InputLabel>
     {["latitude", "longitude"].map(degree =>

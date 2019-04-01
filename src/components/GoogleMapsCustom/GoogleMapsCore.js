@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {GoogleMap, Marker, Circle, withGoogleMap, withScriptjs} from "react-google-maps"
+import {GoogleMap, Marker, withGoogleMap, withScriptjs} from "react-google-maps"
 
 
 //This is placed outside the class to prevent the map reloading every time an prop updates
@@ -9,7 +9,8 @@ const GoogleMapWrapper = withScriptjs(withGoogleMap((props) =>
     clickableIcons = { props.clickableIcons }
     defaultCenter = { { lat: props.displayLatitude, lng: props.displayLongitude } }
     defaultZoom = { props.mapZoom }
-    onClick={(e) => props.handleClick(e)}>
+    onClick={(e) => props.handleClick(e)}
+  >
     {props.showMarker &&
     <Marker
       position={{lat: props.selectedLatitude, lng: props.selectedLongitude}}

@@ -25,7 +25,10 @@ class GoogleMapsSelectiveMarker extends Component {
     })
   }
 
-  handleClick = (event) => { this.selectPosition(event)};
+  handleClick = (event) => {
+    this.props.handleMapClick(event)
+    this.selectPosition(event)
+  }
 
   render(){
     return(
@@ -51,6 +54,7 @@ GoogleMapsSelectiveMarker.propTypes = {
   clickableIcons: PropTypes.bool
 }
 
+//TODO make default prop to handleMapClick
 GoogleMapsSelectiveMarker.defaultProps = {
   displayLatitude: 63.4305,
   displayLongitude: 10.3951,
