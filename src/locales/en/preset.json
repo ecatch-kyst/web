@@ -3,6 +3,19 @@
     "main": "Preset"
   },
   "placeholders": {
-    "favoriteTool": "Favorite tool"
+    "favoriteTool": "Favorite tool",
+    "favoriteActivity": "Favorite Activity",
+    "favoriteFishingPermit": "Favorite Fishingpermit",
+    "favoritePort": "Favorite Port",
+    "favoriteZO": "Favorite ZO",
+    "favoriteSpecie": "Favorite Specie"
+  },
+  "headline": {
+    "favoriteTool": "Set your favorite tools",
+    "favoriteActivity": "Set your favorite activities",
+    "favoriteFishingPermit": "Set your favorite fishingpermit",
+    "favoritePort": "Set your favorite ports",
+    "favoriteSpecie": "Set your favorite species",
+    "favoriteZO": "Set your favorite ZOs"
   }
 }
