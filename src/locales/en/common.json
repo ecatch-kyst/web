@@ -21,7 +21,8 @@
 		"homepage": "HomePage",
 		"profile": "Profile",
 		"messages": "Messages",
-		"trips": "Trips"
+		"trips": "Trips",
+		"preset": "Preset"
 	},
 	"loading": {
 		"tooltip": "Loading..."

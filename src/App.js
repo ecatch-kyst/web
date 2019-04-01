@@ -4,6 +4,7 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
 import TripIcon from "@material-ui/icons/CompareArrowsOutlined"
+import PresetIcon from "@material-ui/icons/AddSharp"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -76,6 +77,11 @@ const navigation = [
     id: "profile",
     icon: <ProfileIcon/>,
     to: routes.PROFILE
+  },
+  {
+    id: "preset",
+    icon: <PresetIcon/>,
+    to: routes.PRESET
   }
 ]
 
