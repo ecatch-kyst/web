@@ -5,16 +5,15 @@ import {Grid, Typography} from '@material-ui/core'
 import {useTranslation} from "react-i18next"
 import {useStore} from '../../../hooks'
 
-export const AddActivity = ({type, list, number}) => {
+export const AddType = ({type, list, numberOfChoices}) => {
   const [t] = useTranslation("dropdowns")
   const [presetT] = useTranslation("preset")
   const options = t(type, {returnObjects: true})
-  const placeholder = presetT("placeholders.activity")
+  const placeholder = presetT(`placeholders.${type}`)
   const disabled = false
   const {
     handleCustomListChange,
-    addToCustomList,
-    custom: {list}
+    addToCustomList
   } = useStore()
 
 
@@ -22,7 +21,7 @@ export const AddActivity = ({type, list, number}) => {
     handleCustomListChange({
       name: "value",
       value: option.value,
-      callback: () => addToCustomList(list, `${index}`)})
+      callback: () => addToCustomList(type, `${index}`)})
   }
 
   const selectStyles = {
@@ -36,14 +35,13 @@ export const AddActivity = ({type, list, number}) => {
 
   return (
     <div>
-      <Typography variant="h6">{presetT("headline.favoriteActivity")}</Typography>
+      <Typography variant="h6">{presetT(`headline.${type}`)}</Typography>
       <Grid alignItems="stretch" container direction="column" spacing={16}>
         <Grid item>
-          {new Array(3).fill(null).map((_, i) =>
+          {new Array(numberOfChoices).fill(null).map((_, i) =>
             <Select
               isDisabled={disabled}
               key={i}
-              label={t("customLists.fishingSpots.label")}
               onChange={option => handleChange(option, i)}
               options={options}
               placeholder={placeholder}
@@ -60,4 +58,4 @@ export const AddActivity = ({type, list, number}) => {
 }
 
 
-export default AddActivity
+export default AddType

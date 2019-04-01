@@ -1,20 +1,27 @@
 import React from 'react'
 import {withPage} from '../shared'
-import {AddActivity, AddSpecie, AddZO, AddFishingPermit, AddPort, AddTool} from '../Forms'
-import {Grid} from '@material-ui/core'
-//import AddActivity from "./components/AddFavoriteType"
+//import {AddActivity, AddSpecie, AddZO, AddFishingPermit, AddPort, AddTool} from '../Forms'
+import AddType from "./components/AddFavoriteType"
+
+const mapping = [
+  {
+    type: "activity",
+    list: {custom: {activites}} = useStore(),
+    numberOfChoices: 3
+  },
+  {
+    type: "species",
+    list: {custom: {species}} = useStore(),
+    numberOfChoices: 2
+  }
+]
 
 export const Preset = () => {
 
   return (
-    <Grid>
-      <AddTool/>
-      <AddActivity/>
-      <AddSpecie/>
-      <AddZO/>
-      <AddFishingPermit/>
-      <AddPort/>
-    </Grid>
+    <div>
+      {mapping.map(({type, list, numberOfChoices}) => <AddType {}/>)}
+    </div>
   )
 
 }
