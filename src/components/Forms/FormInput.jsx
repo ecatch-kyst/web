@@ -7,6 +7,7 @@ import DropdownMap from './components/DropdownMap'
 import GeoPointInput from './components/GeoPointInput'
 import {useStore} from '../../hooks'
 
+// Issue #90
 
 /**
  * Dynamic input field
