@@ -16,7 +16,7 @@ export const AddFavorite = ({type, list, numberOfChoices}) => {
     addToCustomList
   } = useStore()
 
-
+  // Handles the set or update of favorites in Firebase
   function handleChange(option, index) {
     handleCustomListChange({
       name: "value",
@@ -33,6 +33,7 @@ export const AddFavorite = ({type, list, numberOfChoices}) => {
     })
   }
 
+  // This will render a grid in a grid with numberOfChoice select for favorites
   return (
     <div>
       <Typography variant="h6">{presetT(`headline.${type}`)}</Typography>
