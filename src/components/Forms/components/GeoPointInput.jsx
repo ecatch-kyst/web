@@ -3,15 +3,15 @@ import {TextField, InputLabel, InputAdornment} from "@material-ui/core"
 import {useTranslation} from 'react-i18next'
 import {GEOPOINT} from '../../../lib/firebase'
 
-const GeoPointInput = ({disabled, dataId, label, onChange, value: {latitude, longitude}}) => {
+const GeoPointInput = ({disabled, dataId, label, onChange, value}) => {
 
   const [t] = useTranslation("forms")
   const [localValue, setValue] = useState({})
 
 
   useEffect(() => {
-    setValue(GEOPOINT(latitude || 0, longitude || 0))
-  }, [latitude, longitude])
+    setValue(GEOPOINT(value.latitude || 0, value.longitude || 0))
+  }, [value.latitude, value.longitude])
 
 
   // when user inputs something into the text field, update the state
@@ -55,7 +55,7 @@ const GeoPointInput = ({disabled, dataId, label, onChange, value: {latitude, lon
 }
 
 GeoPointInput.defaultProps = {
-  value: {}
+  value: GEOPOINT(0,0)
 }
 
 export default GeoPointInput

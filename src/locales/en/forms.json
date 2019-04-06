@@ -1,8 +1,9 @@
 {
   "links": {
-    "DEP": "Report departure",
-    "DCA": "Report catch",
-    "POR": "Port call",
+    "DEP": "Report departure (DEP)",
+    "DCA0": "Start catch (DCA)",
+    "DCA": "Report catch (DCA)",
+    "POR": "Port call (POR)",
     "back": "Back"
   },
   "DEP": {
@@ -12,6 +13,15 @@
       "Departure port",
       "Planned fishing area"
     ]
+  },
+  "DCA0": {
+    "title": "Start DCA",
+    "submit": "Start",
+    "steps": {
+      "0": "title", 
+      "location": "Location",
+      "fishing": "Fishing"
+    }
   },
   "DCA": {
     "title": "DCA",

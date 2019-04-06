@@ -48,26 +48,85 @@
       ]
     }
   ],
-  "DCA": [{
-      "id": 0,
-      "step": [{
+  "DCA0": [
+    {
+      "id": "activity",
+      "step": [
+        {
+          "id": "AC",
+          "dataId": "activity",
+          "type": "select"
+        },
+        {
+          "id": "GE",
+          "dataId": "fishing-gear",
+          "type": "select",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS", "SET"]
+          }
+        },
+        {
+          "id": "ME",
+          "type": "number",
+          "dependent": {
+            "on": "GE",
+            "when": ["OTB", "OTM", "SSC", "GEN", "TBS"]
+          },
+          "options": {
+            "unit": "mm"
+          }
+        },
+        {
+          "id": "GS",
+          "type": "select",
+          "dependent":{
+          "on":"GE",
+          "when": ["OTB", "OTM", "TBS"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "start",
+      "step": [
+        {
           "id": "fishingStart",
           "type": "datetime-local"
         },
+        {
+          "id": "startFishingSpot",
+          "type": "geopoint",
+          "options": {
+            "editable": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "zone",
+      "step": [
+        {
+          "id": "ZO",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "id": "permit",
+      "step": [
         {
           "id": "QI",
           "dataId": "fishingPermit",
           "type": "select"
         }
       ]
-    },
+    }
+  ],
+  "DCA": [
     {
-      "id": "fishing",
-      "step": [{
-          "id": "AC",
-          "dataId": "activity",
-          "type": "select"
-        },
+      "id": "catch",
+      "step": [
         {
           "id": "CA",
           "dataId": "species",
@@ -95,30 +154,6 @@
           }
         },
         {
-          "id": "GE",
-          "dataId": "fishingGear",
-          "type": "select",
-          "dependent": {
-            "on": "AC",
-            "when": ["FIS", "SET"]
-          }
-        },
-        {
-          "id": "ME",
-          "type": "number",
-          "dependent": {
-            "on": "GE",
-            "when": ["OTB", "OTM", "SSC", "GEN", "TBS"]
-          },
-          "options": {
-            "unit": "mm"
-          }
-        },
-        {
-          "id": "GS",
-          "type": "select"
-        },
-        {
           "id": "GP",
           "dataId": "problems",
           "type": "select",
@@ -130,17 +165,7 @@
     },
     {
       "id": "location",
-      "step": [{
-          "id": "ZO",
-          "type": "select"
-        },
-        {
-          "id": "startFishingSpot",
-          "type": "geopoint",
-          "options": {
-            "editable": false
-          }
-        },
+      "step": [
         {
           "id": "endFishingSpot",
           "type": "geopoint",
