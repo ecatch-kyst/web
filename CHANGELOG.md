@@ -4,9 +4,20 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 ### Changed
 - notification, dialogs, dropdowns moved to their own namespaces in `locales`
+- dashboard -> homepage
+- DCA is split into two parts
+
+### Added
+ - preset for making favorites groups in dropdown
+ - page on "homescreen" for setting the preset
 
 ### Removed
 - unused translations
+- delete option
+
+### Fixed
+- DU field is now calculated from fishingStart and fishingEnd
+
 
 ## [1.0.0-beta4] - 2019-03-25
 ### Changed

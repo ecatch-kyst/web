@@ -6,16 +6,23 @@
 		"report-fishing": "Rapporter inn",
 		"return-journey": "Meld hjemreise"
 	},
+	"negative": {
+		"cancel-message": "Avbryt"
+	},
+	"positive": {
+		"submit": "OK"
+	},
 	"links": {
 		"not-found": "Gå til 404",
 		"register": "Registrer",
 		"back": "Tilbake"
 	},
 	"navigation": {
-		"dashboard": "Dashboard",
+		"homepage": "Homepage",
 		"profile": "Profil",
 		"messages": "Meldinger",
-		"trips": "Turer"
+		"trips": "Turer",
+		"preset": "Forhåndsett"
 	},
 	"loading": {
 		"tooltip": "Laster..."

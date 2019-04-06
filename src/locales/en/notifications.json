@@ -47,9 +47,6 @@
   "user": {
     "updated": {
       "default": "User updated."
-    },
-    "deleted": {
-      "default": "User deleted."
     }
   },
   "login": {

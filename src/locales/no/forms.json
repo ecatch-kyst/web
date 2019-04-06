@@ -1,8 +1,9 @@
 {
   "links": {
-    "DEP": "Meld avgang",
-    "DCA": "Meld fangst",
-    "POR": "Havneanløp",
+    "DEP": "Meld avgang (DEP)",
+    "DCA0": "Start fangst (DCA)",
+    "DCA": "Avslutt fangst (DCA)",
+    "POR": "Havneanløp (POR)",
     "back": "Tilbake"
   },
   "DEP": {
@@ -13,36 +14,48 @@
       "Planlagt fiskested"
     ]
   },
-  "DCA": {
-    "title": "DCA",
-    "submit": "Meld",
+  "DCA0": {
+    "title": "Start DCA",
+    "submit": "Start",
     "steps": {
       "0": "Tittel",
+      "start": "Start",
+      "activity": "Aktivitet",
+      "zone": "Sone",
+      "permit": "Fiskeritillatelse"
+    }
+  },
+  "DCA": {
+    "title": "DCA",
+    "submit": "Meld fangst",
+    "steps": {
+      "0": "Fiskestart og kvote",
       "location": "Lokasjon",
-      "fishing": "Fisking"
+      "fishing": "Fisking",
+      "catch": "Fangst"
     }
   },
   "POR": {
     "title": "POR",
-    "submit": "Meld",
+    "submit": "Meld hjemreise",
     "steps": [
       "Havn",
       "Fisk"
     ]
   },
   "labels": {
-    "AC": "Fiskeaktivitet",
+    "AC": "Hovedaktivitet",
     "DS": "Målart",
     "PO": "Velg havn",
-    "expectedFishingStart": "Forventet fiskestart",
+    "expectedFishingStart": "Estimert tidspunkt for fiskestart",
     "expectedFishingSpot": "Forventet fiskested",
     "OB": "Fisk ombord",
     "departure": "Avgangstid",
     "LA": "Breddegrad",
     "LO": "Lengdegrad",
-    "portArrival": "Forventet ankomsttidspunkt",
+    "portArrival": "Estimert ankomsttid",
     "LS": "Mottak",
-    "KG": "Total fangst sortert på fisketype",
+    "KG": "Legg inn fangst",
     "QI": "Fisketillatelse",
     "ZO": "Fiskesone",
     "fishingStart": "Start av fiske",

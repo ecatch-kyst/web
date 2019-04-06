@@ -1,4 +1,8 @@
 {
+  "labels": {
+    "favorites": "Favorites",
+    "all": "All"
+  },
   "customLists": {
     "fishingSpots": {
       "button": "Add custom spot",
@@ -257,7 +261,7 @@
       "label": "Other"
     }
   ],
-  "fishing-gear": [{
+  "fishingGear": [{
       "value": "DRB",
       "label": "Harvesting machines (not specified)"
     },
@@ -270,7 +274,7 @@
       "label": "Gillnets and entangling nets"
     },
     {
-      "value": "LL",
+      "value": "LLS",
       "label": "Longlines (not specified)"
     },
     {
@@ -295,6 +299,10 @@
     }
   ],
   "species": [{
+      "value": "COD",
+      "label": "Atlantic cod"
+    },
+    {
       "value": "AJC",
       "label": "Babberlocks"
     },

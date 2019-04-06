@@ -15,12 +15,6 @@ describe("Profile component", () => {
   it("renders correctly", () => {
     expect(wrapper).toHaveLength(1)
   })
-
-  // it("user deletion is handled", () => {
-  //   wrapper.find(Button).last().simulate("click")
-  //   expect(props.store.handleUserDelete).toBeCalled()
-  // })
-
 })
 
 

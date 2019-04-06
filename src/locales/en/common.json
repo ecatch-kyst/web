@@ -6,16 +6,23 @@
 		"report-fishing": "Send",
 		"return-journey": "Report return journey"
 	},
+	"negative": {
+		"cancel-message": "Cancel"
+	},
+	"positive": {
+		"submit": "OK"
+	},
 	"links": {
 		"not-found": "Go to 404",
 		"register": "Register",
 		"back": "Back"
 	},
 	"navigation": {
-		"dashboard": "Dashboard",
+		"homepage": "HomePage",
 		"profile": "Profile",
 		"messages": "Messages",
-		"trips": "Trips"
+		"trips": "Trips",
+		"preset": "Preset"
 	},
 	"loading": {
 		"tooltip": "Loading..."

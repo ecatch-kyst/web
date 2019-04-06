@@ -1,6 +1,6 @@
 export const routes = {
   ROOT: "/",
-  DASHBOARD: "/dashboard",
+  HOMEPAGE: "/homepage",
   TEST: "/test",
   FORGOT_PASSWORD: "/new-password",
   REGISTER: "/register",
@@ -8,9 +8,11 @@ export const routes = {
   TRIPS: "/trips",
   MESSAGES: "/messages",
   DEP: "/DEP",
+  DCA0: "/DCA0",
   DCA: "/DCA",
   POR: "/POR",
   NOT_FOUND: "/404",
   NEW: "/new",
-  EDIT: "/edit"
+  EDIT: "/edit",
+  PRESET: "/preset"
 }

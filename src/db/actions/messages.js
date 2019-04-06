@@ -71,10 +71,10 @@ export async function submit(type) {
         GE,
         GP,
         endFishingSpot,
-        GS,
         DU,
         CA
       }
+      if (["OTB", "OTM", "TBS"].includes(GE)) message.GS = GS
       if (["OTB", "OTM", "SSC", "GEN", "TBS"].includes(GE)) message.ME = ME
       break
     case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
@@ -108,7 +108,7 @@ export async function submit(type) {
       created: TIMESTAMP_CLIENT()
     })
     this.notify({name: `message.sent.${type}`, type: "success"})
-
+    this.toggleDCAStart(false)
   } catch ({code, message}) {
     this.notify({name: `message.sent.${type}`, type: "error", message: [code, message].join(": ")})
   }
@@ -243,4 +243,8 @@ const generateTrips = messages => {
       }
     }, [])
     .sort((a, b) => b.start - a.start)
+}
+
+export function toggleDCAStart(DCAStarted){
+  this.setState({DCAStarted})
 }

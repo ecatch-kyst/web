@@ -28,6 +28,12 @@ export const Database = withRouter(class extends Component {
       this.subscribeToMessages()
       this.subscribeToLocation()
       this.subscribeToCustomList("fishingSpots")
+      this.subscribeToCustomList("ports")
+      this.subscribeToCustomList("fishingGear")
+      this.subscribeToCustomList("activity")
+      this.subscribeToCustomList("species")
+      this.subscribeToCustomList("fishingPermit")
+      this.subscribeToCustomList("ZO")
     }})
 
     setTimeout(() => {
@@ -101,6 +107,8 @@ export const Database = withRouter(class extends Component {
 
   subscribeToMessages = messages.subscribe.bind(this)
 
+  toggleDCAStart = messages.toggleDCAStart.bind(this)
+  
   handleCancelTrip = messages.cancelTrip.bind(this)
 
   notifyAboutLastMessageStatus = messages.notifyAboutLastMessageStatus.bind(this)
@@ -123,6 +131,7 @@ export const Database = withRouter(class extends Component {
           submitMessage: this.submitMessage,
           addToCustomList: this.addToCustomList,
           handleCustomListChange: this.handleCustomListChange,
+          toggleDCAStart: this.toggleDCAStart,
           ...this.state
         }}
       >
