@@ -5,7 +5,7 @@ import {useStore} from '../../hooks'
 
 
 export const Preset = () => {
-  const {custom: {activity, species, ZO, fishingPermit, ports, fishinggear}} = useStore()
+  const {custom: {activity, species, ZO, fishingPermit, ports, fishingGear}} = useStore()
   // This list is used in the map function futher down. You will generate for every object in the list a grid with select for favorites.
   // type is the type of dropdown, list is the list of choices you have the option to choice among to set the favorites, numberOfChoices is how many favorites per type you allow to user to set
   const favorites = [
@@ -35,8 +35,8 @@ export const Preset = () => {
       numberOfChoices: 2
     },
     {
-      type: "fishinggear",
-      list: fishinggear || [],
+      type: "fishingGear",
+      list: fishingGear || [],
       numberOfChoices: 2
     }
   ]

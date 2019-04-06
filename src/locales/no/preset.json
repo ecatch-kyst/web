@@ -3,7 +3,7 @@
     "main": "Forhåndsinnstill"
   },
   "placeholders": {
-    "fishinggear": "Favoritt verktøy",
+    "fishingGear": "Favoritt verktøy",
     "activity": "Favoritt aktivitet",
     "fishingPermit": "Favoritt fisketilatelse",
     "ports": "Favoritt havn",
@@ -11,7 +11,7 @@
     "species": "Favoritt art"
   },
   "headline": {
-    "fishinggear": "Sett dine favoritt verktøy",
+    "fishingGear": "Sett dine favoritt verktøy",
     "activity": "Sett dine favoritt aktiviteter",
     "fishingPermit": "Sett dine favoritt fisketilatelser",
     "ports": "Sett dine favoritt havner",

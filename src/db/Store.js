@@ -28,7 +28,7 @@ export class Database extends Component {
       this.subscribeToLocation()
       this.subscribeToCustomList("fishingSpots")
       this.subscribeToCustomList("ports")
-      this.subscribeToCustomList("fishinggear")
+      this.subscribeToCustomList("fishingGear")
       this.subscribeToCustomList("activity")
       this.subscribeToCustomList("species")
       this.subscribeToCustomList("fishingPermit")

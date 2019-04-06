@@ -3,7 +3,7 @@
     "main": "Preset"
   },
   "placeholders": {
-    "fishinggear": "Favorite tool",
+    "fishingGear": "Favorite tool",
     "favoriteActivity": "Favorite Activity",
     "activity": "Favorite Activity",
     "fishingPermit": "Favorite Fishingpermit",
@@ -12,7 +12,7 @@
     "species": "Favorite Specie"
   },
   "headline": {
-    "fishinggear": "Set your favorite tools",
+    "fishingGear": "Set your favorite tools",
     "activity": "Set your favorite activities",
     "fishingPermit": "Set your favorite fishingpermit",
     "ports": "Set your favorite ports",

@@ -12,6 +12,8 @@ import CancelIcon from '@material-ui/icons/Cancel'
 import {emphasize} from '@material-ui/core/styles/colorManipulator'
 import {withStyles} from '@material-ui/core/styles'
 import NoSsr from '@material-ui/core/NoSsr'
+import Select from 'react-select'
+
 
 const styles = theme => ({
   root: {
@@ -61,7 +63,7 @@ const styles = theme => ({
 })
 
 
-function DefaultNoOptionsMessage(props) {
+function NoOptionsMessage(props) {
   return (
     <Typography
       className={props.selectProps.classes.noOptionsMessage}
@@ -175,22 +177,30 @@ export const components = {
   Placeholder,
   SingleValue,
   ValueContainer,
-  NoOptionsMessage: DefaultNoOptionsMessage
+  NoOptionsMessage
 }
 
 
-export default Component =>
-  withStyles(styles, {withTheme: true})(
-    ({classes: {root, divider, ...classes}, ...props}) => {
-      return (
-        <div className={root}>
-          <NoSsr>
-            <Component
-              {...props}
-              classes={classes}
-            />
-            <div className={divider} />
-          </NoSsr>
-        </div>
-      )
-    })
+export default withStyles(styles, {withTheme: true})(
+  ({components: componentsProp, theme, classes: {root, divider, ...classes}, ...props}) =>
+    <div className={root}>
+      <NoSsr>
+        <Select
+          {...props}
+          classes={classes}
+          components={{...components, ...componentsProp}}
+          formatGroupLabel={GroupLabel}
+          styles={{
+            input: base => ({
+              ...base,
+              color: theme.palette.text.primary,
+              '& input': {
+                font: 'inherit'
+              }
+            })
+          }}
+        />
+        <div className={divider} />
+      </NoSsr>
+    </div>
+)

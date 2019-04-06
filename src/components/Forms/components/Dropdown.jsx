@@ -1,30 +1,20 @@
 import React from 'react'
-import Select from 'react-select'
 import {useTranslation} from 'react-i18next'
 import AddFishingSpot from "./AddFishingSpot"
 import {GEOPOINT} from '../../../lib/firebase'
 import {useStore} from '../../../hooks'
 
-import withStyle, {components, GroupLabel} from './vendor/ReactSelect'
+import MuiSelect from "../../../vendor/ReactSelect"
 
-export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
+export const Dropdown = ({disabled, isMulti, placeholder, type, onChange, dataId, value}) => {
 
   const [t] = useTranslation("dropdowns")
-  const {custom: {fishingSpots, ports, fishinggear, activity, species, fishingPermit, ZO}} = useStore()
+  const {custom: {fishingSpots, ...custom}} = useStore()
 
+  const components = {}
 
-  const selectStyles = {
-    input: base => ({
-      ...base,
-      color: theme.palette.text.primary,
-      '& input': {
-        font: 'inherit'
-      }
-    })
-  }
 
   let allOptions = t(type, {returnObjects: true})
-  console.log(allOptions, type)
 
 
   let selectOptions = allOptions
@@ -47,133 +37,53 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
 
   } else {
 
-    switch (type) {
-    case "expectedFishingSpot":
-      allOptions = fishingSpots
-      selectOptions = fishingSpots
-      components.NoOptionsMessage = AddFishingSpot
-      break
-
-    case "ports":
-      const portOptions = ports.map(p => allOptions.find(o => o.value === p.value))
-      const newOptions = allOptions.filter(o => !portOptions.find(p => p.value === o.value))
+    if (["ports", "fishingGear", "activity", "species", "fishingPermit", "ZO"].includes(type)) {
+      const favorites = custom[type].map(p => allOptions.find(o => o.value === p.value))
+      const newOptions = allOptions.filter(o => !favorites.find(p => p.value === o.value))
       selectOptions = [
         {
           label: t("labels.favorites"),
-          options: portOptions
+          options: favorites
         },
         {
           label: t("labels.all"), //TODO: Translate
           options: newOptions
         }
       ]
-      break
-
-    case "fishinggear":
-      const fishingGearOptions = fishinggear.map(p => allOptions.find(o => o.value === p.value))
-      const newfishingGearOptions = allOptions.filter(o => !fishingGearOptions.find(p => p.value === o.value))
-      selectOptions = [
-        {
-          label: t("labels.favorites"),
-          options: fishingGearOptions
-        },
-        {
-          label: t("labels.all"), //TODO: Translate
-          options: newfishingGearOptions
-        }
-      ]
-      break
-    case "activity":
-      const activityOptions = activity.map(p => allOptions.find(o => o.value === p.value))
-      const newActivityOptions = allOptions.filter(o => !activityOptions.find(p => p.value === o.value))
-      selectOptions = [
-        {
-          label: t("labels.favorites"),
-          options: activityOptions
-        },
-        {
-          label: t("labels.all"), //TODO: Translate
-          options: newActivityOptions
-        }
-      ]
-      break
-    case "species":
-      const specieOptions = species.map(p => allOptions.find(o => o.value === p.value))
-      const newSpecieOptions = allOptions.filter(o => !specieOptions.find(p => p.value === o.value))
-
-      selectOptions = [
-        {
-          label: t("labels.favorites"),
-          options: specieOptions
-        },
-        {
-          label: t("labels.all"), //TODO: Translate
-          options: newSpecieOptions
-        }
-      ]
-      break
-    case "fishingPermit":
-      const fishingPermitOptions = fishingPermit.map(p => allOptions.find(o => o.value === p.value))
-      const newFishingPermitOptions = allOptions.filter(o => !fishingPermitOptions.find(p => p.value === o.value))
-
-      selectOptions = [
-        {
-          label: t("labels.favorites"),
-          options: fishingPermitOptions
-        },
-        {
-          label: t("labels.all"), //TODO: Translate
-          options: newFishingPermitOptions
-        }
-      ]
-      break
-    case "ZO":
-      const ZOOptions = ZO.map(p => allOptions.find(o => o.value === p.value))
-      const newZOOptions = allOptions.filter(o => !ZOOptions.find(p => p.value === o.value))
-
-      selectOptions = [
-        {
-          label: t("labels.favorites"),
-          options: ZOOptions
-        },
-        {
-          label: t("labels.all"), //TODO: Translate
-          options: newZOOptions
-        }
-      ]
-      break
-    default:
-      break
+    } else if( type === "expectedFishingSpot") {
+      allOptions = fishingSpots
+      selectOptions = fishingSpots
+      components.NoOptionsMessage = AddFishingSpot
+      
     }
-
+    
     handleChange = ({value}) => onChange(dataId, value)
-
-
+    
+    
     selectValue = allOptions.find(option =>
       option.value === value ||
       //REVIEW: Better solution to match geopoints ?
       (option.value.latitude && value.latitude &&
         GEOPOINT(option.value.latitude, option.value.longitude)
-          .isEqual(GEOPOINT(value.latitude, value.longitude))
-      )
+        .isEqual(GEOPOINT(value.latitude, value.longitude))
+        )
     )
   }
-
+  
   return(
-    <Select
-      classes={classes}
+    <MuiSelect
       components={components}
-      formatGroupLabel={GroupLabel}
       isDisabled={disabled}
       isMulti={isMulti}
       onChange={handleChange}
       options={selectOptions}
       placeholder={placeholder}
-      styles={selectStyles}
       textFieldProps={{InputLabelProps: {shrink: true}}}
       value={selectValue}
     />
   )
 }
 
-export default withStyle(Dropdown)
+
+
+export default Dropdown
