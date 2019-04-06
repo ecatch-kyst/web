@@ -1,0 +1,81 @@
+{
+  "message": {
+    "responses": {
+      "ACK": {
+        "success": "ACK: Meldingen {{message}} ble godkjent"
+      },
+      "NAK": {
+        "error": "NAK: Meldingen {{message}} ble ikke godkjent"
+      }
+    },
+    "sent": {
+      "offline": {
+        "warning": "Ingen tilkobling tilgjengelig. Meldingen vil bli sendt når nettet er kommet tilbake."
+      },
+      "DEP": {
+        "error": "Meldingen ble ikke sendt \n{{message}}",
+        "success": "Meldingen ble sendt"
+      },
+      "DCA": {
+        "error": "Meldingen ble ikke sendt \n{{message}}",
+        "success": "Meldingen ble sendt"
+      },
+      "POR": {
+        "error": "Meldingen ble ikke sendt: {{message}}",
+        "success": "Meldingen ble sendt"
+      }
+    }
+  },
+  "customLists": {
+    "subscribe": {
+      "error": "Noe gikk galt: {{message}}"
+    },
+    "fishingSpots": {
+      "added": {
+        "error": "Noe gikk galt: {{message}}",
+        "success": "Fiskeplass lagt til"
+      }
+    }
+  },
+  "offline": {
+    "error": "Du er offline.",
+    "action": "Last inn på nytt"
+  },
+  "position": {
+    "error": "Feil ved henting av posisjon. \n{{message}}"
+  },
+  "user": {
+    "updated": {
+      "default": "Bruker oppdatert."
+    }
+  },
+  "login": {
+    "default": "Du er nå logget inn.",
+    "error": {
+      "auth/invalid-email": "Ugyldig e-post.",
+      "auth/wrong-password": "Feil passord",
+      "auth/user-not-found": "Det finnes ingen bruker med dette brukernavnet eller passordet",
+      "auth/user-disabled": "Brukeren er deaktivert, kontakt kundeservice",
+      "auth/invalid-password": "Passordet må være minst 6 karakterer langt",
+      "auth/invalid-phone-number": "Ugyldig telefonnummer",
+      "auth/email-already-exists": "Det finnes allerede en bruker med denne emailen",
+      "auth/phone-number-already-exists": "Det finnes allerede en bruker med dette telefonnummeret"
+    },
+    "warning": ""
+  },
+  "logout": {
+    "default": "Du er nå logget ut.",
+    "error": "Det oppstod en feil ved utlogging."
+  },
+  "language": {
+    "default": "Språket har endret seg."
+  },
+  "darkMode": {
+    "on": {
+      "default": "Nattmodus ble slått på."
+    },
+    "off": {
+      "default": "Nattmodus ble slått av."
+    }
+  }
+}

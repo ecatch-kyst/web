@@ -1,6 +1,6 @@
 export const routes = {
   ROOT: "/",
-  DASHBOARD: "/dashboard",
+  HOMEPAGE: "/homepage",
   TEST: "/test",
   FORGOT_PASSWORD: "/new-password",
   REGISTER: "/register",
@@ -13,5 +13,6 @@ export const routes = {
   POR: "/POR",
   NOT_FOUND: "/404",
   NEW: "/new",
-  EDIT: "/edit"
+  EDIT: "/edit",
+  PRESET: "/preset"
 }

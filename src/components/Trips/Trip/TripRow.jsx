@@ -9,11 +9,12 @@ import {useTranslation} from 'react-i18next'
 
 export default withTheme()(withRouter(({theme, id, history, POR, DEP, start, end, isFinished}) => {
   const [t] = useTranslation("trips")
-  const [dropdownT] = useTranslation("forms")
-  const departureLabel = dropdownT("dropdowns.ports", {returnObjects: true}).find(p => p.value === DEP.PO).label
+  const [dropdownT] = useTranslation("dropdowns")
+  const ports = dropdownT("ports", {returnObjects: true})
+  const departureLabel = ports.find(p => p.value === DEP.PO).label
   let arrivalLabel = ""
   if (isFinished) {
-    arrivalLabel = dropdownT("dropdowns.ports", {returnObjects: true}).find(p => p.value === POR.PO).label
+    arrivalLabel = ports.find(p => p.value === POR.PO).label
   }
 
   return (

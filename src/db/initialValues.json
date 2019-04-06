@@ -3,7 +3,6 @@
   "isDarkMode": false,
   "dialog": {"open": false},
   "notification": {"open": false},
-  "boats": [],
   "messages": [],
   "trips": [],
   "isLoading": true,
@@ -31,7 +30,13 @@
   },
   "custom": {
     "editing": {},
-    "fishingSpots": []
+    "fishingSpots": [],
+    "ports": [],
+    "fishingGear": [],
+    "activity": [],
+    "species": [],
+    "fishingPermit": [],
+    "ZO": []
   }
 }
 

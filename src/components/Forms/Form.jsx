@@ -138,7 +138,7 @@ export const Form = ({history, match: {path, params: {type, messageId}}}) => {
 
   //   /** REVIEW: When this componentDidMount is called,
   //    * messages is probably still empty,
-  //    * if the user opens the form in a new tab, instead of coming from the dashboard.
+  //    * if the user opens the form in a new tab, instead of coming from the homepage.
   //    */
 
   //   const now = new Date()
@@ -252,7 +252,7 @@ export const Form = ({history, match: {path, params: {type, messageId}}}) => {
               color="secondary"
               component={Link}
               size="large"
-              to={routes.DASHBOARD}
+              to={routes.HOMEPAGE}
             >
               {t("links.back")}
             </Button>
