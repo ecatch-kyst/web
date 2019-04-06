@@ -29,7 +29,13 @@
   },
   "custom": {
     "editing": {},
-    "fishingSpots": []
+    "fishingSpots": [],
+    "ports": [],
+    "fishingGear": [],
+    "activity": [],
+    "species": [],
+    "fishingPermit": [],
+    "ZO": []
   }
 }
 

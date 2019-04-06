@@ -21,7 +21,8 @@
 		"homepage": "Homepage",
 		"profile": "Profil",
 		"messages": "Meldinger",
-		"trips": "Turer"
+		"trips": "Turer",
+		"preset": "Forhåndsett"
 	},
 	"loading": {
 		"tooltip": "Laster..."

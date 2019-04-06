@@ -4,6 +4,7 @@ import {Route, Switch, withRouter, Link} from "react-router-dom"
 import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
 import DashboardIcon from "@material-ui/icons/DashboardOutlined"
 import TripIcon from "@material-ui/icons/CompareArrowsOutlined"
+import PresetIcon from "@material-ui/icons/AddSharp"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
@@ -22,8 +23,10 @@ import {
   Trip,
   EditCatch,
   Form,
-  Notification
+  Notification,
+  Preset
 } from './components'
+
 import {useTranslation} from 'react-i18next'
 
 
@@ -34,6 +37,7 @@ export const App = ({theme: {palette: {type}}}) =>
       <Route component={Register} exact path={routes.REGISTER}/>
       <Route component={Profile} exact path={routes.PROFILE}/>
       <Route component={HomePage} exact path={routes.HOMEPAGE}/>
+      <Route component={Preset} exact path={routes.PRESET}/>
       <Route component={Trips} exact path={routes.TRIPS}/>
       <Route component={Trip} exact path={`${routes.TRIPS}/:tripId`}/>
       <Route component={Messages} exact path={routes.MESSAGES}/>
@@ -73,6 +77,11 @@ const navigation = [
     id: "profile",
     icon: <ProfileIcon/>,
     to: routes.PROFILE
+  },
+  {
+    id: "preset",
+    icon: <PresetIcon/>,
+    to: routes.PRESET
   }
 ]
 

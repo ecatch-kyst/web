@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 - notification, dialogs, dropdowns moved to their own namespaces in `locales`
 - dashboard -> homepage
 
+### Added
+ - preset for making favorites groups in dropdown
+ - page on "homescreen" for setting the preset
+
 ### Removed
 - unused translations
 - delete option

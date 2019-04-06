@@ -96,7 +96,7 @@
         },
         {
           "id": "GE",
-          "dataId": "fishing-gear",
+          "dataId": "fishingGear",
           "type": "select",
           "dependent": {
             "on": "AC",

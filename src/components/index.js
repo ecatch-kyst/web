@@ -8,6 +8,7 @@ import Centered from "./Centered"
 import Trips, {Trip} from "./Trips"
 import Messages, {EditCatch} from "./Messages"
 import Forms, {Form} from "./Forms"
+import Preset from "./Preset"
 
 export {Dialog, Notification} from "./shared"
 
@@ -24,5 +25,6 @@ export {
   Messages,
   Forms,
   Form,
-  EditCatch
+  EditCatch,
+  Preset
 }

@@ -1,0 +1,22 @@
+{
+  "titles": {
+    "main": "Preset"
+  },
+  "placeholders": {
+    "fishingGear": "Favorite tool",
+    "favoriteActivity": "Favorite Activity",
+    "activity": "Favorite Activity",
+    "fishingPermit": "Favorite Fishingpermit",
+    "ports": "Favorite Port",
+    "ZO": "Favorite ZO",
+    "species": "Favorite Specie"
+  },
+  "headline": {
+    "fishingGear": "Set your favorite tools",
+    "activity": "Set your favorite activities",
+    "fishingPermit": "Set your favorite fishingpermit",
+    "ports": "Set your favorite ports",
+    "species": "Set your favorite species",
+    "ZO": "Set your favorite ZOs"
+  }
+}

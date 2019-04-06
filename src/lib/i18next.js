@@ -22,6 +22,8 @@ import notifications_en from "../locales/en/notifications.json"
 import notifications_no from "../locales/no/notifications.json"
 import dialogs_en from "../locales/en/dialogs.json"
 import dialogs_no from "../locales/no/dialogs.json"
+import preset_en from "../locales/en/preset.json"
+import preset_no from "../locales/no/preset.json"
 
 import {formatRelative, format} from 'date-fns'
 import {nb as nbDateFns, enGB as enDateFns} from "date-fns/locale"
@@ -37,7 +39,8 @@ const en = {
   forms: forms_en,
   dropdowns: dropdowns_en,
   notifications: notifications_en,
-  dialogs: dialogs_en
+  dialogs: dialogs_en,
+  preset: preset_en
 }
 
 const no = {
@@ -51,7 +54,8 @@ const no = {
   trips: trips_no,
   dropdowns: dropdowns_no,
   notifications: notifications_no,
-  dialogs: dialogs_no
+  dialogs: dialogs_no,
+  preset: preset_no
 }
 
 i18next.init({
