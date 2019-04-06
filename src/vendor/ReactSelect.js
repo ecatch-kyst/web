@@ -181,7 +181,7 @@ export const components = {
 }
 
 
-export default withStyles(styles, {withTheme: true})(
+const MuiSelect = withStyles(styles, {withTheme: true})(
   ({components: componentsProp, theme, classes: {root, divider, ...classes}, ...props}) =>
     <div className={root}>
       <NoSsr>
@@ -204,3 +204,5 @@ export default withStyles(styles, {withTheme: true})(
       </NoSsr>
     </div>
 )
+
+export default MuiSelect

@@ -5,7 +5,7 @@ import {useStore} from '../../../hooks'
 import MuiSelect from "../../../vendor/ReactSelect"
 
 
-export const AddFavorite = ({type, list, numberOfChoices}) => {
+export default ({type, numberOfChoices}) => {
   const [t] = useTranslation("dropdowns")
   const [presetT] = useTranslation("preset")
   const options = t(type, {returnObjects: true})
@@ -13,7 +13,8 @@ export const AddFavorite = ({type, list, numberOfChoices}) => {
   const disabled = false
   const {
     handleCustomListChange,
-    addToCustomList
+    addToCustomList,
+    custom
   } = useStore()
 
   // Handles the set or update of favorites in Firebase
@@ -37,7 +38,7 @@ export const AddFavorite = ({type, list, numberOfChoices}) => {
               options={options}
               placeholder={placeholder}
               textFieldProps={{InputLabelProps: {shrink: true}}}
-              value={options.find(option => list[i] && option.value === list[i].value)}
+              value={options.find(option => custom[type][i] && option.value === custom[type][i].value)}
             />
           )}
         </Grid>
@@ -45,6 +46,3 @@ export const AddFavorite = ({type, list, numberOfChoices}) => {
     </div>
   )
 }
-
-
-export default AddFavorite
