@@ -4,19 +4,26 @@
 		"DEP": "departure",
 		"DCA": "catch",
 		"POR": "port call",
-		"search": "Search…"
+		"search": "Search…",
+		"pending": "Pending"
 	},
 	"tooltips": {
 		"sort": "Sort",
-		"pending": "Pending",
+		"pending": "Waiting for acknowledge (ACK)",
 		"rejected": "Rejected",
 		"acknowledged": "Acknowledged"
 	},
 	"table-head-rows": [
 		{
-		"left": true,
+			"left": true,
+			"sortable": false,
 			"id": "acknowledged",
 			"label": "Status"
+		},
+		{
+			"left": true,
+			"id": "RN",
+			"label": "Message number"
 		},
 		{
 			"id": "TM",

@@ -6,16 +6,23 @@
 		"report-fishing": "Rapporter inn",
 		"return-journey": "Meld hjemreise"
 	},
+	"negative": {
+		"cancel-message": "Avbryt"
+	},
+	"positive": {
+		"submit": "OK"
+	},
 	"links": {
 		"not-found": "Gå til 404",
 		"register": "Registrer",
 		"back": "Tilbake"
 	},
 	"navigation": {
-		"dashboard": "Dashboard",
+		"homepage": "Homepage",
 		"profile": "Profil",
 		"messages": "Meldinger",
-		"trips": "Turer"
+		"trips": "Turer",
+		"preset": "Forhåndsett"
 	},
 	"loading": {
 		"tooltip": "Laster..."
@@ -28,132 +35,5 @@
 	},
 	"states": {
 		"offline": "Du er offline"
-	},
-	"welcome": {
-		"intro": "For å starte, rediger <1><0></0></1> og lagre for å laste på nytt.",
-		"title": "Velkommen til {{framework}}"
-	},
-	"dialogs": {
-		"customLists": {
-			"fishingSpots": {
-					"titles":{
-						"main": "Legg til din fiskeplass",
-						"cancel": "Avbryt",
-						"submit": "Legg til fiskeplass"
-					},
-					"description": ""
-			}
-		},
-		"deleteUser": {
-			"titles": {
-				"main": "Slett bruker",
-				"submit": "Slett",
-				"cancel": "Nei"
-			},
-			"description": "Er du sikker på at du vil slette brukeren din? All informasjon blir slettet. Dette kan ikke reverseres."
-		},
-		"DEP": {
-			"titles": {
-				"main": "Send inn DEP melding?",
-				"submit": "Bekreft",
-				"cancel": "Avlys"
-			},
-			"description": "Er du sikker på at du vil sende inn avgangsmeldingen?"
-		},
-		"DCA": {
-			"titles": {
-				"main": "Send inn DA melding?",
-				"submit": "Bekreft",
-				"cancel": "Avlys"
-			},
-			"description": "Er du sikker på at du vil sende inn fangstmeldingen?"
-		},
-		"POR": {
-			"titles": {
-				"main": "Send inn POR melding?",
-				"submit": "Bekreft",
-				"cancel": "Avlys"
-			},
-			"description": ""
-
-		}
-	},
-	"notifications": {
-		"message": {
-			"sent": {
-				"DEP": {
-					"error": "Meldingen ble ikke sendt \n{{message}}",
-					"success": "Meldingen ble sendt"
-				},
-				"DCA": {
-					"error": "Meldingen ble ikke sendt \n{{message}}",
-					"success": "Meldingen ble sendt"
-				},
-				"POR": {
-					"error": "Meldingen ble ikke sendt: {{message}}",
-					"success": "Meldingen ble sendt"
-				}
-			}
-		},
-		"customLists": {
-			"subscribe": {
-				"error": "Noe gikk galt: {{message}}"
-			},
-			"fishingSpots": {
-				"added":{
-					"error": "Noe gikk galt: {{message}}",
-					"success": "Fiskeplass lagt til"
-				}
-			}
-		},
-		"offline": {
-			"error": "Du er offline.",
-			"action": "Last inn på nytt"
-		},
-		"position": {
-			"error": "Feil ved henting av posisjon. \n{{message}}"
-		},
-		"user": {
-			"updated": {
-				"default": "Bruker oppdatert."
-			},
-			"deleted": {
-				"default": "Bruker slettet."
-			}
-		},
-		"login": {
-			"default": "Du er nå logget inn.",
-			"error": {
-				"auth/invalid-email": "Ugyldig e-post.",
-				"auth/wrong-password": "Feil passord",
-				"auth/user-not-found": "Det finnes ingen bruker med dette brukernavnet eller passordet",
-				"auth/user-disabled": "Brukeren er deaktivert, kontakt kundeservice",
-				"auth/invalid-password": "Passordet må være minst 6 karakterer langt",
-				"auth/invalid-phone-number": "Ugyldig telefonnummer",
-				"auth/email-already-exists": "Det finnes allerede en bruker med denne emailen",
-				"auth/phone-number-already-exists": "Det finnes allerede en bruker med dette telefonnummeret"
-			},
-			"warning": ""
-		},
-		"logout": {
-			"default": "Du er nå logget ut.",
-			"error": "Det oppstod en feil ved utlogging."
-		},
-		"language": {
-			"default": "Språket har endret seg."
-		},
-		"darkMode": {
-			"on": {
-				"default": "Nattmodus ble slått på."
-			},
-			"off": {
-				"default": "Nattmodus ble slått av."
-			}
-		}
-	},
-	"edit": {
-		"message": {
-			"submit": "Send inn"
-		}
 	}
 }

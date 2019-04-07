@@ -3,7 +3,6 @@
   "isDarkMode": false,
   "dialog": {"open": false},
   "notification": {"open": false},
-  "boats": [],
   "messages": [],
   "trips": [],
   "isLoading": true,
@@ -11,6 +10,7 @@
     "latitude": 0,
     "longitude": 0
   },
+  "DCAStarted": false,
   "fields": {
     "departure": null,
     "PO": null,
@@ -30,7 +30,13 @@
   },
   "custom": {
     "editing": {},
-    "fishingSpots": []
+    "fishingSpots": [],
+    "ports": [],
+    "fishingGear": [],
+    "activity": [],
+    "species": [],
+    "fishingPermit": [],
+    "ZO": []
   }
 }
 
