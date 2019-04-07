@@ -20,19 +20,17 @@ import {addHours, format} from 'date-fns'
  * @param {'DEP'|'DCA'|'POR'} props.match.params.type - Type of form
  * @param {number} props.match.params.messageId - id of message if form is used for editing
  */
-export const Form = ({history, match: {path, params: {type, messageId}}}) => {
+export const Form = ({history, match: {path, params: {type, /*messageId*/}}}) => {
   const {fields, handleFieldChange, messages, position, handleDialog, submitMessage, trips, toggleDCAStart} = useStore()
   const [t] = useTranslation("forms")
 
-  const [setCanEdit] = useState(false)
+  // const [setCanEdit] = useState(false)
   const [baseMessage, setBaseMessage] = useState({})
 
   const [validType, setValidType] = useState(false)
 
 
   useEffect(() => {
-
-    setCanEdit(messageId && type === "DCA"&& messages.find(m => m.TM === "DCA" && m.RN === parseInt(messageId, 10)))
     const newValidType = Object.keys(forms).includes(type)
     setValidType(newValidType)
     if (newValidType)
@@ -125,7 +123,6 @@ export const Form = ({history, match: {path, params: {type, messageId}}}) => {
     default:
       break
     }
-    console.log(newFields)
     handleFieldChange(newFields)
   }, [baseMessage /**REVIEW: Deep compare? */, messages.length])
 

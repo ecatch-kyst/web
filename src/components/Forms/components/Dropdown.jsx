@@ -54,19 +54,17 @@ export const Dropdown = ({disabled, isMulti, placeholder, type, onChange, dataId
       allOptions = fishingSpots
       selectOptions = fishingSpots
       components.NoOptionsMessage = AddFishingSpot
-      
     }
-    
+
     handleChange = ({value}) => onChange(dataId, value)
-    
-    
+
     selectValue = allOptions.find(option =>
       option.value === value ||
       //REVIEW: Better solution to match geopoints ?
       (option.value.latitude && value.latitude &&
         GEOPOINT(option.value.latitude, option.value.longitude)
         .isEqual(GEOPOINT(value.latitude, value.longitude))
-        )
+      )
     )
   }
   

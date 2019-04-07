@@ -30,7 +30,7 @@ const GeoPointInput = ({disabled, dataId, label, onChange, value}) => {
   }
 
   // when user moves away from the field, update the global state
-  const handleBlur = () => onChange({name: dataId, value: localValue})
+  const handleBlur = () => onChange(dataId, localValue)
 
   return (
     <>
