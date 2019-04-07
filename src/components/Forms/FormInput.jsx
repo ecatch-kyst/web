@@ -6,6 +6,7 @@ import TextInput from './components/TextInput'
 import DropdownMap from './components/DropdownMap'
 import GeoPointInput from './components/GeoPointInput'
 import {useStore} from '../../hooks'
+import {validate} from '../../utils'
 
 /**
  * Dynamic input field
@@ -18,25 +19,29 @@ import {useStore} from '../../hooks'
 
 export const FormInput = ({id, dataId, type, options}) => {
 
-  const {handleFieldChange, fields} = useStore()
+  const {handleFieldChange, fields, handleFieldError, errors, notify} = useStore()
   const [t] = useTranslation("forms")
 
   const handleChange = (name, value) => {
-    const error = null // TODO: validate[dataId](value) // Validating the field
+    const error = validate(name, value) // Validating the field
+    handleFieldError(name, error)
     if (error) {
-      console.error(error) // TODO: Add error notification
+      notify({name: `fields.${name}`, type: "error"})
     } else {
       handleFieldChange(name, value)
     }
   }
 
   const value = fields[id || dataId]
+  const error = errors[id || dataId]
 
   const common = {
     onChange: handleChange,
-    label: t(`labels.${id}`),
+    label:t(`labels.${id}`),
+    // TODO: Add custom error labels //label: error ? t(`errors.${id}`) : t(`labels.${id}`),
     placeholder: t(`labels.${id}`),
     value,
+    error,
     disabled: !options.editable
   }
 

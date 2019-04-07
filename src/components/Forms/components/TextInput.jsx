@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {TextField, InputAdornment} from "@material-ui/core"
 import {format} from '../../../utils'
 
-export default ({dataId, label, onChange, type, value, unit, disabled}) => {
+export default ({dataId, label, onChange, type, value, unit, disabled, error}) => {
 
   const [localValue, setValue] = useState("")
 
@@ -23,6 +23,7 @@ export default ({dataId, label, onChange, type, value, unit, disabled}) => {
         startAdornment: unit ? <InputAdornment position="start">{unit}</InputAdornment> : null
       }}
       disabled={disabled}
+      error={error}
       label={label}
       onBlur={handleBlur}
       onChange={handleChange}

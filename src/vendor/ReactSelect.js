@@ -98,6 +98,26 @@ function Control(props) {
   )
 }
 
+function ControlWithError(props) {
+  return (
+    <TextField
+      error
+      fullWidth
+      // eslint-disable-next-line react/jsx-sort-props
+      InputProps={{
+        inputComponent,
+        inputProps: {
+          className: props.selectProps.classes.input,
+          inputRef: props.innerRef,
+          children: props.children,
+          ...props.innerProps
+        }
+      }}
+      {...props.selectProps.textFieldProps}
+    />
+  )
+}
+
 export function GroupLabel (data) {
   return(
     <Typography style={{textDecoration: "underline"}} variant="subtitle2">
@@ -170,7 +190,6 @@ function Menu(props) {
 
 
 export const components = {
-  Control,
   Menu,
   MultiValue,
   Option,
@@ -182,13 +201,13 @@ export const components = {
 
 
 const MuiSelect = withStyles(styles, {withTheme: true})(
-  ({components: componentsProp, theme, classes: {root, divider, ...classes}, ...props}) =>
+  ({components: componentsProp, theme, error, classes: {root, divider, ...classes}, ...props}) =>
     <div className={root}>
       <NoSsr>
         <Select
           {...props}
           classes={classes}
-          components={{...components, ...componentsProp}}
+          components={{...components, ...componentsProp, Control: error ? ControlWithError : Control}}
           formatGroupLabel={GroupLabel}
           styles={{
             input: base => ({

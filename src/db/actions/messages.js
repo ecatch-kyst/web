@@ -8,6 +8,7 @@ import {flattenDoc} from "../../utils"
  */
 export function handle(...args) {
   if (args.length === 1 && typeof args[0] === "object") {
+
     this.setState(({fields}) => ({
       fields: {
         ...fields,
@@ -15,6 +16,7 @@ export function handle(...args) {
       }
     }))
   } else {
+
     this.setState(({fields}) => ({
       fields: {
         ...fields,
@@ -189,4 +191,28 @@ const generateTrips = messages => {
 
 export function toggleDCAStart(DCAStarted){
   this.setState({DCAStarted})
+}
+
+/**
+ *
+ * @param  {...any} args
+ */
+export function error(...args) {
+  if (args.length === 1 && typeof args[0] === "object") {
+
+    this.setState(({errors}) => ({
+      errors: {
+        ...errors,
+        ...args[0]
+      }
+    }))
+  } else {
+
+    this.setState(({errors}) => ({
+      errors: {
+        ...errors,
+        [args[0]]: args[1]
+      }
+    }))
+  }
 }

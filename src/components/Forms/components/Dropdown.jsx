@@ -6,7 +6,7 @@ import {useStore} from '../../../hooks'
 
 import MuiSelect from "../../../vendor/ReactSelect"
 
-export const Dropdown = ({disabled, isMulti, placeholder, type, onChange, dataId, value}) => {
+export const Dropdown = ({disabled, isMulti, label, type, onChange, dataId, value, error}) => {
 
   const [t] = useTranslation("dropdowns")
   const {custom: {fishingSpots, ...custom}} = useStore()
@@ -63,25 +63,24 @@ export const Dropdown = ({disabled, isMulti, placeholder, type, onChange, dataId
       //REVIEW: Better solution to match geopoints ?
       (option.value.latitude && value.latitude &&
         GEOPOINT(option.value.latitude, option.value.longitude)
-        .isEqual(GEOPOINT(value.latitude, value.longitude))
+          .isEqual(GEOPOINT(value.latitude, value.longitude))
       )
     )
   }
-  
+
   return(
     <MuiSelect
       components={components}
+      error={error}
       isDisabled={disabled}
       isMulti={isMulti}
       onChange={handleChange}
       options={selectOptions}
-      placeholder={placeholder}
-      textFieldProps={{InputLabelProps: {shrink: true}}}
+      textFieldProps={{InputLabelProps: {shrink: true}, label}}
       value={selectValue}
     />
   )
 }
-
 
 
 export default Dropdown
