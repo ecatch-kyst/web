@@ -11,7 +11,11 @@ describe("GeoPointInput component", () => {
   })
 
   it("renders correctly with props", () => {
-    const wrapper = mount(<GeoPointInput value={{latitude: 10, longitude: 10}}/>)
+    const wrapper = mount(<GeoPointInput/>)
+    act(() => {
+      wrapper.setProps({value: {latitude: 10, longitude: 10}})
+    })
+    wrapper.setProps({})
     expect(wrapper).toHaveLength(1)
     expect(wrapper.find(TextField).first().prop("value")).toBe(10)
     expect(wrapper.find(TextField).last().prop("value")).toBe(10)
