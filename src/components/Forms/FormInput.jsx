@@ -23,11 +23,12 @@ export const FormInput = ({id, dataId, type, options}) => {
   const [t] = useTranslation("forms")
 
   const handleChange = ({name, value}) => {
-    const error = validate(name, value) // Validating the field
+    const {error, reason} = validate(name, value) // Validating the field
     handleFieldError(name, error)
     if (error) {
-      notify({name: `fields.${name}`, type: "error"})
+      notify({name: `fields.${reason}`, type: "error"})
     } else {
+      handleFieldError(name, false)
       handleFieldChange(name, value)
     }
   }

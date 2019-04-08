@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT} from "../../lib/firebase"
-import {flattenDoc} from "../../utils"
+import {flattenDoc, validate} from "../../utils"
 /**
  * Handles message changes.
  * @param {string} key
@@ -92,7 +92,21 @@ export async function submit(type) {
     default:
       break
     }
+
+    let error
     // TODO: Add final validation before sending to firebase
+    Object.entries(message).forEach(([k, v]) => {
+      const result = validate(k, v) // Validating the field
+      if (result.error) {
+        error = true
+        this.handleFieldError(k, true)
+      }
+    })
+    if (error) {
+      this.notify({name: "fields.invalid-form", type: "error"})
+      return
+    }
+
     await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add({
       ...message,
       created: TIMESTAMP_CLIENT()
