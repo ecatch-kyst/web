@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-import {Link, Redirect, withRouter} from "react-router-dom"
+import {Link, withRouter} from "react-router-dom"
 import forms from "./forms.json"
 import {Grid, Button, Divider, Typography} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
@@ -9,9 +9,8 @@ import {Page} from '../shared'
 
 import FormInput from './FormInput.jsx'
 import {useStore} from '../../hooks'
-import {addHours} from 'date-fns'
+import {addHours, format} from 'date-fns'
 
-import initialValues from "../../db/initialValues.json"
 
 /**
  * Form component
@@ -21,28 +20,27 @@ import initialValues from "../../db/initialValues.json"
  * @param {'DEP'|'DCA'|'POR'} props.match.params.type - Type of form
  * @param {number} props.match.params.messageId - id of message if form is used for editing
  */
-export const Form = ({match: {path, params: {type, messageId}}}) => {
-  const {fields, isEnRoute, handleFieldChange, messages, position, handleDialog, submitMessage} = useStore()
+export const Form = ({history, match: {path, params: {type, /*messageId*/}}}) => {
+  const {fields, handleFieldChange, messages, position, handleDialog, submitMessage, trips, toggleDCAStart} = useStore()
   const [t] = useTranslation("forms")
 
-  const [canEdit, setCanEdit] = useState(false)
+  // const [setCanEdit] = useState(false)
   const [baseMessage, setBaseMessage] = useState({})
 
   const [validType, setValidType] = useState(false)
 
 
   useEffect(() => {
-    setCanEdit(messageId && type === "DCA"&& messages.find(m => m.TM === "DCA" && m.RN === parseInt(messageId, 10)))
     const newValidType = Object.keys(forms).includes(type)
     setValidType(newValidType)
     if (newValidType)
       setBaseMessage(messages.find(m => m.TM === type) || {})
-  }, [type, messageId])
+  }, [])
 
 
   useEffect(() => {
     if(!validType) return
-    let newFields = {...initialValues.fields} // Start with empty fields, to prevent rogue values.
+    let newFields = {}//{...initialValues.fields} // Start with empty fields, to prevent rogue values.
     const now = new Date()
     switch (type) {
     case "DEP":
@@ -63,11 +61,27 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
       }
       break
 
-    case "DCA":
+    case "DCA0":
       newFields = { // These values will be preset, no matter if there is a base message.
         ...newFields,
         fishingStart: now,
-        expectedFishingStart: addHours(now, 2)
+        startFishingSpot: position,
+        GE: "DRB"
+      }
+      if (Object.keys(baseMessage).length) {
+        newFields = { // Preset from base (previous message, with the same type)
+          ...newFields,
+          AC: baseMessage.AC,
+          GS: baseMessage.GS,
+          QI: baseMessage.QI
+        }
+      }
+      break
+    case "DCA":
+      newFields = { // These values will be preset, no matter if there is a base message.
+        ...newFields,
+        endFishingSpot: position,
+        DU: fields.fishingStart ? parseInt(format(Date.now() - new Date(fields.fishingStart).getTime(), "m"), 10) : 0
       }
       if (Object.keys(baseMessage).length) {
         newFields = { // Preset from base (previous message, with the same type)
@@ -79,10 +93,7 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
           CA: baseMessage.CA,
           GE: baseMessage.GE,
           GS: baseMessage.GS,
-          DU: baseMessage.DU,
-          QI: baseMessage.QI,
-          startFishingSpot: position,
-          endFishingSpot: baseMessage.endFishingSpot
+          QI: baseMessage.QI
         }
       }
       break
@@ -92,11 +103,19 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
         portArrival: now // NOTE: try to calculate from position, speed and PO (port)
       }
       if (Object.keys(baseMessage).length) {
+        const activeTrip = trips.find(t => !t.isFinished)
+        const sum = activeTrip ? activeTrip.DCAList.reduce((acc, d) => {
+          Object.entries(d.CA).forEach(([type, weight]) => {
+            acc[type] ? acc[type] += weight : acc[type] = weight
+          })
+          return acc
+        }, {}) : {}
+
         newFields = { // Preset from base (previous message, with the same type)
           ...newFields,
-          KG: baseMessage.KG,
+          KG: sum,
           LS: baseMessage.LS,
-          OB: baseMessage.OB,
+          OB: sum,
           PO: baseMessage.PO
         }
       }
@@ -116,7 +135,7 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
 
   //   /** REVIEW: When this componentDidMount is called,
   //    * messages is probably still empty,
-  //    * if the user opens the form in a new tab, instead of coming from the dashboard.
+  //    * if the user opens the form in a new tab, instead of coming from the homepage.
   //    */
 
   //   const now = new Date()
@@ -186,18 +205,22 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
    */
   const handleSubmit = e => {
     e.preventDefault()
+    if (type === "DCA0") {
+      toggleDCAStart(true)
+      history.push(routes.DASHBOARD)
+      return
+    }
     handleDialog({type, submit: () => submitMessage(type)})
   }
 
   const form = forms[type] // Extract form from forms.json
 
-  const isAllowed = (isEnRoute ? ["DCA", "POR"].includes(type) : type === "DEP") || (canEdit && type === "DCA")
 
   return (
     <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
       <Grid alignItems="center" container direction="column" spacing={16}>
         <Grid component="form" item onSubmit={handleSubmit}>
-          {isAllowed ? form.map(({id, step}) => // If a valid form, iterate over its steps
+          {form.map(({id, step}) => // If a valid form, iterate over its steps
             <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
               <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
               {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
@@ -217,8 +240,7 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
               )}
               <Divider style={{marginTop: 16}}/>
             </Grid>
-          ) :
-            <Redirect to={routes.DASHBOARD}/> // If the form is invalid, redirect to the dashboard
+          )
           }
         </Grid>
         <Grid container item justify="center">
@@ -227,7 +249,7 @@ export const Form = ({match: {path, params: {type, messageId}}}) => {
               color="secondary"
               component={Link}
               size="large"
-              to={routes.DASHBOARD}
+              to={routes.HOMEPAGE}
             >
               {t("links.back")}
             </Button>

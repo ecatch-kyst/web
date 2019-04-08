@@ -27,6 +27,12 @@ export class Database extends Component {
       this.subscribeToMessages()
       this.subscribeToLocation()
       this.subscribeToCustomList("fishingSpots")
+      this.subscribeToCustomList("ports")
+      this.subscribeToCustomList("fishingGear")
+      this.subscribeToCustomList("activity")
+      this.subscribeToCustomList("species")
+      this.subscribeToCustomList("fishingPermit")
+      this.subscribeToCustomList("ZO")
     }})
 
     setTimeout(() => {
@@ -96,9 +102,13 @@ export class Database extends Component {
 
   handleFieldChange = messages.handle.bind(this)
 
+  handleFieldError = messages.error.bind(this)
+
   submitMessage = messages.submit.bind(this)
 
   subscribeToMessages = messages.subscribe.bind(this)
+
+  toggleDCAStart = messages.toggleDCAStart.bind(this)
 
 
   render() {
@@ -115,9 +125,11 @@ export class Database extends Component {
           processNotificationQueue: this.processNotificationQueue,
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
+          handleFieldError: this.handleFieldError,
           submitMessage: this.submitMessage,
           addToCustomList: this.addToCustomList,
           handleCustomListChange: this.handleCustomListChange,
+          toggleDCAStart: this.toggleDCAStart,
           ...this.state
         }}
       >

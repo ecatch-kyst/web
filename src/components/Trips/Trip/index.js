@@ -16,10 +16,22 @@ export {TripRow}
 
 export const Trip = ({match: {params: {tripId}}}) => {
   const {trips} = useStore()
-  const [t] = useTranslation("trips")
+  const [t] = useTranslation("dropdowns")
+
   const {POR, DEP, DCAList, start, end, isFinished} = trips.find(trip => trip.id === tripId) || {}
-  const title = isFinished ? `${DEP.PO} → ${POR.PO}` : t("titles.enRoute")
+
+  const ports = t("ports", {returnObjects: true})
+  const departureLabel = (ports.find(p => DEP && p.value === DEP.PO) || {}).label || ""
+
+  let title = `${departureLabel} → `
   const subtitle = `${start ? format(start, "MMMM dd - H:mm") : ""} / ${isFinished ? format(end, "MMMM dd - H:mm") : "..."}`
+
+  if (isFinished) {
+    const arrivalLabel = ports.find(p => p.value === POR.PO).label
+    title += arrivalLabel
+    title = `${departureLabel} → ${arrivalLabel}`
+  }
+
   return (
     <Page
       subtitle={subtitle}

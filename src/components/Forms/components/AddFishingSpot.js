@@ -8,7 +8,7 @@ import TextInput from './TextInput'
 import {useStore} from '../../../hooks'
 
 export const AddFishingSpot = () => {
-  const [t] = useTranslation("forms")
+  const [t] = useTranslation("dropdowns")
   const {
     handleDialog,
     handleCustomListChange,
@@ -29,7 +29,7 @@ export const AddFishingSpot = () => {
                 autoFocus
                 dataId="label"
                 fullWidth
-                label={t("dropdowns.customLists.fishingSpots.label")}
+                label={t("customLists.fishingSpots.label")}
                 onChange={handleCustomListChange}
                 value={label}
               />
@@ -37,7 +37,7 @@ export const AddFishingSpot = () => {
             <Grid container direction="column" item justify="center">
               <GeoPointInput
                 dataId="value"
-                // label={t("dropdowns.customLists.fishingSpots.coordinates")}
+                // label={t("customLists.fishingSpots.coordinates")}
                 onChange={handleCustomListChange}
                 value={value}
               />
@@ -46,7 +46,7 @@ export const AddFishingSpot = () => {
         })
       }
       variant="text"
-    >{t("dropdowns.customLists.fishingSpots.button")}
+    >{t("customLists.fishingSpots.button")}
     </Button>
   )
 }

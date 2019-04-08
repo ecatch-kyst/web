@@ -7,11 +7,11 @@ import {useTranslation} from 'react-i18next'
 
 const DropdownMap = props => {
 
-  const handleKeyValueChange = (name, inputValue) => {
+  const handleKeyValueChange = ({name, value: inputValue}) => {
     const {onChange, dataId, value, inputType} = props
     const newValue = {...value}
     newValue[name] = (inputType === "number" ? parseInt(inputValue, 10) : inputValue) || ""
-    onChange(dataId, newValue)
+    onChange({name: dataId, value: newValue})
   }
 
 
@@ -36,8 +36,9 @@ const DropdownMap = props => {
 }
 
 const KeyValueInput = ({dataId, inputType, type, ...props}) => {
-  const [t] = useTranslation("forms")
-  const label = t(`dropdowns.${type}`, {returnObjects: true})
+  const [t] = useTranslation("dropdowns")
+
+  const label = t(type, {returnObjects: true})
     .find(option => option.value === dataId).label
 
   return (

@@ -1,54 +1,65 @@
 import React from 'react'
-import Select from 'react-select'
 import {useTranslation} from 'react-i18next'
 import AddFishingSpot from "./AddFishingSpot"
 import {GEOPOINT} from '../../../lib/firebase'
 import {useStore} from '../../../hooks'
 
-import withStyle, {components} from './vendor/ReactSelect'
+import MuiSelect from "../../../vendor/ReactSelect"
 
-export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, onChange, dataId, value}) => {
+export const Dropdown = ({disabled, isMulti, label, type, onChange, dataId, value, error}) => {
 
-  const [t] = useTranslation("forms")
-  const {custom: {fishingSpots}} = useStore()
+  const [t] = useTranslation("dropdowns")
+  const {custom: {fishingSpots, ...custom}} = useStore()
+
+  const components = {}
 
 
-  const selectStyles = {
-    input: base => ({
-      ...base,
-      color: theme.palette.text.primary,
-      '& input': {
-        font: 'inherit'
-      }
-    })
-  }
+  let allOptions = t(type, {returnObjects: true})
 
-  let options = t(`dropdowns.${type}`, {returnObjects: true})
+
+  let selectOptions = allOptions
+
   let handleChange
   let selectValue
 
   if (isMulti) {
 
     handleChange = options => {
-      onChange(dataId, {...options.reduce((acc, option) => ({
-        ...acc, [option.value]: value[option.value] || 0
-      }), {})})
+      onChange({name: dataId,
+        value: {...options.reduce((acc, option) => ({
+          ...acc, [option.value]: value[option.value] || 0
+        }), {})}})
     }
 
-    selectValue = options.reduce((acc, option) => {
+    selectValue = allOptions.reduce((acc, option) => {
       if (Object.keys(value).includes(option.value)) return [...acc, option]
       else return acc
     }, [])
 
   } else {
 
-    if(type === "expectedFishingSpot"){
-      options = fishingSpots
+    if (["ports", "fishingGear", "activity", "species", "fishingPermit", "ZO"].includes(type)) {
+      const favorites = custom[type].map(p => allOptions.find(o => o.value === p.value))
+      const newOptions = allOptions.filter(o => !favorites.find(p => p.value === o.value))
+      selectOptions = [
+        {
+          label: t("labels.favorites"),
+          options: favorites
+        },
+        {
+          label: t("labels.all"), //TODO: Translate
+          options: newOptions
+        }
+      ]
+    } else if( type === "expectedFishingSpot") {
+      allOptions = fishingSpots
+      selectOptions = fishingSpots
       components.NoOptionsMessage = AddFishingSpot
     }
 
-    handleChange = ({value}) => onChange(dataId, value)
-    selectValue = options.find(option =>
+    handleChange = ({value}) => onChange({name: dataId, value})
+
+    selectValue = allOptions.find(option =>
       option.value === value ||
       //REVIEW: Better solution to match geopoints ?
       (option.value.latitude && value.latitude &&
@@ -58,21 +69,19 @@ export const Dropdown = ({disabled, classes, theme, isMulti, placeholder, type, 
     )
   }
 
-
   return(
-    <Select
-      classes={classes}
+    <MuiSelect
       components={components}
+      error={error}
       isDisabled={disabled}
       isMulti={isMulti}
       onChange={handleChange}
-      options={options}
-      placeholder={placeholder}
-      styles={selectStyles}
-      textFieldProps={{InputLabelProps: {shrink: true}}}
+      options={selectOptions}
+      textFieldProps={{InputLabelProps: {shrink: true}, label}}
       value={selectValue}
     />
   )
 }
 
-export default withStyle(Dropdown)
+
+export default Dropdown

@@ -17,7 +17,7 @@ export const Notification = ({theme}) => {
     close()
   }
 
-  const [t] = useTranslation("common")
+  const [t] = useTranslation("notifications")
 
   let actionColor
   let backgroundColor = theme.palette.primary.main
@@ -46,7 +46,7 @@ export const Notification = ({theme}) => {
       <Action
         color={actionColor}
         onClick={handleAction}
-        title={t(`notifications.${name}.action`)}
+        title={t(`${name}.action`)}
         type={type}
       />
   }
@@ -63,7 +63,7 @@ export const Notification = ({theme}) => {
     >
       <SnackbarContent
         action={ActionButton}
-        message={t(`notifications.${name}.${type || "default"}`, {message})}
+        message={t(`${name}.${type || "default"}`, {message})}
         style={{backgroundColor, color}}
 
       />

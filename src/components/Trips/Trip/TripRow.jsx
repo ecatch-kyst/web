@@ -9,6 +9,14 @@ import {useTranslation} from 'react-i18next'
 
 export default withTheme()(withRouter(({theme, id, history, POR, DEP, start, end, isFinished}) => {
   const [t] = useTranslation("trips")
+  const [dropdownT] = useTranslation("dropdowns")
+  const ports = dropdownT("ports", {returnObjects: true})
+  const departureLabel = ports.find(p => p.value === DEP.PO).label
+  let arrivalLabel = ""
+  if (isFinished) {
+    arrivalLabel = ports.find(p => p.value === POR.PO).label
+  }
+
   return (
     <Tooltip title={isFinished ? "": t("tooltips.enRoute")}>
       <TableRow hover onClick={() => history.push(`${routes.TRIPS}/${id}`)}
@@ -19,10 +27,10 @@ export default withTheme()(withRouter(({theme, id, history, POR, DEP, start, end
             style={isFinished ? undefined : {color: "#fff", padding: "16px 0"}}
             variant={isFinished ? undefined : "h5"}
           >
-            {isFinished ? DEP.PO : t("titles.enRoute")}
+            {isFinished ? departureLabel : t("titles.enRoute")}
           </Typography>
         </TableCell>
-        <TableCell> {isFinished ? <Typography>{POR.PO}</Typography> : ""}</TableCell>
+        <TableCell> {isFinished ? <Typography>{arrivalLabel}</Typography> : ""}</TableCell>
         <TableCell align="right">
           <Typography style={{color: isFinished ? "" : "#fff"}}
             variant={isFinished ? undefined : "h5"}

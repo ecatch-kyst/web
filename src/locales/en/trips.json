@@ -3,8 +3,8 @@
 		"main": "Trips",
 		"enRoute": "En route",
 		"switch": {
-			"trips": "Show individual messages",
-			"messages": "Group messages into trips"
+			"trips": "Show message log",
+			"messages": "Show trips"
 		}
 	},
 	"tooltips": {
