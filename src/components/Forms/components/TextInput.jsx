@@ -14,7 +14,7 @@ export default ({dataId, label, onChange, type, value, unit, disabled, error}) =
   const handleChange = ({target: {value}}) => setValue(format(type, value))
 
   // when user moves away from the field, update the global state
-  const handleBlur = () => onChange(dataId, localValue)
+  const handleBlur = () => onChange({name: dataId, value: localValue})
 
 
   return (

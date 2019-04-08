@@ -22,7 +22,7 @@ export const FormInput = ({id, dataId, type, options}) => {
   const {handleFieldChange, fields, handleFieldError, errors, notify} = useStore()
   const [t] = useTranslation("forms")
 
-  const handleChange = (name, value) => {
+  const handleChange = ({name, value}) => {
     const error = validate(name, value) // Validating the field
     handleFieldError(name, error)
     if (error) {

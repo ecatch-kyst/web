@@ -25,9 +25,10 @@ export const Dropdown = ({disabled, isMulti, label, type, onChange, dataId, valu
   if (isMulti) {
 
     handleChange = options => {
-      onChange(dataId, {...options.reduce((acc, option) => ({
-        ...acc, [option.value]: value[option.value] || 0
-      }), {})})
+      onChange({name: dataId,
+        value: {...options.reduce((acc, option) => ({
+          ...acc, [option.value]: value[option.value] || 0
+        }), {})}})
     }
 
     selectValue = allOptions.reduce((acc, option) => {
@@ -56,7 +57,7 @@ export const Dropdown = ({disabled, isMulti, label, type, onChange, dataId, valu
       components.NoOptionsMessage = AddFishingSpot
     }
 
-    handleChange = ({value}) => onChange(dataId, value)
+    handleChange = ({value}) => onChange({name: dataId, value})
 
     selectValue = allOptions.find(option =>
       option.value === value ||
