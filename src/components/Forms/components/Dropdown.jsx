@@ -6,7 +6,7 @@ import {useStore} from '../../../hooks'
 
 import MuiSelect from "../../../vendor/ReactSelect"
 
-export const Dropdown = ({disabled, isMulti, placeholder, type, onChange, dataId, value}) => {
+export const Dropdown = ({disabled, isMulti, label, type, onChange, dataId, value, error}) => {
 
   const [t] = useTranslation("dropdowns")
   const {custom: {fishingSpots, ...custom}} = useStore()
@@ -25,9 +25,10 @@ export const Dropdown = ({disabled, isMulti, placeholder, type, onChange, dataId
   if (isMulti) {
 
     handleChange = options => {
-      onChange(dataId, {...options.reduce((acc, option) => ({
-        ...acc, [option.value]: value[option.value] || 0
-      }), {})})
+      onChange({name: dataId,
+        value: {...options.reduce((acc, option) => ({
+          ...acc, [option.value]: value[option.value] || 0
+        }), {})}})
     }
 
     selectValue = allOptions.reduce((acc, option) => {
@@ -56,32 +57,31 @@ export const Dropdown = ({disabled, isMulti, placeholder, type, onChange, dataId
       components.NoOptionsMessage = AddFishingSpot
     }
 
-    handleChange = ({value}) => onChange(dataId, value)
+    handleChange = ({value}) => onChange({name: dataId, value})
 
     selectValue = allOptions.find(option =>
       option.value === value ||
       //REVIEW: Better solution to match geopoints ?
       (option.value.latitude && value.latitude &&
         GEOPOINT(option.value.latitude, option.value.longitude)
-        .isEqual(GEOPOINT(value.latitude, value.longitude))
+          .isEqual(GEOPOINT(value.latitude, value.longitude))
       )
     )
   }
-  
+
   return(
     <MuiSelect
       components={components}
+      error={error}
       isDisabled={disabled}
       isMulti={isMulti}
       onChange={handleChange}
       options={selectOptions}
-      placeholder={placeholder}
-      textFieldProps={{InputLabelProps: {shrink: true}}}
+      textFieldProps={{InputLabelProps: {shrink: true}, label}}
       value={selectValue}
     />
   )
 }
-
 
 
 export default Dropdown

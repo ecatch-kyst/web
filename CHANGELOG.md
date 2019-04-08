@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 ### Added
  - preset for making favorites groups in dropdown
  - page on "homescreen" for setting the preset
+ - input validation ([#90](https://github.com/ecatch-kyst/web/issues/90))
 
 ### Removed
 - unused translations
@@ -31,7 +32,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Assets for Android, iOS, macOS Safari, Windows
-- WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
+- WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/52))
 - User can now add his own fishingSpots. ([#52](https://github.com/ecatch-kyst/web/issues/52))
 - date format interpolation to i18n (show dates differently for different languages)
 - Trips view
