@@ -77,5 +77,34 @@
     "off": {
       "default": "Nattmodus ble slått av."
     }
-  }
+  },
+  "fields": {
+      "format": {
+        "error": "Formatering"
+      },
+      "ivalid-coordinates": {
+        "error": "Ugyldig koordinater"
+      },
+      "invalid-latitude": {
+        "error": "Ugyldig breddegrad"
+      },
+      "invalid-longitude": {
+        "error": "Ugyldig lengdegrad"
+      },
+      "invalid-type": {
+        "error": "Ugyldig type"
+      },
+      "invalid-weight": {
+        "error": "Vekt må være minst 0kg"
+      },
+      "invalid-date": {
+        "error": "Ugyldig dato"
+      },
+      "invalid-format": {
+        "error": "Ugyldig format"
+      },
+      "invalid-form": {
+        "error": "Vennligst korriger de markerte feltene"
+      }
+    }
 }

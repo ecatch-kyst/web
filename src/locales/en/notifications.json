@@ -81,6 +81,35 @@
   "edit": {
     "message": {
       "submit": "Submit"
+    } 
+  },
+  "fields": {
+    "format": {
+      "error": "Format"
+    },
+    "ivalid-coordinates": {
+      "error": "Invalid coordinates"
+    },
+    "invalid-latitude": {
+      "error": "Invalid latitude"
+    },
+    "invalid-longitude": {
+      "error": "Invalid longitude"
+    },
+    "invalid-type": {
+      "error": "Invalid type"
+    },
+    "invalid-weight": {
+      "error": "Weight must be 0kg or more"
+    },
+    "invalid-date": {
+      "error": "Invalid date"
+    },
+    "invalid-format": {
+      "error": "Invalid format"
+    },
+    "invalid-form": {
+      "error": "Please correct the highlighted fields"
     }
   }
 }
