@@ -116,8 +116,6 @@ export async function submit(type) {
       successRoute = `${routes.TRIPS}/${this.state.trips[0].id}`
     }
 
-    console.log(message)
-
     await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add({
       ...message,
       created: TIMESTAMP_CLIENT()
