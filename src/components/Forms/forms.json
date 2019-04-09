@@ -24,7 +24,13 @@
           "type": "select",
           "options": {
             "customizable": true
+          },
+          "dependent":{
+            "on": "AC",
+            "when":["FIS","REL","SCR","TRX","SET","ANC","DRI","GUD","HAU","PRO","INW","SEF","OTH"]
           }
+
+
         },
         {
           "id": "expectedFishingStart",
