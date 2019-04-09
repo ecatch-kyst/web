@@ -52,7 +52,7 @@
   "login": {
     "default": "Du er nå logget inn.",
     "error": {
-      "auth/invalid-email": "Ugyldig e-post.",
+      "auth/invalid-email": "Ugyldig e-post",
       "auth/wrong-password": "Feil passord",
       "auth/user-not-found": "Det finnes ingen bruker med dette brukernavnet eller passordet",
       "auth/user-disabled": "Brukeren er deaktivert, kontakt kundeservice",
@@ -64,18 +64,18 @@
     "warning": ""
   },
   "logout": {
-    "default": "Du er nå logget ut.",
-    "error": "Det oppstod en feil ved utlogging."
+    "default": "Du er nå logget ut",
+    "error": "Det oppstod en feil ved utlogging"
   },
   "language": {
-    "default": "Språket har endret seg."
+    "default": "Språket har endret seg"
   },
   "darkMode": {
     "on": {
-      "default": "Nattmodus ble slått på."
+      "default": "Nattmodus ble slått på"
     },
     "off": {
-      "default": "Nattmodus ble slått av."
+      "default": "Nattmodus ble slått av"
     }
   },
   "fields": {
