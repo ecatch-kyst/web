@@ -8,9 +8,6 @@ import FishChip from './FishChip'
 
 export const DCAOverview = ({list, fish}) => {
 
-  console.log(fish)
-
-
   if (list.length === 0) {
     return (
       <Typography>

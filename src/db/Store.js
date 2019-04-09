@@ -103,6 +103,8 @@ export const Database = withRouter(class extends Component {
 
   handleFieldChange = messages.handle.bind(this)
 
+  handleFieldError = messages.error.bind(this)
+
   submitMessage = messages.submit.bind(this)
 
   subscribeToMessages = messages.subscribe.bind(this)
@@ -127,6 +129,7 @@ export const Database = withRouter(class extends Component {
           processNotificationQueue: this.processNotificationQueue,
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
+          handleFieldError: this.handleFieldError,
           handleCancelTrip: this.handleCancelTrip,
           submitMessage: this.submitMessage,
           addToCustomList: this.addToCustomList,

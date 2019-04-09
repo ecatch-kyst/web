@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT, FS} from "../../lib/firebase"
-import {flattenDoc} from "../../utils"
+import {flattenDoc, validate} from "../../utils"
 import {routes} from "../../lib/router"
 /**
  * Handles message changes.
@@ -9,6 +9,7 @@ import {routes} from "../../lib/router"
  */
 export function handle(...args) {
   if (args.length === 1 && typeof args[0] === "object") {
+
     this.setState(({fields}) => ({
       fields: {
         ...fields,
@@ -16,6 +17,7 @@ export function handle(...args) {
       }
     }))
   } else {
+
     this.setState(({fields}) => ({
       fields: {
         ...fields,
@@ -91,7 +93,20 @@ export async function submit(type) {
     default:
       break
     }
-    // TODO: Add final validation before sending to firebase
+
+    let error
+    Object.entries(message).forEach(([k, v]) => {
+      const result = validate(k, v) // Validating the field
+      if (result.error) {
+        error = true
+        this.handleFieldError(k, true)
+      }
+    })
+    if (error) {
+      this.notify({name: "fields.invalid-form", type: "error"})
+      return
+    }
+
     if (this.state.isOffline) {
       this.notify({name: `message.sent.offline`, type: "warning"})
     }
@@ -101,12 +116,15 @@ export async function submit(type) {
       successRoute = `${routes.TRIPS}/${this.state.trips[0].id}`
     }
 
-    this.props.history.push(successRoute)
+    console.log(message)
 
     await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add({
       ...message,
       created: TIMESTAMP_CLIENT()
     })
+
+
+    this.props.history.push(successRoute)
     this.notify({name: `message.sent.${type}`, type: "success"})
     this.toggleDCAStart(false)
   } catch ({code, message}) {
@@ -247,4 +265,28 @@ const generateTrips = messages => {
 
 export function toggleDCAStart(DCAStarted){
   this.setState({DCAStarted})
+}
+
+/**
+ *
+ * @param  {...any} args
+ */
+export function error(...args) {
+  if (args.length === 1 && typeof args[0] === "object") {
+
+    this.setState(({errors}) => ({
+      errors: {
+        ...errors,
+        ...args[0]
+      }
+    }))
+  } else {
+
+    this.setState(({errors}) => ({
+      errors: {
+        ...errors,
+        [args[0]]: args[1]
+      }
+    }))
+  }
 }

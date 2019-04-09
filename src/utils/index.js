@@ -1,6 +1,7 @@
 import {format as formatDate, isBefore, addHours, isDate} from "date-fns"
 
 export {flattenDoc} from "./firebase"
+export {validate} from './validate'
 
 export function deadline(timestamp) {
   return addHours(timestamp, 12)

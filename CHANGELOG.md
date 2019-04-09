@@ -2,17 +2,20 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
+
+## [1.0.0-beta5] - 2019-04-08
 ### Changed
-- notification, dialogs, dropdowns moved to their own namespaces in `locales`
-- dashboard -> homepage
-- DCA is split into two parts
+- notification, dialogs, dropdowns moved to their own namespaces in `locales` ([#57](https://github.com/ecatch-kyst/web/issues/57))
+- dashboard -> homepage ([#57](https://github.com/ecatch-kyst/web/issues/57))
+- DCA is split into two parts ([#93](https://github.com/ecatch-kyst/web/issues/93))
 
 ### Added
- - preset for making favorites groups in dropdown
- - page on "homescreen" for setting the preset
+- preset for making favorites groups in dropdown ([#99](https://github.com/ecatch-kyst/web/issues/99))
+- page on "homescreen" for setting the preset
+- input validation ([#90](https://github.com/ecatch-kyst/web/issues/90))
 
 ### Removed
-- unused translations
+- unused translations ([#57](https://github.com/ecatch-kyst/web/issues/57))
 - delete option
 
 ### Fixed
@@ -31,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Assets for Android, iOS, macOS Safari, Windows
-- WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
+- WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/52))
 - User can now add his own fishingSpots. ([#52](https://github.com/ecatch-kyst/web/issues/52))
 - date format interpolation to i18n (show dates differently for different languages)
 - Trips view

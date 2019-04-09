@@ -17,6 +17,7 @@ export {TripRow}
 export const Trip = ({match: {params: {tripId}}}) => {
   const {trips} = useStore()
   const [t] = useTranslation("dropdowns")
+  const ports = t("ports", {returnObjects: true})
 
   const {POR, DEP, DCAList, start, end, isFinished, fish} = trips.find(trip => trip.id === tripId) || {}
 
