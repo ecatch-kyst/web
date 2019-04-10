@@ -18,9 +18,11 @@
     "title": "Start DCA",
     "submit": "Start",
     "steps": {
-      "0": "title", 
-      "location": "Location",
-      "fishing": "Fishing"
+      "0": "Title",
+      "start": "Start",
+      "activity": "Activity",
+      "zone": "Zone",
+      "permit": "Fishing permit"
     }
   },
   "DCA": {
@@ -29,7 +31,8 @@
     "steps": {
       "0": "Fishingstart & quota",
       "location": "Location",
-      "fishing": "Activity, catch and fishing tools"
+      "fishing": "Activity, catch and fishing tools",
+      "catch": "Catch"
     }
   },
   "POR": {

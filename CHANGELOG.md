@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
+### Added
+- translations to validation error messages
+
+### Changed
+- period is now used in a consistant manner for every notification
 
 ## [1.0.0-beta5] - 2019-04-08
 ### Changed
