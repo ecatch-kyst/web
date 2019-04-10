@@ -84,9 +84,6 @@
     } 
   },
   "fields": {
-    "format": {
-      "error": "Format"
-    },
     "ivalid-coordinates": {
       "error": "Invalid coordinates"
     },
@@ -100,7 +97,7 @@
       "error": "Invalid type"
     },
     "invalid-weight": {
-      "error": "Weight must be 0kg or more"
+      "error": "Weight must be greater than 0kg"
     },
     "invalid-date": {
       "error": "Invalid date"

@@ -79,9 +79,6 @@
     }
   },
   "fields": {
-      "format": {
-        "error": "Formatering"
-      },
       "ivalid-coordinates": {
         "error": "Ugyldig koordinater"
       },
@@ -95,7 +92,7 @@
         "error": "Ugyldig type"
       },
       "invalid-weight": {
-        "error": "Vekt må være minst 0kg"
+        "error": "Vekt må være større enn 0kg"
       },
       "invalid-date": {
         "error": "Ugyldig dato"
