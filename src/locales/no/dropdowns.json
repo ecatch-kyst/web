@@ -299,7 +299,12 @@
       "label": "Bunntrål, reker"
     }
   ],
-  "species": [{
+  "species": [
+    {
+      "value": "COD",
+      "label": "Torsk"
+    },
+    {
       "value": "AJC",
       "label": "Butare"
     },

@@ -8,13 +8,13 @@ import {light, dark} from "./lib/material-ui"
 import "./main.sass"
 import Store, {Database} from './db'
 
-import i18next from "./lib/i18next"
+import i18n from "./lib/i18n"
 import {I18nextProvider} from 'react-i18next'
 
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
-  <I18nextProvider i18n={i18next}>
+  <I18nextProvider i18n={i18n}>
     <Router>
       <Database>
         <Store.Consumer>
