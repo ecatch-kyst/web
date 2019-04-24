@@ -1,7 +1,7 @@
 import React from 'react'
 import {Select, MenuItem, Typography} from "@material-ui/core"
 import {useTranslation} from "react-i18next"
-import {languages} from "../../locales/locales.json"
+import locales from "../../locales"
 import {useStore} from '../../hooks'
 
 export default () => {
@@ -22,7 +22,7 @@ export default () => {
       onChange={changeLanguage}
       value={i18n.language}
     >
-      {languages.map(({code, title, flag}) =>
+      {locales.languages.map(({code, title, flag}) =>
         <MenuItem
           key={code}
           selected

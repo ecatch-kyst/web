@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT, FS} from "../../lib/firebase"
-import {flattenDoc, validate} from "../../utils"
+import {flattenDoc, validate as validateField} from "../../utils"
 import {routes} from "../../lib/router"
 /**
  * Handles message changes.
@@ -28,85 +28,84 @@ export function handle(...args) {
 }
 
 /**
+ *
+ * @param {*} type
+ */
+export function construct(type) {
+  const {
+    AC, DS, PO, OB, KG,
+    portArrival, LS,
+    expectedFishingSpot, departure,
+    expectedFishingStart, QI, fishingStart,
+    ZO, startFishingSpot, GE, GP,
+    endFishingSpot,
+    DU, CA, GS, ME
+  } = this.state.fields
+
+  let message = {
+    TM: type,
+    timestamp: TIMESTAMP_SERVER,
+    MA: AUTH.currentUser.displayName
+  }
+  switch (type) { // TODO: Populate message by type
+  case "DEP":
+    message = {
+      ...message,
+      AC,
+      DS,
+      PO,
+      departure: new Date(departure),
+      expectedFishingSpot: GEOPOINT(expectedFishingSpot.latitude, expectedFishingSpot.longitude),
+      expectedFishingStart: new Date(expectedFishingStart),
+      OB
+    }
+    break
+  case "DCA":
+    message = {
+      ...message,
+      AC,
+      AD: "NOR", // NOTE: Hardcoded
+      QI,
+      TS: "", // ???
+      fishingStart: new Date(fishingStart),
+      ZO,
+      startFishingSpot,
+      GE,
+      GP,
+      endFishingSpot,
+      DU,
+      CA
+    }
+    if (["OTB", "OTM", "TBS"].includes(GE)) message.GS = GS
+    if (["OTB", "OTM", "SSC", "GEN", "TBS"].includes(GE)) message.ME = ME
+    break
+
+  // TODO: ADD DCA0 case
+  case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
+    message = {
+      ...message,
+      AD: "NOR", // NOTE: Hardcoded
+      PO,
+      portArrival: new Date(portArrival),
+      OB,
+      LS,
+      KG
+    }
+    break
+  default:
+    break
+  }
+  return message
+}
+
+
+/**
  * Submits a message form
  */
-export async function submit(type) {
+export async function submit(message) {
+  const type = message.TM
+  this.changeFishOnBoard(type)
   try {
-    const {
-      AC, DS, PO, OB, KG,
-      portArrival, LS,
-      expectedFishingSpot, departure,
-      expectedFishingStart, QI, fishingStart,
-      ZO, startFishingSpot, GE, GP,
-      endFishingSpot,
-      DU, CA, GS, ME
-    } = this.state.fields
-
-    let message = {
-      TM: type,
-      timestamp: TIMESTAMP_SERVER,
-      MA: AUTH.currentUser.displayName
-    }
-    switch (type) { // TODO: Populate message by type
-    case "DEP":
-      message = {
-        ...message,
-        AC,
-        DS,
-        PO,
-        departure: new Date(departure),
-        expectedFishingSpot: GEOPOINT(expectedFishingSpot.latitude, expectedFishingSpot.longitude),
-        expectedFishingStart: new Date(expectedFishingStart),
-        OB
-      }
-      break
-    case "DCA":
-      message = {
-        ...message,
-        AC,
-        AD: "NOR", // NOTE: Hardcoded
-        QI,
-        TS: "", // ???
-        fishingStart: new Date(fishingStart),
-        ZO,
-        startFishingSpot,
-        GE,
-        GP,
-        endFishingSpot,
-        DU,
-        CA
-      }
-      if (["OTB", "OTM", "TBS"].includes(GE)) message.GS = GS
-      if (["OTB", "OTM", "SSC", "GEN", "TBS"].includes(GE)) message.ME = ME
-      break
-    case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
-      message = {
-        ...message,
-        AD: "NOR", // NOTE: Hardcoded
-        PO,
-        portArrival: new Date(portArrival),
-        OB,
-        LS,
-        KG
-      }
-      break
-    default:
-      break
-    }
-
-    let error
-    Object.entries(message).forEach(([k, v]) => {
-      const result = validate(k, v) // Validating the field
-      if (result.error) {
-        error = true
-        this.handleFieldError(k, true)
-      }
-    })
-    if (error) {
-      this.notify({name: "fields.invalid-form", type: "error"})
-      return
-    }
-    this.changeFishOnBoard(message.TM)
 
     if (this.state.isOffline) {
       this.notify({name: `message.sent.offline`, type: "warning"})
@@ -122,13 +121,32 @@ export async function submit(type) {
       created: TIMESTAMP_CLIENT()
     })
 
-
     this.props.history.push(successRoute)
     this.notify({name: `message.sent.${type}`, type: "success"})
     this.toggleDCAStart(false)
   } catch ({code, message}) {
     this.notify({name: `message.sent.${type}`, type: "error", message: [code, message].join(": ")})
   }
+}
+
+
+/**
+ *
+ * @param {*} type
+ */
+export function validate(message, DCAStart) {
+  let error
+  Object.entries(message).forEach(([field, value]) => {
+    if (value === "DCA0" && field === "TM" && DCAStart) {
+      return
+    }
+    const result = validateField(field, value) // Validating the field
+    if (result.error) {
+      error = true
+      this.handleFieldError(field, true)
+    }
+  })
+  return !error
 }
 
 /**
@@ -266,7 +284,8 @@ const generateTrips = messages => {
           startPort: message.PO,
           DCAList: [],
           end: null,
-          isFinished: false
+          isFinished: false,
+          fish: {}
         })
         return acc
       }

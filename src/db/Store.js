@@ -102,6 +102,10 @@ export const Database = withRouter(class extends Component {
 
   // Messages
 
+  constructMessage = messages.construct.bind(this)
+
+  validateMessage = messages.validate.bind(this)
+
   handleFieldChange = messages.handle.bind(this)
 
   handleFieldError = messages.error.bind(this)
@@ -111,7 +115,7 @@ export const Database = withRouter(class extends Component {
   subscribeToMessages = messages.subscribe.bind(this)
 
   toggleDCAStart = messages.toggleDCAStart.bind(this)
-  
+
   handleCancelTrip = messages.cancelTrip.bind(this)
 
   notifyAboutLastMessageStatus = messages.notifyAboutLastMessageStatus.bind(this)
@@ -139,6 +143,8 @@ export const Database = withRouter(class extends Component {
           handleFieldError: this.handleFieldError,
           handleCancelTrip: this.handleCancelTrip,
           submitMessage: this.submitMessage,
+          validateMessage: this.validateMessage,
+          constructMessage: this.constructMessage,
           addToCustomList: this.addToCustomList,
           handleCustomListChange: this.handleCustomListChange,
           toggleDCAStart: this.toggleDCAStart,

@@ -1,12 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import {
   Typography, Grid, Table, TableHead, TableCell, TableBody, TableRow
 } from '@material-ui/core'
 import {useTranslation} from 'react-i18next'
-import FishChip from './FishChip'
 
-
-export const DCAOverview = ({list, fish}) => {
+export const DCAOverview = memo(({list, fish}) => {
 
   if (list.length === 0) {
     return (
@@ -15,16 +13,6 @@ export const DCAOverview = ({list, fish}) => {
       </Typography>
     )
   }
-
-  const activities = list.reduce((acc, m) => {
-    const type = m.AC
-    Array.isArray(acc[type]) ? acc[type].push(m) : acc[type] = [m]
-    return acc
-  }, {
-    FIS: [],
-    SET: [],
-    STE: []
-  })
 
 
   return (
@@ -55,7 +43,7 @@ export const DCAOverview = ({list, fish}) => {
       </Grid>
     </Grid>
   )
-}
+})
 
 DCAOverview.defaultProps = {
   list: []
@@ -65,6 +53,7 @@ export default DCAOverview
 
 export const FishRow = ({type, weight}) => {
   const [t] = useTranslation("dropdowns")
+  
   const name = t("species", {returnObjects: true}).find(f => f.value === type).label
   return (
     <TableRow>
@@ -77,3 +66,4 @@ export const FishRow = ({type, weight}) => {
     </TableRow>
   )
 }
+
