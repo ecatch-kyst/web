@@ -106,6 +106,7 @@ export async function submit(type) {
       this.notify({name: "fields.invalid-form", type: "error"})
       return
     }
+    this.changeFishOnBoard(message.TM)
 
     if (this.state.isOffline) {
       this.notify({name: `message.sent.offline`, type: "warning"})
@@ -149,6 +150,35 @@ export async function cancelTrip() {
 }
 
 /**
+ *
+ * @param {object} fish
+ * @param {boolean} add
+ */
+export function changeFish(type){
+  let fish = {}
+  let direction = 1
+  switch (type) {
+  case "DCA":
+    fish = this.state.fields.CA
+    break
+  case "POR":
+    fish = this.state.fields.KG
+    direction = -1
+    break
+  default:
+    return
+  }
+  const fishOnBoard = {...this.state.fishOnBoard}
+  Object.entries(fish).forEach(([type, weight]) => {
+    fishOnBoard[type] = (fishOnBoard[type] || 0) + direction * weight
+    !fishOnBoard[type] && delete fishOnBoard[type]
+  })
+  USERS_FS.doc(AUTH.currentUser.uid).update({
+    fishOnBoard
+  })
+}
+
+/**
  * Listen to messages in Firebase for the logged in user.
  */
 export function subscribe() {
@@ -174,7 +204,19 @@ export function subscribe() {
       }
     ) //TODO: Add error notification
 }
-
+/***/
+export function subscribeToFish() {
+  USERS_FS.doc(AUTH.currentUser.uid)
+    .onSnapshot(
+      snap => {
+        if (!snap.empty) {
+          const fishOnBoard = snap.data().fishOnBoard
+          if(fishOnBoard) this.setState({fishOnBoard})
+        }
+      },
+      error => console.error(error)
+    ) //TODO: Add error notification
+}
 /**
  * Send notification to the user about the last message's status
  * @param {*} oldMessage
@@ -224,8 +266,7 @@ const generateTrips = messages => {
           startPort: message.PO,
           DCAList: [],
           end: null,
-          isFinished: false,
-          fish: {}
+          isFinished: false
         })
         return acc
       }

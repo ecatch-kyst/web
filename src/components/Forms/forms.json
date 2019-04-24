@@ -46,6 +46,7 @@
           "dataId": "species",
           "type": "select-map",
           "options": {
+            "disabled": true,
             "unit": "kg",
             "inputType": "number",
             "isMulti": true
@@ -206,6 +207,7 @@
           "dataId": "species",
           "type": "select-map",
           "options": {
+            "disabled": true,
             "unit": "kg",
             "inputType": "number",
             "isMulti": true

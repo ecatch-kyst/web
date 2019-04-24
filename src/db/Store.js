@@ -34,6 +34,7 @@ export const Database = withRouter(class extends Component {
       this.subscribeToCustomList("species")
       this.subscribeToCustomList("fishingPermit")
       this.subscribeToCustomList("ZO")
+      this.subscribeToFishOnBoard()
     }})
 
     setTimeout(() => {
@@ -114,6 +115,12 @@ export const Database = withRouter(class extends Component {
   handleCancelTrip = messages.cancelTrip.bind(this)
 
   notifyAboutLastMessageStatus = messages.notifyAboutLastMessageStatus.bind(this)
+  
+  // Fish
+
+  subscribeToFishOnBoard = messages.subscribeToFish.bind(this)
+
+  changeFishOnBoard = messages.changeFish.bind(this)
 
   render() {
     return (
@@ -135,6 +142,7 @@ export const Database = withRouter(class extends Component {
           addToCustomList: this.addToCustomList,
           handleCustomListChange: this.handleCustomListChange,
           toggleDCAStart: this.toggleDCAStart,
+          changeFishOnBoard: this.changeFishOnBoard,
           ...this.state
         }}
       >
