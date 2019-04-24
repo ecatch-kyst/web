@@ -22,6 +22,7 @@ const DropdownMap = props => {
         {Object.entries(props.value).map(([key, value]) =>
           <KeyValueInput
             dataId={key}
+            disabled={props.disabled}
             inputType={props.inputType}
             key={key}
             onChange={handleKeyValueChange}
