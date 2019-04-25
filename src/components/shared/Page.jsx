@@ -1,4 +1,4 @@
-import React, { useContext, memo } from 'react'
+import React, { useContext } from 'react'
 import {Redirect} from "react-router-dom"
 import {Grid, Typography, CircularProgress, Paper} from '@material-ui/core'
 import {AUTH} from '../../lib/firebase'

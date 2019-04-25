@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 export const Home = () => {
   
-  const {position, DCAStarted, isDarkMode, handleToggleDarkMode} = useStore()
+  const {DCAStarted, isDarkMode, handleToggleDarkMode} = useStore()
   const [t] = useTranslation("homepage")
   
   const renderTitle = useCallback(title => 
