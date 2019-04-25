@@ -32,7 +32,7 @@ const base = {
   },
   typography: {
     useNextVariants: true,
-    fontSize: 16,
+    fontSize: 20,
     fontFamily: "Poppins, Arial, sans-serif",
     h4: {
       fontWeight: "bolder"
@@ -62,14 +62,36 @@ const base = {
     // },
     MuiButton: {
       sizeLarge: {
-        padding: '8px 24px',
-        borderRadius: 24
+        padding: '12px 28px',
+        borderRadius: 32
       },
       containedPrimary: {
         boxShadow: "none"
       },
       containedSecondary: {
         boxShadow: "none"
+      }
+    },
+    MuiSvgIcon: {
+      root: {
+        fontSize: 32
+      }
+    },
+    MuiInput: {
+      root: {
+        padding: 8
+      }
+    },
+    MuiSwitch: {
+      root: {width: 68},
+      icon: {
+        width: 24,
+        height: 24
+      }
+    },
+    MuiBottomNavigation: {
+      root: {
+        height: 72
       }
     }
   }

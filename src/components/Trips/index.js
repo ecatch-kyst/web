@@ -28,8 +28,8 @@ export default () => {
   return (
     <Page
       namespace="trips"
-      title={
-        <Grid alignItems="center" container justify="space-between">
+      title={() =>
+        <Grid alignItems="center" container justify="space-between" style={{padding: 16}}>
           <Typography variant="h4">{t("titles.main")}</Typography>
           <SwitchView/>
         </Grid>

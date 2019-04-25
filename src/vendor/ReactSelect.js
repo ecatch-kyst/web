@@ -43,12 +43,12 @@ const styles = theme => ({
     padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
   },
   singleValue: {
-    fontSize: 16
+    fontSize: 20
   },
   placeholder: {
     position: 'absolute',
     left: 2,
-    fontSize: 16
+    fontSize: 20
   },
   paper: {
     position: 'absolute',
