@@ -2,7 +2,7 @@ import React, {memo, Component} from 'react'
 
 import {Link, withRouter} from "react-router-dom"
 import forms from "./forms.json"
-import {Grid, Button, Divider, Typography} from '@material-ui/core'
+import {Grid, Button, Typography, Card, CardHeader, CardContent} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
 import {useTranslation, withTranslation} from 'react-i18next'
 import {Page} from '../shared'
@@ -134,31 +134,33 @@ class Form extends Component {
     
     const form = forms[type] // Extract form from forms.json
     return (
-      <Page title={t(`${type}.title`)}>
-        <Grid alignItems="center" container direction="column" spacing={16}>
+      <Page title={() => <Typography align="center" style={{padding: 16}} variant="h4">{t(`${type}.title`)}</Typography>}>
+        <Grid alignItems="center" container direction="column" style={{marginTop: 32}}>
           <Grid item>
             {form.map(({id, step}) => // If a valid form, iterate over its steps
-              <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
-                <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
-                {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
-                  (!dependent || dependent.when.includes(fields[dependent.on] || "")) ?
-                    <Grid item key={id}>
-                      <FormInput
-                        dataId={dataId || id}
-                        id={id}
-                        options={{
-                          ...options,
-                          editable: ((options.editable !== false) || path.endsWith(routes.NEW))
-                        }}
-                        type={type}
-                      />
-                    </Grid>
+              <Card key={id} style={{marginBottom: 32}}>
+                <CardHeader title={t(`${type}.steps.${id}`)}/>
+                <Grid component={CardContent} container spacing={16} direction="column">
+                  {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
+                    (!dependent || dependent.when.includes(fields[dependent.on] || "")) ?
+                      <Grid item
+                          key={id}
+                      >
+                        <FormInput
+                          dataId={dataId || id}
+                          id={id}
+                          options={{
+                            ...options,
+                            editable: ((options.editable !== false) || path.endsWith(routes.NEW))
+                          }}
+                          type={type}
+                        />
+                      </Grid>
                     : null
-                )}
-                <Divider style={{marginTop: 16}}/>
-              </Grid>
-            )
-            }
+                  )}
+                </Grid>
+              </Card>
+            )}
           </Grid>
           <Grid container item justify="center">
             <Grid item>
@@ -177,9 +179,8 @@ class Form extends Component {
           </Grid>
         </Grid>
       </Page>
-  )
-          }
-  }
+  )}
+}
 
 export default withRouter(withTranslation("forms")(withStore(Form)))
 

@@ -7,7 +7,10 @@ export const colors = {
   red: "#A8112B",
   yellow: "#FFCE00",
   blue: "#00A9E7",
-  green: "#51c1b7"
+  green: "#51c1b7",
+  light: "#eee",
+  dark: "#000"
+
 }
 
 
@@ -32,7 +35,7 @@ const base = {
   },
   typography: {
     useNextVariants: true,
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Poppins, Arial, sans-serif",
     h4: {
       fontWeight: "bolder"
@@ -62,14 +65,57 @@ const base = {
     // },
     MuiButton: {
       sizeLarge: {
-        padding: '8px 24px',
-        borderRadius: 24
+        padding: '8px 20px',
+        borderRadius: 32
       },
       containedPrimary: {
         boxShadow: "none"
       },
       containedSecondary: {
         boxShadow: "none"
+      }
+    },
+    MuiSvgIcon: {
+      root: {
+        fontSize: 32
+      }
+    },
+    MuiInput: {
+      root: {
+        padding: 8
+      }
+    },
+    MuiSwitch: {
+      root: {width: 68},
+      icon: {
+        width: 24,
+        height: 24
+      }
+    },
+    MuiBottomNavigation: {
+      root: {
+        height: 72
+      }
+    },
+    MuiBottomNavigationAction: {
+      root: {
+        padding: 0
+      },
+      label: {
+        fontSize: 12,
+        '&$selected': {
+          fontSize: 12
+        }
+      }
+    },
+    MuiFormControl: {
+      root: {
+        width: "100%"
+      }
+    },
+    MuiFormLabel: {
+      root: {
+        padding: 8
       }
     }
   }

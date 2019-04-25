@@ -37,6 +37,7 @@ const GeoPointInput = ({disabled, dataId, label, onChange, value}) => {
     <InputLabel>{label}</InputLabel>
     {["latitude", "longitude"].map(degree =>
       <TextField
+        style={{marginTop: 8}}
         InputProps={{
           endAdornment: <InputAdornment position="start">˚</InputAdornment>
         }}

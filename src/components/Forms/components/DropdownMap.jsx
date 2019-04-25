@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid} from '@material-ui/core'
+import {Grid, Paper} from '@material-ui/core'
 
 import TextInput from './TextInput'
 import Dropdown from './Dropdown'
@@ -16,9 +16,9 @@ const DropdownMap = props => {
 
 
   return (
-    <>
+    <Paper elevation={4}>
       <Dropdown {...props}/>
-      <Grid container direction="column" spacing={16} style={{padding: 16}}>
+      <Grid container direction="column">
         {Object.entries(props.value).map(([key, value]) =>
           <KeyValueInput
             dataId={key}
@@ -32,7 +32,7 @@ const DropdownMap = props => {
           />
         )}
       </Grid>
-    </>
+    </Paper>
   )
 }
 

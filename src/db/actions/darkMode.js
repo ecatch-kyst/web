@@ -13,9 +13,9 @@ export function init() {
 export function toggle() {
   const isDarkMode = !this.state.isDarkMode
   if (isDarkMode) {
-    this.notify({name: "darkMode.on"})
+    this.notify({name: "darkMode.on", duration: 600})
   } else {
-    this.notify({name: "darkMode.off"})
+    this.notify({name: "darkMode.off", duration: 600})
   }
   localStorage.setItem("isDarkMode", isDarkMode)
   this.setState({isDarkMode})

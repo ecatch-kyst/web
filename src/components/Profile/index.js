@@ -44,14 +44,7 @@ export const Profile = () => {
           }
           id="logout"
         />
-        <Element actionComponent={
-          <Typography align="center">
-          </Typography>
-        }
-        id="about-us"
-        >
-
-        </Element>
+        <Element id="about-us"/>
         <Element
           actionComponent={
             <Typography align="center">
@@ -71,13 +64,13 @@ export default withTheme()(Profile)
 export const Element = ({id, actionComponent, onClick, clickable}) => {
   const [t] = useTranslation("profile")
   return (
-    <ListItem>
+    <ListItem onClick={() => clickable && onClick()} style={{cursor: clickable ? "pointer" : ""}}>
       <Grid alignItems="center" container>
         <Grid item xs={7}>
           <Typography variant="h6">{t(`titles.${id}`)}</Typography>
           <Typography variant="subtitle2">{t(`descriptions.${id}`)}</Typography>
         </Grid>
-        <Grid container item justify="flex-end" onClick={() => clickable && onClick()} style={{cursor: clickable ? "pointer" : ""}} xs={5}>
+        <Grid container item justify="flex-end" xs={5}>
           {actionComponent}
         </Grid>
       </Grid>

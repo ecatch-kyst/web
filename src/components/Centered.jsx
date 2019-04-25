@@ -3,7 +3,7 @@ import {Grid} from '@material-ui/core'
 import {useDimensions} from '../hooks'
 
 
-const Centered = ({children, style, ...props}) => {
+const Centered = ({children, style, heightOffset=0, ...props}) => {
   const {height} = useDimensions()
 
   return (
@@ -14,8 +14,8 @@ const Centered = ({children, style, ...props}) => {
       direction="column"
       justify="center"
       style={{
-        minHeight: height,
-        maxHeight: height,
+        minHeight: height+heightOffset,
+        maxHeight: height+heightOffset,
         ...style
       }}
       {...props}

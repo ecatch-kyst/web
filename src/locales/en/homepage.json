@@ -4,5 +4,6 @@
   },
   "links": {
     "forms": "Forms"
-  }
+  },
+  "dark-mode": "Toggle night mode"
 }

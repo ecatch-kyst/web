@@ -15,10 +15,10 @@ export const Message = ({RN, TM, result, created, history}) => {
       hover={TM === "DCA" && !disabled}
       onClick={() => TM === "DCA" && !disabled ? history.push(`${routes.MESSAGES}/DCA/${RN}${routes.EDIT}`) : null}
     >
-      <TableCell><Status result={result}/></TableCell>
-      <TableCell><Typography>{RN}</Typography></TableCell>
-      <TableCell>
-        <Grid container justify="flex-end" spacing={8}>
+      <TableCell padding="dense"><Typography>{RN}</Typography></TableCell>
+      <TableCell padding="none"><Status result={result}/></TableCell>
+      <TableCell padding="none">
+        <Grid container spacing={8}>
           <Grid item>
             <Hidden mdDown>
               <Typography variant="caption">
@@ -31,14 +31,14 @@ export const Message = ({RN, TM, result, created, history}) => {
           </Grid>
         </Grid>
       </TableCell>
-      <TableCell align="right">
+      <TableCell padding="none" align="right">
         <Tooltip title={format(created, "yyyy. MMMM dd HH:mm")}>
           <Typography>
             {format(created, "MMM d. HH:mm")}
           </Typography>
         </Tooltip>
       </TableCell>
-      <TableCell align="right">
+      <TableCell  align="right">
         {TM === "DCA" ?
           <IconButton
             color="primary"

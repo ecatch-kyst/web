@@ -33,8 +33,8 @@ export const Trip = ({match: {params: {tripId}}}) => {
   return (
     <Page
       subtitle={subtitle}
-      title={
-        <Grid alignItems="center" container justify="space-between">
+      title={() =>
+        <Grid alignItems="center" container justify="space-between" style={{padding: 16}}>
           <Grid component={Typography} item variant="h4">{title}</Grid>
           <Grid item>
             {isFinished ? null : <Forms direction="row" justify="flex-start"/>}
