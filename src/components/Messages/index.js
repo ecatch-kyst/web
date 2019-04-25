@@ -2,7 +2,7 @@ import React from 'react'
 import {Loading, TableHead, Page, SwitchView} from '../shared'
 
 import {Table, TableBody, Toolbar, InputBase, Grid, Typography} from '@material-ui/core'
-import SearchIcon from "@material-ui/icons/SearchOutlined"
+import {SearchIcon} from "../../icons"
 
 import Message from './components/Message'
 

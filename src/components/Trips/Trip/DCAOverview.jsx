@@ -16,7 +16,7 @@ export const DCAOverview = memo(({list, fish}) => {
 
 
   return (
-    <Grid container style={{marginBottom: 64}}>
+    <Grid container>
       <Grid container item md={3} sm={6} style={{padding: 16}}>
         <Typography>Fish caught</Typography>
         <Table>

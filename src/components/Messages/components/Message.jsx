@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from "react-router-dom"
-import EditIcon from "@material-ui/icons/EditOutlined"
+import {EditIcon} from "../../../icons"
 import {format, addHours, isBefore} from 'date-fns'
 import {TableRow, TableCell, Hidden, Typography, Grid, Tooltip, IconButton} from '@material-ui/core'
 import {routes} from '../../../lib/router'

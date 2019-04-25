@@ -1,7 +1,6 @@
 import {SwitchView} from "../SwitchView"
 import {Switch} from "@material-ui/core"
-import MergeIcon from "@material-ui/icons/CallMergeOutlined"
-import SplitIcon from "@material-ui/icons/CallSplitOutlined"
+import {MergeIcon, SplitIcon} from "../../../icons"
 
 describe("SwitchView component", () => {
   const props = {

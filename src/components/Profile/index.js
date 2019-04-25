@@ -14,7 +14,7 @@ export const Profile = () => {
 
   return (
 
-    <Page namespace="profile" style={{marginBottom: 64}}>
+    <Page namespace="profile">
       <ProfileDetails/>
       <Divider/>
       <List>

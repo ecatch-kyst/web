@@ -1,14 +1,11 @@
 import React from 'react'
 import {Route, Switch, withRouter, Link} from "react-router-dom"
 
-import ProfileIcon from "@material-ui/icons/PersonOutlineOutlined"
-import DashboardIcon from "@material-ui/icons/DashboardOutlined"
-import TripIcon from "@material-ui/icons/CompareArrowsOutlined"
-import PresetIcon from "@material-ui/icons/AddSharp"
+import {DashboardIcon, PresetIcon, ProfileIcon, TripIcon} from "./icons"
 
 import {withTheme, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 
-import {routes} from './lib/router'
+import {routes as ROUTES} from './lib/router'
 
 import {
   Landing,
@@ -29,20 +26,25 @@ import {
 
 import {useTranslation} from 'react-i18next'
 
+const routes = [
+  {component: Landing, path: ROUTES.ROOT},
+  {component: Register, path: ROUTES.REGISTER},
+  {component: Profile, path: ROUTES.PROFILE},
+  {component: HomePage, path: ROUTES.HOMEPAGE},
+  {component: Preset, path: ROUTES.PRESET},
+  {component: Trips, path: ROUTES.TRIPS},
+  {component: Trip, path: `${ROUTES.TRIPS}/:tripId`},
+  {component: Messages, path: ROUTES.MESSAGES},
+  {component: EditCatch, path: `${ROUTES.MESSAGES}/:type/:messageId${ROUTES.EDIT}`},
+  {component: Form, path: `${ROUTES.MESSAGES}/:type${ROUTES.NEW}`}
+]
 
 export const App = ({theme: {palette: {type}}}) =>
   <div className="app" style={{backgroundColor: type === "dark" ? "#000" : ""}}>
     <Switch>
-      <Route component={Landing} exact path={routes.ROOT}/>
-      <Route component={Register} exact path={routes.REGISTER}/>
-      <Route component={Profile} exact path={routes.PROFILE}/>
-      <Route component={HomePage} exact path={routes.HOMEPAGE}/>
-      <Route component={Preset} exact path={routes.PRESET}/>
-      <Route component={Trips} exact path={routes.TRIPS}/>
-      <Route component={Trip} exact path={`${routes.TRIPS}/:tripId`}/>
-      <Route component={Messages} exact path={routes.MESSAGES}/>
-      <Route component={EditCatch} exact path={`${routes.MESSAGES}/:type/:messageId${routes.EDIT}`}/>
-      <Route component={Form} exact path={`${routes.MESSAGES}/:type${routes.NEW}`}/>
+      {routes.map(route =>
+        <Route key={route.path} {...route} exact/>
+      )}
       <Route component={NotFound}/>
     </Switch>
     <Route
@@ -66,22 +68,22 @@ const navigation = [
   {
     id: "homepage",
     icon: <DashboardIcon/>,
-    to: routes.HOMEPAGE
+    to: ROUTES.HOMEPAGE
   },
   {
     id: "trips",
     icon: <TripIcon/>,
-    to: routes.TRIPS
+    to: ROUTES.TRIPS
   },
   {
     id: "profile",
     icon: <ProfileIcon/>,
-    to: routes.PROFILE
+    to: ROUTES.PROFILE
   },
   {
     id: "preset",
     icon: <PresetIcon/>,
-    to: routes.PRESET
+    to: ROUTES.PRESET
   }
 ]
 
