@@ -29,7 +29,7 @@ export const Home = () => {
           />
         </Grid>
       </Tooltip>
-    </Grid>, []
+    </Grid>, [isDarkMode]
   )
 
   return(
