@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, memo } from 'react'
 import {Redirect} from "react-router-dom"
 import {Grid, Typography, CircularProgress, Paper} from '@material-ui/core'
 import {AUTH} from '../../lib/firebase'
 import {routes} from '../../lib/router'
 import {useTranslation} from 'react-i18next'
-import Store, {withStore} from '../../db'
+import Store from '../../db'
 import Centered from '../Centered'
 import { colors } from '../../lib/material-ui';
 
 
-const Page = withStore(({children, isProtected, store: {isLoading}, namespace, title, subtitle, headerProps, style, ...props}) => {
+const Page = ({children, isProtected, namespace, title, subtitle, headerProps, style, ...props}) => {
   const [t] = useTranslation(namespace)
-  const {isDarkMode} = useContext(Store)
-
+  const {isDarkMode, isLoading} = useContext(Store)
+  
   let renderedTitle = 
   <Typography
     style={{padding: subtitle ? "24px 24px 0" : "24px 24px 16px"}}
@@ -53,7 +53,7 @@ const Page = withStore(({children, isProtected, store: {isLoading}, namespace, t
       }
     </Grid>
   )
-})
+}
 
 Page.defaultProps = {
   namespace: "common",

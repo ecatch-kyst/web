@@ -14,8 +14,6 @@ export const Forms = props => {
       alignItems="center"
       container
       direction="column"
-      spacing={16}
-      style={{padding: 16}}
       {...props}
     >
       {isEnRoute ? // This block is only shown if a DEP has been submitted, but no POR yet.

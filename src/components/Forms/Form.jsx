@@ -135,7 +135,7 @@ class Form extends Component {
     const form = forms[type] // Extract form from forms.json
     return (
       <Page title={() => <Typography align="center" style={{padding: 16}} variant="h4">{t(`${type}.title`)}</Typography>}>
-        <Grid alignItems="center" container direction="column" style={{marginTop: 32}}>
+        <Grid alignItems="center" container direction="column" style={{margin: "32px 0 92px"}}>
           <Grid item>
             {form.map(({id, step}) => // If a valid form, iterate over its steps
               <Card key={id} style={{marginBottom: 32}}>

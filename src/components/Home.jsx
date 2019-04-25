@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import {Page} from './shared'
 import {Forms, Centered} from '.'
 import { useStore } from '../hooks';
@@ -8,30 +8,34 @@ import { useTranslation } from 'react-i18next';
 
 
 export const Home = () => {
+  
   const {position, DCAStarted, isDarkMode, handleToggleDarkMode} = useStore()
   const [t] = useTranslation("homepage")
+  
+  const renderTitle = useCallback(title => 
+    <Grid container justify="space-between">
+      <Grid item>{title}</Grid>
+      <Tooltip title={t("dark-mode")}>
+        <Grid
+          onClick={handleToggleDarkMode}
+          item container 
+          alignItems="center"
+          style={{width: "auto", cursor: "pointer"}}
+        >
+          <Grid color={isDarkMode ? "primary" : "inherit"} component={BrightnessIcon} item/>
+          <Grid item component={Switch}
+            checked={isDarkMode}
+            color="primary"
+          />
+        </Grid>
+      </Tooltip>
+    </Grid>, []
+  )
+
   return(
     <Page
-    namespace="homepage"
-    title={title => 
-      <Grid container justify="space-between">
-        <Grid item>{title}</Grid>
-        <Tooltip title={t("dark-mode")}>
-          <Grid
-            onClick={handleToggleDarkMode}
-            item container 
-            alignItems="center"
-            style={{width: "auto", cursor: "pointer"}}
-          >
-            <Grid color={isDarkMode ? "primary" : "inherit"} component={BrightnessIcon} item/>
-            <Grid item component={Switch}
-              checked={isDarkMode}
-              color="primary"
-            />
-          </Grid>
-        </Tooltip>
-      </Grid>
-    }
+      namespace="homepage"
+      title={renderTitle}
     >
       <Centered heightOffset={-208}>
         {DCAStarted ? <DCAStart/> : null}

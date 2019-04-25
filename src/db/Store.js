@@ -119,7 +119,7 @@ export const Database = withRouter(class extends Component {
   handleCancelTrip = messages.cancelTrip.bind(this)
 
   notifyAboutLastMessageStatus = messages.notifyAboutLastMessageStatus.bind(this)
-  
+
   // Fish
 
   subscribeToFishOnBoard = messages.subscribeToFish.bind(this)

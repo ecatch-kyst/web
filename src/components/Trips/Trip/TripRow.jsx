@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import {withRouter} from "react-router-dom"
 import {format} from 'date-fns'
 import {Tooltip, TableRow, TableCell, Typography, withTheme} from '@material-ui/core'
@@ -7,7 +7,8 @@ import {routes} from '../../../lib/router'
 import {useTranslation} from 'react-i18next'
 
 
-export default withTheme()(withRouter(({theme, id, history, POR, DEP, start, end, isFinished}) => {
+export const TripRow = memo(({theme, id, history, POR, DEP, start, end, isFinished}) => {
+  
   const [t] = useTranslation("trips")
   const [dropdownT] = useTranslation("dropdowns")
   const ports = dropdownT("ports", {returnObjects: true})
@@ -42,4 +43,6 @@ export default withTheme()(withRouter(({theme, id, history, POR, DEP, start, end
       </TableRow>
     </Tooltip>
   )
-}))
+}, (p, {id}) => id === p.id)
+
+export default withTheme()(withRouter(TripRow))

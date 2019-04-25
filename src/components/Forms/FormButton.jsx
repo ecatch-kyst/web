@@ -10,7 +10,7 @@ export const FormButton = ({type, show, DCAStarted}) => {
   const label = t(`links.${type === "DCA0" && DCAStarted ? "DCA0Edit" : type}`)
   return(
     show ?
-      <Grid item>
+      <Grid item style={{marginBottom: 16}}>
         <Button
           color="primary"
           component={Link}

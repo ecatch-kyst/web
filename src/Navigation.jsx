@@ -34,8 +34,8 @@ export default function Navigation({location: {pathname}}) {
 
   return (
     <BottomNavigation
-    style={{position: "fixed", bottom: 0, width: "100vw"}}
-    value={pathname.substr(1)}
+    style={{position: "fixed", bottom: -2, width: "100vw"}}
+    value={pathname.split("/")[1]}
     >
       {navigation.map(({id, icon, to}) =>
         <BottomNavigationAction
