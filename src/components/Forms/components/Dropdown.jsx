@@ -62,7 +62,7 @@ export const Dropdown = ({disabled, isMulti, label, type, onChange, dataId, valu
     selectValue = allOptions.find(option =>
       option.value === value ||
       //REVIEW: Better solution to match geopoints ?
-      (option.value.latitude && value.latitude &&
+      (option.value && option.value.latitude && value.latitude &&
         GEOPOINT(option.value.latitude, option.value.longitude)
           .isEqual(GEOPOINT(value.latitude, value.longitude))
       )
