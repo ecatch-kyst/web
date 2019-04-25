@@ -22,20 +22,22 @@ export const Messages = () => {
         <SearchIcon />
         <InputBase fullWidth onChange={handleQuery} placeholder={t("titles.search")}/>
       </Toolbar>
-      {mutatedMessages.length ?
-        <Table>
-          <TableHead
-            namespace="messages"
-            onRequestSort={handleRequestSort}
-            order={order}
-            orderBy={orderBy}
-          />
-          <TableBody>
-            {mutatedMessages.map(message => <Message key={message.id} {...message}/>)}
-          </TableBody>
-        </Table> :
-        <Loading/>
-      }
+      <div style={{maxWidth: "100vw", overflowX: "scroll"}}>
+        {mutatedMessages.length ?
+          <Table>
+            <TableHead
+              namespace="messages"
+              onRequestSort={handleRequestSort}
+              order={order}
+              orderBy={orderBy}
+            />
+            <TableBody>
+              {mutatedMessages.map(message => <Message key={message.id} {...message}/>)}
+            </TableBody>
+          </Table> :
+          <Loading/>
+        }
+      </div>
     </>
   )
 }
@@ -47,8 +49,8 @@ export default props => {
   return(
     <Page
       namespace="messages"
-      title={
-        <Grid alignItems="center" container justify="space-between">
+      title={() =>
+        <Grid alignItems="center" container justify="space-between" style={{padding: 16}}>
           <Typography variant="h4">{t("titles.main")}</Typography>
           <SwitchView/>
         </Grid>
