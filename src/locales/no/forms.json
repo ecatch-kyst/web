@@ -41,7 +41,8 @@
     "submit": "Meld hjemreise",
     "steps": [
       "Havn",
-      "Fisk"
+      "Fisk",
+      "Levering"
     ]
   },
   "labels": {
@@ -56,7 +57,7 @@
     "LO": "Lengdegrad",
     "portArrival": "Estimert ankomsttid",
     "LS": "Mottak",
-    "KG": "Legg inn fangst",
+    "KG": "Fangst til levering",
     "QI": "Fisketillatelse",
     "ZO": "Fiskesone",
     "fishingStart": "Start av fiske",
