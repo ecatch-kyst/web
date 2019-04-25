@@ -14,6 +14,12 @@
 		"acknowledged": "Acknowledged"
 	},
 	"table-head-rows": [
+    {
+      "left": true,
+      "id": "RN",
+      "label": "nr.",
+      "padding": "dense"
+    },
 		{
 			"left": true,
 			"sortable": false,
@@ -21,12 +27,8 @@
 			"label": "Status"
 		},
 		{
-			"left": true,
-			"id": "RN",
-			"label": "Message number"
-		},
-		{
-			"id": "TM",
+      "id": "TM",
+      "left": true,
 			"label": "Type"
 		},
 		{
