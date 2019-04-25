@@ -39,6 +39,7 @@ export default function Navigation({location: {pathname}}) {
     >
       {navigation.map(({id, icon, to}) =>
         <BottomNavigationAction
+          showLabel
           component={Link}
           icon={icon}
           key={id}

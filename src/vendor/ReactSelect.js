@@ -58,7 +58,7 @@ const styles = theme => ({
     right: 0
   },
   divider: {
-    height: theme.spacing.unit * 2
+    height: 0 //theme.spacing.unit * 2
   }
 })
 
@@ -82,7 +82,6 @@ function inputComponent({inputRef, ...props}) {
 function Control(props) {
   return (
     <TextField
-      fullWidth
       // eslint-disable-next-line react/jsx-sort-props
       InputProps={{
         inputComponent,
@@ -102,7 +101,6 @@ function ControlWithError(props) {
   return (
     <TextField
       error
-      fullWidth
       // eslint-disable-next-line react/jsx-sort-props
       InputProps={{
         inputComponent,
