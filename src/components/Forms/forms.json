@@ -191,9 +191,6 @@
           "type": "select"
         },
         {
-          "id": "LS"
-        },
-        {
           "id": "portArrival",
           "type": "datetime-local"
         }
@@ -212,8 +209,15 @@
             "inputType": "number",
             "isMulti": true
           }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "step": [{
+          "id": "LS"
         },
-        {
+        { 
           "id": "KG",
           "dataId": "species",
           "type": "select-map",

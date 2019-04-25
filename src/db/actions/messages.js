@@ -33,14 +33,23 @@ export function handle(...args) {
  */
 export function construct(type) {
   const {
-    AC, DS, PO, OB, KG,
+    AC, DS, PO, KG, OB,
     portArrival, LS,
     expectedFishingSpot, departure,
     expectedFishingStart, QI, fishingStart,
     ZO, startFishingSpot, GE, GP,
     endFishingSpot,
-    DU, CA, GS, ME
+    DU, GS, ME, ...fields
   } = this.state.fields
+
+  /**
+ * Helper function
+ * Removes fish with 0 kg weight
+ */
+  const CA = Object.entries(fields.CA).reduce((acc, [type, weight]) => {
+    if(weight) acc[type] = weight
+    return acc
+  }, {})
 
   let message = {
     TM: type,
@@ -132,7 +141,8 @@ export async function submit(message) {
 
 /**
  *
- * @param {*} type
+ * @param {ojbect} message
+ * @param {boolean} DCAStart
  */
 export function validate(message, DCAStart) {
   let error
@@ -168,9 +178,8 @@ export async function cancelTrip() {
 }
 
 /**
- *
- * @param {object} fish
- * @param {boolean} add
+ * Calculates current fish onboard
+ * @param {string} type
  */
 export function changeFish(type){
   let fish = {}

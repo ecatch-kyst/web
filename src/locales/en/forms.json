@@ -41,7 +41,8 @@
     "submit": "Report port call",
     "steps": [
       "Port",
-      "Fish"
+      "Fish",
+      "Delivery"
     ]
   },
   "labels": {
@@ -56,7 +57,7 @@
     "LO": "Longitude",
     "portArrival": "Estimated time of arrival",
     "LS": "Fish landing",
-    "KG": "Total catch sorted by fishtype",
+    "KG": "Catch for delivery",
     "QI": "Fishing permit",
     "ZO": "Fishing zone",
     "fishingStart": "Start of fishing",
