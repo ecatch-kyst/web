@@ -3,8 +3,7 @@ import {withRouter} from "react-router-dom"
 import {Switch, FormControlLabel, Typography, Grid} from '@material-ui/core'
 import {routes} from '../../lib/router'
 import {useTranslation} from 'react-i18next'
-import MergeIcon from "@material-ui/icons/CallMergeOutlined"
-import SplitIcon from "@material-ui/icons/CallSplitOutlined"
+import { MergeIcon, SplitIcon } from '../../icons';
 
 export const SwitchView = memo(({history, location: {pathname}}) => {
   const [t] = useTranslation("trips")

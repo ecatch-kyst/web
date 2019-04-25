@@ -11,7 +11,7 @@ import Centered from '../Centered'
 const Page = withStore(({children, isProtected, store: {isLoading}, namespace, title, subtitle, headerProps, ...props}) => {
   const [t] = useTranslation(namespace)
   return(
-    <Grid container direction="column" {...props}>
+    <Grid container direction="column" {...props} style={{marginBottom: 64}}>
       {
         isLoading ?
           <Centered>

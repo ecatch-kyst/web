@@ -2,7 +2,8 @@
   "links": {
     "DEP": "Report departure (DEP)",
     "DCA0": "Start catch (DCA)",
-    "DCA": "Report catch (DCA)",
+    "DCA0Edit": "Edit catch (DCA)",
+    "DCA": "Register catch (DCA)",
     "POR": "Port call (POR)",
     "back": "Back"
   },

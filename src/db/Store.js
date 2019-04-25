@@ -1,4 +1,5 @@
 import React, {Component, createContext} from "react"
+import {withRouter} from "react-router-dom"
 import initValues from "./initialValues.json"
 import {CONNECTION_REF} from "../lib/firebase"
 
@@ -15,7 +16,7 @@ import {
 
 const Store = createContext()
 
-export class Database extends Component {
+export const Database = withRouter(class extends Component {
 
   state = initValues
 
@@ -33,6 +34,7 @@ export class Database extends Component {
       this.subscribeToCustomList("species")
       this.subscribeToCustomList("fishingPermit")
       this.subscribeToCustomList("ZO")
+      this.subscribeToFishOnBoard()
     }})
 
     setTimeout(() => {
@@ -100,6 +102,10 @@ export class Database extends Component {
 
   // Messages
 
+  constructMessage = messages.construct.bind(this)
+
+  validateMessage = messages.validate.bind(this)
+
   handleFieldChange = messages.handle.bind(this)
 
   handleFieldError = messages.error.bind(this)
@@ -110,6 +116,15 @@ export class Database extends Component {
 
   toggleDCAStart = messages.toggleDCAStart.bind(this)
 
+  handleCancelTrip = messages.cancelTrip.bind(this)
+
+  notifyAboutLastMessageStatus = messages.notifyAboutLastMessageStatus.bind(this)
+  
+  // Fish
+
+  subscribeToFishOnBoard = messages.subscribeToFish.bind(this)
+
+  changeFishOnBoard = messages.changeFish.bind(this)
 
   render() {
     return (
@@ -126,10 +141,14 @@ export class Database extends Component {
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,
           handleFieldError: this.handleFieldError,
+          handleCancelTrip: this.handleCancelTrip,
           submitMessage: this.submitMessage,
+          validateMessage: this.validateMessage,
+          constructMessage: this.constructMessage,
           addToCustomList: this.addToCustomList,
           handleCustomListChange: this.handleCustomListChange,
           toggleDCAStart: this.toggleDCAStart,
+          changeFishOnBoard: this.changeFishOnBoard,
           ...this.state
         }}
       >
@@ -137,6 +156,6 @@ export class Database extends Component {
       </Store.Provider>
     )
   }
-}
+})
 
 export default Store

@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+- Fish on board tracking
 - translations to validation error messages
 
 ### Changed

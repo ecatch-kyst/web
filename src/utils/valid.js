@@ -15,7 +15,7 @@ const validCatch = c => {
   let reason
   Object.values(c).some(weight => {
     if (isNaN(weight)) reason = "invalid-type"
-    else if(weight < 0) reason = "invalid-weight"
+    else if(weight < 0) reason = "invalid-weight" // REVIEW: 0kg should not be accepted either
     return typeof reason === "string"
   })
   return reason

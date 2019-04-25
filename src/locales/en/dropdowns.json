@@ -298,7 +298,8 @@
       "label": "Bottom trawls - prawns"
     }
   ],
-  "species": [{
+  "species": [
+    {
       "value": "COD",
       "label": "Atlantic cod"
     },

@@ -2,7 +2,8 @@
   "links": {
     "DEP": "Meld avgang (DEP)",
     "DCA0": "Start fangst (DCA)",
-    "DCA": "Avslutt fangst (DCA)",
+    "DCA0Edit": "Rediger fangst (DCA)",
+    "DCA": "Registrer fangst (DCA)",
     "POR": "Havneanløp (POR)",
     "back": "Tilbake"
   },

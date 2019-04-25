@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from "react-router-dom"
-import EditIcon from "@material-ui/icons/EditOutlined"
+import {EditIcon} from "../../../icons"
 import {format, addHours, isBefore} from 'date-fns'
 import {TableRow, TableCell, Hidden, Typography, Grid, Tooltip, IconButton} from '@material-ui/core'
 import {routes} from '../../../lib/router'
@@ -16,6 +16,7 @@ export const Message = ({RN, TM, result, created, history}) => {
       onClick={() => TM === "DCA" && !disabled ? history.push(`${routes.MESSAGES}/DCA/${RN}${routes.EDIT}`) : null}
     >
       <TableCell><Status result={result}/></TableCell>
+      <TableCell><Typography>{RN}</Typography></TableCell>
       <TableCell>
         <Grid container justify="flex-end" spacing={8}>
           <Grid item>
