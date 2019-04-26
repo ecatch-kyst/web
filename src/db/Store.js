@@ -4,6 +4,7 @@ import initValues from "./initialValues.json"
 import {CONNECTION_REF} from "../lib/firebase"
 
 import {
+  firstTime,
   darkMode,
   user,
   location,
@@ -23,6 +24,7 @@ export const Database = withRouter(class extends Component {
   async componentDidMount() {
 
     this.initDarkMode()
+    this.initFirstTimeLogin()
 
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
@@ -66,6 +68,11 @@ export const Database = withRouter(class extends Component {
   initDarkMode = darkMode.init.bind(this)
 
   toggleDarkMode = darkMode.toggle.bind(this)
+
+  // First Time Login
+  initFirstTimeLogin = firstTime.init.bind(this)
+
+  toggleFirstTimeLogin = firstTime.toggle.bind(this)
 
   // Dialog
   handleDialog = dialog.handle.bind(this)
@@ -131,6 +138,7 @@ export const Database = withRouter(class extends Component {
       <Store.Provider
         value={{
           handleToggleDarkMode: this.toggleDarkMode,
+          handleToggleFirstTimeLogin: this.toggleFirstTimeLogin,
           handleUserUpdateProfile: this.userUpdateProfile,
           handleUserLogout: this.userLogout,
           handleUserLogin: this.userLogin,

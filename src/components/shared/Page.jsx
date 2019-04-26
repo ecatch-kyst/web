@@ -7,11 +7,13 @@ import {useTranslation} from 'react-i18next'
 import Store from '../../db'
 import Centered from '../Centered'
 import { colors } from '../../lib/material-ui';
+import * as firstTime from '../../db/actions'
+
 
 
 const Page = ({children, isProtected, namespace, title, subtitle, headerProps, style, ...props}) => {
   const [t] = useTranslation(namespace)
-  const {isDarkMode, isLoading} = useContext(Store)
+  const {isDarkMode, isLoading, firstTimeLogin} = useContext(Store)
   
   let renderedTitle = 
   <Typography
@@ -43,6 +45,9 @@ const Page = ({children, isProtected, namespace, title, subtitle, headerProps, s
           </Centered> :
           (isProtected && !AUTH.currentUser) ?
             <Redirect to={routes.ROOT}/> :
+              (firstTimeLogin) ?
+                firstTime.firstTime.toggle() &&
+                <Redirect to={routes.PRESET}/> :
         <>
         <Paper {...headerProps} square>
           {renderedTitle}

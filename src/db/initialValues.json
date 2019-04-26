@@ -2,6 +2,7 @@
   "isOffline": false,
   "isDarkMode": false,
   "dialog": {"open": false},
+  "firstTimeLogin": true,
   "notification": {"open": false},
   "messages": [],
   "trips": [],
