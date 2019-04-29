@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+- Redirected to Preset page on first time using the application on a device
 - Fish on board tracking
 - translations to validation error messages
 
