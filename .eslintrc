@@ -10,6 +10,7 @@
   },
   "parser":"babel-eslint",
   "rules": {
+    "no-irregular-whitespace":"error",
     "require-jsdoc":"warn",
     "no-useless-escape":"error",
     "block-spacing":["warn", "never"],
