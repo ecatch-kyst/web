@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Switch, withRouter} from "react-router-dom"
+import {Route, Switch, withRouter, Redirect} from "react-router-dom"
 
 import {withTheme} from '@material-ui/core'
 
@@ -8,7 +8,7 @@ import {routes as ROUTES} from './lib/router'
 import {
   Landing,
   Profile,
-  // Register, REVIEW: Delete?
+  Register,
   OfflineStatus,
   Home,
   NotFound,
@@ -26,7 +26,7 @@ import Navigation from './Navigation'
 
 const routes = [
   {component: Landing, path: ROUTES.ROOT},
-  // {component: Register, path: ROUTES.REGISTER}, // REVIEW: Delete?
+  {component: Register, path: ROUTES.REGISTER}, // REVIEW: Delete?
   {component: Profile, path: ROUTES.PROFILE},
   {component: Home, path: ROUTES.HOMEPAGE},
   {component: Preset, path: ROUTES.PRESET},
@@ -39,6 +39,7 @@ const routes = [
 
 export default withRouter(withTheme()(({theme: {palette: {type}}}) =>
   <div className="app" style={{backgroundColor: type === "dark" ? "#000" : ""}}>
+    <FirstTimeRedirect/>
     <Switch>
       {routes.map(route =>
         <Route key={route.path} {...route} exact/>
@@ -51,3 +52,12 @@ export default withRouter(withTheme()(({theme: {palette: {type}}}) =>
     <Notification/>
   </div>
 ))
+
+
+const FirstTimeRedirect = () => {
+  if (!localStorage.getItem("noRedirect")) {
+    localStorage.setItem("noRedirect", 1)
+    return <Redirect to={ROUTES.PRESET}/>
+  }
+  return null
+}
