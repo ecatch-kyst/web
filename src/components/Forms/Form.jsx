@@ -68,20 +68,22 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          AC: (firstActivity || {}),
-          DS: (firstSpecies || {}),
-          PO: (firstPort || {})
+          AC: (firstActivity || {}).value,
+          DS: (firstSpecies || {}).value,
+          PO: (firstPort || {}).value
         }
       }
       break
 
     case "DCA0":
+      console.log("tets")
       fields = {
         ...fields,
         fishingStart: now,
         startFishingSpot: position
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
+        console.log("tets2")
         fields = {
           ...fields,
           AC: baseMessage.AC,
@@ -92,12 +94,14 @@ class Form extends Component {
         } // Preset from base (previous message, with the same type)
       }
       else {
+        console.log("tets3")
+        console.log("g", firstActivity)
         fields = {
           ...fields,
-          AC: (firstActivity || {}),
-          QI: (firstFishingPermit || {}),
-          GE: (firstFishingGear || {}),
-          ZO: (firstZO || {})
+          AC: (firstActivity || {}).value,
+          QI: (firstFishingPermit || {}).value,
+          GE: (firstFishingGear || {}).value,
+          ZO: (firstZO || {}).value
         }
 
       }
@@ -125,11 +129,11 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          PO: (firstPort || {}),
-          AC: (firstActivity || {}),
-          DS: (firstSpecies || {}),
-          QI: (firstFishingPermit || {}),
-          GE: (firstFishingGear || {})
+          PO: (firstPort || {}).value,
+          AC: (firstActivity || {}).value,
+          DS: (firstSpecies || {}).value,
+          QI: (firstFishingPermit || {}).value,
+          GE: (firstFishingGear || {}).value
         }
       }
       break
@@ -150,7 +154,7 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          PO: (firstPort || {})
+          PO: (firstPort || {}).value
         }
       }
       break
