@@ -25,12 +25,13 @@ class Form extends Component {
 
   componentDidMount() {this.prefill()}
 
-  componentDidUpdate({store: {messages: pMessages, position: pPosition}}) {
-    const {messages, position} = this.props.store
+  componentDidUpdate({store: {messages: pMessages, position: pPosition, custom: pCustom}}) {
+    const {messages, position, custom} = this.props.store
     if (!(
       messages.length === pMessages.length &&
       pPosition.latitude === position.latitude &&
-      pPosition.longitude === position.longitude
+      pPosition.longitude === position.longitude &&
+      JSON.stringify(pCustom) === JSON.stringify(custom) // REVIEW:
     )) this.prefill()
   }
 
@@ -38,7 +39,7 @@ class Form extends Component {
     const {
       match: {params: {type}},
       store: {
-        handleFieldChange, messages, position, trips, fishOnBoard, custom: {activity, ports, fishingGear, fishingPermit, species}, ...store
+        handleFieldChange, messages, position, trips, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies]}, ...store
       }
     } = this.props
     let fields = {...store.fields}
@@ -67,9 +68,9 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          AC: activity[0].value,
-          DS: species[0].value,
-          PO: ports[0].value
+          AC: (firstActivity || {}).value,
+          DS: (firstSpecies || {}).value,
+          PO: (firstPort || {}).value
         }
       }
       break
@@ -92,9 +93,9 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          AC: activity[0].value,
-          QI: fishingPermit[0].value,
-          GE: fishingGear[0].value
+          AC: firstActivity,
+          QI: firstFishingPermit.value,
+          GE: firstFishingGear.value
         }
 
       }
@@ -122,11 +123,11 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          PO: ports[0].value,
-          AC: activity[0].value,
-          DS: species[0].value,
-          QI: fishingPermit[0].value,
-          GE: fishingGear[0].value
+          PO: firstPort.value,
+          AC: firstActivity,
+          DS: firstSpecies.value,
+          QI: firstFishingPermit.value,
+          GE: firstFishingGear.value
         }
       }
       break
@@ -147,7 +148,7 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          PO: ports[0].value
+          PO: firstPort.value
         }
       }
       break
