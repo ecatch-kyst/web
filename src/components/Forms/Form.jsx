@@ -9,8 +9,8 @@ import {Page} from '../shared'
 
 import FormInput from './FormInput.jsx'
 import {useStore} from '../../hooks'
-import { addHours, format } from 'date-fns';
-import { withStore } from '../../db/index.js';
+import {addHours, format} from 'date-fns'
+import {withStore} from '../../db/index.js'
 
 
 /**
@@ -38,7 +38,7 @@ class Form extends Component {
     const {
       match: {params: {type}},
       store: {
-        handleFieldChange, messages, position, trips, fishOnBoard, ...store
+        handleFieldChange, messages, position, trips, fishOnBoard, custom, ...store
       }
     } = this.props
     let fields = {...store.fields}
@@ -55,6 +55,7 @@ class Form extends Component {
         expectedFishingStart: addHours(now, 2)
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
+        console.log(baseMessage.PO)
         fields = {
           ...fields,
           AC: baseMessage.AC,
@@ -64,22 +65,40 @@ class Form extends Component {
           expectedFishingSpot: baseMessage.expectedFishingSpot
         }
       }
+      else {
+        console.log(custom.ports[0])
+        fields = {
+          ...fields,
+          AC: custom.activity[0].value,
+          DS: custom.species[0].value,
+          PO: custom.ports[0].value
+        }
+      }
       break
 
     case "DCA0":
       fields = {
         ...fields,
         fishingStart: now,
-        startFishingSpot: position,
-        GE: "DRB"
+        startFishingSpot: position
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
         fields = {
           ...fields,
           AC: baseMessage.AC,
           GS: baseMessage.GS,
-          QI: baseMessage.QI
+          QI: baseMessage.QI,
+          GE: baseMessage.GE
         } // Preset from base (previous message, with the same type)
+      }
+      else {
+        fields = {
+          ...fields,
+          AC: custom.activity[0].value,
+          QI: custom.fishingPermit[0].value,
+          GE: custom.fishingGear[0].value
+        }
+
       }
       break
 
@@ -102,6 +121,16 @@ class Form extends Component {
           QI: baseMessage.QI
         } // Preset from base (previous message, with the same type)
       }
+      else {
+        fields = {
+          ...fields,
+          PO: custom.ports[0].value,
+          AC: custom.activity[0].value,
+          DS: custom.species[0].value,
+          QI: custom.fishingPermit[0].value,
+          GE: custom.fishingGear[0].value
+        }
+      }
       break
     case "POR":
       fields = {
@@ -117,6 +146,12 @@ class Form extends Component {
           PO: baseMessage.PO
         } // Preset from base (previous message, with the same type)
       }
+      else {
+        fields = {
+          ...fields,
+          PO: custom.ports[0].value
+        }
+      }
       break
     default:
       break
@@ -131,7 +166,7 @@ class Form extends Component {
 
   render() {
     const {store: {fields}, match: {params: {type}}, t, match: {path}} = this.props
-    
+
     const form = forms[type] // Extract form from forms.json
     return (
       <Page title={() => <Typography align="center" style={{padding: 16}} variant="h4">{t(`${type}.title`)}</Typography>}>
@@ -140,11 +175,11 @@ class Form extends Component {
             {form.map(({id, step}) => // If a valid form, iterate over its steps
               <Card key={id} style={{marginBottom: 32}}>
                 <CardHeader title={t(`${type}.steps.${id}`)}/>
-                <Grid component={CardContent} container spacing={16} direction="column">
+                <Grid component={CardContent} container direction="column" spacing={16}>
                   {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
                     (!dependent || dependent.when.includes(fields[dependent.on] || "")) ?
                       <Grid item
-                          key={id}
+                        key={id}
                       >
                         <FormInput
                           dataId={dataId || id}
@@ -156,7 +191,7 @@ class Form extends Component {
                           type={type}
                         />
                       </Grid>
-                    : null
+                      : null
                   )}
                 </Grid>
               </Card>
@@ -179,7 +214,7 @@ class Form extends Component {
           </Grid>
         </Grid>
       </Page>
-  )}
+    )}
 }
 
 export default withRouter(withTranslation("forms")(withStore(Form)))
