@@ -39,7 +39,7 @@ class Form extends Component {
     const {
       match: {params: {type}},
       store: {
-        handleFieldChange, messages, position, trips, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies]}, ...store
+        handleFieldChange, messages, position, trips, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies], ZO: [firstZO]}, ...store
       }
     } = this.props
     let fields = {...store.fields}
@@ -68,9 +68,9 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          AC: (firstActivity || {}).value,
-          DS: (firstSpecies || {}).value,
-          PO: (firstPort || {}).value
+          AC: (firstActivity || {}),
+          DS: (firstSpecies || {}),
+          PO: (firstPort || {})
         }
       }
       break
@@ -87,15 +87,17 @@ class Form extends Component {
           AC: baseMessage.AC,
           GS: baseMessage.GS,
           QI: baseMessage.QI,
-          GE: baseMessage.GE
+          GE: baseMessage.GE,
+          ZO: baseMessage.ZO
         } // Preset from base (previous message, with the same type)
       }
       else {
         fields = {
           ...fields,
-          AC: firstActivity,
-          QI: firstFishingPermit.value,
-          GE: firstFishingGear.value
+          AC: (firstActivity || {}),
+          QI: (firstFishingPermit || {}),
+          GE: (firstFishingGear || {}),
+          ZO: (firstZO || {})
         }
 
       }
@@ -123,11 +125,11 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          PO: firstPort.value,
-          AC: firstActivity,
-          DS: firstSpecies.value,
-          QI: firstFishingPermit.value,
-          GE: firstFishingGear.value
+          PO: (firstPort || {}),
+          AC: (firstActivity || {}),
+          DS: (firstSpecies || {}),
+          QI: (firstFishingPermit || {}),
+          GE: (firstFishingGear || {})
         }
       }
       break
@@ -148,7 +150,7 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          PO: firstPort.value
+          PO: (firstPort || {})
         }
       }
       break
