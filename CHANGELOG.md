@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 ### Added
+- First time you send a message information from Preset is used to fill input
 - Fish on board tracking
 - translations to validation error messages
 - redirect to Preset page for the first time

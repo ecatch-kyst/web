@@ -25,12 +25,13 @@ class Form extends Component {
 
   componentDidMount() {this.prefill()}
 
-  componentDidUpdate({store: {messages: pMessages, position: pPosition}}) {
-    const {messages, position} = this.props.store
+  componentDidUpdate({store: {messages: pMessages, position: pPosition, custom: pCustom}}) {
+    const {messages, position, custom} = this.props.store
     if (!(
       messages.length === pMessages.length &&
       pPosition.latitude === position.latitude &&
-      pPosition.longitude === position.longitude
+      pPosition.longitude === position.longitude &&
+      JSON.stringify(pCustom) === JSON.stringify(custom) // REVIEW:
     )) this.prefill()
   }
 
@@ -38,7 +39,7 @@ class Form extends Component {
     const {
       match: {params: {type}},
       store: {
-        handleFieldChange, messages, position, trips, fishOnBoard, ...store
+        handleFieldChange, messages, position, trips, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies], ZO: [firstZO]}, ...store
       }
     } = this.props
     let fields = {...store.fields}
@@ -64,22 +65,41 @@ class Form extends Component {
           expectedFishingSpot: baseMessage.expectedFishingSpot
         }
       }
+      else {
+        fields = {
+          ...fields,
+          AC: (firstActivity || {}).value,
+          DS: (firstSpecies || {}).value,
+          PO: (firstPort || {}).value
+        }
+      }
       break
 
     case "DCA0":
       fields = {
         ...fields,
         fishingStart: now,
-        startFishingSpot: position,
-        GE: "DRB"
+        startFishingSpot: position
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
         fields = {
           ...fields,
           AC: baseMessage.AC,
           GS: baseMessage.GS,
-          QI: baseMessage.QI
+          QI: baseMessage.QI,
+          GE: baseMessage.GE,
+          ZO: baseMessage.ZO
         } // Preset from base (previous message, with the same type)
+      }
+      else {
+        fields = {
+          ...fields,
+          AC: (firstActivity || {}).value,
+          QI: (firstFishingPermit || {}).value,
+          GE: (firstFishingGear || {}).value,
+          ZO: (firstZO || {}).value
+        }
+
       }
       break
 
@@ -102,6 +122,16 @@ class Form extends Component {
           QI: baseMessage.QI
         } // Preset from base (previous message, with the same type)
       }
+      else {
+        fields = {
+          ...fields,
+          PO: (firstPort || {}).value,
+          AC: (firstActivity || {}).value,
+          DS: (firstSpecies || {}).value,
+          QI: (firstFishingPermit || {}).value,
+          GE: (firstFishingGear || {}).value
+        }
+      }
       break
     case "POR":
       fields = {
@@ -116,6 +146,12 @@ class Form extends Component {
           LS: baseMessage.LS,
           PO: baseMessage.PO
         } // Preset from base (previous message, with the same type)
+      }
+      else {
+        fields = {
+          ...fields,
+          PO: (firstPort || {}).value
+        }
       }
       break
     default:
