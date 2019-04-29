@@ -1,12 +1,13 @@
 import React from 'react'
 import {useTranslation} from 'react-i18next'
 
-import Dropdown from './components/Dropdown'
+// import Dropdown from './components/Dropdown'
 import TextInput from './components/TextInput'
 import DropdownMap from './components/DropdownMap'
 import GeoPointInput from './components/GeoPointInput'
 import {useStore} from '../../hooks'
 import {validate} from '../../utils'
+import DropdownNative from './components/DropdownNative'
 
 /**
  * Dynamic input field
@@ -49,7 +50,7 @@ export const FormInput = ({id, dataId, type, options}) => {
   switch (type) {
   case "select":
     return (
-      <Dropdown
+      <DropdownNative
         dataId={id}
         type={dataId}
         {...common}

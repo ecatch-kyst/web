@@ -2,8 +2,8 @@ import React from 'react'
 import {Grid, Paper} from '@material-ui/core'
 
 import TextInput from './TextInput'
-import Dropdown from './Dropdown'
 import {useTranslation} from 'react-i18next'
+import DropdownMulti from './DropdownMulti'
 
 const DropdownMap = props => {
 
@@ -17,7 +17,7 @@ const DropdownMap = props => {
 
   return (
     <Paper elevation={4}>
-      <Dropdown {...props}/>
+      <DropdownMulti {...props}/>
       <Grid container direction="column">
         {Object.entries(props.value).map(([key, value]) =>
           <KeyValueInput
