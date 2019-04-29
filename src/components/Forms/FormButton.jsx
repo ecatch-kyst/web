@@ -1,8 +1,8 @@
 import React, {memo} from 'react'
 import {Link} from "react-router-dom"
-import { routes } from '../../lib/router';
-import { useTranslation } from 'react-i18next';
-import { Grid, Button } from '@material-ui/core';
+import {routes} from '../../lib/router'
+import {useTranslation} from 'react-i18next'
+import {Grid, Button} from '@material-ui/core'
 
 
 export const FormButton = ({type, show, DCAStarted}) => {
@@ -10,7 +10,7 @@ export const FormButton = ({type, show, DCAStarted}) => {
   const label = t(`links.${type === "DCA0" && DCAStarted ? "DCA0Edit" : type}`)
   return(
     show ?
-      <Grid item style={{marginBottom: 16}}>
+      <Grid item style={{marginBottom: 16, marginLeft: 8}}>
         <Button
           color="primary"
           component={Link}

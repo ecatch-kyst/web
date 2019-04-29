@@ -87,7 +87,6 @@ export const Logout = () => {
       color="secondary"
       name="logout"
       onClick={handleUserLogout}
-      size="large"
       variant="contained"
     >
       {t("buttons.logout")}

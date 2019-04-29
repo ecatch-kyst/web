@@ -3,7 +3,7 @@ import React from 'react'
 import {colors} from '../../lib/material-ui'
 import {useTranslation} from 'react-i18next'
 import {Tooltip, Typography, Grid} from '@material-ui/core'
-import { CheckIcon, CloseIcon, HourglassIcon } from '../../icons';
+import {CheckIcon, CloseIcon, HourglassIcon} from '../../icons'
 
 const {yellow, green, red} = colors
 
@@ -32,7 +32,7 @@ export const Status = ({result}) => {
 
   return (
     <Tooltip title={t(`tooltips.${type}`)}>
-      <Grid container>
+      <Grid container justify="center">
         <Typography>
           {result.RS || t("titles.pending")}
         </Typography>

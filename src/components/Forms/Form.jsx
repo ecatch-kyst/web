@@ -217,7 +217,6 @@ export const SubmitButton = memo(({type, toDashboard}) => {
       onClick={handleSubmit}
       // onPointerDown={handlePointerDown}
       // onPointerUp={handlePointerUp}
-      size="large"
       type="submit"
       variant="contained"
     >

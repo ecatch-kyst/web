@@ -7,7 +7,6 @@ const DestructButton = withStyles({
 })(({children, classes, ...props}) =>
   <Button
     color="primary"
-    size="large"
     variant="contained"
     {...props}
     className={classes.root}

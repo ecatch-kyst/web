@@ -64,9 +64,14 @@ const base = {
     //   }
     // },
     MuiButton: {
-      sizeLarge: {
+      root: {
         padding: '8px 20px',
         borderRadius: 32
+      },
+      sizeLarge: {
+        padding: '16px 30px',
+        borderRadius: 40,
+        fontSize: 25
       },
       containedPrimary: {
         boxShadow: "none"
@@ -116,6 +121,11 @@ const base = {
     MuiFormLabel: {
       root: {
         padding: 8
+      }
+    },
+    MuiInputLabel: {
+      root: {
+        cursor: "pointer"
       }
     }
   }

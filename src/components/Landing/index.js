@@ -76,7 +76,6 @@ class Landing extends Component {
                     <Button
                       color="secondary"
                       onClick={this.handleUserLogin}
-                      size="large"
                       type="submit"
                       variant="contained"
                     >
@@ -95,7 +94,6 @@ class Landing extends Component {
                     <Button
                       color="primary"
                       component={Link}
-                      size="large"
                       to={routes.REGISTER}
                     >
                       {t("landing.register")}

@@ -31,7 +31,6 @@ const NotFound = ({t}) => {
       <Button
         color="secondary"
         component={Link}
-        size="large"
         to={routes.ROOT}
         variant="contained"
       >

@@ -31,19 +31,18 @@ export const Message = ({RN, TM, result, created, history}) => {
           </Grid>
         </Grid>
       </TableCell>
-      <TableCell padding="none" align="right">
+      <TableCell align="right" padding="none">
         <Tooltip title={format(created, "yyyy. MMMM dd HH:mm")}>
           <Typography>
             {format(created, "MMM d. HH:mm")}
           </Typography>
         </Tooltip>
       </TableCell>
-      <TableCell  align="right">
+      <TableCell align="right">
         {TM === "DCA" ?
           <IconButton
             color="primary"
             disabled={disabled}
-            size="large"
             variant="text"
           >
             <EditIcon/>

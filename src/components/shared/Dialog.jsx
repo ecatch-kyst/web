@@ -21,10 +21,10 @@ export const Dialog = ({store: {dialog: {open, children, handleSubmit, handleCan
         {children}
       </DialogContent>
       <DialogActions>
-        <Button color="primary" onClick={handleCancel} size="large">
+        <Button color="primary" onClick={handleCancel} >
           {commonT(`negative.cancel-message`)}
         </Button>
-        <SubmitButton color="secondary" onClick={handleSubmit} size="large" variant="contained">
+        <SubmitButton color="secondary" onClick={handleSubmit} variant="contained">
           {commonT(`positive.submit`)}
         </SubmitButton>
       </DialogActions>
