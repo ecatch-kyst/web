@@ -38,7 +38,7 @@ class Form extends Component {
     const {
       match: {params: {type}},
       store: {
-        handleFieldChange, messages, position, trips, fishOnBoard, custom, ...store
+        handleFieldChange, messages, position, trips, fishOnBoard, custom: {activity, ports, fishingGear, fishingPermit, species}, ...store
       }
     } = this.props
     let fields = {...store.fields}
@@ -55,7 +55,6 @@ class Form extends Component {
         expectedFishingStart: addHours(now, 2)
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
-        console.log(baseMessage.PO)
         fields = {
           ...fields,
           AC: baseMessage.AC,
@@ -66,12 +65,11 @@ class Form extends Component {
         }
       }
       else {
-        console.log(custom.ports[0])
         fields = {
           ...fields,
-          AC: custom.activity[0].value,
-          DS: custom.species[0].value,
-          PO: custom.ports[0].value
+          AC: activity[0].value,
+          DS: species[0].value,
+          PO: ports[0].value
         }
       }
       break
@@ -94,9 +92,9 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          AC: custom.activity[0].value,
-          QI: custom.fishingPermit[0].value,
-          GE: custom.fishingGear[0].value
+          AC: activity[0].value,
+          QI: fishingPermit[0].value,
+          GE: fishingGear[0].value
         }
 
       }
@@ -124,11 +122,11 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          PO: custom.ports[0].value,
-          AC: custom.activity[0].value,
-          DS: custom.species[0].value,
-          QI: custom.fishingPermit[0].value,
-          GE: custom.fishingGear[0].value
+          PO: ports[0].value,
+          AC: activity[0].value,
+          DS: species[0].value,
+          QI: fishingPermit[0].value,
+          GE: fishingGear[0].value
         }
       }
       break
@@ -149,7 +147,7 @@ class Form extends Component {
       else {
         fields = {
           ...fields,
-          PO: custom.ports[0].value
+          PO: ports[0].value
         }
       }
       break
