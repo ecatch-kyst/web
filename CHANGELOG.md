@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Fish on board tracking
 - translations to validation error messages
+- redirect to Preset page for the first time
+### Changed
+- Refactored dropdown select menus. Using native solutions where possible. Multiple select is turned into a popup with checkboxes, for better a11y. 🚸
 
 ### Changed
 - period is now used in a consistant manner for every notification
