@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, {useContext} from 'react'
 import {Redirect} from "react-router-dom"
 import {Grid, Typography, CircularProgress, Paper} from '@material-ui/core'
 import {AUTH} from '../../lib/firebase'
@@ -6,19 +6,19 @@ import {routes} from '../../lib/router'
 import {useTranslation} from 'react-i18next'
 import Store from '../../db'
 import Centered from '../Centered'
-import { colors } from '../../lib/material-ui';
+import {colors} from '../../lib/material-ui'
 
 
 const Page = ({children, isProtected, namespace, title, subtitle, headerProps, style, ...props}) => {
   const [t] = useTranslation(namespace)
   const {isDarkMode, isLoading} = useContext(Store)
-  
-  let renderedTitle = 
+
+  let renderedTitle =
   <Typography
     style={{padding: subtitle ? "24px 24px 0" : "24px 24px 16px"}}
     variant="h4"
   >
-  {t("titles.main")}
+    {t("titles.main")}
   </Typography>
 
   if (title) {
@@ -31,7 +31,7 @@ const Page = ({children, isProtected, namespace, title, subtitle, headerProps, s
   }
   return(
     <Grid
-      container 
+      container
       direction="column"
       style={{paddingBotom: 80, backgroundColor: isDarkMode ? colors.dark : colors.light, ...style}}
       {...props}

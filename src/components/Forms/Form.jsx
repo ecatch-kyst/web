@@ -1,7 +1,7 @@
 import React, {memo, Component} from 'react'
 
 import {Link, withRouter} from "react-router-dom"
-import forms from "./forms.json"
+import forms from "./schema.json"
 import {Grid, Button, Typography, Card, CardHeader, CardContent} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
 import {useTranslation, withTranslation} from 'react-i18next'
@@ -9,8 +9,8 @@ import {Page} from '../shared'
 
 import FormInput from './FormInput.jsx'
 import {useStore} from '../../hooks'
-import { addHours, format } from 'date-fns';
-import { withStore } from '../../db/index.js';
+import {addHours, format} from 'date-fns'
+import {withStore} from '../../db/index.js'
 
 
 /**
@@ -131,7 +131,7 @@ class Form extends Component {
 
   render() {
     const {store: {fields}, match: {params: {type}}, t, match: {path}} = this.props
-    
+
     const form = forms[type] // Extract form from forms.json
     return (
       <Page title={() => <Typography align="center" style={{padding: 16}} variant="h4">{t(`${type}.title`)}</Typography>}>
@@ -140,11 +140,11 @@ class Form extends Component {
             {form.map(({id, step}) => // If a valid form, iterate over its steps
               <Card key={id} style={{marginBottom: 32}}>
                 <CardHeader title={t(`${type}.steps.${id}`)}/>
-                <Grid component={CardContent} container spacing={16} direction="column">
+                <Grid component={CardContent} container direction="column" spacing={16}>
                   {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
                     (!dependent || dependent.when.includes(fields[dependent.on] || "")) ?
                       <Grid item
-                          key={id}
+                        key={id}
                       >
                         <FormInput
                           dataId={dataId || id}
@@ -156,7 +156,7 @@ class Form extends Component {
                           type={type}
                         />
                       </Grid>
-                    : null
+                      : null
                   )}
                 </Grid>
               </Card>
@@ -167,7 +167,6 @@ class Form extends Component {
               <Button
                 color="secondary"
                 component={Link}
-                size="large"
                 to={routes.HOMEPAGE}
               >
                 {t("links.back")}
@@ -179,7 +178,7 @@ class Form extends Component {
           </Grid>
         </Grid>
       </Page>
-  )}
+    )}
 }
 
 export default withRouter(withTranslation("forms")(withStore(Form)))
