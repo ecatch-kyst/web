@@ -76,14 +76,12 @@ class Form extends Component {
       break
 
     case "DCA0":
-      console.log("tets")
       fields = {
         ...fields,
         fishingStart: now,
         startFishingSpot: position
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
-        console.log("tets2")
         fields = {
           ...fields,
           AC: baseMessage.AC,
@@ -94,8 +92,6 @@ class Form extends Component {
         } // Preset from base (previous message, with the same type)
       }
       else {
-        console.log("tets3")
-        console.log("g", firstActivity)
         fields = {
           ...fields,
           AC: (firstActivity || {}).value,
