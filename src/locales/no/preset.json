@@ -1,6 +1,7 @@
 {
   "titles": {
-    "main": "Forhåndsett"
+    "main": "Forhåndsett",
+    "subtitle": "Sett dine favoritter, så de dukker opp på toppen av valgemenyene."
   },
   "placeholders": {
     "fishingGear": "Favoritt verktøy",

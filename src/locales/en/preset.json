@@ -1,6 +1,7 @@
 {
   "titles": {
-    "main": "Preset"
+    "main": "Preset",
+    "subtitle": "Set your favorites, to find them on top of the dropdowns."
   },
   "placeholders": {
     "fishingGear": "Favorite tool",

@@ -41,7 +41,7 @@
     "submit": "Report port call",
     "steps": [
       "Port",
-      "Fish",
+      "Fish onboard",
       "Delivery"
     ]
   },

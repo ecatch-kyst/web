@@ -1,7 +1,11 @@
 {
   "labels": {
     "favorites": "Favoritter",
-    "all": "Alle"
+    "all": "Alle",
+    "species": {
+      "button": "Endre fisk",
+      "title": "Velg artene"
+    }
   },
   "customLists": {
     "fishingSpots": {

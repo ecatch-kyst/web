@@ -1,7 +1,11 @@
 {
   "labels": {
     "favorites": "Favorites",
-    "all": "All"
+    "all": "All",
+    "species": {
+      "button": "Change fish",
+      "title": "Select the species"
+    }
   },
   "customLists": {
     "fishingSpots": {

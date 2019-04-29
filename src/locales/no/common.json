@@ -5,7 +5,8 @@
 		"report-catch": "Meld fangst",
 		"report-fishing": "Rapporter inn",
 		"return-journey": "Meld hjemreise"
-	},
+  },
+  "select": "Select...",
 	"negative": {
 		"cancel-message": "Avbryt"
 	},
