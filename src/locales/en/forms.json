@@ -1,10 +1,10 @@
 {
   "links": {
     "DEP": "Report departure (DEP)",
-    "DCA0": "Start catch (DCA)",
-    "DCA0Edit": "Edit catch (DCA)",
-    "DCA": "Register catch (DCA)",
-    "POR": "Port call (POR)",
+    "DCA0": "Start DCA",
+    "DCA0Edit": "Edit DCA start",
+    "DCA": "Register DCA",
+    "POR": "Port call POR",
     "back": "Back"
   },
   "DEP": {
@@ -28,7 +28,7 @@
   },
   "DCA": {
     "title": "DCA",
-    "submit": "Send catch report",
+    "submit": "Send DCA",
     "steps": {
       "0": "Fishingstart & quota",
       "location": "Location",

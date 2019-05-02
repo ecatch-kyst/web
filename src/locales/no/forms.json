@@ -1,10 +1,10 @@
 {
   "links": {
-    "DEP": "Meld avgang (DEP)",
-    "DCA0": "Start fangst (DCA)",
-    "DCA0Edit": "Rediger fangst (DCA)",
-    "DCA": "Registrer fangst (DCA)",
-    "POR": "Havneanløp (POR)",
+    "DEP": "Meld DEP",
+    "DCA0": "Start DCA",
+    "DCA0Edit": "Rediger DCA start",
+    "DCA": "Registrer DCA",
+    "POR": "Havneanløp POR",
     "back": "Tilbake"
   },
   "DEP": {
@@ -28,7 +28,7 @@
   },
   "DCA": {
     "title": "DCA",
-    "submit": "Meld fangst",
+    "submit": "Meld DCA",
     "steps": {
       "0": "Fiskestart og kvote",
       "location": "Lokasjon",

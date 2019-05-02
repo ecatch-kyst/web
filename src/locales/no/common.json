@@ -2,9 +2,9 @@
 	"buttons": {
 		"add-fishinggrounds": "Legg til ny fiskested",
 		"my-messages": "Mine meldinger",
-		"report-catch": "Meld fangst",
+		"report-catch": "Meld DCA",
 		"report-fishing": "Rapporter inn",
-		"return-journey": "Meld hjemreise"
+		"return-journey": "Meld hjemreise (POR)"
   },
   "select": "Select...",
 	"negative": {
