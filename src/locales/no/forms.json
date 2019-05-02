@@ -49,7 +49,7 @@
     "AC": "Hovedaktivitet",
     "DS": "Målart",
     "PO": "Velg havn",
-    "expectedFishingStart": "Estimert tidspunkt for fiskestart",
+    "expectedFishingStart": "Estimert fiskestart",
     "expectedFishingSpot": "Forventet fiskested",
     "OB": "Fisk ombord",
     "departure": "Avgangstid",
@@ -61,8 +61,8 @@
     "QI": "Fisketillatelse",
     "ZO": "Fiskesone",
     "fishingStart": "Start av fiske",
-    "startFishingSpot": "Start fiskeplass",
-    "endFishingSpot": "Slutt fiskeplass",
+    "startFishingSpot": "Start fiskested",
+    "endFishingSpot": "Slutt fiskested",
     "geopoint": {
       "latitude": "Breddegrad N→90°, S→-90°",
       "longitude": "Lengdegrad Ø→180°, V→-180°"

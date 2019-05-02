@@ -2,8 +2,12 @@
 import {AUTH, USERS_FS, TIMESTAMP_SERVER, TIMESTAMP_CLIENT, GEOPOINT, FS} from "../../lib/firebase"
 import {flattenDoc, validate as validateField} from "../../utils"
 import {routes} from "../../lib/router"
+
+
 /**
- * Handles message changes.
+ * Handles message changes. It can take either a name value pair,
+ * or an Object, that can be merged into the global fields object.
+ * Useful if you have more than one field change at the same time.
  * @param {string} key
  * @param {any} value
  */
@@ -28,8 +32,10 @@ export function handle(...args) {
 }
 
 /**
- *
- * @param {*} type
+ * Generating a message according to type. It takes the content of
+ * the fields object in the global Store Context, and returns a
+ * fully formatted message, that is ready to be sent to firebase
+ * @param {*} type message type
  */
 export function construct(type) {
   const {
@@ -43,9 +49,9 @@ export function construct(type) {
   } = this.state.fields
 
   /**
- * Helper function
- * Removes fish with 0 kg weight
- */
+   * Helper function
+   * Removes fish with 0 kg weight
+   */
   const CA = Object.entries(fields.CA).reduce((acc, [type, weight]) => {
     if(weight) acc[type] = weight
     return acc
@@ -53,10 +59,17 @@ export function construct(type) {
 
   let message = {
     TM: type,
+
+    /*
+     * NOTE: This is not the same as TIMESTAMP_CLIENT! This will be evaluated
+     * to an actual Timestamp object on server-side,
+     * meaning it will hold the receival time of the message, not the sending.
+     * Can be useful.
+     */
     timestamp: TIMESTAMP_SERVER,
     MA: AUTH.currentUser.displayName
   }
-  switch (type) { // TODO: Populate message by type
+  switch (type) {
   case "DEP":
     message = {
       ...message,
@@ -89,7 +102,6 @@ export function construct(type) {
     if (["OTB", "OTM", "SSC", "GEN", "TBS"].includes(GE)) message.ME = ME
     break
 
-  // TODO: ADD DCA0 case
   case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
     message = {
       ...message,
@@ -109,38 +121,54 @@ export function construct(type) {
 
 
 /**
- * Submits a message form
+ * Sending a message to Firebase.
+ * @param {Object} message the message object to be sent, constructed with construct()
  */
 export async function submit(message) {
   const type = message.TM
   this.changeFishOnBoard(type)
   try {
-
+    /*
+     * Notify user, if they are offline, that the message
+     * will have a pending status, until online again.
+     */
     if (!navigator.onLine) {
-      this.notify({name: `message.sent.offline`, type: "warning"})
+      this.notify({name: `message.sent.offline`, type: "warning", duration: 8000})
     }
 
+    // Handling redirecting
     let successRoute = routes.TRIPS
     if (this.state.trips.length && !this.state.trips[0].isFinished) {
       successRoute = `${routes.TRIPS}/${this.state.trips[0].id}`
     }
 
+    // Redirect the user to the right page.
+    this.props.history.push(successRoute)
+
+    // Send to firebase
     await USERS_FS.doc(AUTH.currentUser.uid).collection("messages").add({
       ...message,
+      /*
+       * Append timestamp at the last stage, right before sending
+       * A Firebase Timestamp object
+       * @see https://firebase.google.com/docs/reference/android/com/google/firebase/Timestamp
+       */
       created: TIMESTAMP_CLIENT()
     })
 
-    this.props.history.push(successRoute)
+    // Notify about successful sending. (Not the same as ACK)
     this.notify({name: `message.sent.${type}`, type: "success"})
+    // Reset DCAStart. NOTE: move this to a more appropriate place?
     this.toggleDCAStart(false)
   } catch ({code, message}) {
+    // Notify about sending errors
     this.notify({name: `message.sent.${type}`, type: "error", message: [code, message].join(": ")})
   }
 }
 
 
 /**
- *
+ * Go through all the fields, and validate them.
  * @param {ojbect} message
  * @param {boolean} DCAStart
  */
@@ -153,6 +181,7 @@ export function validate(message, DCAStart) {
     const result = validateField(field, value) // Validating the field
     if (result.error) {
       error = true
+      this.notify({name: `fields.${result.reason}`, type: "error"})
       this.handleFieldError(field, true)
     }
   })

@@ -24,6 +24,8 @@ import {
 
 import Navigation from './Navigation'
 
+
+// Define new pages here
 const routes = [
   {component: Landing, path: ROUTES.ROOT},
   {component: Register, path: ROUTES.REGISTER}, // REVIEW: Delete?
@@ -38,22 +40,26 @@ const routes = [
 ]
 
 export default withRouter(withTheme()(({theme: {palette: {type}}}) =>
-  <div className="app" style={{backgroundColor: type === "dark" ? "#000" : ""}}>
-    <FirstTimeRedirect/>
+  <div className={`app ${type === "dark" ? "dark" : ""}`}>
+    <Route component={Navigation}/>
     <Switch>
       {routes.map(route =>
         <Route key={route.path} {...route} exact/>
       )}
       <Route component={NotFound}/>
     </Switch>
-    <Route component={Navigation}/>
     <OfflineStatus/>
     <Dialog/>
     <Notification/>
+    <FirstTimeRedirect/>
   </div>
 ))
 
 
+/**
+ * If the user opens the page for the first time,
+ * they will be redirected to the PRESET page.
+ */
 const FirstTimeRedirect = () => {
   if (!localStorage.getItem("noRedirect")) {
     localStorage.setItem("noRedirect", 1)

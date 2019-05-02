@@ -1,6 +1,10 @@
 import {createMuiTheme} from '@material-ui/core/styles'
 import deepmerge from 'deepmerge'
 
+
+// Styling of Material-UI happens in this file
+
+
 const secondaryFontFamily = "adobe-garamond-pro, 'Times New Roman'"
 
 export const colors = {
@@ -14,6 +18,7 @@ export const colors = {
 }
 
 
+// Light theme
 const base = {
   props: {
     MuiTooltip: {
@@ -58,11 +63,13 @@ const base = {
     }
   },
   overrides: {
-    // MuiCard: {
-    //   root: {
-    //     boxShadow: "none"
-    //   }
-    // },
+    /*
+     * MuiCard: {
+     *   root: {
+     *     boxShadow: "none"
+     *   }
+     * },
+     */
     MuiButton: {
       root: {
         padding: '8px 20px',
@@ -72,6 +79,11 @@ const base = {
         padding: '16px 20px',
         borderRadius: 40,
         fontSize: 23
+      },
+      sizeSmall: {
+        padding: '4px 12px',
+        borderRadius: 30,
+        fontSize: 16
       },
       containedPrimary: {
         boxShadow: "none"
@@ -132,6 +144,7 @@ const base = {
 }
 
 
+// Dark theme
 const darkTheme = {
   palette: {
     type: "dark",
@@ -190,11 +203,13 @@ const darkTheme = {
     }
   },
   overrides: {
-    // MuiCard: {
-    //   root: {
-    //     backgroundColor: "transparent"
-    //   }
-    // },
+    /*
+     * MuiCard: {
+     *   root: {
+     *     backgroundColor: "transparent"
+     *   }
+     * },
+     */
     MuiFormControl:{
       root:{
         backgroundColor: "#333",
@@ -214,6 +229,7 @@ const darkTheme = {
   }
 
 }
+
 
 export const light = createMuiTheme({...base})
 export const dark = createMuiTheme(deepmerge(base, darkTheme))

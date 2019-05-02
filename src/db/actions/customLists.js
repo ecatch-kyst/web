@@ -2,6 +2,8 @@ import {AUTH, USERS_FS} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
 
 
+// REVIEW: ♻ refactor/simplify?
+
 /**
  * Submit a custom input to a custom list to firebase
  * @param {string} type type of custom list

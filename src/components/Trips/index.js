@@ -1,16 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Loading, TableHead, Page, SwitchView} from '../shared'
 
 import {Table, TableBody, Grid, Typography} from '@material-ui/core'
 
 import Trip, {TripRow} from './Trip'
-import {useStore, useListMutations} from '../../hooks'
+import {useListMutations} from '../../hooks'
 import {useTranslation} from 'react-i18next'
+import Store from '../../db'
 
 export {Trip}
 
 export default () => {
-  const {trips} = useStore()
+  const {trips} = useContext(Store)
   const [t] = useTranslation("trips")
 
   const {

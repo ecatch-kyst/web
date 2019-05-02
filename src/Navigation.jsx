@@ -1,10 +1,12 @@
-import React from 'react';
+import React from 'react'
 import {Link} from "react-router-dom"
-import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import {BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 import {HomeIcon, PresetIcon, ProfileIcon, TripIcon} from "./icons"
 import {useTranslation} from 'react-i18next'
 import {routes} from './lib/router'
 
+
+// Navigation buttons should be added here
 const navigation = [
   {
     id: "homepage",
@@ -28,22 +30,23 @@ const navigation = [
   }
 ]
 
-export default function Navigation({location: {pathname}}) {
-  if (pathname === routes.ROOT) return null // Don't show Navigation on landing page
+
+export const Navigation = ({location: {pathname}}) => {
+  if (pathname === routes.ROOT) return null // Don't show Navigation on login page
   const [t] = useTranslation("common")
 
   return (
     <BottomNavigation
-    style={{position: "fixed", bottom: -2, width: "100vw"}}
-    value={pathname.split("/")[1]}
+      className="bottom-navigation"
+      value={pathname.split("/")[1]}
     >
       {navigation.map(({id, icon, to}) =>
         <BottomNavigationAction
-          showLabel
           component={Link}
           icon={icon}
           key={id}
           label={t(`navigation.${id}`)}
+          showLabel
           to={to}
           value={id}
         />
@@ -51,3 +54,5 @@ export default function Navigation({location: {pathname}}) {
     </BottomNavigation>
   )
 }
+
+export default Navigation

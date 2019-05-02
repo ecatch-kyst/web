@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Loading, TableHead, Page, SwitchView} from '../shared'
 
 import {Table, TableBody, Toolbar, InputBase, Grid, Typography} from '@material-ui/core'
@@ -7,13 +7,14 @@ import {SearchIcon} from "../../icons"
 import Message from './components/Message'
 
 import EditCatch from './components/EditCatch'
-import {useStore, useListMutations} from '../../hooks'
+import {useListMutations} from '../../hooks'
 import {useTranslation} from 'react-i18next'
+import Store from '../../db'
 export {EditCatch}
 
 export const Messages = () => {
   const [t] = useTranslation("messages")
-  const {messages} = useStore()
+  const {messages} = useContext(Store)
   const {list: mutatedMessages, order, orderBy, handleQuery, handleRequestSort} = useListMutations(messages, {orderBy: "created"})
 
   return (

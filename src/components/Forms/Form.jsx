@@ -1,16 +1,16 @@
-import React, {memo, Component} from 'react'
+import React, {memo, useContext, useEffect} from 'react'
 
 import {Link, withRouter} from "react-router-dom"
 import forms from "./schema.json"
 import {Grid, Button, Typography, Card, CardHeader, CardContent} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
-import {useTranslation, withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 import {Page} from '../shared'
 
 import FormInput from './FormInput.jsx'
-import {useStore} from '../../hooks'
+import Store from '../../db'
 import {addHours, format} from 'date-fns'
-import {withStore} from '../../db/index.js'
+import {usePosition} from '../../hooks/index.js'
 
 
 /**
@@ -21,28 +21,15 @@ import {withStore} from '../../db/index.js'
  * @param {'DEP'|'DCA'|'POR'} props.match.params.type - Type of form
  * @param {number} props.match.params.messageId - id of message if form is used for editing
  */
-class Form extends Component {
+const Form = ({match: {path, params: {type}}, history}) => {
+  const position = usePosition()
+  const [t] = useTranslation("forms")
+  const {
+    handleFieldChange, messages, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies], ZO: [firstZO]}, fields
+  } = useContext(Store)
 
-  componentDidMount() {this.prefill()}
-
-  componentDidUpdate({store: {messages: pMessages, position: pPosition, custom: pCustom}}) {
-    const {messages, position, custom} = this.props.store
-    if (!(
-      messages.length === pMessages.length &&
-      pPosition.latitude === position.latitude &&
-      pPosition.longitude === position.longitude &&
-      JSON.stringify(pCustom) === JSON.stringify(custom) // REVIEW:
-    )) this.prefill()
-  }
-
-  prefill = () => {
-    const {
-      match: {params: {type}},
-      store: {
-        handleFieldChange, messages, position, trips, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies], ZO: [firstZO]}, ...store
-      }
-    } = this.props
-    let fields = {...store.fields}
+  const prefill = () => {
+    let newFields = {...fields}
 
     const messageType = type === "DCA0" ? "DCA" : type
     const baseMessage = messages.find(({TM}) => TM === messageType) || {}
@@ -50,14 +37,14 @@ class Form extends Component {
     const now = new Date()
     switch (type) {
     case "DEP":
-      fields = {
-        ...fields,
+      newFields = {
+        ...newFields,
         departure: now,
         expectedFishingStart: addHours(now, 2)
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
-        fields = {
-          ...fields,
+        newFields = {
+          ...newFields,
           AC: baseMessage.AC,
           DS: baseMessage.DS,
           PO: baseMessage.PO,
@@ -66,8 +53,8 @@ class Form extends Component {
         }
       }
       else {
-        fields = {
-          ...fields,
+        newFields = {
+          ...newFields,
           AC: (firstActivity || {}).value,
           DS: (firstSpecies || {}).value,
           PO: (firstPort || {}).value
@@ -76,14 +63,14 @@ class Form extends Component {
       break
 
     case "DCA0":
-      fields = {
-        ...fields,
+      newFields = {
+        ...newFields,
         fishingStart: now,
         startFishingSpot: position
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
-        fields = {
-          ...fields,
+        newFields = {
+          ...newFields,
           AC: baseMessage.AC,
           GS: baseMessage.GS,
           QI: baseMessage.QI,
@@ -92,8 +79,8 @@ class Form extends Component {
         } // Preset from base (previous message, with the same type)
       }
       else {
-        fields = {
-          ...fields,
+        newFields = {
+          ...newFields,
           AC: (firstActivity || {}).value,
           QI: (firstFishingPermit || {}).value,
           GE: (firstFishingGear || {}).value,
@@ -104,14 +91,14 @@ class Form extends Component {
       break
 
     case "DCA":
-      fields = {
-        ...fields,
+      newFields = {
+        ...newFields,
         endFishingSpot: position,
-        DU: fields.fishingStart ? parseInt(format(Date.now() - new Date(fields.fishingStart).getTime(), "m"), 10) : 0
+        DU: newFields.fishingStart ? parseInt(format(Date.now() - new Date(newFields.fishingStart).getTime(), "m"), 10) : 1
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
-        fields = {
-          ...fields,
+        newFields = {
+          ...newFields,
           PO: baseMessage.PO,
           AC: baseMessage.AC,
           expectedFishingSpot: baseMessage.expectedFishingSpot,
@@ -123,8 +110,8 @@ class Form extends Component {
         } // Preset from base (previous message, with the same type)
       }
       else {
-        fields = {
-          ...fields,
+        newFields = {
+          ...newFields,
           PO: (firstPort || {}).value,
           AC: (firstActivity || {}).value,
           DS: (firstSpecies || {}).value,
@@ -134,22 +121,22 @@ class Form extends Component {
       }
       break
     case "POR":
-      fields = {
-        ...fields,
+      newFields = {
+        ...newFields,
         portArrival: now, // NOTE: try to calculate from position, speed and PO (port)
         KG: fishOnBoard,
         OB: fishOnBoard
       } // These values will be preset, no matter if there is a base message.
       if (Object.keys(baseMessage).length) {
-        fields = {
-          ...fields,
+        newFields = {
+          ...newFields,
           LS: baseMessage.LS,
           PO: baseMessage.PO
         } // Preset from base (previous message, with the same type)
       }
       else {
-        fields = {
-          ...fields,
+        newFields = {
+          ...newFields,
           PO: (firstPort || {}).value
         }
       }
@@ -158,73 +145,74 @@ class Form extends Component {
       break
     }
 
-    handleFieldChange(fields)
+    handleFieldChange(newFields)
   }
 
-  toDashboard = () => {
-    this.props.history.push(routes.HOMEPAGE)
+  useEffect(() => {
+    prefill()
+  })
+
+  const toDashboard = () => {
+    history.push(routes.HOMEPAGE)
   }
 
-  render() {
-    const {store: {fields}, match: {params: {type}}, t, match: {path}} = this.props
-
-    const form = forms[type] // Extract form from forms.json
-    return (
-      <Page title={() => <Typography align="center" style={{padding: 16}} variant="h4">{t(`${type}.title`)}</Typography>}>
-        <Grid alignItems="center" container direction="column" style={{margin: "32px 0 92px"}}>
+  const form = forms[type] // Extract form from forms.json
+  return (
+    <Page title={() => <Typography align="center" style={{padding: 16}} variant="h4">{t(`${type}.title`)}</Typography>}>
+      <Grid alignItems="center" container direction="column" style={{margin: "32px 0 92px"}}>
+        <Grid item>
+          {form.map(({id, step}) => // If a valid form, iterate over its steps
+            <Card key={id} style={{marginBottom: 32}}>
+              <CardHeader title={t(`${type}.steps.${id}`)}/>
+              <Grid component={CardContent} container direction="column" spacing={16}>
+                {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
+                  (!dependent || dependent.when.includes(fields[dependent.on] || "")) ?
+                    <Grid item
+                      key={id}
+                    >
+                      <FormInput
+                        dataId={dataId || id}
+                        id={id}
+                        options={{
+                          ...options,
+                          editable: ((options.editable !== false) || path.endsWith(routes.NEW))
+                        }}
+                        type={type}
+                      />
+                    </Grid>
+                    : null
+                )}
+              </Grid>
+            </Card>
+          )}
+        </Grid>
+        <Grid container item justify="center">
           <Grid item>
-            {form.map(({id, step}) => // If a valid form, iterate over its steps
-              <Card key={id} style={{marginBottom: 32}}>
-                <CardHeader title={t(`${type}.steps.${id}`)}/>
-                <Grid component={CardContent} container direction="column" spacing={16}>
-                  {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
-                    (!dependent || dependent.when.includes(fields[dependent.on] || "")) ?
-                      <Grid item
-                        key={id}
-                      >
-                        <FormInput
-                          dataId={dataId || id}
-                          id={id}
-                          options={{
-                            ...options,
-                            editable: ((options.editable !== false) || path.endsWith(routes.NEW))
-                          }}
-                          type={type}
-                        />
-                      </Grid>
-                      : null
-                  )}
-                </Grid>
-              </Card>
-            )}
+            <Button
+              color="secondary"
+              component={Link}
+              to={routes.HOMEPAGE}
+            >
+              {t("links.back")}
+            </Button>
           </Grid>
-          <Grid container item justify="center">
-            <Grid item>
-              <Button
-                color="secondary"
-                component={Link}
-                to={routes.HOMEPAGE}
-              >
-                {t("links.back")}
-              </Button>
-            </Grid>
-            <Grid item>
-              <SubmitButton toDashboard={this.toDashboard} type={type}/>
-            </Grid>
+          <Grid item>
+            <SubmitButton toDashboard={toDashboard} type={type}/>
           </Grid>
         </Grid>
-      </Page>
-    )}
+      </Grid>
+    </Page>
+  )
 }
 
-export default withRouter(withTranslation("forms")(withStore(Form)))
+export default withRouter(Form)
 
 
 export const SubmitButton = memo(({type, toDashboard}) => {
   const [t] = useTranslation("forms")
   const {
     handleDialog, constructMessage, validateMessage, submitMessage, toggleDCAStart
-  } = useStore()
+  } = useContext(Store)
   /**
    * Submits the filled out form.
    */
@@ -232,6 +220,7 @@ export const SubmitButton = memo(({type, toDashboard}) => {
     e.preventDefault()
     const message = constructMessage(type)
     const valid = validateMessage(message, type === "DCA0")
+
     if (valid) {
       if (type === "DCA0") {
         toDashboard()
@@ -239,8 +228,6 @@ export const SubmitButton = memo(({type, toDashboard}) => {
       } else {
         handleDialog({type, submit: () => submitMessage(message)})
       }
-    } else {
-      //TODO: notify user about errors
     }
   }
 
@@ -250,8 +237,10 @@ export const SubmitButton = memo(({type, toDashboard}) => {
       // disabled={disabled} // TODO: add disable on invalid form
       color="primary"
       onClick={handleSubmit}
-      // onPointerDown={handlePointerDown}
-      // onPointerUp={handlePointerUp}
+      /*
+       * onPointerDown={handlePointerDown}
+       * onPointerUp={handlePointerUp}
+       */
       type="submit"
       variant="contained"
     >

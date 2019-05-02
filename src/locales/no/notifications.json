@@ -33,12 +33,12 @@
     "fishingSpots": {
       "added": {
         "error": "Noe gikk galt: {{message}}",
-        "success": "Fiskeplass lagt til"
+        "success": "Fiskested lagt til"
       }
     }
   },
   "offline": {
-    "error": "Du er offline.",
+    "warning": "Du er offline.",
     "action": "Last inn på nytt"
   },
   "position": {

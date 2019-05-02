@@ -1,31 +1,31 @@
-import React, { useCallback } from 'react'
+import React, {useCallback, useContext} from 'react'
 import {Page} from './shared'
 import {Forms, Centered} from '.'
-import { useStore } from '../hooks';
-import {Typography, Paper, Switch, Grid, Tooltip } from '@material-ui/core';
-import { BrightnessIcon } from '../icons';
-import { useTranslation } from 'react-i18next';
+import {Typography, Paper, Switch, Grid, Tooltip} from '@material-ui/core'
+import {BrightnessIcon} from '../icons'
+import {useTranslation} from 'react-i18next'
+import Store from '../db'
 
 
 export const Home = () => {
-  
-  const {DCAStarted, isDarkMode, handleToggleDarkMode} = useStore()
+
+  const {DCAStarted, isDarkMode, handleToggleDarkMode} = useContext(Store)
   const [t] = useTranslation("homepage")
-  
-  const renderTitle = useCallback(title => 
+
+  const renderTitle = useCallback(title =>
     <Grid container justify="space-between">
       <Grid item>{title}</Grid>
       <Tooltip title={t("dark-mode")}>
         <Grid
-          onClick={handleToggleDarkMode}
-          item container 
           alignItems="center"
+          container item
+          onClick={handleToggleDarkMode}
           style={{width: "auto", cursor: "pointer"}}
         >
           <Grid color={isDarkMode ? "primary" : "inherit"} component={BrightnessIcon} item/>
-          <Grid item component={Switch}
-            checked={isDarkMode}
-            color="primary"
+          <Grid checked={isDarkMode} color="primary"
+            component={Switch}
+            item
           />
         </Grid>
       </Tooltip>
@@ -47,9 +47,9 @@ export const Home = () => {
 
 export default Home
 
-const DCAStart = () => 
+const DCAStart = () =>
   <Paper>
-    {/*TODO: Show DCA start related fields*/}
+    {/*REVIEW: Show DCA start related fields?*/}
   </Paper>
 
 export const Position = ({latitude="0", longitude="0"}) => <Typography>{latitude} {longitude}</Typography>

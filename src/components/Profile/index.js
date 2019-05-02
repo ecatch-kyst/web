@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {
   List, ListItem, Grid, FormControlLabel,
   Switch, Typography, withTheme, Button, Divider
@@ -7,10 +7,10 @@ import {useTranslation} from 'react-i18next'
 import LanguageChooser from './LanguageChooser'
 import ProfileDetails from './ProfileDetails'
 import {Page} from '../shared'
-import {useStore} from '../../hooks'
+import Store from '../../db'
 
 export const Profile = () => {
-  const {isDarkMode, handleToggleDarkMode} = useStore()
+  const {isDarkMode, handleToggleDarkMode} = useContext(Store)
 
   return (
 
@@ -79,9 +79,16 @@ export const Element = ({id, actionComponent, onClick, clickable}) => {
   )
 }
 
+
+/*
+ * TODO: Unsubscribe from data listeners when logging out,
+ * in Store Context
+ * @see https://firebase.google.com/docs/firestore/query-data/listen#detach_a_listener
+ * @see https://firebase.google.com/docs/database/web/read-and-write#detach_listeners
+ */
 export const Logout = () => {
   const [t] = useTranslation("profile")
-  const {handleUserLogout} = useStore()
+  const {handleUserLogout} = useContext(Store)
   return (
     <Button
       color="secondary"

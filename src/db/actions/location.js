@@ -6,7 +6,7 @@ import {GEOPOINT} from "../../lib/firebase"
 export function subscribe() {
   if ("geolocation" in navigator ) {
     this.locationId = navigator.geolocation.watchPosition(({coords: {latitude, longitude}}) => {
-      this.setState({position: GEOPOINT(latitude, longitude)})
+      this.setState({position: GEOPOINT(latitude || 0, longitude || 0)})
     }, ({code, message}) => this.notify({name: "position", type: "error", message: `${code}: ${message}`}), {enableHighAccuracy: true})
   }
 }

@@ -9,9 +9,9 @@
   },
   "customLists": {
     "fishingSpots": {
-      "button": "Legg til fiskeplass",
+      "button": "Legg til fiskested",
       "coordinates": "Koordinater",
-      "label": "Gi et navn til din fiskeplass"
+      "label": "Gi et navn til din fiskested"
     }
   },
   "ports": [{

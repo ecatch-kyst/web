@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {withRouter} from "react-router-dom"
 import {format} from 'date-fns'
 
@@ -10,12 +10,12 @@ import Centered from '../../Centered'
 import Forms from "../../Forms"
 import TripRow from "./TripRow"
 import DCAOverview from "./DCAOverview"
-import {useStore} from '../../../hooks'
+import Store from '../../../db'
 import {useTranslation} from 'react-i18next'
 export {TripRow}
 
 export const Trip = ({match: {params: {tripId}}}) => {
-  const {trips} = useStore()
+  const {trips} = useContext(Store)
   const [t] = useTranslation("dropdowns")
   const ports = t("ports", {returnObjects: true})
 
@@ -62,9 +62,10 @@ export default withRouter(Trip)
 
 
 export const TripOverview = ({DEP, POR, DCAList, fish}) =>
-  <>
+<>
     <Divider/>
     <Grid alignItems="center" container item style={{padding: 16}}>
+      {/* TODO: Clicking on this should show an uneditable message overview */}
       <Grid component={Button} item style={{margin: 4}} variant="outlined">
         <Typography variant="h6">
           DEP
@@ -74,6 +75,7 @@ export const TripOverview = ({DEP, POR, DCAList, fish}) =>
       →
       {DCAList.map(d =>
         <div key={d.id}>
+          {/* TODO: Clicking on this should show an uneditable message overview */}
           <Grid component={Button} item style={{margin: 4}} variant="outlined">
             <Typography variant="h6">
               DCA({d.RN})

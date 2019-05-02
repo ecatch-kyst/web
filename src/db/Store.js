@@ -5,7 +5,6 @@ import initValues from "./initialValues.json"
 import {
   darkMode,
   user,
-  location,
   dialog,
   messages,
   notification,
@@ -13,17 +12,26 @@ import {
 } from "./actions"
 
 
+/*
+ * Used for global state management, (No Redux needed!)
+ * @see https://reactjs.org/docs/context.html
+ * If you can't live without Redux, still don' use it. You don't need it!
+ * try the React hook useReducer(), that COMES WITH REACT already.
+ * Smaller bundle, happy user. 😉
+ * @see https://reactjs.org/docs/hooks-reference.html#usereducer
+ */
 const Store = createContext()
 
 export const Database = withRouter(class extends Component {
 
+  // The global state object
   state = initValues
 
   async componentDidMount() {
     this.initDarkMode()
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
-      this.subscribeToLocation()
+      // TODO: Simplify!
       this.subscribeToCustomList("fishingSpots")
       this.subscribeToCustomList("ports")
       this.subscribeToCustomList("fishingGear")
@@ -34,6 +42,13 @@ export const Database = withRouter(class extends Component {
       this.subscribeToFishOnBoard()
     }})
   }
+
+
+  /*
+   * Binding these functions here, so they are aware of
+   * the this conext, making it possible for them
+   * to mutate global state, and call other Store functions
+   */
 
   // Custom lists
 
@@ -74,14 +89,6 @@ export const Database = withRouter(class extends Component {
 
   userDelete = user.deleteUser.bind(this)
 
-  // Location
-
-  getLocation = location.get.bind(this)
-
-  subscribeToLocation = location.subscribe.bind(this)
-
-  unsubscribeFromLocation = location.unsubscribe.bind(this)
-
   // Messages
 
   constructMessage = messages.construct.bind(this)
@@ -108,6 +115,11 @@ export const Database = withRouter(class extends Component {
 
   changeFishOnBoard = messages.changeFish.bind(this)
 
+
+  /*
+   * Functions/state in the value object are globally accessible
+   * in the whole app
+   */
   render() {
     return (
       <Store.Provider
@@ -118,7 +130,7 @@ export const Database = withRouter(class extends Component {
           handleUserLogin: this.userLogin,
           handleUserDelete: this.userDelete,
           handleDialog: this.handleDialog,
-          notify: this.notify, // Call this, when a notification shold be shown. @see src/db/actions/notification for implementation
+          notify: this.notify,
           processNotificationQueue: this.processNotificationQueue,
           notificationClose: this.notificationClose,
           handleFieldChange: this.handleFieldChange,

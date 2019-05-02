@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Select, Card, CardHeader, CardContent, Typography, Grid} from '@material-ui/core'
 import {useTranslation} from "react-i18next"
-import {useStore} from '../../../hooks'
+import Store from '../../../db'
 
 export default ({type, numberOfChoices}) => {
   const [t] = useTranslation("dropdowns")
@@ -13,7 +13,7 @@ export default ({type, numberOfChoices}) => {
     handleCustomListChange,
     addToCustomList,
     custom
-  } = useStore()
+  } = useContext(Store)
 
   // Handles the set or update of favorites in Firebase
   const handleChange = index => ({target: {value}}) =>

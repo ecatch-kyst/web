@@ -6,10 +6,6 @@
   "messages": [],
   "trips": [],
   "isLoading": true,
-  "position": {
-    "latitude": 0,
-    "longitude": 0
-  },
   "DCAStarted": false,
   "fishOnBoard": {},
   "errors": {},
@@ -28,7 +24,7 @@
     "AC": "FIS",
     "GP": 0,
     "ZO": "NOR",
-    "DU": 0
+    "DU": 1
   },
   "custom": {
     "editing": {},

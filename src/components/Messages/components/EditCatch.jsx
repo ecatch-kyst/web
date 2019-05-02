@@ -1,13 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import {Redirect, withRouter} from "react-router-dom"
 import {routes} from '../../../lib/router.js'
 import Form from '../../Forms/Form'
-import {useStore} from '../../../hooks'
+import Store from '../../../db'
 import {deadlinePassed} from '../../../utils'
 
 export const EditCatch = ({match: {params: {messageId, type}}}) => {
-  const {messages} = useStore()
+  const {messages} = useContext(Store)
 
   const {created, TM} = messages.find(message => message.RN.toString() === messageId) || {}
 

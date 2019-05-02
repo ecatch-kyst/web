@@ -38,7 +38,7 @@
     }
   },
   "offline": {
-    "error": "You are offline.",
+    "warning": "You are offline.",
     "action": "Reload page"
   },
   "position": {

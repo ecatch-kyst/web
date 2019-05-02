@@ -1,14 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 import Form from './Form'
 import {Grid} from '@material-ui/core'
-import {useStore} from '../../hooks'
+import Store from '../../db'
 import {FormButton} from './FormButton'
 export {Form}
 
 
 export const Forms = props => {
-  const {isEnRoute, trips, DCAStarted} = useStore()
+  const {isEnRoute, trips, DCAStarted} = useContext(Store)
   return (
     <Grid
       alignItems="center"

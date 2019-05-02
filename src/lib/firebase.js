@@ -17,7 +17,13 @@ firebase.initializeApp({
 
 export const FS = firebase.firestore()
 
+
+/*
+ * Enable offline mode in one single line! 😎
+ * @see https://firebase.google.com/docs/firestore/manage-data/enable-offline
+ */
 if (process.env.NODE_ENV !== "test") FS.enablePersistence({experimentalTabSynchronization: true})
+
 
 export const DB = firebase.database()
 export const FileStore = firebase.storage()

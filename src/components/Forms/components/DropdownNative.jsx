@@ -1,11 +1,11 @@
 import React, {memo, useContext} from 'react'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
-import {withStyles, FormHelperText, Input, Select} from '@material-ui/core'
+import {withStyles, FormHelperText, Input, Select, Grid} from '@material-ui/core'
 import {useTranslation} from 'react-i18next'
 import {GEOPOINT} from '../../../lib/firebase'
 import Store from '../../../db'
-
+import {AddFishingSpot} from "./AddFishingSpot"
 
 const style = theme => ({
   root: {
@@ -13,7 +13,6 @@ const style = theme => ({
     flexWrap: 'wrap'
   },
   formControl: {
-    margin: theme.spacing.unit,
     minWidth: 120
   },
   selectEmpty: {
@@ -23,6 +22,7 @@ const style = theme => ({
 
 const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, classes}) => {
 
+  let AddOption
   const [t] = useTranslation("dropdowns")
   const {custom: {fishingSpots, ...custom}} = useContext(Store)
 
@@ -30,7 +30,8 @@ const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, 
 
   let selectOptions = allOptions
 
-  const handleChange = ({target: {value}}) => onChange({name: dataId, value})
+  const handleChange = ({target: {value}}) =>
+    onChange({name: dataId, value: isNaN(value) ? value : parseInt(value, 10)})
 
   if (["ports", "fishingGear", "activity", "species", "fishingPermit", "ZO"].includes(type)) {
     const favorites = custom[type].map(p => allOptions.find(o => o.value === p.value))
@@ -41,21 +42,24 @@ const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, 
         options: favorites
       },
       {
-        label: t("labels.all"), //TODO: Translate
+        label: t("labels.all"),
         options: newOptions
       }
     ]
   } else if( type === "expectedFishingSpot") {
     allOptions = fishingSpots
     selectOptions = fishingSpots
+    AddOption = AddFishingSpot
   }
 
 
   const selectOption = allOptions.find(option =>
     option.value === value ||
-      //REVIEW: Better solution to match geopoints ?
+      /*
+       * BUG:, REVIEW: Better solution to match geopoints ?
+       */
       (option.value && option.value.latitude && value.latitude &&
-        GEOPOINT(option.value.latitude, option.value.longitude)
+        GEOPOINT(option.value.latitude || 0, option.value.longitude || 0)
           .isEqual(GEOPOINT(value.latitude, value.longitude))
       )
   )
@@ -63,17 +67,25 @@ const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, 
   return (
     <FormControl className={classes.formControl} error={error}>
       <InputLabel htmlFor="name-native-error">{label}</InputLabel>
-      <Select
-        disabled={disabled}
-        input={<Input id="name-native-error" />}
-        name={dataId}
-        native
-        onChange={handleChange}
-        value={selectOption ? selectOption.id || selectOption.value : ""}
-      >
-        <SelectOptions selectOptions={selectOptions}/>
-        <option value="" />
-      </Select>
+      <Grid container direction="column" style={{marginTop: 16}}>
+        <Grid item xs={11}>
+          <Select
+            disabled={disabled}
+            fullWidth
+            input={<Input id="name-native-error" />}
+            name={dataId}
+            native
+            onChange={handleChange}
+            value={selectOption ? selectOption.id || selectOption.value : ""}
+          >
+            <SelectOptions selectOptions={selectOptions}/>
+            <option value="" />
+          </Select>
+        </Grid>
+        <Grid item style={{padding: "16px 8px 8px"}}>
+          {AddOption ? <AddOption/> : null}
+        </Grid>
+      </Grid>
       {error ? <FormHelperText>Error</FormHelperText> : null}
     </FormControl>
   )
