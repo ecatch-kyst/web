@@ -31,6 +31,8 @@ export function handle(...args) {
   }
 }
 
+
+// TODO: Use schema.json to add fields correctly that are dependent on other fields.
 /**
  * Generating a message according to type. It takes the content of
  * the fields object in the global Store Context, and returns a
@@ -39,27 +41,20 @@ export function handle(...args) {
  */
 export function construct(type) {
   const {
-    AC, DS, PO, KG, OB,
-    portArrival, LS,
-    expectedFishingSpot, departure,
-    expectedFishingStart, QI, fishingStart,
-    ZO, startFishingSpot, GE, GP,
-    endFishingSpot,
-    DU, GS, ME, ...fields
-  } = this.state.fields
+    fields: {AC, DS, PO, KG, OB,
+      portArrival, LS,
+      expectedFishingSpot, departure,
+      expectedFishingStart, QI, fishingStart,
+      ZO, startFishingSpot, GE, GP,
+      endFishingSpot,
+      DU, GS, ME, ...fields},
+    messages
+  } = this.state
 
-  /**
-   * Helper function
-   * Removes fish with 0 kg weight
-   */
-  const CA = Object.entries(fields.CA).reduce((acc, [type, weight]) => {
-    if(weight) acc[type] = weight
-    return acc
-  }, {})
 
   let message = {
     TM: type,
-
+    RN: messages[messages.length - 1].RN + 1,
     /*
      * NOTE: This is not the same as TIMESTAMP_CLIENT! This will be evaluated
      * to an actual Timestamp object on server-side,
@@ -82,7 +77,8 @@ export function construct(type) {
       OB
     }
     break
-  case "DCA":
+  case "DCA": {
+
     message = {
       ...message,
       AC,
@@ -95,13 +91,21 @@ export function construct(type) {
       GE,
       GP,
       endFishingSpot,
-      DU,
-      CA
+      DU
     }
+    /**
+     * Helper function
+     * Removes fish with 0 kg weight
+     */
+    const CA = Object.entries(fields.CA || {}).reduce((acc, [type, weight]) => {
+      if(weight) acc[type] = weight
+      return acc
+    }, {})
+    if (["FIS"].includes(AC)) message.CA = CA
     if (["OTB", "OTM", "TBS"].includes(GE)) message.GS = GS
     if (["OTB", "OTM", "SSC", "GEN", "TBS"].includes(GE)) message.ME = ME
     break
-
+  }
   case "POR": //["timestamp", "TM", "AD", "PO", "portArrival", "OB", "LS", "KG"]
     message = {
       ...message,
@@ -329,7 +333,7 @@ const generateTrips = messages => {
       }
       case "DCA": {
         if (!isTripFinished) {
-          Object.entries(message.CA).forEach(([type, weight]) => {
+          Object.entries(message.CA || {}).forEach(([type, weight]) => {
             if (acc[lastTripIndex].fish[type]) {
               acc[lastTripIndex].fish[type] += weight
             } else {

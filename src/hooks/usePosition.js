@@ -7,7 +7,7 @@ import {GEOPOINT} from "../lib/firebase"
  * responsive to position changes.
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
  */
-export default function useOnline() {
+export default function usePosition() {
   const [position, setPosition] = useState(GEOPOINT(0,0))
   const {notify} = useContext(Store)
   const id = useRef()

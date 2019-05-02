@@ -19,7 +19,7 @@ const DropdownMap = props => {
     <Paper elevation={4}>
       <DropdownMulti {...props}/>
       <Grid container direction="column">
-        {Object.entries(props.value).map(([key, value]) =>
+        {Object.entries(props.value || {}).map(([key, value]) =>
           <KeyValueInput
             dataId={key}
             disabled={props.disabled}

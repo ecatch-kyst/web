@@ -3,15 +3,21 @@ import {format as formatDate, isBefore, addHours, isDate} from "date-fns"
 export {flattenDoc} from "./firebase"
 export {validate} from './validate'
 
-export function deadline(timestamp) {
-  return addHours(timestamp, 12)
+/**
+ * Calculates the deadline for a date.
+ * @param {Date} timestamp
+ * @param {number} [offset=12] offset in hours
+ */
+export function deadline(timestamp, offset=12) {
+  return addHours(timestamp, offset)
 }
 
 /**
- * @param {Timestamp} timestamp time to check
+ * Is the deadline passed for a given timestamp
+ * @param {Date} timestamp time to check
  */
 export function deadlinePassed(timestamp) {
-  return timestamp && isBefore(addHours(timestamp, 12), new Date())
+  return timestamp && isBefore(deadline(timestamp), new Date())
 }
 
 /**

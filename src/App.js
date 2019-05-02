@@ -1,25 +1,15 @@
 import React from 'react'
-import {Route, Switch, withRouter, Redirect} from "react-router-dom"
+import {Redirect, Route, Switch, withRouter} from "react-router-dom"
 
 import {withTheme} from '@material-ui/core'
 
 import {routes as ROUTES} from './lib/router'
 
 import {
-  Landing,
-  Profile,
-  Register,
-  OfflineStatus,
-  Home,
-  NotFound,
-  Dialog,
-  Trips,
-  Messages,
-  Trip,
-  EditCatch,
-  Form,
-  Notification,
-  Preset
+  Dialog, EditCatch, Form, Home,
+  Landing, Messages, NotFound, Notification,
+  OfflineStatus, Preset, Profile, Register,
+  Trip, Trips
 } from './components'
 
 import Navigation from './Navigation'
@@ -39,7 +29,7 @@ const routes = [
   {component: Form, path: `${ROUTES.MESSAGES}/:type${ROUTES.NEW}`}
 ]
 
-export default withRouter(withTheme()(({theme: {palette: {type}}}) =>
+export const App = ({theme: {palette: {type}}}) =>
   <div className={`app ${type === "dark" ? "dark" : ""}`}>
     <Route component={Navigation}/>
     <Switch>
@@ -53,7 +43,8 @@ export default withRouter(withTheme()(({theme: {palette: {type}}}) =>
     <Notification/>
     <FirstTimeRedirect/>
   </div>
-))
+
+export default withRouter(withTheme()(App))
 
 
 /**

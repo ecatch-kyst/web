@@ -29,8 +29,6 @@
             "on": "AC",
             "when":["FIS","REL","SCR","TRX","SET","ANC","DRI","GUD","HAU","PRO","INW","SEF","OTH"]
           }
-
-
         },
         {
           "id": "expectedFishingStart",
@@ -39,7 +37,11 @@
         {
           "id": "DS",
           "dataId": "species",
-          "type": "select"
+          "type": "select",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS"]
+          }
         },
         {
           "id": "OB",

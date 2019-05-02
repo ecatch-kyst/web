@@ -17,9 +17,9 @@ const DropdownMulti = ({disabled, label, type, onChange, dataId, value, error, c
 
   useEffect(() => {
     setSelectValues(selectOptions.reduce((acc, o) =>
-      ({...acc, [o.value]: Object.keys(value).includes(o.value)})
+      ({...acc, [o.value]: Object.keys(value || {}).includes(o.value)})
     ,{}))
-  }, [Object.keys(value).length, open])
+  }, [Object.keys(value || {}).length, open])
 
   const handleSelectChange = name => () => {
     setSelectValues(s => ({...s, [name]: !s[name]}))
