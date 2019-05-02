@@ -17,14 +17,14 @@ const TableHead = ({namespace, order, orderBy, onRequestSort}) => {
 
   return (
     <MuiTableHead>
-      <TableRow>
+      <TableRow >
         {rows.map(({left, id, sortable, label, padding}) => {
           sortable = sortable === undefined
           return (
             <TableCell
-              padding={padding || "none"}
               align={left ? "left": "right"}
               key={id}
+              padding={padding || "dense"}
               sortDirection={orderBy === id ? order : false}
             >
               <Tooltip

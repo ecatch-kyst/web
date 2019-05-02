@@ -69,9 +69,9 @@ const base = {
         borderRadius: 32
       },
       sizeLarge: {
-        padding: '16px 30px',
+        padding: '16px 20px',
         borderRadius: 40,
-        fontSize: 25
+        fontSize: 23
       },
       containedPrimary: {
         boxShadow: "none"

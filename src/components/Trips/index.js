@@ -35,21 +35,23 @@ export default () => {
         </Grid>
       }
     >
-      {trips.length ?
-        <Table>
-          <TableHead
-            namespace="trips"
-            onRequestSort={handleRequestSort}
-            order={order}
-            orderBy={orderBy}
-          />
-          <TableBody>
-            {activeTrip ? <TripRow {...activeTrip}/> : null}
-            {mutatedTrips.map(trip => <TripRow key={trip.id} {...trip}/>)}
-          </TableBody>
-        </Table> :
-        <Loading/>
-      }
+      <div style={{maxWidth: "100vw", overflowX: "scroll"}}>
+        {trips.length ?
+          <Table >
+            <TableHead
+              namespace="trips"
+              onRequestSort={handleRequestSort}
+              order={order}
+              orderBy={orderBy}
+            />
+            <TableBody >
+              {activeTrip ? <TripRow {...activeTrip}/> : null}
+              {mutatedTrips.map(trip => <TripRow key={trip.id} {...trip}/>)}
+            </TableBody>
+          </Table> :
+          <Loading/>
+        }
+      </div>
     </Page>
   )
 }

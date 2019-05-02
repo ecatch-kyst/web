@@ -27,7 +27,6 @@ export const TIMESTAMP_SERVER = firebase.firestore.FieldValue.serverTimestamp()
 export const TIMESTAMP_CLIENT = firebase.firestore.Timestamp.now
 export const GEOPOINT = (lat, long) => new firebase.firestore.GeoPoint(lat, long)
 
-export const CONNECTION_REF = DB.ref(".info/connected")
 export const USERS_FS = FS.collection("users")
 
 export default firebase

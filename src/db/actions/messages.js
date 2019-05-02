@@ -116,7 +116,7 @@ export async function submit(message) {
   this.changeFishOnBoard(type)
   try {
 
-    if (this.state.isOffline) {
+    if (!navigator.onLine) {
       this.notify({name: `message.sent.offline`, type: "warning"})
     }
 

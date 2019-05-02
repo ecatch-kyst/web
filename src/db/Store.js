@@ -1,7 +1,6 @@
 import React, {Component, createContext} from "react"
 import {withRouter} from "react-router-dom"
 import initValues from "./initialValues.json"
-import {CONNECTION_REF} from "../lib/firebase"
 
 import {
   darkMode,
@@ -21,9 +20,7 @@ export const Database = withRouter(class extends Component {
   state = initValues
 
   async componentDidMount() {
-
     this.initDarkMode()
-
     this.userLogin({afterLogin: () => {
       this.subscribeToMessages()
       this.subscribeToLocation()
@@ -36,21 +33,6 @@ export const Database = withRouter(class extends Component {
       this.subscribeToCustomList("ZO")
       this.subscribeToFishOnBoard()
     }})
-
-    setTimeout(() => {
-      CONNECTION_REF
-        .on("value", snap => {
-          const isOffline = !snap.val()
-
-          isOffline &&
-            this.notify({
-              name: "offline", type: "error", action: () => window.location.reload(), duration: 5000
-            })
-          this.setState({isOffline})
-        })
-    }, 2500
-    )
-
   }
 
   // Custom lists

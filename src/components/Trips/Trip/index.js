@@ -64,7 +64,7 @@ export default withRouter(Trip)
 export const TripOverview = ({DEP, POR, DCAList, fish}) =>
   <>
     <Divider/>
-    <Grid alignItems="center" container item spacing={16} style={{padding: 16}}>
+    <Grid alignItems="center" container item style={{padding: 16}}>
       <Grid component={Button} item style={{margin: 4}} variant="outlined">
         <Typography variant="h6">
           DEP

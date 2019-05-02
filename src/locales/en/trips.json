@@ -1,7 +1,7 @@
 {
 	"titles": {
 		"main": "Trips",
-		"enRoute": "En route",
+		"enRoute": "Show active trip",
 		"switch": {
 			"trips": "Show message log",
 			"messages": "Show trips"
@@ -23,6 +23,7 @@
 			"label": "To"
 		},
 		{
+      "left": true,
 			"id": "start",
 			"label": "Start"
 		},

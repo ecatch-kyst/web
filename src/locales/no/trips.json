@@ -1,7 +1,7 @@
 {
 	"titles": {
 		"main": "Turer",
-		"enRoute": "På tur",
+		"enRoute": "Vis aktiv tur",
 		"switch": {
 			"trips": "Vis meldingslogg",
 			"messages": "Vis turer"
@@ -23,6 +23,7 @@
 			"label": "Til"
 		},
 		{
+      "left": true,
 			"id": "start",
 			"label": "Start"
 		},
