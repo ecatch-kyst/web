@@ -54,7 +54,7 @@ export function construct(type) {
 
   let message = {
     TM: type,
-    RN: messages[messages.length - 1].RN + 1,
+    RN: messages.length ? messages[messages.length - 1].RN + 1 : 1,
     /*
      * NOTE: This is not the same as TIMESTAMP_CLIENT! This will be evaluated
      * to an actual Timestamp object on server-side,

@@ -79,7 +79,7 @@
     }
   },
   "fields": {
-      "ivalid-coordinates": {
+      "invalid-coordinates": {
         "error": "Ugyldig koordinater"
       },
       "invalid-latitude": {

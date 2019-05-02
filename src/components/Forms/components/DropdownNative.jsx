@@ -20,6 +20,8 @@ const style = theme => ({
   }
 })
 
+// REVIEW: expectedFishingSpot makes the component a bit bloated. Separate into a DropwodnLocation?
+
 const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, classes}) => {
 
   let AddOption
@@ -30,8 +32,14 @@ const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, 
 
   let selectOptions = allOptions
 
-  const handleChange = ({target: {value}}) =>
-    onChange({name: dataId, value: isNaN(value) ? value : parseInt(value, 10)})
+  const handleChange = ({target: {value}}) => {
+    if (type === "expectedFishingSpot") {
+      value = selectOptions.find(s => s.id === value)
+      if(value) onChange({name: dataId, value: value.value})
+    } else {
+      onChange({name: dataId, value: isNaN(value) ? value : parseInt(value, 10)})
+    }
+  }
 
   if (["ports", "fishingGear", "activity", "species", "fishingPermit", "ZO"].includes(type)) {
     const favorites = custom[type].map(p => allOptions.find(o => o.value === p.value))
@@ -93,12 +101,12 @@ const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, 
 
 
 const SelectOptions = memo(({selectOptions=[]}) =>
-  selectOptions.map(({label, options, value}) =>
+  selectOptions.map(({label, options, value, id}) =>
     !options ?
-      <option key={value} value={value}>{label}</option> :
+      <option key={id || value} value={id || value}>{label}</option> :
       <optgroup key={label} label={label}>
-        {options.map(({value, label}) =>
-          <option key={value} value={value}>{label}</option>
+        {options.map(({id, value, label}) =>
+          <option key={id || value} value={id || value}>{label}</option>
         )}
       </optgroup>
   ), ({selectOptions: [pOption]}, {selectOptions: [option]}) => pOption && option && option.value === pOption.value // REVIEW:

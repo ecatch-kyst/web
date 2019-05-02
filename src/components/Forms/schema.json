@@ -90,8 +90,8 @@
           "id": "GS",
           "type": "select",
           "dependent":{
-          "on":"GE",
-          "when": ["OTB", "OTM", "TBS"]
+            "on":"GE",
+            "when": ["OTB", "OTM", "TBS"]
           }
         }
       ]
