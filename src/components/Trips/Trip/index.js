@@ -61,8 +61,11 @@ export const Trip = ({match: {params: {tripId}}}) => {
 export default withRouter(Trip)
 
 
-export const TripOverview = ({DEP, POR, DCAList, fish}) =>
-<>
+export const TripOverview = ({DEP, POR, DCAList, fish}) => {
+  const [t] = useTranslation("trips")
+
+  return (
+    <>
     <Divider/>
     <Grid alignItems="center" container item style={{padding: 16}}>
       {/* TODO: Clicking on this should show an uneditable message overview */}
@@ -97,7 +100,9 @@ export const TripOverview = ({DEP, POR, DCAList, fish}) =>
     </Grid>
     <Divider/>
     <Grid item>
-      <Typography style={{padding: 16}} variant="h5">Trip Overview</Typography>
+      <Typography style={{padding: 16}} variant="h5">{t("overview.title")}</Typography>
       <DCAOverview fish={fish} list={DCAList}/>
     </Grid>
   </>
+  )
+}

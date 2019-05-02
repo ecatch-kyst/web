@@ -5,11 +5,12 @@ import {
 import {useTranslation} from 'react-i18next'
 
 export const DCAOverview = memo(({list, fish}) => {
+  const [t] = useTranslation("trips")
 
   if (list.length === 0) {
     return (
       <Typography style={{padding: 16}}>
-        No catch messages yet...
+        {t("overview.no-catch")}
       </Typography>
     )
   }
@@ -17,12 +18,12 @@ export const DCAOverview = memo(({list, fish}) => {
 
   return (
     <Grid container item md={3} sm={6}>
-      <Typography>Fish caught</Typography>
+      <Typography style={{paddingLeft: 20}}>{t("overview.fish-caught")}</Typography>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Species</TableCell>
-            <TableCell>Weight</TableCell>
+            <TableCell>{t("overview.species")}</TableCell>
+            <TableCell>{t("overview.weight")}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -31,7 +32,7 @@ export const DCAOverview = memo(({list, fish}) => {
           )}
           <TableRow>
             <TableCell>
-              Total
+              {t("overview.total")}
             </TableCell>
             <TableCell>
               {Object.values(fish).reduce((acc, weight) => acc+weight, 0)}kg
