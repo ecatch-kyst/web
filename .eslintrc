@@ -10,6 +10,7 @@
   },
   "parser":"babel-eslint",
   "rules": {
+    "object-shorthand":"error",
     "multiline-comment-style": ["error", "starred-block"],
     "no-irregular-whitespace":"error",
     "require-jsdoc":"warn",
