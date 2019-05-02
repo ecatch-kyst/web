@@ -1,4 +1,4 @@
-{
+ {
 	"titles": {
 		"main": "Trips",
 		"enRoute": "Show active trip",
@@ -7,9 +7,17 @@
 			"messages": "Show trips"
 		}
 	},
+	"overview": {
+		"title": "Trip Overview ",
+		"no-catch": "No catch messages yet...",
+		"fish-caught": "Catch",
+		"species": "Species",
+		"weight": "Weight",
+		"total": "Total"
+	},
 	"tooltips": {
 		"sort": "Sort",
-		"enRoute": "Ongoing trip"
+		"enRoute": "Ongoing trip" 
 	},
 	"table-head-rows": [
 		{
