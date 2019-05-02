@@ -43,7 +43,7 @@ const Form = ({match: {path, params: {type}}, history}) => {
   const position = usePosition()
   const [t] = useTranslation("forms")
   const {
-    handleFieldChange, messages, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies], ZO: [firstZO]}, fields
+    handleFieldChange, messages, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies], ZO: [firstZO]}, fields, custom
   } = useContext(Store)
 
   const prefill = () => {
@@ -149,7 +149,7 @@ const Form = ({match: {path, params: {type}}, history}) => {
 
   useEffect(() => {
     prefill()
-  }, [position.latitude, position.longitude, messages.length])
+  }, [position.latitude, position.longitude, messages.length, custom, fishOnBoard])
 
   const toDashboard = () => {
     history.push(routes.HOMEPAGE)
@@ -183,8 +183,8 @@ const Form = ({match: {path, params: {type}}, history}) => {
             </Card>
           )}
         </Grid>
-        <Grid container item justify="center" spacing={16}>
-          <Grid item>
+        <Grid container item justify="center" style={{padding: 16}}>
+          <Grid item style={{marginRight: 16}}>
             <Button
               color="secondary"
               component={Link}

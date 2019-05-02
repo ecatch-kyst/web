@@ -1,7 +1,7 @@
-import React, {memo, useContext} from 'react'
+import React, {useContext} from 'react'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
-import {withStyles, FormHelperText, Input, Select, Grid} from '@material-ui/core'
+import {withStyles, Input, Select, Grid} from '@material-ui/core'
 import {useTranslation} from 'react-i18next'
 import {GEOPOINT} from '../../../lib/firebase'
 import Store from '../../../db'
@@ -87,20 +87,19 @@ const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, 
             value={selectOption ? selectOption.id || selectOption.value : ""}
           >
             <SelectOptions selectOptions={selectOptions}/>
-            <option value="" />
           </Select>
         </Grid>
         <Grid item style={{padding: "16px 8px 8px"}}>
           {AddOption ? <AddOption/> : null}
         </Grid>
       </Grid>
-      {error ? <FormHelperText>Error</FormHelperText> : null}
+      {/* {error ? <FormHelperText>This is an error</FormHelperText> : null} TODO: Show error message*/}
     </FormControl>
   )
 }
 
 
-const SelectOptions = memo(({selectOptions=[]}) =>
+const SelectOptions = ({selectOptions=[]}) =>
   selectOptions.map(({label, options, value, id}) =>
     !options ?
       <option key={id || value} value={id || value}>{label}</option> :
@@ -109,7 +108,6 @@ const SelectOptions = memo(({selectOptions=[]}) =>
           <option key={id || value} value={id || value}>{label}</option>
         )}
       </optgroup>
-  ), ({selectOptions: [pOption]}, {selectOptions: [option]}) => pOption && option && option.value === pOption.value // REVIEW:
-)
+  )
 
 export default withStyles(style)(DropdownNative)
