@@ -26,13 +26,13 @@ export async function add(type, index){
     }))
 
     this.notify({
-      name: `customLists.${type}.added`,
+      name: `customLists.added`,
       type: "success"
     })
 
   } catch (e) {
     this.notify({
-      name: `customLists.${type}.added`,
+      name: `customLists.added`,
       type: "error",
       message: [e.code, e.message].join(": ")
     })

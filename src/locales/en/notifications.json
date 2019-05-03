@@ -27,6 +27,10 @@
     }
   },
   "customLists": {
+    "added": {
+      "error": "Something went wrong: {{message}}",
+      "success": "Saved"
+    },
     "subscribe": {
       "error": "Something went wrong {{message}}"
     },

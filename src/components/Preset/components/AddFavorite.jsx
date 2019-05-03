@@ -19,7 +19,7 @@ export default ({type, numberOfChoices}) => {
   const handleChange = index => ({target: {value}}) =>
     handleCustomListChange({
       name: "value",
-      value,
+      value: isNaN(value) ? value : parseInt(value, 10),
       callback: () => addToCustomList(type, `${index}`)})
 
   // This will render a grid in a grid with numberOfChoice select for favorites

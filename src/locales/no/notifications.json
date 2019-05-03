@@ -27,6 +27,10 @@
     }
   },
   "customLists": {
+    "added": {
+      "error": "Noe gikk galt: {{message}}",
+      "success": "Lagret"
+    },
     "subscribe": {
       "error": "Noe gikk galt: {{message}}"
     },
