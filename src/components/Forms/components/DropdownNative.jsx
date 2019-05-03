@@ -35,6 +35,7 @@ const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, 
   const handleChange = ({target: {value}}) => {
     if (type === "expectedFishingSpot") {
       value = selectOptions.find(s => s.id === value)
+
       if(value) onChange({name: dataId, value: value.value})
     } else {
       onChange({name: dataId, value: isNaN(value) ? value : parseInt(value, 10)})
