@@ -1,11 +1,19 @@
 {
 	"titles": {
 		"main": "Turer",
-		"enRoute": "På tur",
+		"enRoute": "Vis aktiv tur",
 		"switch": {
 			"trips": "Vis meldingslogg",
 			"messages": "Vis turer"
 		}
+	},
+	"overview": {
+		"title": "Turoversikt",
+		"no-catch": "Ingen fangst meldinger...",
+		"fish-caught": "Fangst",
+		"species": "Art",
+		"weight": "Vekt",
+		"total": "Total"
 	},
 	"tooltips": {
 		"sort": "Sorter",
@@ -23,6 +31,7 @@
 			"label": "Til"
 		},
 		{
+      "left": true,
 			"id": "start",
 			"label": "Start"
 		},

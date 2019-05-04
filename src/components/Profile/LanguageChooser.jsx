@@ -1,14 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Select, MenuItem, Typography} from "@material-ui/core"
 import {useTranslation} from "react-i18next"
-import {languages} from "../../locales/locales.json"
-import {useStore} from '../../hooks'
+import locales from "../../locales"
+import Store from '../../db'
 
 export default () => {
 
   const i18n = useTranslation("profile")[1]
 
-  const {notify} = useStore()
+  const {notify} = useContext(Store)
 
   const changeLanguage = ({target: {value}}) => {
     localStorage.setItem("preferredLanguage", value)
@@ -22,7 +22,7 @@ export default () => {
       onChange={changeLanguage}
       value={i18n.language}
     >
-      {languages.map(({code, title, flag}) =>
+      {locales.languages.map(({code, title, flag}) =>
         <MenuItem
           key={code}
           selected

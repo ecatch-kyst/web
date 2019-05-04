@@ -68,7 +68,6 @@ export class Register extends Component {
             <Button
               color="secondary"
               onClick={this.handleSubmitRegistration}
-              size="large"
               type="submit"
               variant="contained"
             >

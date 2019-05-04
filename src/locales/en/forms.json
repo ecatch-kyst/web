@@ -1,9 +1,10 @@
 {
   "links": {
     "DEP": "Report departure (DEP)",
-    "DCA0": "Start catch (DCA)",
-    "DCA": "Report catch (DCA)",
-    "POR": "Port call (POR)",
+    "DCA0": "Start DCA",
+    "DCA0Edit": "Edit DCA start",
+    "DCA": "Register DCA",
+    "POR": "Port call POR",
     "back": "Back"
   },
   "DEP": {
@@ -18,18 +19,21 @@
     "title": "Start DCA",
     "submit": "Start",
     "steps": {
-      "0": "title", 
-      "location": "Location",
-      "fishing": "Fishing"
+      "0": "Title",
+      "start": "Start",
+      "activity": "Activity",
+      "zone": "Zone",
+      "permit": "Fishing permit"
     }
   },
   "DCA": {
     "title": "DCA",
-    "submit": "Send catch report",
+    "submit": "Send DCA",
     "steps": {
       "0": "Fishingstart & quota",
       "location": "Location",
-      "fishing": "Activity, catch and fishing tools"
+      "fishing": "Activity, catch and fishing tools",
+      "catch": "Catch"
     }
   },
   "POR": {
@@ -37,7 +41,8 @@
     "submit": "Report port call",
     "steps": [
       "Port",
-      "Fish"
+      "Fish onboard",
+      "Delivery"
     ]
   },
   "labels": {
@@ -52,7 +57,7 @@
     "LO": "Longitude",
     "portArrival": "Estimated time of arrival",
     "LS": "Fish landing",
-    "KG": "Total catch sorted by fishtype",
+    "KG": "Catch for delivery",
     "QI": "Fishing permit",
     "ZO": "Fishing zone",
     "fishingStart": "Start of fishing",

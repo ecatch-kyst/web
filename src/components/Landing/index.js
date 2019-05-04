@@ -23,7 +23,7 @@ class Landing extends Component {
   handleChange = ({target: {name, value}}) => this.setState({[name]: value})
 
   handleSubmit = e => {
-    e.preventDefault && e.preventDefault()
+    e.preventDefault()
     this.handleUserLogin()
   }
 
@@ -76,7 +76,6 @@ class Landing extends Component {
                     <Button
                       color="secondary"
                       onClick={this.handleUserLogin}
-                      size="large"
                       type="submit"
                       variant="contained"
                     >
@@ -91,16 +90,15 @@ class Landing extends Component {
                     >{t("landing.forgot-password")}
                     </MuiLink>
                   </Grid>
-                  <Grid item>
+                  {/* <Grid item> //REVIEW: Delete?
                     <Button
                       color="primary"
                       component={Link}
-                      size="large"
                       to={routes.REGISTER}
                     >
                       {t("landing.register")}
                     </Button>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Grid>
             </CardActions>

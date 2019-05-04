@@ -24,6 +24,10 @@
           "type": "select",
           "options": {
             "customizable": true
+          },
+          "dependent":{
+            "on": "AC",
+            "when":["FIS","REL","SCR","TRX","SET","ANC","DRI","GUD","HAU","PRO","INW","SEF","OTH"]
           }
         },
         {
@@ -33,13 +37,18 @@
         {
           "id": "DS",
           "dataId": "species",
-          "type": "select"
+          "type": "select",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS"]
+          }
         },
         {
           "id": "OB",
           "dataId": "species",
           "type": "select-map",
           "options": {
+            "disabled": true,
             "unit": "kg",
             "inputType": "number",
             "isMulti": true
@@ -81,8 +90,8 @@
           "id": "GS",
           "type": "select",
           "dependent":{
-          "on":"GE",
-          "when": ["OTB", "OTM", "TBS"]
+            "on":"GE",
+            "when": ["OTB", "OTM", "TBS"]
           }
         }
       ]
@@ -184,9 +193,6 @@
           "type": "select"
         },
         {
-          "id": "LS"
-        },
-        {
           "id": "portArrival",
           "type": "datetime-local"
         }
@@ -200,12 +206,20 @@
           "dataId": "species",
           "type": "select-map",
           "options": {
+            "disabled": true,
             "unit": "kg",
             "inputType": "number",
             "isMulti": true
           }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "step": [{
+          "id": "LS"
         },
-        {
+        { 
           "id": "KG",
           "dataId": "species",
           "type": "select-map",

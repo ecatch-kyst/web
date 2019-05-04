@@ -1,22 +1,28 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-import {routes} from "../../lib/router"
-import {useTranslation} from 'react-i18next'
-import Form from './Form'
-import {Button, Grid} from '@material-ui/core'
-import {useStore} from '../../hooks'
+import React, {useContext} from 'react'
 
+import Form from './Form'
+import {Grid} from '@material-ui/core'
+import Store from '../../db'
+import {FormButton} from './FormButton'
 export {Form}
 
 
-export default props => {
-  const {isEnRoute, trips, DCAStarted} = useStore()
+export const Forms = props => {
+  const {isEnRoute, trips, DCAStarted} = useContext(Store)
   return (
-    <Grid alignItems="center" container direction="column" spacing={16} style={{padding: 16}} {...props}>
-      {isEnRoute ?
+    <Grid
+      alignItems="center"
+      container
+      direction="column"
+      {...props}
+    >
+      {isEnRoute ? // This block is only shown if a DEP has been submitted, but no POR yet.
           <>
+            {/**DCA button only displayed, when a DCA0 form is submitted*/}
             <FormButton show={DCAStarted && (trips[0] && !trips[0].isFinished)} type="DCA"/>
-            <FormButton type="DCA0"/>
+            {/**DCA button only displayed, when a DCA0 form is submitted*/}
+            <FormButton DCAStarted={DCAStarted} type="DCA0"/>
+            {/**POR button only displayed, when the last trip has some DCA messages*/}
             <FormButton show={trips[0] && trips[0].DCAList.length} type="POR"/>
           </> :
         <FormButton type="DEP"/>
@@ -25,24 +31,5 @@ export default props => {
   )
 }
 
-export const FormButton = ({type, show}) => {
-  const [t] = useTranslation("forms")
-  return(
-    show ?
-      <Grid item>
-        <Button
-          color="primary"
-          component={Link}
-          size="large"
-          to={`${routes.MESSAGES}${routes[type]}${routes.NEW}`}
-          variant="contained"
-        >
-          {t(`links.${type}`)}
-        </Button>
-      </Grid> : null
-  )
-}
+export default Forms
 
-FormButton.defaultProps = {
-  show: true
-}

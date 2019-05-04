@@ -1,10 +1,9 @@
 import React from 'react'
-import CheckIcon from "@material-ui/icons/CheckOutlined"
-import CloseIcon from "@material-ui/icons/CloseOutlined"
-import HourglassIcon from "@material-ui/icons/HourglassEmptyOutlined"
+
 import {colors} from '../../lib/material-ui'
 import {useTranslation} from 'react-i18next'
-import {Tooltip} from '@material-ui/core'
+import {Tooltip, Typography, Grid} from '@material-ui/core'
+import {CheckIcon, CloseIcon, HourglassIcon} from '../../icons'
 
 const {yellow, green, red} = colors
 
@@ -33,7 +32,12 @@ export const Status = ({result}) => {
 
   return (
     <Tooltip title={t(`tooltips.${type}`)}>
-      <Icon style={{color}}/>
+      <Grid container justify="center">
+        <Typography>
+          {result.RS || t("titles.pending")}
+        </Typography>
+        <Icon style={{color}}/>
+      </Grid>
     </Tooltip>
   )
 }

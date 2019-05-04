@@ -1,15 +1,23 @@
-{
+ {
 	"titles": {
 		"main": "Trips",
-		"enRoute": "En route",
+		"enRoute": "Show active trip",
 		"switch": {
 			"trips": "Show message log",
 			"messages": "Show trips"
 		}
 	},
+	"overview": {
+		"title": "Trip Overview ",
+		"no-catch": "No catch messages yet...",
+		"fish-caught": "Catch",
+		"species": "Species",
+		"weight": "Weight",
+		"total": "Total"
+	},
 	"tooltips": {
 		"sort": "Sort",
-		"enRoute": "Ongoing trip"
+		"enRoute": "Ongoing trip" 
 	},
 	"table-head-rows": [
 		{
@@ -23,6 +31,7 @@
 			"label": "To"
 		},
 		{
+      "left": true,
 			"id": "start",
 			"label": "Start"
 		},

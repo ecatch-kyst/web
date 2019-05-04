@@ -1,9 +1,9 @@
 import React from 'react'
-import {Grid} from '@material-ui/core'
+import {Grid, Paper, InputLabel} from '@material-ui/core'
 
 import TextInput from './TextInput'
-import Dropdown from './Dropdown'
 import {useTranslation} from 'react-i18next'
+import DropdownMulti from './DropdownMulti'
 
 const DropdownMap = props => {
 
@@ -16,12 +16,14 @@ const DropdownMap = props => {
 
 
   return (
-    <>
-      <Dropdown {...props}/>
-      <Grid container direction="column" spacing={16} style={{padding: 16}}>
-        {Object.entries(props.value).map(([key, value]) =>
+    <Paper style={{padding: 8}}>
+      <InputLabel >{props.label}</InputLabel>
+      <DropdownMulti {...props}/>
+      <Grid container direction="column">
+        {Object.entries(props.value || {}).map(([key, value]) =>
           <KeyValueInput
             dataId={key}
+            disabled={props.disabled}
             inputType={props.inputType}
             key={key}
             onChange={handleKeyValueChange}
@@ -31,7 +33,7 @@ const DropdownMap = props => {
           />
         )}
       </Grid>
-    </>
+    </Paper>
   )
 }
 

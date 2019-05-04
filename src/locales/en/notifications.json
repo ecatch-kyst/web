@@ -27,6 +27,10 @@
     }
   },
   "customLists": {
+    "added": {
+      "error": "Something went wrong: {{message}}",
+      "success": "Saved"
+    },
     "subscribe": {
       "error": "Something went wrong {{message}}"
     },
@@ -38,7 +42,7 @@
     }
   },
   "offline": {
-    "error": "You are offline.",
+    "warning": "You are offline.",
     "action": "Reload page"
   },
   "position": {
@@ -81,6 +85,32 @@
   "edit": {
     "message": {
       "submit": "Submit"
+    } 
+  },
+  "fields": {
+    "ivalid-coordinates": {
+      "error": "Invalid coordinates"
+    },
+    "invalid-latitude": {
+      "error": "Invalid latitude"
+    },
+    "invalid-longitude": {
+      "error": "Invalid longitude"
+    },
+    "invalid-type": {
+      "error": "Invalid type"
+    },
+    "invalid-weight": {
+      "error": "Weight must be greater than 0kg"
+    },
+    "invalid-date": {
+      "error": "Invalid date"
+    },
+    "invalid-format": {
+      "error": "Invalid format"
+    },
+    "invalid-form": {
+      "error": "Please correct the highlighted fields"
     }
   }
 }

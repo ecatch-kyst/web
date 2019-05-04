@@ -1,9 +1,10 @@
 {
   "links": {
-    "DEP": "Meld avgang (DEP)",
-    "DCA0": "Start fangst (DCA)",
-    "DCA": "Avslutt fangst (DCA)",
-    "POR": "Havneanløp (POR)",
+    "DEP": "Meld DEP",
+    "DCA0": "Start DCA",
+    "DCA0Edit": "Rediger DCA start",
+    "DCA": "Registrer DCA",
+    "POR": "Havneanløp POR",
     "back": "Tilbake"
   },
   "DEP": {
@@ -27,7 +28,7 @@
   },
   "DCA": {
     "title": "DCA",
-    "submit": "Meld fangst",
+    "submit": "Meld DCA",
     "steps": {
       "0": "Fiskestart og kvote",
       "location": "Lokasjon",
@@ -40,14 +41,15 @@
     "submit": "Meld hjemreise",
     "steps": [
       "Havn",
-      "Fisk"
+      "Fisk ombord",
+      "Levering"
     ]
   },
   "labels": {
     "AC": "Hovedaktivitet",
     "DS": "Målart",
     "PO": "Velg havn",
-    "expectedFishingStart": "Estimert tidspunkt for fiskestart",
+    "expectedFishingStart": "Estimert fiskestart",
     "expectedFishingSpot": "Forventet fiskested",
     "OB": "Fisk ombord",
     "departure": "Avgangstid",
@@ -55,12 +57,12 @@
     "LO": "Lengdegrad",
     "portArrival": "Estimert ankomsttid",
     "LS": "Mottak",
-    "KG": "Legg inn fangst",
+    "KG": "Fangst til levering",
     "QI": "Fisketillatelse",
     "ZO": "Fiskesone",
     "fishingStart": "Start av fiske",
-    "startFishingSpot": "Start fiskeplass",
-    "endFishingSpot": "Slutt fiskeplass",
+    "startFishingSpot": "Start fiskested",
+    "endFishingSpot": "Slutt fiskested",
     "geopoint": {
       "latitude": "Breddegrad N→90°, S→-90°",
       "longitude": "Lengdegrad Ø→180°, V→-180°"

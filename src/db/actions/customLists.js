@@ -2,6 +2,8 @@ import {AUTH, USERS_FS} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
 
 
+// REVIEW: ♻ refactor/simplify?
+
 /**
  * Submit a custom input to a custom list to firebase
  * @param {string} type type of custom list
@@ -24,13 +26,13 @@ export async function add(type, index){
     }))
 
     this.notify({
-      name: `customLists.${type}.added`,
+      name: `customLists.added`,
       type: "success"
     })
 
   } catch (e) {
     this.notify({
-      name: `customLists.${type}.added`,
+      name: `customLists.added`,
       type: "error",
       message: [e.code, e.message].join(": ")
     })

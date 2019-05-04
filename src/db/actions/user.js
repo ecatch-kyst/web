@@ -32,7 +32,8 @@ export async function login({email, password, afterLogin=null}) {
 /**
  * Logs the user out
  */
-export async function logout() { // TODO: Tear down database subscriptions
+export async function logout() {
+  // TODO: Tear down database subscriptions
   try {
     await AUTH.signOut()
     this.notify({name:"logout"})

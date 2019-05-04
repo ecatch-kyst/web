@@ -1,11 +1,12 @@
 {
 	"buttons": {
-		"add-fishinggrounds": "Legg til ny fiskeplass",
+		"add-fishinggrounds": "Legg til ny fiskested",
 		"my-messages": "Mine meldinger",
-		"report-catch": "Meld fangst",
+		"report-catch": "Meld DCA",
 		"report-fishing": "Rapporter inn",
-		"return-journey": "Meld hjemreise"
-	},
+		"return-journey": "Meld hjemreise (POR)"
+  },
+  "select": "Select...",
 	"negative": {
 		"cancel-message": "Avbryt"
 	},
@@ -18,7 +19,7 @@
 		"back": "Tilbake"
 	},
 	"navigation": {
-		"homepage": "Homepage",
+		"homepage": "Hjem",
 		"profile": "Profil",
 		"messages": "Meldinger",
 		"trips": "Turer",

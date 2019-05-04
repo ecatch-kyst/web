@@ -27,18 +27,22 @@
     }
   },
   "customLists": {
+    "added": {
+      "error": "Noe gikk galt: {{message}}",
+      "success": "Lagret"
+    },
     "subscribe": {
       "error": "Noe gikk galt: {{message}}"
     },
     "fishingSpots": {
       "added": {
         "error": "Noe gikk galt: {{message}}",
-        "success": "Fiskeplass lagt til"
+        "success": "Fiskested lagt til"
       }
     }
   },
   "offline": {
-    "error": "Du er offline.",
+    "warning": "Du er offline.",
     "action": "Last inn på nytt"
   },
   "position": {
@@ -52,7 +56,7 @@
   "login": {
     "default": "Du er nå logget inn.",
     "error": {
-      "auth/invalid-email": "Ugyldig e-post.",
+      "auth/invalid-email": "Ugyldig e-post",
       "auth/wrong-password": "Feil passord",
       "auth/user-not-found": "Det finnes ingen bruker med dette brukernavnet eller passordet",
       "auth/user-disabled": "Brukeren er deaktivert, kontakt kundeservice",
@@ -64,18 +68,44 @@
     "warning": ""
   },
   "logout": {
-    "default": "Du er nå logget ut.",
-    "error": "Det oppstod en feil ved utlogging."
+    "default": "Du er nå logget ut",
+    "error": "Det oppstod en feil ved utlogging"
   },
   "language": {
-    "default": "Språket har endret seg."
+    "default": "Språket har endret seg"
   },
   "darkMode": {
     "on": {
-      "default": "Nattmodus ble slått på."
+      "default": "Nattmodus ble slått på"
     },
     "off": {
-      "default": "Nattmodus ble slått av."
+      "default": "Nattmodus ble slått av"
     }
-  }
+  },
+  "fields": {
+      "invalid-coordinates": {
+        "error": "Ugyldig koordinater"
+      },
+      "invalid-latitude": {
+        "error": "Ugyldig breddegrad"
+      },
+      "invalid-longitude": {
+        "error": "Ugyldig lengdegrad"
+      },
+      "invalid-type": {
+        "error": "Ugyldig type"
+      },
+      "invalid-weight": {
+        "error": "Vekt må være større enn 0kg"
+      },
+      "invalid-date": {
+        "error": "Ugyldig dato"
+      },
+      "invalid-format": {
+        "error": "Ugyldig format"
+      },
+      "invalid-form": {
+        "error": "Vennligst korriger de markerte feltene"
+      }
+    }
 }

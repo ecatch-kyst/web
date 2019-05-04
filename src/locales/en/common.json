@@ -2,9 +2,9 @@
 	"buttons": {
 		"add-fishinggrounds": "Add a new fishingspot",
 		"my-messages": "My messages",
-		"report-catch": "Report catch",
+		"report-catch": "Report DCA",
 		"report-fishing": "Send",
-		"return-journey": "Report return journey"
+		"return-journey": "Report return journey (POR)"
 	},
 	"negative": {
 		"cancel-message": "Cancel"
@@ -18,7 +18,7 @@
 		"back": "Back"
 	},
 	"navigation": {
-		"homepage": "HomePage",
+		"homepage": "Home",
 		"profile": "Profile",
 		"messages": "Messages",
 		"trips": "Trips",

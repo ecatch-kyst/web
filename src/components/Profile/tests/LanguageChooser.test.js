@@ -12,12 +12,14 @@ jest.mock("../../../hooks", () => ({
   })
 }))
 
-// jest.mock("react-i18next", () => ({
-//   useTranslation: () => ([
-//     t => t,
-//     {changeLanguage: jest.fn()}
-//   ])
-// }))
+/*
+ * jest.mock("react-i18next", () => ({
+ *   useTranslation: () => ([
+ *     t => t,
+ *     {changeLanguage: jest.fn()}
+ *   ])
+ * }))
+ */
 
 describe("LanguageChooser component", () => {
 

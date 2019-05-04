@@ -1,13 +1,17 @@
 {
   "labels": {
     "favorites": "Favoritter",
-    "all": "Alle"
+    "all": "Alle",
+    "species": {
+      "button": "Endre fisk",
+      "title": "Velg artene"
+    }
   },
   "customLists": {
     "fishingSpots": {
-      "button": "Legg til fiskeplass",
+      "button": "Legg til fiskested",
       "coordinates": "Koordinater",
-      "label": "Gi et navn til din fiskeplass"
+      "label": "Gi et navn til din fiskested"
     }
   },
   "ports": [{
@@ -41,7 +45,7 @@
       "latitude": "00808E"
     },
     {
-      "value": "DKBLUE",
+      "value": "DKBLU",
       "label": "Baelum",
       "longitude": "5649N",
       "latitude": "01006E"
@@ -299,7 +303,12 @@
       "label": "Bunntrål, reker"
     }
   ],
-  "species": [{
+  "species": [
+    {
+      "value": "COD",
+      "label": "Torsk"
+    },
+    {
       "value": "AJC",
       "label": "Butare"
     },

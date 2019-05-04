@@ -46,6 +46,7 @@ const GeoPointInput = ({disabled, dataId, label, onChange, value}) => {
         name={degree}
         onBlur={handleBlur}
         onChange={handleChange}
+        style={{marginTop: 8}}
         type="number"
         value={localValue[degree] || ""}
       />

@@ -39,13 +39,15 @@ module.exports = {
     t => t,
     {changeLanguage: jest.fn()}
   ])
-  // mock if needed
-  // Interpolate: reactI18next.Interpolate,
-  // I18nextProvider: reactI18next.I18nextProvider,
-  // loadNamespaces: reactI18next.loadNamespaces,
-  // reactI18nextModule: reactI18next.reactI18nextModule,
-  // setDefaults: reactI18next.setDefaults,
-  // getDefaults: reactI18next.getDefaults,
-  // setI18n: reactI18next.setI18n,
-  // getI18n: reactI18next.getI18n
+  /*
+   * mock if needed
+   * Interpolate: reactI18next.Interpolate,
+   * I18nextProvider: reactI18next.I18nextProvider,
+   * loadNamespaces: reactI18next.loadNamespaces,
+   * reactI18nextModule: reactI18next.reactI18nextModule,
+   * setDefaults: reactI18next.setDefaults,
+   * getDefaults: reactI18next.getDefaults,
+   * setI18n: reactI18next.setI18n,
+   * getI18n: reactI18next.getI18n
+   */
 }

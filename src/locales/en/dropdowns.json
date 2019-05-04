@@ -1,7 +1,11 @@
 {
   "labels": {
     "favorites": "Favorites",
-    "all": "All"
+    "all": "All",
+    "species": {
+      "button": "Change fish",
+      "title": "Select the species"
+    }
   },
   "customLists": {
     "fishingSpots": {
@@ -41,7 +45,7 @@
       "latitude": "00808E"
     },
     {
-      "value": "DKBLUE",
+      "value": "DKBLU",
       "label": "Baelum",
       "longitude": "5649N",
       "latitude": "01006E"
@@ -298,7 +302,8 @@
       "label": "Bottom trawls - prawns"
     }
   ],
-  "species": [{
+  "species": [
+    {
       "value": "COD",
       "label": "Atlantic cod"
     },
