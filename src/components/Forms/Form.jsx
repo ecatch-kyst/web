@@ -1,177 +1,248 @@
-import React, {Component} from 'react'
+import React, {memo, useContext, useEffect} from 'react'
 
-import {Link, Redirect, withRouter} from "react-router-dom"
-import forms from "./forms.json"
-import {Grid, Button, Divider, Typography} from '@material-ui/core'
+import {Link, withRouter} from "react-router-dom"
+import schema from "./schema.json"
+import {Grid, Button, Typography, Card, CardHeader, CardContent} from '@material-ui/core'
 import {routes} from '../../lib/router.js'
-import {withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 import {Page} from '../shared'
-import {withStore} from '../../db'
 
 import FormInput from './FormInput.jsx'
-import {format} from 'date-fns'
+import Store from '../../db'
+import {addHours, format} from 'date-fns'
+import {usePosition} from '../../hooks/index.js'
+
+/*
+ * shcema.json DOCUMENTATION:
+ * The schema.json file contains all the data needed to render a message form.
+ * It is divided into 4 types, DEP, DCA0, DCA and POR.
+ * They represent a complete form.
+ * Each of these contain an array of steps, or form groups, that groups together relevant fields.
+ * These form groups have a unique id, and a list of input fields, contained in a step array.
+ * An element in the step array represents an input field. It has some required, and many optional fields, to make it more flexible.
+ * id, dataId, type are probably the most important ones. The Id must match the field's key in the Store Context's fields Object. dataId is used to pull in extra data into an input field, eg.: an activity dropdown needs a list of activities to choose from.
+ * Some input fields depend on other fields' values. Meaning, that the input field will only be visible, if another field has a certain value. This can be tweaked through the dependent optional object. dpeendent.on refers to the another field id on which the input field is dependent. The dependent.when array contains the values the dependent.on field must hold in order to render the input field.
+ *
+ * In addition to basic HTML input types, for flexibility, there exists some more complex/custom input field types.
+ * select-map is one of them.
+ * A more
+ *
+ */
+
 
 /**
- * Form component
+ * Form component. NOTE: Probably the most important part of this web app.
+ * Based on the shcema.json and the type param, we render different Forms.
  * @param {object} props
  * @param {object} props.match
  * @param {object} props.match.params
  * @param {'DEP'|'DCA'|'POR'} props.match.params.type - Type of form
+ * @param {number} props.match.params.messageId - id of message if form is used for editing
  */
-export class Form extends Component {
+const Form = ({match: {path, params: {type}}, history}) => {
+  const position = usePosition()
+  const [t] = useTranslation("forms")
+  const {
+    handleFieldChange, messages, fishOnBoard, custom: {activity: [firstActivity], ports: [firstPort], fishingGear: [firstFishingGear], fishingPermit: [firstFishingPermit], species: [firstSpecies], ZO: [firstZO]}, fields, custom
+  } = useContext(Store)
 
-  componentDidMount() {
-    const {
-      store: {handleFieldChange, messages, position},
-      match: {params: {type, messageId}}
-    } = this.props
+  const prefill = () => {
+    let newFields = {...fields}
 
-    // Form type does not exist was opened, don't continue
-    if (!Object.keys(forms).includes(type)) return
+    const messageType = type === "DCA0" ? "DCA" : type
+    const baseMessage = messages.find(({TM}) => TM === messageType)
 
-
-    /** REVIEW: When this componentDidMount is called,
-     * messages is probably still empty,
-     * if the user opens the form in a new tab, instead of coming from the dashboard.
-     */
-
-    const now = format(Date.now(), "yyyy-MM-dd'T'HH:mm", {awareOfUnicodeTokens: true})
-
-
-    let newFields = {}
+    const now = new Date()
     switch (type) {
-    case "DEP": {
+    case "DEP":
       newFields = {
         ...newFields,
-        departure: now
-      }
-      const baseMessage = messages.find(m => m.TM === "DEP")
-
+        departure: now,
+        expectedFishingStart: addHours(now, 2),
+        OB: fishOnBoard
+      } // These values will be preset, no matter if there is a base message.
       if (baseMessage) {
-        const {PO, AC, expectedFishingSpot, DS, OB} = baseMessage
+        ["AC", "DS", "PO", "expectedFishingSpot"].forEach(key => {
+          if (!newFields[key]) newFields[key] = baseMessage[key]
+        })
+      }
+      else {
         newFields = {
           ...newFields,
-          PO,
-          expectedFishingSpot,
-          AC,
-          DS,
-          OB
+          AC: (firstActivity || {}).value,
+          DS: (firstSpecies || {}).value,
+          PO: (firstPort || {}).value
         }
       }
       break
-    }
-    case "DCA": {
+
+    case "DCA0":
       newFields = {
         ...newFields,
         fishingStart: now,
-        endFishingSpot: position
-      }
-
-
-      let baseMessage = messages.find(m => m.TM === "DCA")
-
-      if (messageId) {
-        baseMessage = messages.find(m => m.RN === parseInt(messageId, 10))
-        if (baseMessage) {
-          handleFieldChange(baseMessage)
-          return
-        }
-      }
-
+        startFishingSpot: position
+      } // These values will be preset, no matter if there is a base message.
       if (baseMessage) {
+        ["AC", "GS", "QI", "GE", "ZO"].forEach(key => {
+          if (!newFields[key]) newFields[key] = baseMessage[key]
+        })
+        // Preset from base (previous message, with the same type)
+      }
+      else {
         newFields = {
-          ...baseMessage,
-          ...newFields
+          ...newFields,
+          AC: (firstActivity || {}).value,
+          QI: (firstFishingPermit || {}).value,
+          GE: (firstFishingGear || {}).value,
+          ZO: (firstZO || {}).value
+        }
+
+      }
+      break
+
+    case "DCA":
+      newFields = {
+        ...newFields,
+        endFishingSpot: position,
+        DU: newFields.fishingStart ? parseInt(format(Date.now() - new Date(newFields.fishingStart).getTime(), "m"), 10) || 1 : 1
+      } // These values will be preset, no matter if there is a base message.
+      if (baseMessage) {
+        ["PO", "expectedFishingSpot", "DS", "CA"].forEach(key => {
+          if (!newFields[key]) newFields[key] = baseMessage[key]
+        })
+        // Preset from base (previous message, with the same type)
+      }
+      else {
+        newFields = {
+          ...newFields,
+          PO: (firstPort || {}).value,
+          DS: (firstSpecies || {}).value
         }
       }
       break
-    }
-
-    case "POR": {
-      const baseMessage = messages.find(m => m.TM === "POR")
+    case "POR":
+      newFields = {
+        ...newFields,
+        portArrival: now, // NOTE: try to calculate from position, speed and PO (port)
+        KG: fishOnBoard,
+        OB: fishOnBoard
+      } // These values will be preset, no matter if there is a base message.
       if (baseMessage) {
-        handleFieldChange(baseMessage)
-        return
+        ["LS", "PO"].forEach(key => {
+          if (!newFields[key]) newFields[key] = baseMessage[key]
+        })
+        // Preset from base (previous message, with the same type)
+      }
+      else {
+        newFields = {
+          ...newFields,
+          PO: (firstPort || {}).value
+        }
       }
       break
+    default:
+      break
     }
-    default: return
-    }
+
     handleFieldChange(newFields)
   }
 
-  /**
-   * Submits the filled out form.
-   */
-  handleSubmit = e => {
-    e.preventDefault && e.preventDefault()
-    const {
-      store: {handleDialog, submitMessage},
-      match: {params: {type}}
-    } = this.props
-    handleDialog({type, submit: () => submitMessage(type)})
+  useEffect(() => {
+    prefill()
+  }, [position.latitude, position.longitude, messages.length, custom, fishOnBoard])
+
+  const toDashboard = () => {
+    history.push(routes.HOMEPAGE)
   }
 
-  render() {
-    const {t, store: {fields}, match: {params: {type}}} = this.props
-    const form = forms[type] // Extract form from forms.js
-    return (
-      <Page style={{marginBottom: 64}} title={t(`${type}.title`)}>
-        <Grid alignItems="center" container direction="column" spacing={16}>
-          <Grid component="form" item onSubmit={this.handleSubmit}>
-            {form ? form.map(({id, step}) => // If a valid form, iterate over its steps
-              <Grid container direction="column" key={id} spacing={16} style={{paddingBottom: 32}}>
-                <Grid component={Typography} item variant="subtitle2" xs={12}>{t(`${type}.steps.${id}`)}</Grid>
-                {step.map(({id, dataId, type, unit, isMulti, dropdown, inputType, dependent}) => // Iterate over all the input fields in a Form step
-                  (!dependent ||
-                        dependent.when.includes(fields[dependent.on] ?
-                          (fields[dependent.on].value || fields[dependent.on]) :
-                          "")
-                  ) ?
+  const form = schema[type] // Extract form from schema.json
+  return (
+    <Page title={() => <Typography align="center" style={{padding: 16}} variant="h4">{t(`${type}.title`)}</Typography>}>
+      <Grid alignItems="center" container direction="column" style={{margin: "32px 0 92px"}}>
+        <Grid item>
+          {form.map(({id, step}) => // If a valid form, iterate over its steps
+            <Card key={id} style={{marginBottom: 32}}>
+              <CardHeader title={t(`${type}.steps.${id}`)}/>
+              <Grid component={CardContent} container direction="column" spacing={16}>
+                {step.map(({id, dataId, type, dependent, options={}}) => // Iterate over all the input fields in a Form step
+                  (!dependent || dependent.when.includes(fields[dependent.on])) ?
                     <Grid item key={id}>
                       <FormInput
                         dataId={dataId || id}
                         id={id}
-                        options={{isMulti, dropdown, inputType, unit}}
+                        options={{
+                          ...options,
+                          editable: ((options.editable !== false) || path.endsWith(routes.NEW))
+                        }}
                         type={type}
                       />
                     </Grid>
                     : null
-
                 )}
-                <Divider style={{marginTop: 16}}/>
               </Grid>
-            ) :
-              <Redirect to={routes.DASHBOARD}/> // If the form is invalid, redirect to the dashboard
-            }
+            </Card>
+          )}
+        </Grid>
+        <Grid container item justify="center" style={{padding: 16}}>
+          <Grid item style={{marginRight: 16}}>
+            <Button
+              color="secondary"
+              component={Link}
+              to={routes.HOMEPAGE}
+              variant="contained"
+            >
+              {t("links.back")}
+            </Button>
           </Grid>
-          <Grid container item justify="center">
-            <Grid item>
-              <Button
-                color="secondary"
-                component={Link}
-                size="large"
-                to={routes.DASHBOARD}
-              >
-                {t("links.back")}
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                color="primary"
-                onClick={this.handleSubmit}
-                size="large"
-                type="submit"
-                variant="contained"
-              >
-                {t(`${type}.submit`)}
-              </Button>
-            </Grid>
+          <Grid item>
+            <SubmitButton toDashboard={toDashboard} type={type}/>
           </Grid>
         </Grid>
-      </Page>
-    )
-  }
+      </Grid>
+    </Page>
+  )
 }
 
-export default withStore(withRouter(withTranslation("forms")(Form)))
+export default withRouter(Form)
+
+
+export const SubmitButton = memo(({type, toDashboard}) => {
+  const [t] = useTranslation("forms")
+  const {
+    handleDialog, constructMessage, validateMessage, submitMessage, toggleDCAStart
+  } = useContext(Store)
+  /**
+   * Submits the filled out form.
+   */
+  const handleSubmit = e => {
+    e.preventDefault()
+    const message = constructMessage(type)
+    const valid = validateMessage(message, type === "DCA0")
+
+    if (valid) {
+      if (type === "DCA0") {
+        toDashboard()
+        toggleDCAStart(true)
+      } else {
+        handleDialog({type, submit: () => submitMessage(message)})
+      }
+    }
+  }
+
+
+  return (
+    <Button
+      // disabled={disabled} // TODO: add disable on invalid form
+      color="primary"
+      onClick={handleSubmit}
+      /*
+       * onPointerDown={handlePointerDown}
+       * onPointerUp={handlePointerUp}
+       */
+      type="submit"
+      variant="contained"
+    >
+      {t(`${type}.submit`)}
+    </Button>
+  )
+})

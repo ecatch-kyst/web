@@ -1,32 +1,35 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-import {routes} from "../../lib/router"
-import {Centered} from '..'
-import {withTranslation} from 'react-i18next'
+import React, {useContext} from 'react'
+
 import Form from './Form'
-import {Button, Grid} from '@material-ui/core'
-import forms from "./forms.json"
-
-const Forms = ({t}) =>
-  <Centered style={{minHeight: 0}}>
-    <Grid alignItems="center" container direction="column" spacing={16} style={{padding: 16}}>
-      {Object.keys(forms).map(id =>
-        <Grid item key={id}>
-          <Button
-            color="primary"
-            component={Link}
-            size="large"
-            to={`${routes.MESSAGES}${routes[id]}${routes.NEW}`}
-            variant="contained"
-          >
-            {t(`links.${id}`)}
-          </Button>
-        </Grid>
-      )}
-    </Grid>
-  </Centered>
-
-
-export default withTranslation("forms")(Forms)
-
+import {Grid} from '@material-ui/core'
+import Store from '../../db'
+import {FormButton} from './FormButton'
 export {Form}
+
+
+export const Forms = props => {
+  const {isEnRoute, trips, DCAStarted} = useContext(Store)
+  return (
+    <Grid
+      alignItems="center"
+      container
+      direction="column"
+      {...props}
+    >
+      {isEnRoute ? // This block is only shown if a DEP has been submitted, but no POR yet.
+          <>
+            {/**DCA button only displayed, when a DCA0 form is submitted*/}
+            <FormButton show={DCAStarted && (trips[0] && !trips[0].isFinished)} type="DCA"/>
+            {/**DCA button only displayed, when a DCA0 form is submitted*/}
+            <FormButton DCAStarted={DCAStarted} type="DCA0"/>
+            {/**POR button only displayed, when the last trip has some DCA messages*/}
+            <FormButton show={trips[0] && trips[0].DCAList.length} type="POR"/>
+          </> :
+        <FormButton type="DEP"/>
+      }
+    </Grid>
+  )
+}
+
+export default Forms
+

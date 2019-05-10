@@ -1,0 +1,62 @@
+ {
+	"titles": {
+		"main": "Trips",
+		"enRoute": "Show active trip",
+		"switch": {
+			"trips": "Show message log",
+			"messages": "Show trips"
+		}
+	},
+	"overview": {
+		"title": "Trip Overview ",
+		"no-catch": "No catch messages yet...",
+		"fish-caught": "Catch",
+		"species": "Species",
+		"weight": "Weight",
+		"total": "Total"
+	},
+	"tooltips": {
+		"sort": "Sort",
+		"enRoute": "Ongoing trip" 
+	},
+	"table-head-rows": [
+		{
+			"left": true,
+			"id": "startPort",
+			"label": "From"
+		},
+		{
+			"left": true,
+			"id": "endPort",
+			"label": "To"
+		},
+		{
+      "left": true,
+			"id": "start",
+			"label": "Start"
+		},
+		{
+			"id": "end",
+			"label": "End"
+		}
+	],
+	"actions": {
+		"tooltips": {
+			"countdown": "Edit before {{deadline, relativeDate}}.",
+			"disabled": "Cannot edit."
+		},
+		"buttons": {
+			"edit": "Edit"
+		}
+	},
+	"summary": {
+		"default": {
+			"created": "{{created, relativeDate}}"
+		}
+	},
+	"details": {
+		"FIS": {
+			"fish": "Fish caught (kg)"
+		}
+	}
+}

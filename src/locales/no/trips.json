@@ -1,0 +1,62 @@
+{
+	"titles": {
+		"main": "Turer",
+		"enRoute": "Vis aktiv tur",
+		"switch": {
+			"trips": "Vis meldingslogg",
+			"messages": "Vis turer"
+		}
+	},
+	"overview": {
+		"title": "Turoversikt",
+		"no-catch": "Ingen fangst meldinger...",
+		"fish-caught": "Fangst",
+		"species": "Art",
+		"weight": "Vekt",
+		"total": "Total"
+	},
+	"tooltips": {
+		"sort": "Sorter",
+		"enRoute": "Aktiv tur"
+	},
+	"table-head-rows": [
+		{
+			"left": true,
+			"id": "startPort",
+			"label": "Fra"
+		},
+		{
+			"left": true,
+			"id": "endPort",
+			"label": "Til"
+		},
+		{
+      "left": true,
+			"id": "start",
+			"label": "Start"
+		},
+		{
+			"id": "end",
+			"label": "Slutt"
+		}
+	],
+	"actions": {
+		"tooltips": {
+			"countdown": "Rediger før {{deadline, relativeDate}}.",
+			"disabled": "Kan ikke redigeres."
+		},
+		"buttons": {
+			"edit": "Rediger"
+		}
+	},
+	"summary": {
+		"default": {
+			"created": "{{created, date}}"
+		}
+	},
+	"details": {
+		"FIS": {
+			"fish": "Fisk fanget (kg)"
+		}
+	}
+}

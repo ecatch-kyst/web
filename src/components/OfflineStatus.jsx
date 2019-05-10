@@ -1,20 +1,30 @@
 import React from 'react'
-import {withStore} from '../db'
 
-import OfflineIcon from "@material-ui/icons/OfflineBoltTwoTone"
-import {withTranslation} from 'react-i18next'
+import {useTranslation} from 'react-i18next'
 import {Tooltip, Fab, Zoom} from '@material-ui/core'
-
-const OfflineStatus = ({store: {isOffline}, t}) =>
-  <Tooltip title={t("states.offline")}>
-    <Zoom
-      className="offline-status"
-      in={isOffline}
-      style={{position: "fixed", bottom: "3rem", right: "1rem"}}
-    >
-      <Fab color="secondary"><OfflineIcon/></Fab>
-    </Zoom>
-  </Tooltip>
+import {OfflineIcon} from '../icons'
+import {useOnline} from '../hooks'
 
 
-export default withTranslation("common")(withStore(OfflineStatus))
+/*
+ * Used to give constant visual feedback
+ * about network connection to the user
+ */
+const OfflineStatus = () => {
+  const [t] = useTranslation("common")
+  const online = useOnline()
+  return (
+    <Tooltip title={t("states.offline")}>
+      <Zoom
+        className="offline-status"
+        in={!online}
+        style={{position: "fixed", bottom: "3rem", right: "1rem"}}
+      >
+        <Fab color="secondary"><OfflineIcon/></Fab>
+      </Zoom>
+    </Tooltip>
+  )
+}
+
+
+export default OfflineStatus

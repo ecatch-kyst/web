@@ -1,26 +1,27 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {useTranslation} from 'react-i18next'
 import {Snackbar, SnackbarContent, Button, withTheme} from '@material-ui/core'
 import {colors} from '../../lib/material-ui'
-import {useNotification} from '../../hooks'
+import Store from '../../db'
 
 export const Notification = ({theme}) => {
 
   const {
-    open, name, type, handleAction, duration, message,
-    processQueue,
-    close
-  } = useNotification()
+    notification: {open, name, type, handleAction, duration, message},
+    processNotificationQueue: processQueue,
+    notificationClose: close
+  } = useContext(Store)
 
   const handleClose = (_, reason) => {
     if (reason === 'clickaway') return
     close()
   }
 
-  const [t] = useTranslation("common")
+  const [t] = useTranslation("notifications")
 
   let actionColor
   let backgroundColor = theme.palette.primary.main
+  const color = "#fff"
   switch (type) {
   case "success":
     backgroundColor = colors.green
@@ -45,7 +46,7 @@ export const Notification = ({theme}) => {
       <Action
         color={actionColor}
         onClick={handleAction}
-        title={t(`notifications.${name}.action`)}
+        title={t(`${name}.action`)}
         type={type}
       />
   }
@@ -53,7 +54,7 @@ export const Notification = ({theme}) => {
 
   return (
     <Snackbar
-      anchorOrigin={{vertical: "bottom", horizontal: "right"}}
+      anchorOrigin={{vertical: "top", horizontal: "right"}}
       autoHideDuration={duration}
       key={name+type}
       onClose={handleClose}
@@ -62,8 +63,9 @@ export const Notification = ({theme}) => {
     >
       <SnackbarContent
         action={ActionButton}
-        message={t(`notifications.${name}.${type || "default"}`, {message})}
-        style={{backgroundColor}}
+        message={t(`${name}.${type || "default"}`, {message})}
+        style={{backgroundColor, color}}
+
       />
     </Snackbar>
   )

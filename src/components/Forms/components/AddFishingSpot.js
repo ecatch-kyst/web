@@ -1,32 +1,36 @@
 /* eslint-disable require-jsdoc */
-import React from 'react'
+import React, {useContext} from 'react'
 
 import {Button, Grid} from '@material-ui/core'
-import {withStore} from '../../../db'
-import {withTranslation} from "react-i18next"
+import {useTranslation} from "react-i18next"
 import GeoPointInput from './GeoPointInput'
 import TextInput from './TextInput'
+import Store from '../../../db'
 
-export const AddFishingSpot = withTranslation("forms")(({t, store: {
-  handleDialog,
-  handleCustomListChange,
-  addToCustomList,
-  custom: {editing: {label, value}}
-}}) =>
-  <Button
-    fullWidth
-    onClick={() =>
-      handleDialog({
-        type: "customLists.fishingSpots",
-        submit: () => addToCustomList("fishingSpots"),
-        children:
+export const AddFishingSpot = () => {
+  const [t] = useTranslation("dropdowns")
+  const {
+    handleDialog,
+    handleCustomListChange,
+    addToCustomList,
+    custom: {editing: {label, value}}
+  } = useContext(Store)
+  return (
+    <Button
+      color="secondary"
+      fullWidth
+      onClick={() =>
+        handleDialog({
+          type: "customLists.fishingSpots",
+          submit: () => addToCustomList("fishingSpots"),
+          children:
           <Grid alignItems="stretch" container direction="column" spacing={16}>
             <Grid item>
               <TextInput
                 autoFocus
                 dataId="label"
                 fullWidth
-                label={t("dropdowns.customLists.fishingSpots.label")}
+                label={t("customLists.fishingSpots.label")}
                 onChange={handleCustomListChange}
                 value={label}
               />
@@ -34,17 +38,20 @@ export const AddFishingSpot = withTranslation("forms")(({t, store: {
             <Grid container direction="column" item justify="center">
               <GeoPointInput
                 dataId="value"
-                // label={t("dropdowns.customLists.fishingSpots.coordinates")}
+                // label={t("customLists.fishingSpots.coordinates")}
                 onChange={handleCustomListChange}
                 value={value}
               />
             </Grid>
           </Grid>
-      })
-    }
-    variant="text"
-  >{t("dropdowns.customLists.fishingSpots.button")}
-  </Button>)
+        })
+      }
+      size="small"
+      variant="contained"
+    >{t("customLists.fishingSpots.button")}
+    </Button>
+  )
+}
 
 
-export default withStore(AddFishingSpot)
+export default AddFishingSpot

@@ -16,7 +16,15 @@ firebase.initializeApp({
 
 
 export const FS = firebase.firestore()
-FS.enablePersistence()
+
+
+/*
+ * Enable offline mode in one single line! 😎
+ * @see https://firebase.google.com/docs/firestore/manage-data/enable-offline
+ */
+if (process.env.NODE_ENV !== "test") FS.enablePersistence({experimentalTabSynchronization: true})
+
+
 export const DB = firebase.database()
 export const FileStore = firebase.storage()
 export const AUTH = firebase.auth()
@@ -25,7 +33,6 @@ export const TIMESTAMP_SERVER = firebase.firestore.FieldValue.serverTimestamp()
 export const TIMESTAMP_CLIENT = firebase.firestore.Timestamp.now
 export const GEOPOINT = (lat, long) => new firebase.firestore.GeoPoint(lat, long)
 
-export const CONNECTION_REF = DB.ref(".info/connected")
 export const USERS_FS = FS.collection("users")
 
 export default firebase

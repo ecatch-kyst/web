@@ -1,17 +1,30 @@
 import {createMuiTheme} from '@material-ui/core/styles'
 import deepmerge from 'deepmerge'
 
+
+// Styling of Material-UI happens in this file
+
+
 const secondaryFontFamily = "adobe-garamond-pro, 'Times New Roman'"
 
 export const colors = {
   red: "#A8112B",
   yellow: "#FFCE00",
   blue: "#00A9E7",
-  green: "#51c1b7"
+  green: "#51c1b7",
+  light: "#eee",
+  dark: "#000"
+
 }
 
 
+// Light theme
 const base = {
+  props: {
+    MuiTooltip: {
+      enterTouchDelay: 0
+    }
+  },
   palette: {
     primary: {
       dark: "#02405a",
@@ -27,13 +40,10 @@ const base = {
   },
   typography: {
     useNextVariants: true,
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Poppins, Arial, sans-serif",
     h4: {
       fontWeight: "bolder"
-    },
-    h5: {
-      fontFamily: secondaryFontFamily
     },
     h6: {
       fontFamily: secondaryFontFamily
@@ -53,15 +63,27 @@ const base = {
     }
   },
   overrides: {
-    MuiCard: {
-      root: {
-        boxShadow: "none"
-      }
-    },
+    /*
+     * MuiCard: {
+     *   root: {
+     *     boxShadow: "none"
+     *   }
+     * },
+     */
     MuiButton: {
+      root: {
+        padding: '8px 20px',
+        borderRadius: 32
+      },
       sizeLarge: {
-        padding: '8px 24px',
-        borderRadius: 24
+        padding: '16px 20px',
+        borderRadius: 40,
+        fontSize: 23
+      },
+      sizeSmall: {
+        padding: '4px 12px',
+        borderRadius: 30,
+        fontSize: 16
       },
       containedPrimary: {
         boxShadow: "none"
@@ -69,11 +91,60 @@ const base = {
       containedSecondary: {
         boxShadow: "none"
       }
+    },
+    MuiSvgIcon: {
+      root: {
+        fontSize: 32
+      }
+    },
+    MuiInput: {
+      root: {
+        padding: 8
+      }
+    },
+    MuiSwitch: {
+      root: {width: 68},
+      icon: {
+        width: 24,
+        height: 24
+      }
+    },
+    MuiBottomNavigation: {
+      root: {
+        height: 72
+      }
+    },
+    MuiBottomNavigationAction: {
+      root: {
+        padding: 0
+      },
+      label: {
+        fontSize: 12,
+        '&$selected': {
+          fontSize: 12
+        }
+      }
+    },
+    MuiFormControl: {
+      root: {
+        width: "100%"
+      }
+    },
+    MuiFormLabel: {
+      root: {
+        padding: 8
+      }
+    },
+    MuiInputLabel: {
+      root: {
+        cursor: "pointer"
+      }
     }
   }
 }
 
 
+// Dark theme
 const darkTheme = {
   palette: {
     type: "dark",
@@ -132,11 +203,13 @@ const darkTheme = {
     }
   },
   overrides: {
-    MuiCard: {
-      root: {
-        backgroundColor: "transparent"
-      }
-    },
+    /*
+     * MuiCard: {
+     *   root: {
+     *     backgroundColor: "transparent"
+     *   }
+     * },
+     */
     MuiFormControl:{
       root:{
         backgroundColor: "#333",
@@ -156,6 +229,7 @@ const darkTheme = {
   }
 
 }
+
 
 export const light = createMuiTheme({...base})
 export const dark = createMuiTheme(deepmerge(base, darkTheme))

@@ -1,0 +1,34 @@
+{
+  "customLists": {
+    "fishingSpots": {
+      "titles": {
+        "main": "Add personal fishing spot"
+      },
+      "description": ""
+    }
+  },
+  "DEP": {
+    "titles": {
+      "main": "Send in DEP message?"
+    },
+    "description": "Are you sure you want to send in a departure(DEP) message?"
+  },
+  "DCA": {
+    "titles": {
+      "main": "Send in DCA message?"
+    },
+    "description": "Are you sure you want to send in a catch(DCA) message?"
+  },
+  "POR": {
+    "titles": {
+      "main": "Send in POR message?"
+    },
+    "description": "Are you sure you want to send in a port(POR) message?"
+  },
+  "CA": {
+    "titles": {
+      "main": "Select fish"
+    },
+    "description": ""
+  }
+}

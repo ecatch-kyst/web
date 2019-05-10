@@ -1,12 +1,4 @@
 /**
- * Resets the notification.
- */
-export function close() {
-  this.setState(({notification}) => ({notification: {...notification, open: false}}))
-}
-
-
-/**
  * Handles actions that requires a notification to show up
  * @see src/locales/{language}/common.json
  * @param {object} notification - notification object
@@ -48,4 +40,11 @@ export function processQueue() {
       }
     })
   }
+}
+
+/**
+ * Resets the notification.
+ */
+export function close() {
+  this.setState(({notification}) => ({notification: {...notification, open: false}}))
 }

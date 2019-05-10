@@ -5,14 +5,16 @@ import {AUTH} from "../../lib/firebase"
  */
 export async function login({email, password, afterLogin=null}) {
   try {
-    await AUTH.signInWithEmailAndPassword(email, password)
+    if (email && password) {
+      await AUTH.signInWithEmailAndPassword(email, password)
+    }
   } catch (error) {
     this.notify({name: "login", type: `error.${error.code}`, duration: 5000})
   } finally {
     AUTH.onAuthStateChanged(user => {
       if (user) {
         if (!this.state.isLoggedIn) { // First AuthStateChanged
-          this.notify({name: "login"})
+          // this.notify({name: "login", duration: 1000})
           this.setState({isLoggedIn: true, isLoading: false})
           if (afterLogin) afterLogin()
         }
@@ -31,6 +33,7 @@ export async function login({email, password, afterLogin=null}) {
  * Logs the user out
  */
 export async function logout() {
+  // TODO: Tear down database subscriptions
   try {
     await AUTH.signOut()
     this.notify({name:"logout"})

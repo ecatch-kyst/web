@@ -23,7 +23,7 @@ class Landing extends Component {
   handleChange = ({target: {name, value}}) => this.setState({[name]: value})
 
   handleSubmit = e => {
-    e.preventDefault && e.preventDefault()
+    e.preventDefault()
     this.handleUserLogin()
   }
 
@@ -38,7 +38,7 @@ class Landing extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <Centered>
-          {AUTH.currentUser ? <Redirect to={routes.DASHBOARD} /> : null}
+          {AUTH.currentUser ? <Redirect to={routes.HOMEPAGE} /> : null}
           <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-1" src={blob}/>
           <img alt={t("landing.blob-img-alt")} className="landing-blob landing-blob-2" src={blob}/>
           <Typography style={{width:0, height:0, opacity:0}} variant="h1">{process.env.REACT_APP_TITLE}</Typography>
@@ -76,7 +76,6 @@ class Landing extends Component {
                     <Button
                       color="secondary"
                       onClick={this.handleUserLogin}
-                      size="large"
                       type="submit"
                       variant="contained"
                     >
@@ -91,16 +90,15 @@ class Landing extends Component {
                     >{t("landing.forgot-password")}
                     </MuiLink>
                   </Grid>
-                  <Grid item>
+                  {/* <Grid item> //REVIEW: Delete?
                     <Button
                       color="primary"
                       component={Link}
-                      size="large"
                       to={routes.REGISTER}
                     >
                       {t("landing.register")}
                     </Button>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Grid>
             </CardActions>

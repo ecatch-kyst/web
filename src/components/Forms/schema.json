@@ -1,0 +1,234 @@
+{
+  "DEP": [{
+      "id": 0,
+      "step": [{
+          "id": "PO",
+          "dataId": "ports",
+          "type": "select"
+        },
+        {
+          "id": "departure",
+          "type": "datetime-local"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "step": [{
+          "id": "AC",
+          "dataId": "activity",
+          "type": "select"
+        },
+        {
+          "id": "expectedFishingSpot",
+          "type": "select",
+          "options": {
+            "customizable": true
+          },
+          "dependent":{
+            "on": "AC",
+            "when":["FIS","REL","SCR","TRX","SET","ANC","DRI","GUD","HAU","PRO","INW","SEF","OTH"]
+          }
+        },
+        {
+          "id": "expectedFishingStart",
+          "type": "datetime-local"
+        },
+        {
+          "id": "DS",
+          "dataId": "species",
+          "type": "select",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS"]
+          }
+        },
+        {
+          "id": "OB",
+          "dataId": "species",
+          "type": "select-map",
+          "options": {
+            "disabled": true,
+            "unit": "kg",
+            "inputType": "number",
+            "isMulti": true
+          }
+        }
+      ]
+    }
+  ],
+  "DCA0": [
+    {
+      "id": "activity",
+      "step": [
+        {
+          "id": "AC",
+          "dataId": "activity",
+          "type": "select"
+        },
+        {
+          "id": "GE",
+          "dataId": "fishingGear",
+          "type": "select",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS", "SET"]
+          }
+        },
+        {
+          "id": "ME",
+          "type": "number",
+          "dependent": {
+            "on": "GE",
+            "when": ["OTB", "OTM", "SSC", "GEN", "TBS"]
+          },
+          "options": {
+            "unit": "mm"
+          }
+        },
+        {
+          "id": "GS",
+          "type": "select",
+          "dependent":{
+            "on":"GE",
+            "when": ["OTB", "OTM", "TBS"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "start",
+      "step": [
+        {
+          "id": "fishingStart",
+          "type": "datetime-local"
+        },
+        {
+          "id": "startFishingSpot",
+          "type": "geopoint",
+          "options": {
+            "editable": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "zone",
+      "step": [
+        {
+          "id": "ZO",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "id": "permit",
+      "step": [
+        {
+          "id": "QI",
+          "dataId": "fishingPermit",
+          "type": "select"
+        }
+      ]
+    }
+  ],
+  "DCA": [
+    {
+      "id": "catch",
+      "step": [
+        {
+          "id": "CA",
+          "dataId": "species",
+          "type": "select-map",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS"]
+          },
+          "options": {
+            "inputType": "number",
+            "isMulti": true,
+            "unit": "kg"
+          }
+        },
+        {
+          "id": "DU",
+          "type": "number",
+          "dependent": {
+            "on": "AC",
+            "when": ["FIS"]
+          },
+          "options": {
+            "unit": "min",
+            "editable": false
+          }
+        },
+        {
+          "id": "GP",
+          "dataId": "problems",
+          "type": "select",
+          "options": {
+            "editable": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "location",
+      "step": [
+        {
+          "id": "endFishingSpot",
+          "type": "geopoint",
+          "options": {
+            "editable": false
+          }
+        }
+      ]
+    }
+  ],
+  "POR": [{
+      "id": 0,
+      "step": [{
+          "id": "PO",
+          "dataId": "ports",
+          "type": "select"
+        },
+        {
+          "id": "portArrival",
+          "type": "datetime-local"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "step": [
+        {
+          "id": "OB",
+          "dataId": "species",
+          "type": "select-map",
+          "options": {
+            "disabled": true,
+            "unit": "kg",
+            "inputType": "number",
+            "isMulti": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "step": [{
+          "id": "LS"
+        },
+        { 
+          "id": "KG",
+          "dataId": "species",
+          "type": "select-map",
+          "options": {
+            "inputType": "number",
+            "isMulti": true
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -2,15 +2,66 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
+### Added
+- First time you send a message information from Preset is used to fill input
+- Fish on board tracking
+- translations to validation error messages
+- redirect to Preset page for the first time
 ### Changed
- - New Logo
- - Logo instead of text on Landing
- - name from eCatch Kyst to eCatch Kyst Pilot
- 
+- Refactored dropdown select menus. Using native solutions where possible. Multiple select is turned into a popup with checkboxes, for better a11y. 🚸
+
+### Changed
+- period is now used in a consistant manner for every notification
+
+## [1.0.0-beta5] - 2019-04-08
+### Changed
+- notification, dialogs, dropdowns moved to their own namespaces in `locales` ([#57](https://github.com/ecatch-kyst/web/issues/57))
+- dashboard -> homepage ([#57](https://github.com/ecatch-kyst/web/issues/57))
+- DCA is split into two parts ([#93](https://github.com/ecatch-kyst/web/issues/93))
+
+### Added
+- preset for making favorites groups in dropdown ([#99](https://github.com/ecatch-kyst/web/issues/99))
+- page on "homescreen" for setting the preset
+- input validation ([#90](https://github.com/ecatch-kyst/web/issues/90))
+
+### Removed
+- unused translations ([#57](https://github.com/ecatch-kyst/web/issues/57))
+- delete option
+
+### Fixed
+- DU field is now calculated from fishingStart and fishingEnd
+
+
+## [1.0.0-beta4] - 2019-03-25
+### Changed
+- New Logo
+- Logo instead of text on Landing
+- name from eCatch Kyst to eCatch Kyst Pilot
+- Form fields can now be disabled
+- useReactHooks everywhere! 🎣🎉 [React v16.8: The One With Hooks](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html)
+- util functions to calculate deadlines more easily
+- Turn Firebase Timestamps into plain JS Dates at fetching. This way, the programmer only has to use normal date objects throughout the app
+
 ### Added
 - Assets for Android, iOS, macOS Safari, Windows
-- WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/22))
+- WIP: 🚧 Preset values ([#52](https://github.com/ecatch-kyst/web/issues/52))
 - User can now add his own fishingSpots. ([#52](https://github.com/ecatch-kyst/web/issues/52))
+- date format interpolation to i18n (show dates differently for different languages)
+- Trips view
+- Trip overview
+
+### Fixed
+- register bug (name was not updated correctly at registration)
+- Dropdown did not show selected values
+- DropdownMap did not propagate inputType to TextInput fields
+- GeoPointInput did not update state correctly
+- TextInput did not update state correctly
+- EditCatch did redirections wrong
+- ME field was missing from messages sent to Firebase ([#67](https://github.com/ecatch-kyst/web/issues/67))
+- Firebase tried to login without credentials
+
+### Removed
+- useNotification hook (useStore does basically the same, thus it's only an unnecessary complication)
 
 ## [1.0.0-beta3] - 2019-03-11
 ### Added

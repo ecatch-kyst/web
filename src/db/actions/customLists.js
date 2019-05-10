@@ -2,14 +2,22 @@ import {AUTH, USERS_FS} from "../../lib/firebase"
 import {flattenDoc} from "../../utils"
 
 
+// REVIEW: ♻ refactor/simplify?
+
 /**
  * Submit a custom input to a custom list to firebase
  * @param {string} type type of custom list
  */
-export async function add(type){
+export async function add(type, index){
   try {
-    await USERS_FS.doc(AUTH.currentUser.uid).collection(type)
-      .add(this.state.custom.editing)
+    if (index !== undefined) {
+      await USERS_FS.doc(AUTH.currentUser.uid).collection(type).doc(index)
+        .set(this.state.custom.editing)
+    } else {
+      await USERS_FS.doc(AUTH.currentUser.uid).collection(type)
+        .add(this.state.custom.editing)
+    }
+
     this.setState(({custom}) => ({ // reset edited custom input
       custom: {
         ...custom,
@@ -18,13 +26,13 @@ export async function add(type){
     }))
 
     this.notify({
-      name: `customLists.${type}.added`,
+      name: `customLists.added`,
       type: "success"
     })
 
   } catch (e) {
     this.notify({
-      name: `customLists.${type}.added`,
+      name: `customLists.added`,
       type: "error",
       message: [e.code, e.message].join(": ")
     })
@@ -40,7 +48,7 @@ export async function add(type){
  * @param {'string' | 'number'} [type="string"]
  * Handles custom list inputs
  */
-export function handle(name, value, type="string") {
+export function handle({name, value, type="string", callback}) {
   this.setState(({custom}) => ({
     custom: {
       ...custom,
@@ -49,7 +57,7 @@ export function handle(name, value, type="string") {
         [name]: type==="number" ? parseInt(value, 10) : value
       }
     }
-  }))
+  }), () => callback && callback())
 }
 
 /**

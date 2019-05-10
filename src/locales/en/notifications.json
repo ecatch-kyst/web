@@ -1,0 +1,116 @@
+{
+  "message": {
+    "responses": {
+      "ACK": {
+        "success": "ACK: Message {{message}} acknowledged."
+      },
+      "NAK": {
+        "error": "NAK: Message {{message}} not acknowledged."
+      }
+    },
+    "sent": {
+      "offline": {
+        "warning": "No internet connection. The message will be sent when the connection is restored."
+      },
+      "DEP": {
+        "error": "Message not sent \n{{message}}",
+        "success": "Message sent"
+      },
+      "DCA": {
+        "error": "Message not sent \n{{message}}",
+        "success": "Message sent"
+      },
+      "POR": {
+        "error": "Message not sent\n{{message}}",
+        "success": "Message sent"
+      }
+    }
+  },
+  "customLists": {
+    "added": {
+      "error": "Something went wrong: {{message}}",
+      "success": "Saved"
+    },
+    "subscribe": {
+      "error": "Something went wrong {{message}}"
+    },
+    "fishingSpots": {
+      "added": {
+        "error": "Something went wrong {{message}}",
+        "success": "Added"
+      }
+    }
+  },
+  "offline": {
+    "warning": "You are offline.",
+    "action": "Reload page"
+  },
+  "position": {
+    "error": "Error while fetching position. \n{{message}}"
+  },
+  "user": {
+    "updated": {
+      "default": "User updated."
+    }
+  },
+  "login": {
+    "default": "Login successful.",
+    "error": {
+      "auth/invalid-email": "Invalid e-mail",
+      "auth/wrong-password": "Wrong password",
+      "auth/user-not-found": "This user does not exist",
+      "auth/user-disabled": "This user has been disabled, please contact customerservice",
+      "auth/invalid-password": "The password must contain atleast 6 characters",
+      "auth/invalid-phone-number": "Invalid phonenumber",
+      "auth/email-already-exists": "There already exists a user with this email",
+      "auth/phone-number-already-exists": "There already exists a user with this phone number"
+    },
+    "warning": ""
+  },
+  "logout": {
+    "default": "Logout successful.",
+    "error": "Something went wrong when you tried to log out."
+  },
+  "language": {
+    "default": "The language has been changed."
+  },
+  "darkMode": {
+    "on": {
+      "default": "Night mode on."
+    },
+    "off": {
+      "default": "Night mode off."
+    }
+  },
+  "edit": {
+    "message": {
+      "submit": "Submit"
+    } 
+  },
+  "fields": {
+    "ivalid-coordinates": {
+      "error": "Invalid coordinates"
+    },
+    "invalid-latitude": {
+      "error": "Invalid latitude"
+    },
+    "invalid-longitude": {
+      "error": "Invalid longitude"
+    },
+    "invalid-type": {
+      "error": "Invalid type"
+    },
+    "invalid-weight": {
+      "error": "Weight must be greater than 0kg"
+    },
+    "invalid-date": {
+      "error": "Invalid date"
+    },
+    "invalid-format": {
+      "error": "Invalid format"
+    },
+    "invalid-form": {
+      "error": "Please correct the highlighted fields"
+    }
+  }
+}

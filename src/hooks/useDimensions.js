@@ -2,7 +2,7 @@ import {useState, useEffect} from "react"
 
 /**
  * Hook that returns the correct window size,
- * even after resize
+ * responsive to resizing
  */
 export default function useDimensions() {
 

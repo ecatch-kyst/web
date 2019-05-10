@@ -1,0 +1,22 @@
+{
+  "titles": {
+    "main": "Preset",
+    "subtitle": "Set your favorites, to find them on top of the dropdowns."
+  },
+  "placeholders": {
+    "fishingGear": "Favorite tool",
+    "activity": "Favorite activity",
+    "fishingPermit": "Favorite fishingpermit",
+    "ports": "Favorite port",
+    "ZO": "Favorite fishing zone",
+    "species": "Favorite species"
+  },
+  "headline": {
+    "fishingGear": "Set your tools",
+    "activity": "Set your activities",
+    "fishingPermit": "Set your fishingpermit",
+    "ports": "Set your ports",
+    "species": "Set your species",
+    "ZO": "Set fishing zone"
+  }
+}

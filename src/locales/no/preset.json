@@ -1,0 +1,22 @@
+{
+  "titles": {
+    "main": "Forhåndsett",
+    "subtitle": "Sett dine favoritter, så de dukker opp på toppen av valgemenyene."
+  },
+  "placeholders": {
+    "fishingGear": "Favoritt verktøy",
+    "activity": "Favoritt aktivitet",
+    "fishingPermit": "Favoritt fisketilatelse",
+    "ports": "Favoritt havn",
+    "ZO": "Favoritt fiskerisone",
+    "species": "Favoritt art"
+  },
+  "headline": {
+    "fishingGear": "Sett dine verktøy",
+    "activity": "Sett dine aktiviteter",
+    "fishingPermit": "Sett dine fisketilatelser",
+    "ports": "Sett dine havner",
+    "species": "Sett dine arter",
+    "ZO": "Sett fiskerisone"
+  }
+}
