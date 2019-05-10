@@ -67,7 +67,7 @@ const DropdownNative = ({disabled, label, type, onChange, dataId, value, error, 
       /*
        * BUG:, REVIEW: Better solution to match geopoints ?
        */
-      (option.value && option.value.latitude && value.latitude &&
+      (option.value && option.value.latitude && value && value.latitude &&
         GEOPOINT(option.value.latitude || 0, option.value.longitude || 0)
           .isEqual(GEOPOINT(value.latitude, value.longitude))
       )
