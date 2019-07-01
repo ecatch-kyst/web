@@ -49,7 +49,7 @@
   ],
   "devDependencies": {
     "cypress": "^3.2.0",
-    "cypress-firebase": "^0.1.4",
+    "cypress-firebase": "^0.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "eslint-config-prettier": "^4.2.0",
